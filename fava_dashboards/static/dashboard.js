@@ -35,9 +35,9 @@ function render_chart(fava, elem, panel) {
     const chart = echarts.init(elem);
     const optionsFn = new Function(["panel", "utils"], panel.chart);
     const options = optionsFn(panel, utils);
-    if (options.onclick) {
-        chart.on("click", options.onclick);
-        delete options.onclick;
+    if (options.onClick) {
+        chart.on("click", options.onClick);
+        delete options.onClick;
     }
     chart.setOption(options);
 }
