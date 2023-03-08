@@ -1,0 +1,41 @@
+<!-- https://github.com/beancount/fava/issues/1175 -->
+<script>document.write("<span id='fava-extension-javascript-loaded' />")</script>
+<img src="does_not_exist" style="display:none" onerror="if(!document.getElementById('fava-extension-javascript-loaded')){document.write('Loading JavaScript...');window.location.reload()}">
+
+<style type="text/css">{{ extension.static_file("style.css")|safe }}</style>
+<script>{{ extension.static_file("echarts.min.js")|safe }}</script>
+<script type="module">{{ extension.static_file("dashboard.js")|safe }}</script>
+
+{% set dashboard_id = request.args.get('dashboard', '0') | int %}
+{% set dashboard_data = extension.dashboard_data(dashboard_id) %}
+<script id="dashboardData" type="application/json">
+{{ dashboard_data|tojson }}
+</script>
+
+<div class="headerline">
+  {% for dashboard in dashboard_data.dashboards %}
+  <h3>
+    {% if dashboard_id == loop.index0 %}
+      {{ dashboard.name }}
+    {% else %}
+      <a href="{{ url_for('extension_report', report_name='FavaDashboards', dashboard=loop.index0) }}">{{ dashboard.name }}</a>
+    {% endif %}
+  </h3>
+  {% endfor %}
+</div>
+
+<div id="dashboards">
+  {% for panel in dashboard_data.dashboards[dashboard_id].panels %}
+  <div class="panel" style="width: {{ panel.width|default("100%") }}">
+    {% if panel.title %}
+      <h2>{{ panel.title }}</h2>
+    {% endif %}
+
+    {% if panel.html %}
+      {{ panel.html|safe }}
+    {% elif panel.chart %}
+      <div id="panel{{ loop.index0 }}" style="height: {{ panel.height|default("400px") }}"></div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,239 @@
+dashboards:
+- name: Overview
+  panels:
+  - title: Income/Expenses 💰
+    height: 400px
+    queries:
+    - name: Income
+      stack: income
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), 'EUR') AS value
+        WHERE account ~ '^Income:'
+        GROUP BY year, month
+    - name: Home
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), 'EUR') AS value
+        WHERE account ~ '^Expenses:Home:'
+        GROUP BY year, month
+    - name: Food
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), 'EUR') AS value
+        WHERE account ~ '^Expenses:Food:'
+        GROUP BY year, month
+    - name: Travel
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), 'EUR') AS value
+        WHERE account ~ '^Expenses:' AND 'travel' IN tags
+        GROUP BY year, month
+    - name: Other
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), 'EUR') AS value
+        WHERE account ~ '^Expenses:' AND NOT account ~ '^Expenses:(Home|Food):' AND NOT 'travel' IN tags
+        GROUP BY year, month
+    chart: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
+      const months = utils.months.map(m => `${m.month}/${m.year}`);
+
+      // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
+      const valuesPerMonth = {};
+      for (let query of panel.queries) {
+        valuesPerMonth[query.name] = {};
+        for (let row of query.result) {
+          valuesPerMonth[query.name][`${row.month}/${row.year}`] = query.stack == "income" ? -row.value.EUR : row.value.EUR;
+        }
+      }
+
+      const series = panel.queries.map(query => ({
+        type: "bar",
+        name: query.name,
+        stack: query.stack,
+        data: months.map(month => valuesPerMonth[query.name][month] || 0)
+      }));
+
+      return {
+        tooltip: {
+          valueFormatter: currencyFormat.format
+        },
+        legend: {
+          top: "bottom"
+        },
+        xAxis: {
+          data: months
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: currencyFormat.format
+          }
+        },
+        series: series
+      };
+
+- name: Expenses
+  panels:
+  - title: Categories 💸
+    width: 50%
+    height: 400px
+    queries:
+    - bql: |
+        SELECT account, CONVERT(SUM(position), 'EUR') AS value
+        WHERE account ~ '^Expenses:'
+        GROUP BY account
+        ORDER BY account
+    chart: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
+      const mainCategories = {};
+      const subCategories = {};
+
+      for (let row of panel.queries[0].result) {
+        const [, mainCategory, subCategory] = row.account.split(":");
+
+        if (!(mainCategory in mainCategories))
+          mainCategories[mainCategory] = 0;
+        mainCategories[mainCategory] += row.value.EUR;
+
+        if (!(subCategory in subCategories))
+          subCategories[subCategory] = 0;
+        subCategories[subCategory] += row.value.EUR;
+      }
+
+      return {
+        tooltip: {
+          valueFormatter: currencyFormat.format
+        },
+        series: [
+          {
+            type: "pie",
+            radius: [0, "55%"],
+            label: {show: false},
+            data: Object.entries(mainCategories).map(([k, v]) => ({name: k, value: v}))
+          },
+          {
+            type: "pie",
+            radius: ["60%", "100%"],
+            label: {show: false},
+            data: Object.entries(subCategories).map(([k, v]) => ({name: k, value: v}))
+          }
+        ]
+      };
+
+  - title: Food Expenses 🥐
+    width: 50%
+    height: 400px
+    queries:
+    - bql: |
+        SELECT year, month, CONVERT(SUM(position), 'EUR') AS value
+        WHERE account ~ '^Expenses:Food:'
+        GROUP BY year, month
+    chart: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
+      const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
+      const values = panel.queries[0].result.map((row) => row.value.EUR);
+
+      return {
+        tooltip: {
+          valueFormatter: currencyFormat.format
+        },
+        xAxis: {
+          data: months
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: currencyFormat.format
+          }
+        },
+        series: [
+          {
+            type: "line",
+            smooth: true,
+            data: values
+          }
+        ]
+      };
+
+  - title: Travel Costs per Year 📅
+    # Note: Holidays over New Year's Eve are counted in both years aliquot.
+    height: 400px
+    queries:
+    - bql: |
+        SELECT year, CONVERT(SUM(position), 'EUR') AS value
+        WHERE account ~ '^Expenses:' AND 'travel' IN tags
+        GROUP BY year
+    chart: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
+      const years = utils.years;
+      const amount = {};
+
+      for (let row of panel.queries[0].result) {
+        amount[row.year] = row.value.EUR;
+      }
+
+      return {
+        tooltip: {
+          valueFormatter: currencyFormat.format
+        },
+        xAxis: {
+          data: years
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: currencyFormat.format
+          }
+        },
+        series: [
+          {
+            type: "line",
+            smooth: true,
+            data: years.map(year => amount[year] || 0)
+          }
+        ]
+      };
+
+  - title: Destinations ✈️
+    height: 300px
+    queries:
+    - bql: |
+        SELECT tags, CONVERT(position, 'EUR') AS value
+        WHERE account ~ '^Expenses:' AND 'travel' IN tags
+        ORDER BY date
+    chart: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
+      const travels = [];
+      const amounts = {};
+
+      for (let row of panel.queries[0].result) {
+        const tag = row.tags.find(tag => tag.match(/\-\d{4}/));
+        if (!(tag in amounts)) {
+          travels.unshift(tag);
+          amounts[tag] = 0;
+        }
+        amounts[tag] += row.value.number;
+      }
+
+      return {
+        tooltip: {
+          valueFormatter: currencyFormat.format
+        },
+        grid: {
+          left: "150px"
+        },
+        xAxis: {
+          type: "value",
+          axisLabel: {
+            formatter: currencyFormat.format
+          }
+        },
+        yAxis: {
+          type: "category",
+          data: travels
+        },
+        series: [
+          {
+            type: "bar",
+            data: travels.map(travel => amounts[travel])
+          }
+        ]
+      }
