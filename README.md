@@ -3,6 +3,7 @@ fava-dashboards allows creating custom dashboards in [Fava](https://github.com/b
 
 [![Overview](example/overview.png)](example/overview.png)
 [![Expenses](example/expenses.png)](example/expenses.png)
+[![Sankey](example/sankey.png)](example/sankey.png)
 
 ## Installation
 ```
@@ -19,24 +20,39 @@ Please take a look at the example dashboard configuration [dashboards.yaml](exam
 
 The configuration file can contain multiple dashboards, and a dashboard contains one or more panels.
 A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column layouts) and a absolute height.
-Currently there are two kinds of panels: Charts and HTML.
-
-### Charts
-Chart panels can contain a `queries` field and must contain a `chart` field.
 
 The `queries` field contains one or multiple queries. The beancount query must be stored in the `bql` field of the respectiv query.
 The query results can be accessed via `panel.queries[i].result`, where `i` is the index of the query in the `queries` field.
-
-The `chart` field must contain valid JavaScript code and must return a valid [Apache ECharts](https://echarts.apache.org) configuration.
-Please take a look at the [ECharts examples](https://echarts.apache.org/examples) to get familiar with the available chart types and options.
-
-For convenience a `utils.months` and `utils.years` variable is accessible in the JavaScript code, containing a list of years/months of the current selected time frame.
-
 Note: Additionally to the beancount query, Fava's filter bar further filters the available entries of the ledger.
 
-### HTML
-HTML panels must contain a `html` field with HTML code.
-This code will be rendered in the panel.
+The `script` field must contain valid JavaScript code. It must return a valid configuration depending on the panel `type`.
+The following variables and functions are available:
+* `panel`: the current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`.
+* `fava.dateFirst`: first date in the current date filter
+* `fava.dateLast`: last date in the current date filter
+* `helpers.iterateMonths(dateFirst, dateLast)`: iterate over all months between `dateFirst` and `dateLast`, e.g. `[{year: 2022, month: 1}, {year: 2022, month: 2}, ...]`
+* `helpers.iterateYears(dateFirst, dateLast)`: iterate over all years between `dateFirst` and `dateLast`, e.g. `[2022, 2023, ...]`
+* `helpers.buildAccountTree(rows, valueFn)`: build an account tree based on the results of a BQL query
+
+### Common Panel Properties
+* `title`: title of the panel. Default: unset
+* `width`: width of the panel. Default: 100%
+* `height`: height of the panel. Default: 400px
+* `queries`: a list of dicts with a `bql` attribute.
+* `type`: panel type. Must be one of `html`, `echarts` or `d3_sankey`.
+* `script`: JavaScript code to transform the BQL queries (available in `panel.queries[i].result`) into HTML content, echarts or d3-sankey chart options.
+
+### HTML panel
+The `script` code of HTML panels must return valid HTML.
+The HTML code will be rendered in the panel.
+
+### ECharts panel
+The `script` code of [Apache ECharts](https://echarts.apache.org) panels must return valid [Apache ECharts](https://echarts.apache.org) chart options.
+Please take a look at the [ECharts examples](https://echarts.apache.org/examples) to get familiar with the available chart types and options.
+
+### d3-sankey panel
+The `script` code of d3-sankey panels must return valid d3-sankey chart options.
+Please take a look at the example dashboard configuration [dashboards.yaml](example/dashboards.yaml).
 
 ## View Example Ledger
 `cd example; fava example.beancount`

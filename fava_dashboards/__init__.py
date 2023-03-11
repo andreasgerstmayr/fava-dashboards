@@ -27,7 +27,7 @@ class FavaDashboards(FavaExtensionBase):
                 return yaml.safe_load(f)
         except Exception as ex:
             raise FavaAPIException(
-                f"Cannot read configuration file {config_file}: " + str(ex)
+                f"Cannot read configuration file {config_file}: {ex}"
             )
 
     def exec_query(self, query):
@@ -35,15 +35,14 @@ class FavaDashboards(FavaExtensionBase):
         return rrows
 
     def process_panel(self, panel):
-        if "chart" in panel:
-            for query in panel.get("queries", []):
-                query["result"] = self.exec_query(query["bql"])
+        for query in panel.get("queries", []):
+            query["result"] = self.exec_query(query["bql"])
 
-    def dashboard_data(self, dashboard_id):
+    def bootstrap(self, dashboard_id):
         config = self.read_config()
         dashboards = config.get("dashboards", [])
         if not (0 <= dashboard_id < len(dashboards)):
-            return dashboards
+            raise FavaAPIException(f"Invalid dashboard ID: {dashboard_id}")
 
         for panel in dashboards[dashboard_id].get("panels", []):
             self.process_panel(panel)

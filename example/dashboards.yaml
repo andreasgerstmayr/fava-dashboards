@@ -1,8 +1,38 @@
 dashboards:
 - name: Overview
   panels:
-  - title: Income/Expenses 💰
-    height: 400px
+  - title: Assets 💰
+    width: 50%
+    height: 80px
+    queries:
+    - bql: SELECT CONVERT(SUM(position), 'EUR') AS value WHERE account ~ 'Assets:'
+    type: html
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
+      const amount = currencyFormat.format(panel.queries[0].result[0].value.EUR);
+      return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${amount}</div>`;
+
+  - title: Liabilities 💳
+    width: 50%
+    height: 80px
+    queries:
+    - bql: SELECT CONVERT(SUM(position), 'EUR') AS value WHERE account ~ 'Liabilities:'
+    type: html
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
+      const amount = currencyFormat.format(-panel.queries[0].result[0].value.EUR);
+      return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${amount}</div>`;
+
+  - title: Income/Expenses 💸
+    height: 520px
     queries:
     - name: Income
       stack: income
@@ -39,9 +69,14 @@ dashboards:
         WHERE account ~ '^Expenses:' AND NOT account ~ '^Expenses:(Home|Food):' AND NOT 'travel' IN tags
         GROUP BY year, month
       link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Home|Food)") -#travel&time={time}
-    chart: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
-      const months = utils.months.map(m => `${m.month}/${m.year}`);
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
+      const months = helpers.iterateMonths(fava.dateFirst, fava.dateLast).map((m) => `${m.month}/${m.year}`);
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
       const valuesPerMonth = {};
@@ -52,39 +87,39 @@ dashboards:
         }
       }
 
-      const series = panel.queries.map(query => ({
+      const series = panel.queries.map((query) => ({
         type: "bar",
         name: query.name,
         stack: query.stack,
-        data: months.map(month => valuesPerMonth[query.name][month] || 0)
+        data: months.map((month) => valuesPerMonth[query.name][month] ?? 0),
       }));
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format
+          valueFormatter: currencyFormat.format,
         },
         legend: {
-          top: "bottom"
+          top: "bottom",
         },
         xAxis: {
-          data: months
+          data: months,
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format
-          }
+            formatter: currencyFormat.format,
+          },
         },
         series: series,
         onClick: (event) => {
-          const query = panel.queries.find(q => q.name === event.seriesName);
+          const query = panel.queries.find((q) => q.name === event.seriesName);
           if (query) {
             const [month, year] = event.name.split("/");
             const link = query.link
               .replaceAll("#", "%23")
-              .replace("{time}", `${year}-${month.padStart(2, '0')}`);
+              .replace("{time}", `${year}-${month.padStart(2, "0")}`);
             window.open(link);
           }
-        }
+        },
       };
 
 - name: Expenses
@@ -97,42 +132,54 @@ dashboards:
         SELECT account, CONVERT(SUM(position), 'EUR') AS value
         WHERE account ~ '^Expenses:'
         GROUP BY account
-        ORDER BY account
-    chart: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
-      const mainCategories = {};
-      const subCategories = {};
-
+      link: /beancount/account/{account}/?time={time}
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
+      const root = { children: [] };
+      const maxLevels = 2;
       for (let row of panel.queries[0].result) {
-        const [, mainCategory, subCategory] = row.account.split(":");
-
-        if (!(mainCategory in mainCategories))
-          mainCategories[mainCategory] = 0;
-        mainCategories[mainCategory] += row.value.EUR;
-
-        if (!(subCategory in subCategories))
-          subCategories[subCategory] = 0;
-        subCategories[subCategory] += row.value.EUR;
+        const accountParts = row.account.split(":");
+        let node = root;
+        for (let i = 0; i < accountParts.length && i <= maxLevels; i++) {
+          const part = accountParts[i];
+          let child = node.children.find((c) => c.name == part);
+          if (!child) {
+            child = { name: part, children: [] };
+            node.children.push(child);
+          }
+          node = child;
+        }
+        node.value = (node.value ?? 0) + row.value.EUR;
       }
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format
+          valueFormatter: currencyFormat.format,
         },
         series: [
           {
-            type: "pie",
-            radius: [0, "55%"],
-            label: {show: false},
-            data: Object.entries(mainCategories).map(([k, v]) => ({name: k, value: v}))
+            type: "sunburst",
+            radius: [0, "90%"],
+            label: {
+              show: false,
+            },
+            data: root.children[0].children,
           },
-          {
-            type: "pie",
-            radius: ["60%", "100%"],
-            label: {show: false},
-            data: Object.entries(subCategories).map(([k, v]) => ({name: k, value: v}))
-          }
-        ]
+        ],
+        onDblClick: (event) => {
+          const account = "Expenses" + event.treePathInfo.map((i) => i.name).join(":");
+          const time = new URLSearchParams(window.location.search).get("time");
+          const link = panel.queries[0].link
+            .replaceAll("#", "%23")
+            .replace("{account}", account)
+            .replace("{time}", time);
+          window.open(link);
+        },
       };
 
   - title: Food Expenses 🥐
@@ -144,37 +191,42 @@ dashboards:
         WHERE account ~ '^Expenses:Food:'
         GROUP BY year, month
       link: /beancount/account/Expenses:Food/?time={time}
-    chart: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
       const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
       const values = panel.queries[0].result.map((row) => row.value.EUR);
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format
+          valueFormatter: currencyFormat.format,
         },
         xAxis: {
-          data: months
+          data: months,
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format
-          }
+            formatter: currencyFormat.format,
+          },
         },
         series: [
           {
             type: "line",
             smooth: true,
-            data: values
-          }
+            data: values,
+          },
         ],
         onClick: (event) => {
           const [month, year] = event.name.split("/");
           const link = panel.queries[0].link
             .replaceAll("#", "%23")
-            .replace("{time}", `${year}-${month.padStart(2, '0')}`);
+            .replace("{time}", `${year}-${month.padStart(2, "0")}`);
           window.open(link);
-        }
+        },
       };
 
   - title: Travel Costs per Year 📅
@@ -186,9 +238,14 @@ dashboards:
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
         GROUP BY year
       link: /beancount/account/Expenses/?filter=#travel&time={time}
-    chart: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
-      const years = utils.years;
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
+      const years = helpers.iterateYears(fava.dateFirst, fava.dateLast);
       const amount = {};
 
       for (let row of panel.queries[0].result) {
@@ -197,29 +254,29 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format
+          valueFormatter: currencyFormat.format,
         },
         xAxis: {
-          data: years
+          data: years,
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format
-          }
+            formatter: currencyFormat.format,
+          },
         },
         series: [
           {
             type: "line",
             smooth: true,
-            data: years.map(year => amount[year] || 0)
-          }
+            data: years.map((year) => amount[year] ?? 0),
+          },
         ],
         onClick: (event) => {
           const link = panel.queries[0].link
             .replaceAll("#", "%23")
             .replace("{time}", event.name);
           window.open(link);
-        }
+        },
       };
 
   - title: Destinations ✈️
@@ -230,13 +287,18 @@ dashboards:
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
         ORDER BY date
       link: /beancount/account/Expenses/?filter=#{travel}
-    chart: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {style: "currency", currency: "EUR", maximumFractionDigits: 0});
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
       const travels = [];
       const amounts = {};
 
       for (let row of panel.queries[0].result) {
-        const tag = row.tags.find(tag => tag.match(/\-\d{4}/));
+        const tag = row.tags.find((tag) => tag.match(/\-\d{4}/));
         if (!(tag in amounts)) {
           travels.unshift(tag);
           amounts[tag] = 0;
@@ -246,31 +308,98 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format
+          valueFormatter: currencyFormat.format,
         },
         grid: {
-          left: "150px"
+          left: "150px",
         },
         xAxis: {
           type: "value",
           axisLabel: {
-            formatter: currencyFormat.format
-          }
+            formatter: currencyFormat.format,
+          },
         },
         yAxis: {
           type: "category",
-          data: travels
+          data: travels,
         },
         series: [
           {
             type: "bar",
-            data: travels.map(travel => amounts[travel])
-          }
+            data: travels.map((travel) => amounts[travel]),
+          },
         ],
         onClick: (event) => {
           const link = panel.queries[0].link
             .replaceAll("#", "%23")
             .replace("{travel}", event.name);
           window.open(link);
+        },
+      };
+
+- name: Sankey
+  panels:
+  - title: Sankey (per month) 💸
+    height: 800px
+    queries:
+    - bql: |
+        SELECT account, CONVERT(SUM(position), 'EUR') AS value
+        WHERE account ~ '^(Income|Expenses):'
+        GROUP BY account
+      link: /beancount/account/{account}/?time={time}
+    type: d3_sankey
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
+      const days = (new Date(fava.dateLast) - new Date(fava.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
+      const divisor = days / (365 / 12);
+
+      const nodes = [{ name: "Income" }];
+      const links = [];
+      function buildSankey(root) {
+        for (let node of root.children) {
+          let label = node.name.split(":").pop();
+
+          // skip over pass-through accounts
+          while (node.children.length === 1) {
+            node = node.children[0];
+            label += ":" + node.name.split(":").pop();
+          }
+
+          nodes.push({ name: node.name, label });
+          if (node.name.startsWith("Income")) {
+            links.push({ source: node.name, target: root.name, value: -node.value / divisor });
+          } else {
+            links.push({
+              source: root.name == "Expenses" ? "Income" : root.name,
+              target: node.name,
+              value: node.value / divisor,
+            });
+          }
+          buildSankey(node);
         }
       }
+
+      const accountTree = helpers.buildAccountTree(panel.queries[0].result, (row) => row.value.EUR);
+      buildSankey(accountTree.children[0]);
+      buildSankey(accountTree.children[1]);
+
+      return {
+        align: "left",
+        valueFormatter: currencyFormat.format,
+        data: {
+          nodes,
+          links,
+        },
+        onClick: (event, node) => {
+          const time = new URLSearchParams(window.location.search).get("time");
+          const link = panel.queries[0].link
+            .replaceAll("#", "%23")
+            .replace("{account}", node.name)
+            .replace("{time}", time);
+          window.open(link);
+        },
+      };

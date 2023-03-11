@@ -1,10 +1,10 @@
-#dashboards {
+#dashboard {
     display: flex;
     flex-wrap: wrap;
 }
-#dashboards .panel {
+#dashboard .panel {
     padding: 10px;
 }
-#dashboards .panel h2 {
+#dashboard .panel h2 {
     text-align: center;
 }
