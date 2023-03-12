@@ -38,7 +38,7 @@ def format_js_in_dashboard(f):
 
     if script_started:
         formatted += run_prettier(current_script, "      ")
-    return formatted
+    return formatted.rstrip() + "\n"
 
 
 def main():

@@ -130,6 +130,7 @@ dashboards:
         SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{fava.ccy}}') as market_value
         WHERE account_sortkey(account) ~ "^[01]"
         GROUP BY currency, cost_currency
+        ORDER BY market_value
       link: /beancount/account/{account}/?time={time}
     type: echarts
     script: |
@@ -141,12 +142,16 @@ dashboards:
 
       const data = panel.queries[0].result
         .filter((row) => row.market_value[fava.ccy])
-        .map((row) => ({ name: Object.keys(row.units)[0], value: row.market_value[fava.ccy] }))
-        .sort((a, b) => a.value - b.value);
+        .map((row) => ({ name: Object.keys(row.units)[0], value: row.market_value[fava.ccy] }));
 
       return {
         tooltip: {
-          formatter: (params) => `${params.name}   ${currencyFormat.format(params.value)} (${params.percent}%)`,
+          formatter: (params) =>
+            `${echarts.format.getTooltipMarker(params.color)} ${
+              params.name
+            } <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+              params.value
+            )}</span> (${params.percent.toFixed(0)}%)`,
         },
         series: [
           {
