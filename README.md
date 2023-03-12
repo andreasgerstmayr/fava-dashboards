@@ -1,6 +1,7 @@
 # Fava Dashboards
 fava-dashboards allows creating custom dashboards in [Fava](https://github.com/beancount/fava).
 
+Example dashboards with random data:
 [![Overview](example/overview.png)](example/overview.png)
 [![Assets](example/assets.png)](example/assets.png)
 [![Expenses](example/expenses.png)](example/expenses.png)
@@ -22,17 +23,20 @@ Please take a look at the example dashboard configuration [dashboards.yaml](exam
 The configuration file can contain multiple dashboards, and a dashboard contains one or more panels.
 A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column layouts) and a absolute height.
 
-The `queries` field contains one or multiple queries. The beancount query must be stored in the `bql` field of the respectiv query.
+The `queries` field contains one or multiple queries.
+The Beancount query must be stored in the `bql` field of the respective query.
+It can contain Jinja template syntax to access the `panel` and `fava` variables described below (example: use `{{fava.ccy}}` to access the first configured operating currency).
 The query results can be accessed via `panel.queries[i].result`, where `i` is the index of the query in the `queries` field.
-Note: Additionally to the beancount query, Fava's filter bar further filters the available entries of the ledger.
+Note: Additionally to the Beancount query, Fava's filter bar further filters the available entries of the ledger.
 
-The `script` field must contain valid JavaScript code. It must return a valid configuration depending on the panel `type`.
+The `script` field must contain valid JavaScript code.
+It must return a valid configuration depending on the panel `type`.
 The following variables and functions are available:
 * `panel`: the current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`.
 * `fava.dateFirst`: first date in the current date filter
 * `fava.dateLast`: last date in the current date filter
 * `fava.operatingCurrencies`: configured operating currencies of the ledger
-* `fava.ccy`: shortcut for the first operating currency of the ledger
+* `fava.ccy`: shortcut for the first configured operating currency of the ledger
 * `helpers.iterateMonths(dateFirst, dateLast)`: iterate over all months between `dateFirst` and `dateLast`, e.g. `[{year: 2022, month: 1}, {year: 2022, month: 2}, ...]`
 * `helpers.iterateYears(dateFirst, dateLast)`: iterate over all years between `dateFirst` and `dateLast`, e.g. `[2022, 2023, ...]`
 * `helpers.buildAccountTree(rows, valueFn)`: build an account tree based on the results of a BQL query
@@ -69,6 +73,6 @@ Currently it requires only two external dependencies: pyyaml and echarts.
 * [Fava Portfolio Returns](https://github.com/andreasgerstmayr/fava-portfolio-returns)
 
 ## Acknowledgements
-Thanks to Martin Blais and all contributors of [beancount](https://github.com/beancount/beancount),
+Thanks to Martin Blais and all contributors of [Beancount](https://github.com/beancount/beancount),
 Jakob Schnitzer, Dominik Aumayr and all contributors of [Fava](https://github.com/beancount/fava),
 and to all contributors of [Apache ECharts](https://echarts.apache.org), [D3.js](https://d3js.org) and [d3-sankey](https://github.com/d3/d3-sankey).

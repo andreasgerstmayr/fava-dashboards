@@ -31,9 +31,9 @@ class FavaDashboards(FavaExtensionBase):
                 f"Cannot read configuration file {config_file}: {ex}"
             )
 
-    def exec_query(self, fava, query):
+    def exec_query(self, query, tmpl):
         try:
-            query = render_template_string(query, fava=fava)
+            query = render_template_string(query, **tmpl)
         except Exception as ex:
             raise FavaAPIException(f"Failed to template query {query}: {ex}")
 
@@ -46,7 +46,9 @@ class FavaDashboards(FavaExtensionBase):
     def process_panel(self, fava, panel):
         for query in panel.get("queries", []):
             if "bql" in query:
-                query["result"] = self.exec_query(fava, query["bql"])
+                query["result"] = self.exec_query(
+                    query["bql"], {"panel": panel, "fava": fava}
+                )
 
     def bootstrap(self, dashboard_id):
         config = self.read_config()
