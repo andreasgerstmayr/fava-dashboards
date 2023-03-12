@@ -31,6 +31,8 @@ The following variables and functions are available:
 * `panel`: the current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`.
 * `fava.dateFirst`: first date in the current date filter
 * `fava.dateLast`: last date in the current date filter
+* `fava.operatingCurrencies`: configured operating currencies of the ledger
+* `fava.ccy`: shortcut for the first operating currency of the ledger
 * `helpers.iterateMonths(dateFirst, dateLast)`: iterate over all months between `dateFirst` and `dateLast`, e.g. `[{year: 2022, month: 1}, {year: 2022, month: 2}, ...]`
 * `helpers.iterateYears(dateFirst, dateLast)`: iterate over all years between `dateFirst` and `dateLast`, e.g. `[2022, 2023, ...]`
 * `helpers.buildAccountTree(rows, valueFn)`: build an account tree based on the results of a BQL query

@@ -90,9 +90,9 @@ function renderDashboard(fava, dashboard) {
 }
 
 function bootstrap() {
-    const dashboardData = JSON.parse(document.getElementById("favaDashboardsBootstrap").text);
-    const fava = { dateFirst: dashboardData.dateFirst, dateLast: dashboardData.dateLast };
-    const dashboard = dashboardData.dashboards[dashboardData.dashboardId];
+    const bootstrapData = JSON.parse(document.getElementById("favaDashboardsBootstrap").text);
+    const fava = bootstrapData.fava;
+    const dashboard = bootstrapData.dashboards[bootstrapData.dashboardId];
 
     renderDashboard(fava, dashboard);
 }
