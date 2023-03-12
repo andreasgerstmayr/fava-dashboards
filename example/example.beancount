@@ -7,7 +7,7 @@
 option "operating_currency" "USD"
 1980-05-12 custom "fava-option" "language" "en"
 1980-05-12 custom "fava-extension" "fava_dashboards"
-2002-12-06 price EUR 1 USD
+2020-01-01 price EUR 1 USD
 
 
 

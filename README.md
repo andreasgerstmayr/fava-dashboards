@@ -2,6 +2,7 @@
 fava-dashboards allows creating custom dashboards in [Fava](https://github.com/beancount/fava).
 
 [![Overview](example/overview.png)](example/overview.png)
+[![Assets](example/assets.png)](example/assets.png)
 [![Expenses](example/expenses.png)](example/expenses.png)
 [![Sankey](example/sankey.png)](example/sankey.png)
 
@@ -68,4 +69,4 @@ Currently it requires only two external dependencies: pyyaml and echarts.
 ## Acknowledgements
 Thanks to Martin Blais and all contributors of [beancount](https://github.com/beancount/beancount),
 Jakob Schnitzer, Dominik Aumayr and all contributors of [Fava](https://github.com/beancount/fava),
-and to all contributors of [Apache ECharts](https://echarts.apache.org).
+and to all contributors of [Apache ECharts](https://echarts.apache.org), [D3.js](https://d3js.org) and [d3-sankey](https://github.com/d3/d3-sankey).
