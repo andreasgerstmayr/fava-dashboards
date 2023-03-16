@@ -21,7 +21,7 @@ class FavaDashboards(FavaExtensionBase):
 
     def read_config(self):
         ext_config = self.config if isinstance(self.config, dict) else {}
-        config_file = ext_config.get("config", "dashboards.yaml")
+        config_file = os.path.abspath(ext_config.get("config", "dashboards.yaml"))
 
         try:
             with open(config_file) as f:

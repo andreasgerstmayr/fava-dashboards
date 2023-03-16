@@ -18,6 +18,14 @@ Enable this plugin in Fava by adding the following lines to your ledger:
 ```
 
 ## Configuration
+The plugin looks by default for a `dashboards.yaml` file in the same directory where Fava is started (e.g. if you run `fava personal.beancount`, the `dashboards.yaml` file should be in the same directory as `personal.beancount`).
+The location of the `dashboards.yaml` configuration file can be customized:
+```
+2010-01-01 custom "fava-extension" "fava_dashboards" "{
+    'config': '/path/to/dashboards.yaml'
+}"
+```
+
 Please take a look at the example dashboard configuration [dashboards.yaml](example/dashboards.yaml), which uses most of the functionality described below.
 
 The configuration file can contain multiple dashboards, and a dashboard contains one or more panels.
