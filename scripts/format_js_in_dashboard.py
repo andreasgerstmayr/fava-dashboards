@@ -32,7 +32,7 @@ def format_js_in_dashboard(f):
                 script_started = False
                 current_script = ""
         else:
-            if line == "    script: |\n":
+            if line == "    script: |\n" or line.startswith("    script: &"):
                 script_started = True
             formatted += line
 

@@ -80,6 +80,8 @@ Currently it requires only two external dependencies: pyyaml and echarts.
 
 ## Related Projects
 * [Fava Portfolio Returns](https://github.com/andreasgerstmayr/fava-portfolio-returns)
+* [Fava Investor](https://github.com/redstreet/fava_investor)
+* [Fava Classy Portfolio](https://github.com/seltzered/fava-classy-portfolio)
 
 ## Acknowledgements
 Thanks to Martin Blais and all contributors of [Beancount](https://github.com/beancount/beancount),

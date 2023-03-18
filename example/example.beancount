@@ -16,39 +16,61 @@ option "operating_currency" "USD"
 1792-01-01 commodity USD
   export: "CASH"
   name: "US Dollar"
+  asset_class: "Cash"
+  asset_allocation_Bond_Cash: 100
 
 1900-01-01 commodity VMMXX
   export: "MUTF:VMMXX (MONEY:USD)"
+  name: "Vanguard Cash Reserves Federal Money Market Fund"
+  asset_class: "Fund"
+  asset_allocation_Bond_Cash: 82
+  asset_allocation_Bond_US: 18
 
 1995-09-18 commodity VBMPX
   export: "MUTF:VBMPX"
   name: "Vanguard Total Bond Market Index Fund Institutional Plus Shares"
   price: "USD:google/MUTF:VBMPX"
+  asset_class: "Fund"
+  asset_allocation_Bond_US: 91
+  asset_allocation_Bond_NonUS: 9
 
 2004-01-20 commodity ITOT
   export: "NYSEARCA:ITOT"
   name: "iShares Core S&P Total U.S. Stock Market ETF"
   price: "USD:google/NYSEARCA:ITOT"
+  asset_class: "ETF"
+  asset_allocation_Equity_Market_US: 99
+  asset_allocation_Equity_Market_NonUS: 1
 
 2004-01-26 commodity VHT
   export: "NYSEARCA:VHT"
   name: "Vanguard Health Care ETF"
   price: "USD:google/NYSEARCA:VHT"
+  asset_class: "ETF"
+  asset_allocation_Equity_Sector_Health: 100
 
 2004-11-01 commodity GLD
   export: "NYSEARCA:GLD"
   name: "SPDR Gold Trust (ETF)"
   price: "USD:google/NYSEARCA:GLD"
+  asset_class: "ETF"
+  asset_allocation_Commodity_Gold: 100
 
 2007-07-20 commodity VEA
   export: "NYSEARCA:VEA"
   name: "Vanguard FTSE Developed Markets ETF"
   price: "USD:google/NYSEARCA:VEA"
+  asset_class: "ETF"
+  asset_allocation_Equity_Market_DevelopedWorld: 100
 
 2009-05-01 commodity RGAGX
   export: "MUTF:RGAGX"
   name: "American Funds The Growth Fund of America Class R-6"
   price: "USD:google/MUTF:RGAGX"
+  asset_class: "Fund"
+  asset_allocation_Equity_Market_US: 79
+  asset_allocation_Equity_Market_NonUS: 11
+  asset_allocation_Bond_Cash: 10
 
 
 

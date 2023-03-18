@@ -123,12 +123,12 @@ dashboards:
 
 - name: Assets
   panels:
-  - title: Asset Allocation 🏦
+  - title: Assets 🏦
     width: 50%
     queries:
     - bql: |
         SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
-        WHERE account_sortkey(account) ~ "^[01]"
+        WHERE account_sortkey(account) ~ '^[01]'
         GROUP BY currency, cost_currency
         ORDER BY market_value
       link: /beancount/account/{account}/?time={time}
@@ -147,8 +147,8 @@ dashboards:
       return {
         tooltip: {
           formatter: (params) =>
-            `${echarts.format.getTooltipMarker(params.color)} ${
-              params.name
+            `${params.marker} ${
+              ledger.commodities[params.name]?.meta.name ?? params.name
             } <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
               params.value
             )}</span> (${params.percent.toFixed(0)}%)`,
@@ -161,23 +161,28 @@ dashboards:
         ],
       };
 
-  - title: Total Assets 💰
+  - title: Net Worth 💰
     width: 50%
     queries:
     - bql: |
         SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}') AS value
-        WHERE account ~ 'Assets:'
+        WHERE account_sortkey(account) ~ '^[01]'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
     type: echarts
-    script: |
+    script: &assets_per_month |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
-      const values = panel.queries[0].result.map((row) => row.value[ledger.ccy]);
+      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const amounts = {};
+
+      // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
+      for (let row of panel.queries[0].result) {
+        amounts[`${row.month}/${row.year}`] = row.value[ledger.ccy];
+      }
 
       return {
         tooltip: {
@@ -195,10 +200,12 @@ dashboards:
           {
             type: "line",
             smooth: true,
-            data: values,
+            connectNulls: true,
+            data: months.map((month) => amounts[month]),
           },
         ],
         onClick: (event) => {
+          if (!panel.queries[0].link) return;
           const [month, year] = event.name.split("/");
           const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
           window.open(link);
@@ -213,35 +220,7 @@ dashboards:
         WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
     type: echarts
-    script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
-      const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
-      const values = panel.queries[0].result.map((row) => row.value[ledger.ccy]);
-
-      return {
-        tooltip: {
-          valueFormatter: currencyFormat.format,
-        },
-        xAxis: {
-          data: months,
-        },
-        yAxis: {
-          axisLabel: {
-            formatter: currencyFormat.format,
-          },
-        },
-        series: [
-          {
-            type: "line",
-            smooth: true,
-            data: values,
-          },
-        ],
-      };
+    script: *assets_per_month
 
   - title: Portfolio Gains ✨
     width: 50%
@@ -281,11 +260,153 @@ dashboards:
         ],
       };
 
+  - title: Asset Classes 🏦
+    width: 50%
+    queries:
+    - bql: |
+        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
+        WHERE account_sortkey(account) ~ '^[01]'
+        GROUP BY currency, cost_currency
+        ORDER BY market_value
+    type: echarts
+    script: &asset_classes |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+
+      let totalValue = 0;
+      const assetClasses = {};
+      for (let row of panel.queries[0].result) {
+        if (!row.market_value[ledger.ccy]) continue;
+
+        const ccy = Object.keys(row.units)[0];
+        const value = row.market_value[ledger.ccy];
+        const assetName = ledger.commodities[ccy]?.meta.name ?? ccy;
+        const assetClass = ledger.commodities[ccy]?.meta.asset_class ?? "undefined";
+        if (!(assetClass in assetClasses)) {
+          assetClasses[assetClass] = { name: assetClass, children: [] };
+        }
+        assetClasses[assetClass].children.push({ name: assetName, value });
+        totalValue += value;
+      }
+
+      return {
+        tooltip: {
+          formatter: (params) =>
+            `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+              params.value
+            )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
+        },
+        series: [
+          {
+            type: "sunburst",
+            radius: "100%",
+            label: {
+              show: false,
+            },
+            data: Object.values(assetClasses),
+          },
+        ],
+      };
+
+  - title: Investment Classes 🏦
+    width: 50%
+    queries:
+    - bql: |
+        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
+        WHERE account_sortkey(account) ~ '^[01]' AND currency != '{{ledger.ccy}}'
+        GROUP BY currency, cost_currency
+        ORDER BY market_value
+    type: echarts
+    script: *asset_classes
+
+  - title: Assets Allocation 🏦
+    width: 50%
+    queries:
+    - bql: |
+        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
+        WHERE account_sortkey(account) ~ '^[01]'
+        GROUP BY currency, cost_currency
+        ORDER BY market_value
+    type: echarts
+    script: &assets_allocation |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+
+      let totalValue = 0;
+      const root = { children: [] };
+      for (let row of panel.queries[0].result) {
+        if (!row.market_value[ledger.ccy]) continue;
+
+        const ccy = Object.keys(row.units)[0];
+        const allocations = Object.entries(ledger.commodities[ccy]?.meta ?? {}).filter(([k, v]) =>
+          k.startsWith("asset_allocation_")
+        );
+        if (allocations.length === 0) {
+          allocations.push(["asset_allocation_Unknown", 100]);
+        }
+
+        for (let [allocation, percentage] of allocations) {
+          const parts = allocation.substr("asset_allocation_".length).split("_");
+          let node = root;
+          for (const part of parts) {
+            let child = node.children.find((c) => c.name == part);
+            if (!child) {
+              child = { name: part, children: [] };
+              node.children.push(child);
+            }
+            node = child;
+          }
+
+          const value = (percentage / 100) * row.market_value[ledger.ccy];
+          node.value = (node.value ?? 0) + value;
+          totalValue += value;
+        }
+      }
+
+      return {
+        tooltip: {
+          formatter: (params) =>
+            `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+              params.value
+            )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
+        },
+        series: [
+          {
+            type: "sunburst",
+            radius: "100%",
+            label: {
+              rotate: "tangential",
+              minAngle: 20,
+            },
+            labelLayout: {
+              hideOverlap: true,
+            },
+            data: root.children,
+          },
+        ],
+      };
+
+  - title: Investments Allocation 🏦
+    width: 50%
+    queries:
+    - bql: |
+        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
+        WHERE account_sortkey(account) ~ '^[01]' AND currency != '{{ledger.ccy}}'
+        GROUP BY currency, cost_currency
+        ORDER BY market_value
+    type: echarts
+    script: *assets_allocation
+
 - name: Expenses
   panels:
   - title: Categories 💸
     width: 50%
-    height: 400px
     queries:
     - bql: |
         SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
@@ -324,9 +445,9 @@ dashboards:
         series: [
           {
             type: "sunburst",
-            radius: [0, "90%"],
+            radius: "100%",
             label: {
-              show: false,
+              minAngle: 20,
             },
             nodeClick: false,
             data: root.children[0].children,
@@ -342,7 +463,6 @@ dashboards:
 
   - title: Food Expenses 🥐
     width: 50%
-    height: 400px
     queries:
     - bql: |
         SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
@@ -356,8 +476,13 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
-      const values = panel.queries[0].result.map((row) => row.value[ledger.ccy]);
+      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const amounts = {};
+
+      // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
+      for (let row of panel.queries[0].result) {
+        amounts[`${row.month}/${row.year}`] = row.value[ledger.ccy];
+      }
 
       return {
         tooltip: {
@@ -375,7 +500,7 @@ dashboards:
           {
             type: "line",
             smooth: true,
-            data: values,
+            data: months.map((month) => amounts[month] ?? 0),
           },
         ],
         onClick: (event) => {
@@ -387,7 +512,6 @@ dashboards:
 
   - title: Travel Costs per Year 📅
     # Note: Holidays over New Year's Eve are counted in both years aliquot.
-    height: 400px
     queries:
     - bql: |
         SELECT year, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
@@ -404,6 +528,7 @@ dashboards:
       const years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);
       const amounts = {};
 
+      // the beancount query only returns months where there was at least one matching transaction, therefore we group by year
       for (let row of panel.queries[0].result) {
         amounts[row.year] = row.value[ledger.ccy];
       }

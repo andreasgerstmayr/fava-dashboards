@@ -1,6 +1,7 @@
 import os
 import datetime
 import yaml
+from beancount.core.data import Commodity
 from beancount.query.query import run_query
 from fava.ext import FavaExtensionBase
 from fava.helpers import FavaAPIException
@@ -53,11 +54,13 @@ class FavaDashboards(FavaExtensionBase):
 
     def bootstrap(self, dashboard_id):
         operating_currencies = self.ledger.options["operating_currency"]
+        commodities = {c.currency: c for c in self.ledger.all_entries_by_type.Commodity}
         ledger = {
             "dateFirst": g.filtered._date_first,
             "dateLast": g.filtered._date_last - datetime.timedelta(days=1),
             "operatingCurrencies": operating_currencies,
             "ccy": operating_currencies[0],
+            "commodities": commodities,
         }
 
         config = self.read_config()
