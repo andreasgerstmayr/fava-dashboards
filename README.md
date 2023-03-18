@@ -33,7 +33,7 @@ A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column 
 
 The `queries` field contains one or multiple queries.
 The Beancount query must be stored in the `bql` field of the respective query.
-It can contain Jinja template syntax to access the `panel` and `fava` variables described below (example: use `{{fava.ccy}}` to access the first configured operating currency).
+It can contain Jinja template syntax to access the `panel` and `ledger` variables described below (example: use `{{ledger.ccy}}` to access the first configured operating currency).
 The query results can be accessed via `panel.queries[i].result`, where `i` is the index of the query in the `queries` field.
 Note: Additionally to the Beancount query, Fava's filter bar further filters the available entries of the ledger.
 
@@ -41,10 +41,11 @@ The `script` field must contain valid JavaScript code.
 It must return a valid configuration depending on the panel `type`.
 The following variables and functions are available:
 * `panel`: the current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`.
-* `fava.dateFirst`: first date in the current date filter
-* `fava.dateLast`: last date in the current date filter
-* `fava.operatingCurrencies`: configured operating currencies of the ledger
-* `fava.ccy`: shortcut for the first configured operating currency of the ledger
+* `ledger.dateFirst`: first date in the current date filter
+* `ledger.dateLast`: last date in the current date filter
+* `ledger.operatingCurrencies`: configured operating currencies of the ledger
+* `ledger.ccy`: shortcut for the first configured operating currency of the ledger
+* `ledger.commodities`: declared commodities of the ledger
 * `helpers.iterateMonths(dateFirst, dateLast)`: iterate over all months between `dateFirst` and `dateLast`, e.g. `[{year: 2022, month: 1}, {year: 2022, month: 2}, ...]`
 * `helpers.iterateYears(dateFirst, dateLast)`: iterate over all years between `dateFirst` and `dateLast`, e.g. `[2022, 2023, ...]`
 * `helpers.buildAccountTree(rows, valueFn)`: build an account tree based on the results of a BQL query

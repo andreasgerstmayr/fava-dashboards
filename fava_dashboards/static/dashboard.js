@@ -72,7 +72,7 @@ class Panel {
     }
 }
 
-function renderDashboard(fava, dashboard) {
+function renderDashboard(ledger, dashboard) {
     for (let i = 0; i < dashboard.panels.length; i++) {
         const panel = dashboard.panels[i];
         if (!panel.type || !panel.script) {
@@ -80,8 +80,9 @@ function renderDashboard(fava, dashboard) {
         }
 
         const elem = document.getElementById(`panel${i}`);
-        const scriptFn = new Function(["panel", "fava", "helpers"], panel.script);
-        const options = scriptFn(panel, fava, Helpers);
+        // pass 'fava' for backwards compatibility
+        const scriptFn = new Function(["panel", "ledger", "fava", "helpers"], panel.script);
+        const options = scriptFn(panel, ledger, ledger, Helpers);
 
         if (panel.type in Panel) {
             Panel[panel.type](elem, options);
@@ -91,10 +92,10 @@ function renderDashboard(fava, dashboard) {
 
 function bootstrap() {
     const bootstrapData = JSON.parse(document.getElementById("favaDashboardsBootstrap").text);
-    const fava = bootstrapData.fava;
+    const ledger = bootstrapData.ledger;
     const dashboard = bootstrapData.dashboards[bootstrapData.dashboardId];
 
-    renderDashboard(fava, dashboard);
+    renderDashboard(ledger, dashboard);
 }
 
 window.addEventListener("load", bootstrap);

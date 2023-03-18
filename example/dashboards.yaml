@@ -5,30 +5,30 @@ dashboards:
     width: 50%
     height: 80px
     queries:
-    - bql: SELECT CONVERT(SUM(position), '{{fava.ccy}}') AS value WHERE account ~ 'Assets:'
+    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ 'Assets:'
     type: html
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const value = currencyFormat.format(panel.queries[0].result[0].value[fava.ccy]);
+      const value = currencyFormat.format(panel.queries[0].result[0].value[ledger.ccy]);
       return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
 
   - title: Liabilities 💳
     width: 50%
     height: 80px
     queries:
-    - bql: SELECT CONVERT(SUM(position), '{{fava.ccy}}') AS value WHERE account ~ 'Liabilities:'
+    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ 'Liabilities:'
     type: html
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const value = currencyFormat.format(-panel.queries[0].result[0].value[fava.ccy]);
+      const value = currencyFormat.format(-panel.queries[0].result[0].value[ledger.ccy]);
       return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${value}</div>`;
 
   - title: Income/Expenses 💸
@@ -37,35 +37,35 @@ dashboards:
     - name: Income
       stack: income
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{fava.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Income:'
         GROUP BY year, month
       link: /beancount/account/Income/?time={time}
     - name: Home
       stack: expenses
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{fava.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:Home:'
         GROUP BY year, month
       link: /beancount/account/Expenses:Home/?time={time}
     - name: Food
       stack: expenses
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{fava.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:Food:'
         GROUP BY year, month
       link: /beancount/account/Expenses:Food/?time={time}
     - name: Travel
       stack: expenses
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{fava.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
         GROUP BY year, month
       link: /beancount/account/Expenses/?filter=#travel&time={time}
     - name: Other
       stack: expenses
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{fava.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:' AND NOT account ~ '^Expenses:(Home|Food):' AND NOT 'travel' IN tags
         GROUP BY year, month
       link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Home|Food)") -#travel&time={time}
@@ -73,10 +73,10 @@ dashboards:
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = helpers.iterateMonths(fava.dateFirst, fava.dateLast).map((m) => `${m.month}/${m.year}`);
+      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
       const amounts = {};
@@ -84,7 +84,7 @@ dashboards:
         amounts[query.name] = {};
         for (let row of query.result) {
           amounts[query.name][`${row.month}/${row.year}`] =
-            query.stack == "income" ? -row.value[fava.ccy] : row.value[fava.ccy];
+            query.stack == "income" ? -row.value[ledger.ccy] : row.value[ledger.ccy];
         }
       }
 
@@ -127,7 +127,7 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{fava.ccy}}') as market_value
+        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
         WHERE account_sortkey(account) ~ "^[01]"
         GROUP BY currency, cost_currency
         ORDER BY market_value
@@ -136,13 +136,13 @@ dashboards:
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
 
       const data = panel.queries[0].result
-        .filter((row) => row.market_value[fava.ccy])
-        .map((row) => ({ name: Object.keys(row.units)[0], value: row.market_value[fava.ccy] }));
+        .filter((row) => row.market_value[ledger.ccy])
+        .map((row) => ({ name: Object.keys(row.units)[0], value: row.market_value[ledger.ccy] }));
 
       return {
         tooltip: {
@@ -165,7 +165,7 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT year, month, CONVERT(LAST(balance), '{{fava.ccy}}') AS value
+        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}') AS value
         WHERE account ~ 'Assets:'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
@@ -173,11 +173,11 @@ dashboards:
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
       const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
-      const values = panel.queries[0].result.map((row) => row.value[fava.ccy]);
+      const values = panel.queries[0].result.map((row) => row.value[ledger.ccy]);
 
       return {
         tooltip: {
@@ -209,18 +209,18 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT year, month, CONVERT(LAST(balance), '{{fava.ccy}}') AS value
-        WHERE account ~ 'Assets:' AND currency != '{{fava.ccy}}'
+        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}') AS value
+        WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
       const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
-      const values = panel.queries[0].result.map((row) => row.value[fava.ccy]);
+      const values = panel.queries[0].result.map((row) => row.value[ledger.ccy]);
 
       return {
         tooltip: {
@@ -247,18 +247,18 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT year, month, CONVERT(LAST(balance), '{{fava.ccy}}') AS market_value, COST(LAST(balance)) AS book_value
-        WHERE account ~ 'Assets:' AND currency != '{{fava.ccy}}'
+        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}') AS market_value, COST(LAST(balance)) AS book_value
+        WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
       const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
-      const values = panel.queries[0].result.map((row) => row.market_value[fava.ccy] - row.book_value[fava.ccy]);
+      const values = panel.queries[0].result.map((row) => row.market_value[ledger.ccy] - row.book_value[ledger.ccy]);
 
       return {
         tooltip: {
@@ -288,7 +288,7 @@ dashboards:
     height: 400px
     queries:
     - bql: |
-        SELECT account, CONVERT(SUM(position), '{{fava.ccy}}') AS value
+        SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:'
         GROUP BY account
       link: /beancount/account/{account}/?time={time}
@@ -296,7 +296,7 @@ dashboards:
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
       const maxLevels = 2;
@@ -314,7 +314,7 @@ dashboards:
           }
           node = child;
         }
-        node.value = (node.value ?? 0) + row.value[fava.ccy];
+        node.value = (node.value ?? 0) + row.value[ledger.ccy];
       }
 
       return {
@@ -345,7 +345,7 @@ dashboards:
     height: 400px
     queries:
     - bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{fava.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:Food:'
         GROUP BY year, month
       link: /beancount/account/Expenses:Food/?time={time}
@@ -353,11 +353,11 @@ dashboards:
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
       const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
-      const values = panel.queries[0].result.map((row) => row.value[fava.ccy]);
+      const values = panel.queries[0].result.map((row) => row.value[ledger.ccy]);
 
       return {
         tooltip: {
@@ -390,7 +390,7 @@ dashboards:
     height: 400px
     queries:
     - bql: |
-        SELECT year, CONVERT(SUM(position), '{{fava.ccy}}') AS value
+        SELECT year, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
         GROUP BY year
       link: /beancount/account/Expenses/?filter=#travel&time={time}
@@ -398,14 +398,14 @@ dashboards:
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const years = helpers.iterateYears(fava.dateFirst, fava.dateLast);
+      const years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);
       const amounts = {};
 
       for (let row of panel.queries[0].result) {
-        amounts[row.year] = row.value[fava.ccy];
+        amounts[row.year] = row.value[ledger.ccy];
       }
 
       return {
@@ -437,7 +437,7 @@ dashboards:
     height: 300px
     queries:
     - bql: |
-        SELECT tags, CONVERT(position, '{{fava.ccy}}') AS value
+        SELECT tags, CONVERT(position, '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
         ORDER BY date
       link: /beancount/account/Expenses/?filter=#{travel}
@@ -445,7 +445,7 @@ dashboards:
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
       const travels = [];
@@ -495,7 +495,7 @@ dashboards:
     height: 800px
     queries:
     - bql: |
-        SELECT account, CONVERT(SUM(position), '{{fava.ccy}}') AS value
+        SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^(Income|Expenses):'
         GROUP BY account
       link: /beancount/account/{account}/?time={time}
@@ -503,10 +503,10 @@ dashboards:
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
-        currency: fava.ccy,
+        currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const days = (new Date(fava.dateLast) - new Date(fava.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
+      const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const divisor = days / (365 / 12);
 
       const nodes = [{ name: "Income" }];
@@ -535,7 +535,7 @@ dashboards:
         }
       }
 
-      const accountTree = helpers.buildAccountTree(panel.queries[0].result, (row) => row.value[fava.ccy]);
+      const accountTree = helpers.buildAccountTree(panel.queries[0].result, (row) => row.value[ledger.ccy]);
       buildSankey(accountTree.children[0]);
       buildSankey(accountTree.children[1]);
 

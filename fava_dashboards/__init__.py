@@ -43,31 +43,33 @@ class FavaDashboards(FavaExtensionBase):
             raise FavaAPIException(f"Failed to execute query {query}: {ex}")
         return rrows
 
-    def process_panel(self, fava, panel):
+    def process_panel(self, ledger, panel):
         for query in panel.get("queries", []):
             if "bql" in query:
+                # pass 'fava' for backwards compatibility
                 query["result"] = self.exec_query(
-                    query["bql"], {"panel": panel, "fava": fava}
+                    query["bql"], {"panel": panel, "ledger": ledger, "fava": ledger}
                 )
 
     def bootstrap(self, dashboard_id):
-        config = self.read_config()
         operating_currencies = self.ledger.options["operating_currency"]
-        fava = {
+        ledger = {
             "dateFirst": g.filtered._date_first,
             "dateLast": g.filtered._date_last - datetime.timedelta(days=1),
             "operatingCurrencies": operating_currencies,
             "ccy": operating_currencies[0],
         }
+
+        config = self.read_config()
         dashboards = config.get("dashboards", [])
         if not (0 <= dashboard_id < len(dashboards)):
             raise FavaAPIException(f"Invalid dashboard ID: {dashboard_id}")
 
         for panel in dashboards[dashboard_id].get("panels", []):
-            self.process_panel(fava, panel)
+            self.process_panel(ledger, panel)
 
         return {
-            "fava": fava,
+            "ledger": ledger,
             "dashboards": dashboards,
             "dashboardId": dashboard_id,
         }
