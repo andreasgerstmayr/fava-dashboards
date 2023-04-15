@@ -37,35 +37,35 @@ dashboards:
     - name: Income
       stack: income
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ '^Income:'
         GROUP BY year, month
       link: /beancount/account/Income/?time={time}
     - name: Home
       stack: expenses
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ '^Expenses:Home:'
         GROUP BY year, month
       link: /beancount/account/Expenses:Home/?time={time}
     - name: Food
       stack: expenses
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ '^Expenses:Food:'
         GROUP BY year, month
       link: /beancount/account/Expenses:Food/?time={time}
     - name: Travel
       stack: expenses
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
         GROUP BY year, month
       link: /beancount/account/Expenses/?filter=#travel&time={time}
     - name: Other
       stack: expenses
       bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ '^Expenses:' AND NOT account ~ '^Expenses:(Home|Food):' AND NOT 'travel' IN tags
         GROUP BY year, month
       link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Home|Food)") -#travel&time={time}
@@ -165,7 +165,7 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}') AS value
+        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account_sortkey(account) ~ '^[01]'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
@@ -216,7 +216,7 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}') AS value
+        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
     type: echarts
@@ -226,7 +226,7 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}') AS market_value, COST(LAST(balance)) AS book_value
+        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS market_value, COST(LAST(balance)) AS book_value
         WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
     type: echarts
@@ -465,7 +465,7 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ '^Expenses:Food:'
         GROUP BY year, month
       link: /beancount/account/Expenses:Food/?time={time}
@@ -514,7 +514,7 @@ dashboards:
     # Note: Holidays over New Year's Eve are counted in both years aliquot.
     queries:
     - bql: |
-        SELECT year, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        SELECT year, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
         GROUP BY year
       link: /beancount/account/Expenses/?filter=#travel&time={time}

@@ -1,0 +1,25 @@
+option "operating_currency" "USD"
+plugin "beancount.plugins.implicit_prices"
+1980-05-12 custom "fava-extension" "fava_dashboards"
+
+
+2020-01-01 open Income:US:Hooli
+2020-01-01 open Assets:US:GLD
+
+2020-01-01 * "Buy GLD"
+  Assets:US:GLD                                100 GLD {1 USD}
+  Income:US:Hooli
+
+; invested: 100 USD; net worth: 100 USD; gains: 0 USD
+
+2020-02-01 * "Buy GLD"
+  Assets:US:GLD                                100 GLD {2 USD}
+  Income:US:Hooli
+
+; invested: 300 USD; net worth: 400 USD; gains: 100 USD
+
+2020-03-01 * "Buy GLD"
+  Assets:US:GLD                                100 GLD {3 USD}
+  Income:US:Hooli
+
+; invested: 600 USD; net worth: 900 USD; gains: 300 USD
