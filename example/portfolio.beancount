@@ -5,21 +5,55 @@ plugin "beancount.plugins.implicit_prices"
 
 2020-01-01 open Income:US:Hooli
 2020-01-01 open Assets:US:GLD
+2020-01-01 open Assets:US:Bank
+2020-01-01 open Assets:US:Cash
 
-2020-01-01 * "Buy GLD"
-  Assets:US:GLD                                100 GLD {1 USD}
+2020-01-01 * "Salary"
+  Assets:US:Bank                                     1000 USD
   Income:US:Hooli
 
-; invested: 100 USD; net worth: 100 USD; gains: 0 USD
+; 2020-01
+; assets: 1000 USD
+; net worth: 1000 USD
+; gains: 0 USD
 
 2020-02-01 * "Buy GLD"
-  Assets:US:GLD                                100 GLD {2 USD}
-  Income:US:Hooli
+  Assets:US:GLD                                       100 GLD {1 USD}
+  Assets:US:Bank
 
-; invested: 300 USD; net worth: 400 USD; gains: 100 USD
+; 2020-02
+; assets: 900 USD, 100 GLD (worth: 100 USD)
+; net worth: 1000 USD
+; gains: 0 USD
 
-2020-03-01 * "Buy GLD"
-  Assets:US:GLD                                100 GLD {3 USD}
-  Income:US:Hooli
+2020-03-15 * "Buy GLD"
+  Assets:US:GLD                                       100 GLD {2 USD}
+  Assets:US:Bank
 
-; invested: 600 USD; net worth: 900 USD; gains: 300 USD
+; 2020-03
+; assets: 700 USD, 200 GLD (worth: 400 USD)
+; net worth: 1100 USD
+; gains: 100 USD
+
+; 2020-04
+; assets: 700 USD, 200 GLD (worth: 400 USD)
+; net worth: 1100 USD
+; gains: 100 USD
+
+2020-05-01 * "Buy GLD"
+  Assets:US:GLD                                       100 GLD {3 USD}
+  Assets:US:Bank
+
+; 2020-05
+; assets: 400 USD, 300 GLD (worth: 900 USD)
+; net worth: 1300 USD
+; gains: 300 USD
+
+2020-06-01 * "Convert 200 USD to EUR"
+  Assets:US:Bank                                     -200 USD @ 0.5 EUR
+  Assets:US:Cash
+
+; 2020-06
+; assets: 200 USD, 300 GLD (worth: 900 USD), 100 EUR (worth 200 USD)
+; net worth: 1300 USD
+; gains: 300 USD

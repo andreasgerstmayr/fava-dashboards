@@ -170,7 +170,7 @@ dashboards:
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
     type: echarts
-    script: &assets_per_month |
+    script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
         currency: ledger.ccy,
@@ -216,17 +216,9 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
-        GROUP BY year, month
-    type: echarts
-    script: *assets_per_month
-
-  - title: Portfolio Gains ✨
-    width: 50%
-    queries:
-    - bql: |
-        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS market_value, COST(LAST(balance)) AS book_value
+        SELECT year, month,
+        CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS market_value,
+        CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', LAST(date)) AS book_value
         WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
     type: echarts
@@ -236,8 +228,79 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = panel.queries[0].result.map((row) => `${row.month}/${row.year}`);
-      const values = panel.queries[0].result.map((row) => row.market_value[ledger.ccy] - row.book_value[ledger.ccy]);
+      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const amounts = {};
+
+      // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
+      for (let row of panel.queries[0].result) {
+        amounts[`${row.month}/${row.year}`] = {
+          market_value: row.market_value[ledger.ccy],
+          book_value: row.book_value[ledger.ccy],
+        };
+      }
+
+      return {
+        tooltip: {
+          valueFormatter: currencyFormat.format,
+        },
+        legend: {
+          top: "bottom",
+        },
+        xAxis: {
+          data: months,
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: currencyFormat.format,
+          },
+        },
+        series: [
+          {
+            type: "line",
+            name: "Market Value",
+            smooth: true,
+            connectNulls: true,
+            data: months.map((month) => amounts[month]?.market_value),
+          },
+          {
+            type: "line",
+            name: "Book Value",
+            smooth: true,
+            connectNulls: true,
+            data: months.map((month) => amounts[month]?.book_value),
+          },
+        ],
+        onClick: (event) => {
+          if (!panel.queries[0].link) return;
+          const [month, year] = event.name.split("/");
+          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
+          window.open(link);
+        },
+      };
+
+  - title: Portfolio Gains ✨
+    width: 50%
+    queries:
+    - bql: |
+        SELECT year, month,
+        CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS market_value,
+        CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', LAST(date)) AS book_value
+        WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
+        GROUP BY year, month
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const amounts = {};
+
+      // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
+      for (let row of panel.queries[0].result) {
+        amounts[`${row.month}/${row.year}`] = row.market_value[ledger.ccy] - row.book_value[ledger.ccy];
+      }
 
       return {
         tooltip: {
@@ -255,7 +318,8 @@ dashboards:
           {
             type: "line",
             smooth: true,
-            data: values,
+            connectNulls: true,
+            data: months.map((month) => amounts[month]),
           },
         ],
       };
