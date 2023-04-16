@@ -165,7 +165,8 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT year, month, CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS value
+        SELECT year, month,
+        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS value
         WHERE account_sortkey(account) ~ '^[01]'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
@@ -215,10 +216,10 @@ dashboards:
   - title: Portfolio 📈
     width: 50%
     queries:
-    - bql: |
+    - bql: &portfolio_bql |
         SELECT year, month,
-        CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS market_value,
-        CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', LAST(date)) AS book_value
+        CONVERT(LAST(balance),       '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS market_value,
+        CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS book_value
         WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
     type: echarts
@@ -281,12 +282,7 @@ dashboards:
   - title: Portfolio Gains ✨
     width: 50%
     queries:
-    - bql: |
-        SELECT year, month,
-        CONVERT(LAST(balance), '{{ledger.ccy}}', LAST(date)) AS market_value,
-        CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', LAST(date)) AS book_value
-        WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
-        GROUP BY year, month
+    - bql: *portfolio_bql
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
