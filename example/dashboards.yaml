@@ -5,7 +5,7 @@ dashboards:
     width: 50%
     height: 80px
     queries:
-    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ 'Assets:'
+    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Assets:'
     type: html
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -20,7 +20,7 @@ dashboards:
     width: 50%
     height: 80px
     queries:
-    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ 'Liabilities:'
+    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Liabilities:'
     type: html
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -220,7 +220,7 @@ dashboards:
         SELECT year, month,
         CONVERT(LAST(balance),       '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS market_value,
         CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS book_value
-        WHERE account ~ 'Assets:' AND currency != '{{ledger.ccy}}'
+        WHERE account ~ '^Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
     type: echarts
     script: |
@@ -463,9 +463,125 @@ dashboards:
     type: echarts
     script: *assets_allocation
 
-- name: Expenses
+- name: Income and Expenses
   panels:
-  - title: Categories 💸
+  - title: Avg. Income per Month 💰
+    width: 33.3%
+    height: 80px
+    queries:
+    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Income:'
+    type: html
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+      const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
+      const months = days / (365 / 12);
+      const value = currencyFormat.format(-panel.queries[0].result[0].value[ledger.ccy] / months);
+      return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
+
+  - title: Avg. Expenses per Month 💸
+    width: 33.3%
+    height: 80px
+    queries:
+    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Expenses:'
+    type: html
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+      const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
+      const months = days / (365 / 12);
+      const value = currencyFormat.format(panel.queries[0].result[0].value[ledger.ccy] / months);
+      return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${value}</div>`;
+
+  - title: Avg. Savings per Month ✨
+    width: 33.3%
+    height: 80px
+    queries:
+    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Income:'
+    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Expenses:'
+    type: html
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+      const percentFormat = new Intl.NumberFormat(undefined, {
+        style: "percent",
+        maximumFractionDigits: 0,
+      });
+      const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
+      const months = days / (365 / 12);
+      const income = -panel.queries[0].result[0].value[ledger.ccy];
+      const expenses = panel.queries[1].result[0].value[ledger.ccy];
+      const rate = (income - expenses) / months;
+      const ratePercent = 1 - expenses / income;
+      const value = `${currencyFormat.format(rate)} (${percentFormat.format(ratePercent)})`;
+      return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
+
+  - title: Income Categories 💸
+    width: 50%
+    queries:
+    - bql: |
+        SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        WHERE account ~ '^Income:'
+        GROUP BY account
+      link: /beancount/account/{account}/?time={time}
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+      const maxLevels = 3;
+
+      const root = { children: [] };
+      for (let row of panel.queries[0].result) {
+        const accountParts = row.account.split(":");
+        let node = root;
+        for (let i = 0; i < accountParts.length && i <= maxLevels; i++) {
+          const part = accountParts[i];
+          let child = node.children.find((c) => c.name == part);
+          if (!child) {
+            child = { name: part, children: [] };
+            node.children.push(child);
+          }
+          node = child;
+        }
+        node.value = (node.value ?? 0) + -row.value[ledger.ccy];
+      }
+
+      return {
+        tooltip: {
+          valueFormatter: currencyFormat.format,
+        },
+        series: [
+          {
+            type: "sunburst",
+            radius: "100%",
+            label: {
+              minAngle: 20,
+            },
+            nodeClick: false,
+            data: root.children[0].children,
+          },
+        ],
+        onClick: (event) => {
+          const account = "Income" + event.treePathInfo.map((i) => i.name).join(":");
+          const time = new URLSearchParams(window.location.search).get("time") ?? "";
+          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{account}", account).replace("{time}", time);
+          window.open(link);
+        },
+      };
+
+  - title: Expenses Categories 💸
     width: 50%
     queries:
     - bql: |
@@ -570,6 +686,8 @@ dashboards:
         },
       };
 
+- name: Travelling
+  panels:
   - title: Travel Costs per Year 📅
     # Note: Holidays over New Year's Eve are counted in both years aliquot.
     queries:

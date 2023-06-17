@@ -4,7 +4,8 @@ fava-dashboards allows creating custom dashboards in [Fava](https://github.com/b
 Example dashboards with random data:
 [![Overview](example/overview.png)](example/overview.png)
 [![Assets](example/assets.png)](example/assets.png)
-[![Expenses](example/expenses.png)](example/expenses.png)
+[![Income and Expenses](example/income_expenses.png)](example/income_expenses.png)
+[![Travelling](example/travelling.png)](example/travelling.png)
 [![Sankey](example/sankey.png)](example/sankey.png)
 
 ## Installation
