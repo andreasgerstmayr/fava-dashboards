@@ -70,7 +70,7 @@ dashboards:
         GROUP BY year, month
       link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Home|Food)") -#travel&time={time}
     type: echarts
-    script: |
+    script: &stacked_barcharts |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
         currency: ledger.ccy,
@@ -636,6 +636,26 @@ dashboards:
           window.open(link);
         },
       };
+
+  - title: Recurring Expenses 🔁
+    width: 50%
+    queries:
+    - name: Recurring
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^Expenses:' AND 'recurring' IN tags
+        GROUP BY year, month
+      link: /beancount/account/Expenses/?filter=#recurring&time={time}
+    - name: Irregular
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^Expenses:' AND NOT 'recurring' IN tags
+        GROUP BY year, month
+      link: /beancount/account/Expenses/?filter=-#recurring&time={time}
+    type: echarts
+    script: *stacked_barcharts
 
   - title: Food Expenses 🥐
     width: 50%

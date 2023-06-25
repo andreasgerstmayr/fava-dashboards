@@ -100,7 +100,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-01-04 * "RiverBank Properties" "Paying the rent"
+2020-01-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -122,7 +122,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-02-05 * "RiverBank Properties" "Paying the rent"
+2020-02-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -140,7 +140,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -80.13 USD
   Expenses:Home:Internet                            80.13 USD
 
-2020-03-03 * "RiverBank Properties" "Paying the rent"
+2020-03-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -164,7 +164,7 @@ option "operating_currency" "USD"
 
 2020-04-02 balance Assets:US:BofA:Checking        3253.52 USD
 
-2020-04-03 * "RiverBank Properties" "Paying the rent"
+2020-04-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -190,7 +190,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-05-05 * "RiverBank Properties" "Paying the rent"
+2020-05-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -212,7 +212,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-06-04 * "RiverBank Properties" "Paying the rent"
+2020-06-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -234,7 +234,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-07-06 * "RiverBank Properties" "Paying the rent"
+2020-07-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -256,7 +256,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-08-06 * "RiverBank Properties" "Paying the rent"
+2020-08-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -280,7 +280,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-09-04 * "RiverBank Properties" "Paying the rent"
+2020-09-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -306,7 +306,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-10-05 * "RiverBank Properties" "Paying the rent"
+2020-10-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -332,7 +332,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-11-05 * "RiverBank Properties" "Paying the rent"
+2020-11-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -354,7 +354,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2020-12-05 * "RiverBank Properties" "Paying the rent"
+2020-12-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -374,7 +374,7 @@ option "operating_currency" "USD"
 
 2020-12-29 balance Assets:US:BofA:Checking        5192.27 USD
 
-2021-01-03 * "RiverBank Properties" "Paying the rent"
+2021-01-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -400,7 +400,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2021-02-04 * "RiverBank Properties" "Paying the rent"
+2021-02-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -418,7 +418,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -79.97 USD
   Expenses:Home:Internet                            79.97 USD
 
-2021-03-03 * "RiverBank Properties" "Paying the rent"
+2021-03-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -446,7 +446,7 @@ option "operating_currency" "USD"
 
 2021-04-06 balance Assets:US:BofA:Checking        5169.88 USD
 
-2021-04-06 * "RiverBank Properties" "Paying the rent"
+2021-04-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -466,7 +466,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2021-05-04 * "RiverBank Properties" "Paying the rent"
+2021-05-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -490,7 +490,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2021-06-04 * "RiverBank Properties" "Paying the rent"
+2021-06-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -512,7 +512,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2021-07-06 * "RiverBank Properties" "Paying the rent"
+2021-07-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -536,7 +536,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2021-08-05 * "RiverBank Properties" "Paying the rent"
+2021-08-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -554,7 +554,7 @@ option "operating_currency" "USD"
 
 2021-08-24 balance Assets:US:BofA:Checking        3057.64 USD
 
-2021-09-03 * "RiverBank Properties" "Paying the rent"
+2021-09-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -580,7 +580,7 @@ option "operating_currency" "USD"
 
 2021-09-23 balance Assets:US:BofA:Checking         532.93 USD
 
-2021-10-03 * "RiverBank Properties" "Paying the rent"
+2021-10-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -610,7 +610,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2021-11-05 * "RiverBank Properties" "Paying the rent"
+2021-11-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -634,7 +634,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2021-12-06 * "RiverBank Properties" "Paying the rent"
+2021-12-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
@@ -660,7 +660,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                           -4.00 USD
   Expenses:Financial:Fees                            4.00 USD
 
-2022-01-04 * "RiverBank Properties" "Paying the rent"
+2022-01-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Home:Rent                              2400.00 USD
 
