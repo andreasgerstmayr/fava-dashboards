@@ -17,7 +17,7 @@ class FavaDashboards(FavaExtensionBase):
         js_path = os.path.join(
             os.path.dirname(os.path.abspath(__file__)), "static", path
         )
-        with open(js_path) as f:
+        with open(js_path, encoding="utf-8") as f:
             return f.read()
 
     def read_config(self):
@@ -25,7 +25,7 @@ class FavaDashboards(FavaExtensionBase):
         config_file = os.path.abspath(ext_config.get("config", "dashboards.yaml"))
 
         try:
-            with open(config_file) as f:
+            with open(config_file, encoding="utf-8") as f:
                 return yaml.safe_load(f)
         except Exception as ex:
             raise FavaAPIException(
