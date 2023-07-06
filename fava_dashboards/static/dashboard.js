@@ -50,11 +50,19 @@ class Helpers {
 }
 
 class Panel {
-    static html(elem, content) {
+    static html(ledger, panel, elem) {
+        // pass 'fava' for backwards compatibility
+        const scriptFn = new Function(["panel", "ledger", "fava", "helpers"], panel.script);
+        const content = scriptFn(panel, ledger, ledger, Helpers);
+
         elem.innerHTML = content;
     }
 
-    static echarts(elem, options) {
+    static echarts(ledger, panel, elem) {
+        // pass 'fava' for backwards compatibility
+        const scriptFn = new Function(["panel", "ledger", "fava", "helpers"], panel.script);
+        const options = scriptFn(panel, ledger, ledger, Helpers);
+
         const chart = echarts.init(elem);
         if (options.onClick) {
             chart.on("click", options.onClick);
@@ -67,25 +75,29 @@ class Panel {
         chart.setOption(options);
     }
 
-    static d3_sankey(elem, options) {
+    static d3_sankey(ledger, panel, elem) {
+        // pass 'fava' for backwards compatibility
+        const scriptFn = new Function(["panel", "ledger", "fava", "helpers"], panel.script);
+        const options = scriptFn(panel, ledger, ledger, Helpers);
+
         render_d3sankey(elem, options);
+    }
+
+    static jinja2(ledger, panel, elem) {
+        elem.innerHTML = panel.template;
     }
 }
 
 function renderDashboard(ledger, dashboard) {
     for (let i = 0; i < dashboard.panels.length; i++) {
         const panel = dashboard.panels[i];
-        if (!panel.type || !panel.script) {
+        if (!panel.type) {
             continue;
         }
 
         const elem = document.getElementById(`panel${i}`);
-        // pass 'fava' for backwards compatibility
-        const scriptFn = new Function(["panel", "ledger", "fava", "helpers"], panel.script);
-        const options = scriptFn(panel, ledger, ledger, Helpers);
-
         if (panel.type in Panel) {
-            Panel[panel.type](elem, options);
+            Panel[panel.type](ledger, panel, elem);
         }
     }
 }

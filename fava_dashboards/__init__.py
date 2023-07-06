@@ -1,7 +1,6 @@
 import os
 import datetime
 import yaml
-from beancount.core.data import Commodity
 from beancount.query.query import run_query
 from fava.ext import FavaExtensionBase
 from fava.helpers import FavaAPIException
@@ -39,18 +38,46 @@ class FavaDashboards(FavaExtensionBase):
             raise FavaAPIException(f"Failed to template query {query}: {ex}")
 
         try:
-            _, rrows = run_query(g.filtered.entries, self.ledger.options, query)
+            rtypes, rrows = run_query(g.filtered.entries, self.ledger.options, query)
         except Exception as ex:
             raise FavaAPIException(f"Failed to execute query {query}: {ex}")
-        return rrows
+        return rtypes, rrows
 
-    def process_panel(self, ledger, panel):
+    def process_queries(self, ledger, panel):
         for query in panel.get("queries", []):
             if "bql" in query:
                 # pass 'fava' for backwards compatibility
-                query["result"] = self.exec_query(
-                    query["bql"], {"panel": panel, "ledger": ledger, "fava": ledger}
+                tmpl = {"panel": panel, "ledger": ledger, "fava": ledger}
+                query["result_types"], query["result"] = self.exec_query(
+                    query["bql"], tmpl
                 )
+
+    def process_jinja2(self, ledger, panel):
+        if panel.get("type") != "jinja2":
+            return
+
+        template = panel.get("template", "")
+        tmpl = {
+            "panel": panel,
+            "ledger": ledger,
+            "fava": ledger,
+            "favaledger": self.ledger,
+        }
+        try:
+            panel["template"] = render_template_string(template, **tmpl)
+        except Exception as ex:
+            raise FavaAPIException(f"Failed to parse template {template}: {ex}")
+
+    def sanitize_panel(self, ledger, panel):
+        """remove fields which are not JSON serializable"""
+        for query in panel.get("queries", []):
+            if "result_types" in query:
+                del query["result_types"]
+
+    def process_panel(self, ledger, panel):
+        self.process_queries(ledger, panel)
+        self.process_jinja2(ledger, panel)
+        self.sanitize_panel(ledger, panel)
 
     def bootstrap(self, dashboard_id):
         operating_currencies = self.ledger.options["operating_currency"]
