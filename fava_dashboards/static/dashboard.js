@@ -50,18 +50,18 @@ class Helpers {
 }
 
 class Panel {
-    static html(ledger, panel, elem) {
+    static runScript(ledger, panel) {
         // pass 'fava' for backwards compatibility
         const scriptFn = new Function(["panel", "ledger", "fava", "helpers"], panel.script);
-        const content = scriptFn(panel, ledger, ledger, Helpers);
+        return scriptFn(panel, ledger, ledger, Helpers);
+    }
 
-        elem.innerHTML = content;
+    static html(ledger, panel, elem) {
+        elem.innerHTML = Panel.runScript(ledger, panel);
     }
 
     static echarts(ledger, panel, elem) {
-        // pass 'fava' for backwards compatibility
-        const scriptFn = new Function(["panel", "ledger", "fava", "helpers"], panel.script);
-        const options = scriptFn(panel, ledger, ledger, Helpers);
+        const options = Panel.runScript(ledger, panel);
 
         const chart = echarts.init(elem);
         if (options.onClick) {
@@ -76,10 +76,7 @@ class Panel {
     }
 
     static d3_sankey(ledger, panel, elem) {
-        // pass 'fava' for backwards compatibility
-        const scriptFn = new Function(["panel", "ledger", "fava", "helpers"], panel.script);
-        const options = scriptFn(panel, ledger, ledger, Helpers);
-
+        const options = Panel.runScript(ledger, panel);
         render_d3sankey(elem, options);
     }
 
