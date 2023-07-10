@@ -38,6 +38,7 @@ It can contain Jinja template syntax to access the `panel` and `ledger` variable
 The query results can be accessed via `panel.queries[i].result`, where `i` is the index of the query in the `queries` field.
 Note: Additionally to the Beancount query, Fava's filter bar further filters the available entries of the ledger.
 
+**HTML, echarts and d3-sankey panels:**
 The `script` field must contain valid JavaScript code.
 It must return a valid configuration depending on the panel `type`.
 The following variables and functions are available:
@@ -51,13 +52,19 @@ The following variables and functions are available:
 * `helpers.iterateYears(dateFirst, dateLast)`: iterate over all years between `dateFirst` and `dateLast`, e.g. `[2022, 2023, ...]`
 * `helpers.buildAccountTree(rows, valueFn)`: build an account tree based on the results of a BQL query
 
+**Jinja2 panels:**
+The `template` field must contain valid Jinja2 template code.
+The following variables are available:
+* `panel`: see above
+* `ledger`: see above
+* `favaledger`: a reference to the `FavaLedger` object
+
 ### Common Panel Properties
 * `title`: title of the panel. Default: unset
 * `width`: width of the panel. Default: 100%
 * `height`: height of the panel. Default: 400px
 * `queries`: a list of dicts with a `bql` attribute.
-* `type`: panel type. Must be one of `html`, `echarts` or `d3_sankey`.
-* `script`: JavaScript code to transform the BQL queries (available in `panel.queries[i].result`) into HTML content, echarts or d3-sankey chart options.
+* `type`: panel type. Must be one of `html`, `echarts`, `d3_sankey` or `jinja2`.
 
 ### HTML panel
 The `script` code of HTML panels must return valid HTML.
@@ -70,6 +77,10 @@ Please take a look at the [ECharts examples](https://echarts.apache.org/examples
 ### d3-sankey panel
 The `script` code of d3-sankey panels must return valid d3-sankey chart options.
 Please take a look at the example dashboard configuration [dashboards.yaml](example/dashboards.yaml).
+
+### Jinja2 panel
+The `template` field of Jinja2 panels must contain valid Jinja2 template code.
+The rendered template will be shown in the panel.
 
 ## View Example Ledger
 `cd example; fava example.beancount`

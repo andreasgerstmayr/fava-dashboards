@@ -706,6 +706,14 @@ dashboards:
         },
       };
 
+  - title: Top 5 biggest expenses
+    queries:
+    - bql: SELECT date, payee, narration, position WHERE account ~ "^Expenses:" ORDER BY position DESC LIMIT 5
+    type: jinja2
+    template: |
+      {% import "_query_table.html" as querytable %}
+      {{ querytable.querytable(favaledger, None, panel.queries[0].result_types, panel.queries[0].result) }}
+
 - name: Travelling
   panels:
   - title: Travel Costs per Year 📅
