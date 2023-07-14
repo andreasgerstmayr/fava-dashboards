@@ -41,20 +41,27 @@ dashboards:
         WHERE account ~ '^Income:'
         GROUP BY year, month
       link: /beancount/account/Income/?time={time}
-    - name: Home
+    - name: Housing
       stack: expenses
       bql: |
         SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ '^Expenses:Home:'
+        WHERE account ~ '^Expenses:Housing:' AND NOT 'travel' IN tags
         GROUP BY year, month
-      link: /beancount/account/Expenses:Home/?time={time}
+      link: /beancount/account/Expenses:Housing/?filter=-#travel&time={time}
     - name: Food
       stack: expenses
       bql: |
         SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ '^Expenses:Food:'
+        WHERE account ~ '^Expenses:Food:' AND NOT 'travel' IN tags
         GROUP BY year, month
-      link: /beancount/account/Expenses:Food/?time={time}
+      link: /beancount/account/Expenses:Food/?filter=-#travel&time={time}
+    - name: Shopping
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^Expenses:Shopping:' AND NOT 'travel' IN tags
+        GROUP BY year, month
+      link: /beancount/account/Expenses:Shopping/?filter=-#travel&time={time}
     - name: Travel
       stack: expenses
       bql: |
@@ -66,9 +73,9 @@ dashboards:
       stack: expenses
       bql: |
         SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ '^Expenses:' AND NOT account ~ '^Expenses:(Home|Food):' AND NOT 'travel' IN tags
+        WHERE account ~ '^Expenses:' AND NOT account ~ '^Expenses:(Housing|Food|Shopping):' AND NOT 'travel' IN tags
         GROUP BY year, month
-      link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Home|Food)") -#travel&time={time}
+      link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Housing|Food|Shopping)") -#travel&time={time}
     type: echarts
     script: &stacked_barcharts |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -525,7 +532,7 @@ dashboards:
       const value = `${currencyFormat.format(rate)} (${percentFormat.format(ratePercent)})`;
       return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
 
-  - title: Income Categories 💸
+  - title: Income Categories (per month) 💸
     width: 50%
     queries:
     - bql: |
@@ -541,6 +548,8 @@ dashboards:
         maximumFractionDigits: 0,
       });
       const maxLevels = 3;
+      const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
+      const divisor = days / (365 / 12);
 
       const root = { children: [] };
       for (let row of panel.queries[0].result) {
@@ -555,7 +564,7 @@ dashboards:
           }
           node = child;
         }
-        node.value = (node.value ?? 0) + -row.value[ledger.ccy];
+        node.value = (node.value ?? 0) + -row.value[ledger.ccy] / divisor;
       }
 
       return {
@@ -581,7 +590,7 @@ dashboards:
         },
       };
 
-  - title: Expenses Categories 💸
+  - title: Expenses Categories (per month) 💸
     width: 50%
     queries:
     - bql: |
@@ -597,6 +606,8 @@ dashboards:
         maximumFractionDigits: 0,
       });
       const maxLevels = 2;
+      const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
+      const divisor = days / (365 / 12);
 
       const root = { children: [] };
       for (let row of panel.queries[0].result) {
@@ -611,7 +622,7 @@ dashboards:
           }
           node = child;
         }
-        node.value = (node.value ?? 0) + row.value[ledger.ccy];
+        node.value = (node.value ?? 0) + row.value[ledger.ccy] / divisor;
       }
 
       return {
@@ -706,9 +717,128 @@ dashboards:
         },
       };
 
-  - title: Top 5 biggest expenses
+  - title: Expenses Year-Over-Year 💸
     queries:
-    - bql: SELECT date, payee, narration, position WHERE account ~ "^Expenses:" ORDER BY position DESC LIMIT 5
+    - name: Housing
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^Expenses:Housing:' AND NOT 'travel' IN tags
+        GROUP BY year, month
+      link: /beancount/account/Expenses:Housing/?filter=-#travel&time={time}
+    - name: Food
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^Expenses:Food:' AND NOT 'travel' IN tags
+        GROUP BY year, month
+      link: /beancount/account/Expenses:Food/?filter=-#travel&time={time}
+    - name: Shopping
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^Expenses:Shopping:' AND NOT 'travel' IN tags
+        GROUP BY year, month
+      link: /beancount/account/Expenses:Shopping/?filter=-#travel&time={time}
+    - name: Travel
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^Expenses:' AND 'travel' IN tags
+        GROUP BY year, month
+      link: /beancount/account/Expenses/?filter=#travel&time={time}
+    - name: Other
+      stack: expenses
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^Expenses:' AND NOT account ~ '^Expenses:(Housing|Food|Shopping):' AND NOT 'travel' IN tags
+        GROUP BY year, month
+      link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Housing|Food|Shopping)") -#travel&time={time}
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "Mai",
+        "June",
+        "July",
+        "August",
+        "September",
+        "Oktober",
+        "November",
+        "December",
+      ];
+      const years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);
+
+      // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
+      const amounts = {};
+      for (let query of panel.queries) {
+        amounts[query.name] = {};
+        for (let row of query.result) {
+          amounts[query.name][`${row.month}/${row.year}`] = row.value[ledger.ccy];
+        }
+      }
+
+      let series = [];
+      for (let query of panel.queries) {
+        for (let year of years) {
+          series.push({
+            type: "bar",
+            name: query.name,
+            stack: year,
+            blub: 5,
+            data: months.map((_, i) => amounts[query.name][`${i + 1}/${year}`] ?? 0),
+          });
+        }
+      }
+
+      return {
+        tooltip: {
+          formatter: (params) => {
+            const month = params.dataIndex + 1;
+            const stackIdx = params.seriesIndex % years.length;
+            const year = years[stackIdx];
+            return `${params.seriesName}<br>${
+              params.marker
+            } ${month}/${year} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+              params.value
+            )}</span>`;
+          },
+        },
+        legend: {
+          top: "bottom",
+        },
+        xAxis: {
+          data: months,
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: currencyFormat.format,
+          },
+        },
+        series,
+        onClick: (event) => {
+          const query = panel.queries.find((q) => q.name === event.seriesName);
+          if (query) {
+            const month = event.dataIndex + 1;
+            const stackIdx = event.seriesIndex % years.length;
+            const year = years[stackIdx];
+            const link = query.link.replaceAll("#", "%23").replace("{time}", `${year}-${month.toString().padStart(2, "0")}`);
+            window.open(link);
+          }
+        },
+      };
+
+  - title: Top 10 biggest expenses
+    queries:
+    - bql: SELECT date, payee, narration, position WHERE account ~ "^Expenses:" ORDER BY position DESC LIMIT 10
     type: jinja2
     template: |
       {% import "_query_table.html" as querytable %}

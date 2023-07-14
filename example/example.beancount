@@ -102,19 +102,19 @@ option "operating_currency" "USD"
 
 2020-01-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-01-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-01-20 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -57.87 USD
-  Expenses:Home:Phone                               57.87 USD
+  Expenses:Housing:Phone                            57.87 USD
 
 2020-01-21 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.99 USD
-  Expenses:Home:Internet                            79.99 USD
+  Expenses:Housing:Internet                         79.99 USD
 
 2020-01-25 balance Assets:US:BofA:Checking        2851.83 USD
 
@@ -124,25 +124,25 @@ option "operating_currency" "USD"
 
 2020-02-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-02-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-02-17 balance Assets:US:BofA:Checking        2491.46 USD
 
 2020-02-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -60.94 USD
-  Expenses:Home:Phone                               60.94 USD
+  Expenses:Housing:Phone                            60.94 USD
 
 2020-02-23 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.13 USD
-  Expenses:Home:Internet                            80.13 USD
+  Expenses:Housing:Internet                         80.13 USD
 
 2020-03-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-03-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -150,23 +150,23 @@ option "operating_currency" "USD"
 
 2020-03-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-03-11 balance Assets:US:BofA:Checking         689.56 USD
 
 2020-03-19 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -57.31 USD
-  Expenses:Home:Phone                               57.31 USD
+  Expenses:Housing:Phone                            57.31 USD
 
 2020-03-21 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.93 USD
-  Expenses:Home:Internet                            79.93 USD
+  Expenses:Housing:Internet                         79.93 USD
 
 2020-04-02 balance Assets:US:BofA:Checking        3253.52 USD
 
 2020-04-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-04-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -174,15 +174,15 @@ option "operating_currency" "USD"
 
 2020-04-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-04-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -55.86 USD
-  Expenses:Home:Phone                               55.86 USD
+  Expenses:Housing:Phone                            55.86 USD
 
 2020-04-23 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.88 USD
-  Expenses:Home:Internet                            79.88 USD
+  Expenses:Housing:Internet                         79.88 USD
 
 2020-04-30 balance Assets:US:BofA:Checking        2565.55 USD
 
@@ -192,19 +192,19 @@ option "operating_currency" "USD"
 
 2020-05-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-05-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-05-19 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -49.72 USD
-  Expenses:Home:Phone                               49.72 USD
+  Expenses:Housing:Phone                            49.72 USD
 
 2020-05-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.92 USD
-  Expenses:Home:Internet                            79.92 USD
+  Expenses:Housing:Internet                         79.92 USD
 
 2020-05-27 balance Assets:US:BofA:Checking        1907.32 USD
 
@@ -214,21 +214,21 @@ option "operating_currency" "USD"
 
 2020-06-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-06-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-06-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -52.18 USD
-  Expenses:Home:Phone                               52.18 USD
+  Expenses:Housing:Phone                            52.18 USD
 
 2020-06-19 balance Assets:US:BofA:Checking        1406.63 USD
 
 2020-06-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.78 USD
-  Expenses:Home:Internet                            79.78 USD
+  Expenses:Housing:Internet                         79.78 USD
 
 2020-07-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -236,21 +236,21 @@ option "operating_currency" "USD"
 
 2020-07-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-07-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-07-12 balance Assets:US:BofA:Checking              0 USD
 
 2020-07-19 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -54.58 USD
-  Expenses:Home:Phone                               54.58 USD
+  Expenses:Housing:Phone                            54.58 USD
 
 2020-07-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.17 USD
-  Expenses:Home:Internet                            80.17 USD
+  Expenses:Housing:Internet                         80.17 USD
 
 2020-08-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -258,21 +258,21 @@ option "operating_currency" "USD"
 
 2020-08-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-08-08 balance Assets:US:BofA:Checking         862.45 USD
 
 2020-08-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-08-20 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -27.85 USD
-  Expenses:Home:Phone                               27.85 USD
+  Expenses:Housing:Phone                            27.85 USD
 
 2020-08-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.06 USD
-  Expenses:Home:Internet                            80.06 USD
+  Expenses:Housing:Internet                         80.06 USD
 
 2020-09-03 balance Assets:US:BofA:Checking        5232.37 USD
 
@@ -282,11 +282,11 @@ option "operating_currency" "USD"
 
 2020-09-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-09-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-09-11 * "Transfering accumulated savings to other account"
   Assets:US:BofA:Checking                           -3500 USD
@@ -294,11 +294,11 @@ option "operating_currency" "USD"
 
 2020-09-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -61.53 USD
-  Expenses:Home:Phone                               61.53 USD
+  Expenses:Housing:Phone                            61.53 USD
 
 2020-09-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.96 USD
-  Expenses:Home:Internet                            79.96 USD
+  Expenses:Housing:Internet                         79.96 USD
 
 2020-09-24 balance Assets:US:BofA:Checking         976.51 USD
 
@@ -308,21 +308,21 @@ option "operating_currency" "USD"
 
 2020-10-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-10-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-10-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -65.35 USD
-  Expenses:Home:Phone                               65.35 USD
+  Expenses:Housing:Phone                            65.35 USD
 
 2020-10-22 balance Assets:US:BofA:Checking        2900.73 USD
 
 2020-10-23 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.13 USD
-  Expenses:Home:Internet                            80.13 USD
+  Expenses:Housing:Internet                         80.13 USD
 
 2020-10-23 * "Transfering accumulated savings to other account"
   Assets:US:BofA:Checking                           -4000 USD
@@ -334,21 +334,21 @@ option "operating_currency" "USD"
 
 2020-11-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-11-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-11-14 balance Assets:US:BofA:Checking         627.99 USD
 
 2020-11-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -56.26 USD
-  Expenses:Home:Phone                               56.26 USD
+  Expenses:Housing:Phone                            56.26 USD
 
 2020-11-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.08 USD
-  Expenses:Home:Internet                            80.08 USD
+  Expenses:Housing:Internet                         80.08 USD
 
 2020-12-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -356,27 +356,27 @@ option "operating_currency" "USD"
 
 2020-12-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2020-12-06 balance Assets:US:BofA:Checking        3227.31 USD
 
 2020-12-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2020-12-20 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -59.07 USD
-  Expenses:Home:Phone                               59.07 USD
+  Expenses:Housing:Phone                            59.07 USD
 
 2020-12-21 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.04 USD
-  Expenses:Home:Internet                            80.04 USD
+  Expenses:Housing:Internet                         80.04 USD
 
 2020-12-29 balance Assets:US:BofA:Checking        5192.27 USD
 
 2021-01-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-01-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -384,15 +384,15 @@ option "operating_currency" "USD"
 
 2021-01-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-01-19 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -54.81 USD
-  Expenses:Home:Phone                               54.81 USD
+  Expenses:Housing:Phone                            54.81 USD
 
 2021-01-21 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.85 USD
-  Expenses:Home:Internet                            79.85 USD
+  Expenses:Housing:Internet                         79.85 USD
 
 2021-01-24 balance Assets:US:BofA:Checking        5948.79 USD
 
@@ -402,25 +402,25 @@ option "operating_currency" "USD"
 
 2021-02-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-02-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-02-14 balance Assets:US:BofA:Checking        5465.26 USD
 
 2021-02-20 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -56.80 USD
-  Expenses:Home:Phone                               56.80 USD
+  Expenses:Housing:Phone                            56.80 USD
 
 2021-02-23 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.97 USD
-  Expenses:Home:Internet                            79.97 USD
+  Expenses:Housing:Internet                         79.97 USD
 
 2021-03-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-03-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -430,15 +430,15 @@ option "operating_currency" "USD"
 
 2021-03-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-03-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -56.55 USD
-  Expenses:Home:Phone                               56.55 USD
+  Expenses:Housing:Phone                            56.55 USD
 
 2021-03-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.01 USD
-  Expenses:Home:Internet                            80.01 USD
+  Expenses:Housing:Internet                         80.01 USD
 
 2021-04-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -448,19 +448,19 @@ option "operating_currency" "USD"
 
 2021-04-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-04-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-04-19 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -65.51 USD
-  Expenses:Home:Phone                               65.51 USD
+  Expenses:Housing:Phone                            65.51 USD
 
 2021-04-21 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.02 USD
-  Expenses:Home:Internet                            80.02 USD
+  Expenses:Housing:Internet                         80.02 USD
 
 2021-05-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -468,21 +468,21 @@ option "operating_currency" "USD"
 
 2021-05-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-05-06 balance Assets:US:BofA:Checking        2271.16 USD
 
 2021-05-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-05-20 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -67.10 USD
-  Expenses:Home:Phone                               67.10 USD
+  Expenses:Housing:Phone                            67.10 USD
 
 2021-05-23 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.88 USD
-  Expenses:Home:Internet                            79.88 USD
+  Expenses:Housing:Internet                         79.88 USD
 
 2021-06-01 balance Assets:US:BofA:Checking        3988.47 USD
 
@@ -492,21 +492,21 @@ option "operating_currency" "USD"
 
 2021-06-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-06-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-06-20 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -78.01 USD
-  Expenses:Home:Phone                               78.01 USD
+  Expenses:Housing:Phone                            78.01 USD
 
 2021-06-21 balance Assets:US:BofA:Checking        3261.49 USD
 
 2021-06-23 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.06 USD
-  Expenses:Home:Internet                            80.06 USD
+  Expenses:Housing:Internet                         80.06 USD
 
 2021-07-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -514,21 +514,21 @@ option "operating_currency" "USD"
 
 2021-07-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-07-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-07-14 balance Assets:US:BofA:Checking        1602.15 USD
 
 2021-07-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -83.30 USD
-  Expenses:Home:Phone                               83.30 USD
+  Expenses:Housing:Phone                            83.30 USD
 
 2021-07-23 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.02 USD
-  Expenses:Home:Internet                            80.02 USD
+  Expenses:Housing:Internet                         80.02 USD
 
 2021-08-03 balance Assets:US:BofA:Checking        4140.03 USD
 
@@ -538,25 +538,25 @@ option "operating_currency" "USD"
 
 2021-08-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-08-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-08-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -56.04 USD
-  Expenses:Home:Phone                               56.04 USD
+  Expenses:Housing:Phone                            56.04 USD
 
 2021-08-23 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.86 USD
-  Expenses:Home:Internet                            79.86 USD
+  Expenses:Housing:Internet                         79.86 USD
 
 2021-08-24 balance Assets:US:BofA:Checking        3057.64 USD
 
 2021-09-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-09-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -564,7 +564,7 @@ option "operating_currency" "USD"
 
 2021-09-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-09-10 * "Transfering accumulated savings to other account"
   Assets:US:BofA:Checking                           -4500 USD
@@ -572,17 +572,17 @@ option "operating_currency" "USD"
 
 2021-09-20 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -28.70 USD
-  Expenses:Home:Phone                               28.70 USD
+  Expenses:Housing:Phone                            28.70 USD
 
 2021-09-21 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.97 USD
-  Expenses:Home:Internet                            79.97 USD
+  Expenses:Housing:Internet                         79.97 USD
 
 2021-09-23 balance Assets:US:BofA:Checking         532.93 USD
 
 2021-10-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-10-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -590,17 +590,17 @@ option "operating_currency" "USD"
 
 2021-10-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-10-14 balance Assets:US:BofA:Checking        2671.54 USD
 
 2021-10-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -41.37 USD
-  Expenses:Home:Phone                               41.37 USD
+  Expenses:Housing:Phone                            41.37 USD
 
 2021-10-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.00 USD
-  Expenses:Home:Internet                            80.00 USD
+  Expenses:Housing:Internet                         80.00 USD
 
 2021-10-22 * "Transfering accumulated savings to other account"
   Assets:US:BofA:Checking                           -4000 USD
@@ -612,21 +612,21 @@ option "operating_currency" "USD"
 
 2021-11-05 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-11-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-11-10 balance Assets:US:BofA:Checking        1182.37 USD
 
 2021-11-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -74.51 USD
-  Expenses:Home:Phone                               74.51 USD
+  Expenses:Housing:Phone                            74.51 USD
 
 2021-11-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.11 USD
-  Expenses:Home:Internet                            80.11 USD
+  Expenses:Housing:Internet                         80.11 USD
 
 2021-12-03 balance Assets:US:BofA:Checking        5402.62 USD
 
@@ -636,11 +636,11 @@ option "operating_currency" "USD"
 
 2021-12-06 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2021-12-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2021-12-17 * "Transfering accumulated savings to other account"
   Assets:US:BofA:Checking                           -4000 USD
@@ -648,11 +648,11 @@ option "operating_currency" "USD"
 
 2021-12-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -61.23 USD
-  Expenses:Home:Phone                               61.23 USD
+  Expenses:Housing:Phone                            61.23 USD
 
 2021-12-21 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.96 USD
-  Expenses:Home:Internet                            79.96 USD
+  Expenses:Housing:Internet                         79.96 USD
 
 2021-12-31 balance Assets:US:BofA:Checking        3594.05 USD
 
@@ -662,19 +662,19 @@ option "operating_currency" "USD"
 
 2022-01-04 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
-  Expenses:Home:Rent                              2400.00 USD
+  Expenses:Housing:Rent                           2400.00 USD
 
 2022-01-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
-  Expenses:Home:Electricity                         65.00 USD
+  Expenses:Housing:Electricity                      65.00 USD
 
 2022-01-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -47.33 USD
-  Expenses:Home:Phone                               47.33 USD
+  Expenses:Housing:Phone                            47.33 USD
 
 2022-01-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.93 USD
-  Expenses:Home:Internet                            79.93 USD
+  Expenses:Housing:Internet                         79.93 USD
 
 2022-01-23 balance Assets:US:BofA:Checking        1825.44 USD
 
@@ -4391,6 +4391,9 @@ option "operating_currency" "USD"
   Expenses:Taxes:Y2022:US:SocSec                   281.54 USD
 
 
+2022-02-28 * "Hardware Store" "Notebook"
+  Assets:US:BofA:Checking                         -900.00 USD
+  Expenses:Shopping:Electronics
 
 * Taxes
 
@@ -4459,12 +4462,13 @@ option "operating_currency" "USD"
 1980-05-12 open Expenses:Food:Coffee
 1980-05-12 open Expenses:Food:Alcohol
 1980-05-12 open Expenses:Transport:Tram
-1980-05-12 open Expenses:Home:Rent
-1980-05-12 open Expenses:Home:Electricity
-1980-05-12 open Expenses:Home:Internet
-1980-05-12 open Expenses:Home:Phone
+1980-05-12 open Expenses:Housing:Rent
+1980-05-12 open Expenses:Housing:Electricity
+1980-05-12 open Expenses:Housing:Internet
+1980-05-12 open Expenses:Housing:Phone
 1980-05-12 open Expenses:Financial:Fees
 1980-05-12 open Expenses:Financial:Commissions
+1980-05-12 open Expenses:Shopping:Electronics
 
 
 
