@@ -57,11 +57,21 @@ class Panel {
     }
 
     static html(ledger, panel, elem) {
-        elem.innerHTML = Panel.runScript(ledger, panel);
+        try {
+            elem.innerHTML = Panel.runScript(ledger, panel);
+        } catch (e) {
+            elem.innerHTML = e;
+        }
     }
 
     static echarts(ledger, panel, elem) {
-        const options = Panel.runScript(ledger, panel);
+        let options;
+        try {
+            options = Panel.runScript(ledger, panel);
+        } catch (e) {
+            elem.innerHTML = e;
+            return;
+        }
 
         const chart = echarts.init(elem);
         if (options.onClick) {
@@ -76,7 +86,14 @@ class Panel {
     }
 
     static d3_sankey(ledger, panel, elem) {
-        const options = Panel.runScript(ledger, panel);
+        let options;
+        try {
+            options = Panel.runScript(ledger, panel);
+        } catch (e) {
+            elem.innerHTML = e;
+            return;
+        }
+
         render_d3sankey(elem, options);
     }
 
