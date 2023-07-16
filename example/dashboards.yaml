@@ -539,7 +539,7 @@ dashboards:
         SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Income:'
         GROUP BY account
-      link: /beancount/account/{account}/?time={time}
+      link: /beancount/account/{account}/changes/?time={time}
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -567,6 +567,9 @@ dashboards:
         node.value = (node.value ?? 0) + -row.value[ledger.ccy] / divisor;
       }
 
+      // use click event on desktop, dblclick on mobile
+      const clickEvt = window.screen.width < 800 ? "onDblClick" : "onClick";
+
       return {
         tooltip: {
           valueFormatter: currencyFormat.format,
@@ -582,7 +585,7 @@ dashboards:
             data: root.children[0].children,
           },
         ],
-        onClick: (event) => {
+        [clickEvt]: (event) => {
           const account = "Income" + event.treePathInfo.map((i) => i.name).join(":");
           const time = new URLSearchParams(window.location.search).get("time") ?? "";
           const link = panel.queries[0].link.replaceAll("#", "%23").replace("{account}", account).replace("{time}", time);
@@ -597,7 +600,7 @@ dashboards:
         SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:'
         GROUP BY account
-      link: /beancount/account/{account}/?time={time}
+      link: /beancount/account/{account}/changes/?time={time}
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -625,6 +628,9 @@ dashboards:
         node.value = (node.value ?? 0) + row.value[ledger.ccy] / divisor;
       }
 
+      // use click event on desktop, dblclick on mobile
+      const clickEvt = window.screen.width < 800 ? "onDblClick" : "onClick";
+
       return {
         tooltip: {
           valueFormatter: currencyFormat.format,
@@ -640,7 +646,7 @@ dashboards:
             data: root.children[0].children,
           },
         ],
-        onClick: (event) => {
+        [clickEvt]: (event) => {
           const account = "Expenses" + event.treePathInfo.map((i) => i.name).join(":");
           const time = new URLSearchParams(window.location.search).get("time") ?? "";
           const link = panel.queries[0].link.replaceAll("#", "%23").replace("{account}", account).replace("{time}", time);
