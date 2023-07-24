@@ -3,7 +3,7 @@ import datetime
 import yaml
 from beancount.query.query import run_query
 from fava.ext import FavaExtensionBase
-from fava.helpers import FavaAPIException
+from fava.helpers import FavaAPIError
 from fava.context import g
 from fava.application import render_template_string
 
@@ -27,20 +27,18 @@ class FavaDashboards(FavaExtensionBase):
             with open(config_file, encoding="utf-8") as f:
                 return yaml.safe_load(f)
         except Exception as ex:
-            raise FavaAPIException(
-                f"Cannot read configuration file {config_file}: {ex}"
-            )
+            raise FavaAPIError(f"Cannot read configuration file {config_file}: {ex}")
 
     def exec_query(self, query, tmpl):
         try:
             query = render_template_string(query, **tmpl)
         except Exception as ex:
-            raise FavaAPIException(f"Failed to template query {query}: {ex}")
+            raise FavaAPIError(f"Failed to template query {query}: {ex}")
 
         try:
             rtypes, rrows = run_query(g.filtered.entries, self.ledger.options, query)
         except Exception as ex:
-            raise FavaAPIException(f"Failed to execute query {query}: {ex}")
+            raise FavaAPIError(f"Failed to execute query {query}: {ex}")
         return rtypes, rrows
 
     def process_queries(self, ledger, panel):
@@ -66,7 +64,7 @@ class FavaDashboards(FavaExtensionBase):
         try:
             panel["template"] = render_template_string(template, **tmpl)
         except Exception as ex:
-            raise FavaAPIException(f"Failed to parse template {template}: {ex}")
+            raise FavaAPIError(f"Failed to parse template {template}: {ex}")
 
     def sanitize_panel(self, ledger, panel):
         """remove fields which are not JSON serializable"""
@@ -93,7 +91,7 @@ class FavaDashboards(FavaExtensionBase):
         config = self.read_config()
         dashboards = config.get("dashboards", [])
         if not (0 <= dashboard_id < len(dashboards)):
-            raise FavaAPIException(f"Invalid dashboard ID: {dashboard_id}")
+            raise FavaAPIError(f"Invalid dashboard ID: {dashboard_id}")
 
         for panel in dashboards[dashboard_id].get("panels", []):
             self.process_panel(ledger, panel)
