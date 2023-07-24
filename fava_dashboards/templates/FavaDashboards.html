@@ -23,7 +23,7 @@
     {% if dashboard_id == loop.index0 %}
       {{ dashboard.name }}
     {% else %}
-      <a href="{{ url_for('extension_report', report_name='FavaDashboards', dashboard=loop.index0, extension_name='FavaDashboards') }}">{{ dashboard.name }}</a>
+      <a href="{{ url_for('extension_report', extension_name='FavaDashboards', dashboard=loop.index0) }}">{{ dashboard.name }}</a>
     {% endif %}
   </h3>
   {% endfor %}
