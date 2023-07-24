@@ -27,14 +27,15 @@ class Helpers {
         return years;
     }
 
-    static buildAccountTree(rows, valueFn) {
+    static buildAccountTree(rows, valueFn, nameFn) {
+        nameFn = nameFn ?? ((parts, i) => parts.slice(0, i + 1).join(":"));
+
         const accountTree = { children: [] };
         for (let row of rows) {
             const accountParts = row.account.split(":");
             let node = accountTree;
             for (let i = 0; i < accountParts.length; i++) {
-                const account = accountParts.slice(0, i + 1).join(":");
-
+                const account = nameFn(accountParts, i);
                 let child = node.children.find((c) => c.name == account);
                 if (!child) {
                     child = { name: account, children: [], value: 0 };
