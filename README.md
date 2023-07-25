@@ -85,11 +85,6 @@ The rendered template will be shown in the panel.
 ## View Example Ledger
 `cd example; fava example.beancount`
 
-## Why no React/Svelte/X?
-The main reason is simplicity.
-This project is small enough to use plain HTML/CSS/JS and Jinja2 templates only, and doesn't warrant using a modern and ever-changing web development toolchain.
-Currently it requires only two external dependencies: pyyaml and echarts.
-
 ## Related Projects
 * [Fava Portfolio Returns](https://github.com/andreasgerstmayr/fava-portfolio-returns)
 * [Fava Investor](https://github.com/redstreet/fava_investor)

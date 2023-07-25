@@ -1,6 +1,7 @@
 import os
 import datetime
 import yaml
+from flask import request
 from beancount.query.query import run_query
 from fava.ext import FavaExtensionBase
 from fava.helpers import FavaAPIError
@@ -67,7 +68,7 @@ class FavaDashboards(FavaExtensionBase):
         except Exception as ex:
             raise FavaAPIError(f"Failed to parse template {template}: {ex}")
 
-    def sanitize_panel(self, ledger, panel):
+    def sanitize_panel(self, _, panel):
         """remove fields which are not JSON serializable"""
         for query in panel.get("queries", []):
             if "result_types" in query:
@@ -78,7 +79,9 @@ class FavaDashboards(FavaExtensionBase):
         self.process_jinja2(ledger, panel)
         self.sanitize_panel(ledger, panel)
 
-    def bootstrap(self, dashboard_id):
+    def bootstrap(self):
+        dashboard_id = int(request.args.get("dashboard", "0"))
+
         operating_currencies = self.ledger.options["operating_currency"]
         commodities = {c.currency: c for c in self.ledger.all_entries_by_type.Commodity}
         ledger = {
@@ -94,6 +97,7 @@ class FavaDashboards(FavaExtensionBase):
         if not (0 <= dashboard_id < len(dashboards)):
             raise FavaAPIError(f"Invalid dashboard ID: {dashboard_id}")
 
+        # process current dashboard only
         for panel in dashboards[dashboard_id].get("panels", []):
             self.process_panel(ledger, panel)
 
