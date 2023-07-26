@@ -536,7 +536,7 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        SELECT root(account, 4) AS account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Income:'
         GROUP BY account
       link: /beancount/account/{account}/changes/?time={time}
@@ -547,26 +547,13 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const maxLevels = 3;
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const divisor = days / (365 / 12);
-
-      const root = { children: [] };
-      for (let row of panel.queries[0].result) {
-        const accountParts = row.account.split(":");
-        let node = root;
-        for (let i = 0; i < accountParts.length && i <= maxLevels; i++) {
-          const part = accountParts[i];
-          let child = node.children.find((c) => c.name == part);
-          if (!child) {
-            child = { name: part, children: [] };
-            node.children.push(child);
-          }
-          node = child;
-        }
-        node.value = (node.value ?? 0) + -row.value[ledger.ccy] / divisor;
-      }
-
+      const accountTree = helpers.buildAccountTree(
+        panel.queries[0].result,
+        (row) => -row.value[ledger.ccy] / divisor,
+        (parts, i) => parts[i]
+      );
       // use click event on desktop, dblclick on mobile
       const clickEvt = window.screen.width < 800 ? "onDblClick" : "onClick";
 
@@ -582,7 +569,7 @@ dashboards:
               minAngle: 20,
             },
             nodeClick: false,
-            data: root.children[0].children,
+            data: accountTree.children[0].children,
           },
         ],
         [clickEvt]: (event) => {
@@ -597,7 +584,7 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
+        SELECT root(account, 3) AS account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:'
         GROUP BY account
       link: /beancount/account/{account}/changes/?time={time}
@@ -608,26 +595,13 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const maxLevels = 2;
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const divisor = days / (365 / 12);
-
-      const root = { children: [] };
-      for (let row of panel.queries[0].result) {
-        const accountParts = row.account.split(":");
-        let node = root;
-        for (let i = 0; i < accountParts.length && i <= maxLevels; i++) {
-          const part = accountParts[i];
-          let child = node.children.find((c) => c.name == part);
-          if (!child) {
-            child = { name: part, children: [] };
-            node.children.push(child);
-          }
-          node = child;
-        }
-        node.value = (node.value ?? 0) + row.value[ledger.ccy] / divisor;
-      }
-
+      const accountTree = helpers.buildAccountTree(
+        panel.queries[0].result,
+        (row) => row.value[ledger.ccy] / divisor,
+        (parts, i) => parts[i]
+      );
       // use click event on desktop, dblclick on mobile
       const clickEvt = window.screen.width < 800 ? "onDblClick" : "onClick";
 
@@ -643,7 +617,7 @@ dashboards:
               minAngle: 20,
             },
             nodeClick: false,
-            data: root.children[0].children,
+            data: accountTree.children[0].children,
           },
         ],
         [clickEvt]: (event) => {
@@ -978,7 +952,7 @@ dashboards:
 
       const nodes = [{ name: "Income" }];
       const links = [];
-      function buildSankey(root) {
+      function addNode(root) {
         for (let node of root.children) {
           let label = node.name.split(":").pop();
 
@@ -998,13 +972,13 @@ dashboards:
               value: node.value / divisor,
             });
           }
-          buildSankey(node);
+          addNode(node);
         }
       }
 
       const accountTree = helpers.buildAccountTree(panel.queries[0].result, (row) => row.value[ledger.ccy]);
-      buildSankey(accountTree.children[0]);
-      buildSankey(accountTree.children[1]);
+      addNode(accountTree.children[0]);
+      addNode(accountTree.children[1]);
 
       return {
         align: "left",

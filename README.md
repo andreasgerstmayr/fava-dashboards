@@ -50,7 +50,7 @@ The following variables and functions are available:
 * `ledger.commodities`: declared commodities of the ledger
 * `helpers.iterateMonths(dateFirst, dateLast)`: iterate over all months between `dateFirst` and `dateLast`, e.g. `[{year: 2022, month: 1}, {year: 2022, month: 2}, ...]`
 * `helpers.iterateYears(dateFirst, dateLast)`: iterate over all years between `dateFirst` and `dateLast`, e.g. `[2022, 2023, ...]`
-* `helpers.buildAccountTree(rows, valueFn)`: build an account tree based on the results of a BQL query
+* `helpers.buildAccountTree(rows, valueFn, [nameFn])`: build an account tree based on the results of a BQL query
 
 **Jinja2 panels:**
 The `template` field must contain valid Jinja2 template code.
