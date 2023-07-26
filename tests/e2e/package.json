@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "jest-image-snapshot": "^6.1.0",
+    "jest-puppeteer": "^9.0.0",
+    "jest-serializer-html": "^7.1.0"
+  }
+}

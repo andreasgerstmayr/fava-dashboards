@@ -2,11 +2,11 @@
 fava-dashboards allows creating custom dashboards in [Fava](https://github.com/beancount/fava).
 
 Example dashboards with random data:
-[![Overview](example/overview.png)](example/overview.png)
-[![Assets](example/assets.png)](example/assets.png)
-[![Income and Expenses](example/income_expenses.png)](example/income_expenses.png)
-[![Travelling](example/travelling.png)](example/travelling.png)
-[![Sankey](example/sankey.png)](example/sankey.png)
+[![Overview](tests/e2e/__image_snapshots__/dashboard_overview.png)](tests/e2e/__image_snapshots__/dashboard_overview.png)
+[![Assets](tests/e2e/__image_snapshots__/dashboard_assets.png)](tests/e2e/__image_snapshots__/dashboard_assets.png)
+[![Income and Expenses](tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)](tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)
+[![Travelling](tests/e2e/__image_snapshots__/dashboard_travelling.png)](tests/e2e/__image_snapshots__/dashboard_travelling.png)
+[![Sankey](tests/e2e/__image_snapshots__/dashboard_sankey.png)](tests/e2e/__image_snapshots__/dashboard_sankey.png)
 
 ## Installation
 ```

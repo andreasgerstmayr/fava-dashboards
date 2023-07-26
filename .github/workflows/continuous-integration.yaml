@@ -1,0 +1,36 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Replace canvas renderer with SVG renderer
+        run: |
+          sed -i 's/echarts.init(elem)/echarts.init(elem, null, { renderer: "svg" })/' fava_dashboards/static/dashboard.js
+
+      - name: Install fava-dashboards
+        run: pip3 install .
+
+      - name: Start Fava
+        run: cd example; fava example.beancount &
+
+      - name: Install test dependencies
+        run: cd tests/e2e; npm ci
+
+      - name: Run tests
+        run: cd tests/e2e; npm test -- -t SVG
+
+      - name: Run formatter
+        run: |
+          make format
+          git diff --exit-code
