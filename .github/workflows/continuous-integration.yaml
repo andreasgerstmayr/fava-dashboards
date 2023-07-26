@@ -16,7 +16,13 @@ jobs:
 
       - name: Replace canvas renderer with SVG renderer
         run: |
-          sed -i 's/echarts.init(elem)/echarts.init(elem, null, { renderer: "svg" })/' fava_dashboards/static/dashboard.js
+          sed -i 's/echarts.init(elem)/echarts.init(elem, null, { renderer: "svg" })/' frontend/src/extension.ts
+
+      - name: Install test dependencies
+        run: cd frontend; npm ci
+
+      - name: Build
+        run: cd frontend; npm run build
 
       - name: Install fava-dashboards
         run: pip3 install .
@@ -24,11 +30,8 @@ jobs:
       - name: Start Fava
         run: cd example; fava example.beancount &
 
-      - name: Install test dependencies
-        run: cd tests/e2e; npm ci
-
       - name: Run tests
-        run: cd tests/e2e; npm test -- -t SVG
+        run: cd frontend; npm run test -- -t SVG
 
       - name: Run formatter
         run: |
