@@ -1,15 +1,4 @@
-<!-- https://github.com/beancount/fava/issues/1175 -->
-<script>document.write("<span id='fava-extension-javascript-loaded' />")</script>
-<img src="does_not_exist" style="display:none" onerror="if(!document.getElementById('fava-extension-javascript-loaded')){document.write('Loading JavaScript...');window.location.reload()}">
-
 <style type="text/css">{{ extension.static_file("style.css")|safe }}</style>
-<script>{{ extension.static_file("lib/echarts.min.js")|safe }}</script>
-<script>{{ extension.static_file("lib/d3.v7.min.js")|safe }}</script>
-<script>{{ extension.static_file("lib/d3-sankey.min.js")|safe }}</script>
-<script type="module">
-{{ extension.static_file("sankey.js")|safe }}
-{{ extension.static_file("dashboard.js")|safe }}
-</script>
 
 {% set dashboard_id = request.args.get('dashboard', '0') | int %}
 {% set bootstrap = extension.bootstrap(dashboard_id) %}

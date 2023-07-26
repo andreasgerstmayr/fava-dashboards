@@ -2,11 +2,11 @@
 fava-dashboards allows creating custom dashboards in [Fava](https://github.com/beancount/fava).
 
 Example dashboards with random data:
-[![Overview](tests/e2e/__image_snapshots__/dashboard_overview.png)](tests/e2e/__image_snapshots__/dashboard_overview.png)
-[![Assets](tests/e2e/__image_snapshots__/dashboard_assets.png)](tests/e2e/__image_snapshots__/dashboard_assets.png)
-[![Income and Expenses](tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)](tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)
-[![Travelling](tests/e2e/__image_snapshots__/dashboard_travelling.png)](tests/e2e/__image_snapshots__/dashboard_travelling.png)
-[![Sankey](tests/e2e/__image_snapshots__/dashboard_sankey.png)](tests/e2e/__image_snapshots__/dashboard_sankey.png)
+[![Overview](frontend/tests/e2e/__image_snapshots__/dashboard_overview.png)](frontend/tests/e2e/__image_snapshots__/dashboard_overview.png)
+[![Assets](frontend/tests/e2e/__image_snapshots__/dashboard_assets.png)](frontend/tests/e2e/__image_snapshots__/dashboard_assets.png)
+[![Income and Expenses](frontend/tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)](frontend/tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)
+[![Travelling](frontend/tests/e2e/__image_snapshots__/dashboard_travelling.png)](frontend/tests/e2e/__image_snapshots__/dashboard_travelling.png)
+[![Sankey](frontend/tests/e2e/__image_snapshots__/dashboard_sankey.png)](frontend/tests/e2e/__image_snapshots__/dashboard_sankey.png)
 
 ## Installation
 ```
