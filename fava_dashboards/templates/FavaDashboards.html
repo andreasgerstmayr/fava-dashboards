@@ -1,4 +1,4 @@
-<style type="text/css">{{ extension.static_file("style.css")|safe }}</style>
+<style type="text/css">{% include "style.css" %}</style>
 
 {% set dashboard_id = request.args.get('dashboard', '0') | int %}
 {% set bootstrap = extension.bootstrap(dashboard_id) %}

@@ -12,14 +12,6 @@ class FavaDashboards(FavaExtensionBase):
     report_title = "Dashboards"
     has_js_module = True
 
-    @staticmethod
-    def static_file(path):
-        js_path = os.path.join(
-            os.path.dirname(os.path.abspath(__file__)), "static", path
-        )
-        with open(js_path, encoding="utf-8") as f:
-            return f.read()
-
     def read_config(self):
         ext_config = self.config if isinstance(self.config, dict) else {}
         config_file = os.path.abspath(ext_config.get("config", "dashboards.yaml"))
