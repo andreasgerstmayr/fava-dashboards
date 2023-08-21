@@ -35,7 +35,7 @@ interface AccountTreeNode {
 export const buildAccountTree = (
     rows: any[],
     valueFn: (row: any) => number,
-    nameFn: (parts: string[], i: number) => string
+    nameFn: (parts: string[], i: number) => string,
 ) => {
     nameFn = nameFn ?? ((parts: string[], i: number) => parts.slice(0, i + 1).join(":"));
 

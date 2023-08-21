@@ -103,15 +103,15 @@ export function render_d3sankey(elem, options) {
                     ? `url(#${d.uid})`
                     : edgeColor === "input"
                     ? color(d.source)
-                    : color(d.target)
+                    : color(d.target),
             )
             .attr("stroke-width", (d) => Math.max(1, d.width!));
 
         link.append("title").text(
             (d) =>
                 `${(d.source as SankeyNodeProperties).name} → ${(d.target as SankeyNodeProperties).name}: ${valueFormat(
-                    d.value
-                )}`
+                    d.value,
+                )}`,
         );
 
         // node

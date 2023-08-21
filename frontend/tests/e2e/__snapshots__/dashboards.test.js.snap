@@ -5907,8 +5907,8 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
     <svg viewbox="0,0,1438,800">
       <g stroke="#000">
         <rect x="711.5"
-              y="10.794684512604121"
-              height="719.9999999999998"
+              y="18.865450700534392"
+              height="719.9999999999999"
               width="15"
               fill="#1f77b4"
         >
@@ -5917,8 +5917,8 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </rect>
         <rect x="474.6666666666667"
-              y="9.12872578110558"
-              height="719.9999999999997"
+              y="18.13866633377942"
+              height="720"
               width="15"
               fill="#ff7f0e"
         >
@@ -5927,7 +5927,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </rect>
         <rect x="237.83333333333334"
-              y="7.336599977663184"
+              y="17.35706384790646"
               height="717.9615192370268"
               width="15"
               fill="#2ca02c"
@@ -5937,8 +5937,8 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </rect>
         <rect x="1"
-              y="5"
-              height="661.8902404250964"
+              y="15.404592346406286"
+              height="661.8902404250966"
               width="15"
               fill="#d62728"
         >
@@ -5947,7 +5947,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </rect>
         <rect x="1"
-              y="759.6227402489792"
+              y="687.2948327715029"
               height="3.487723794603653"
               width="15"
               fill="#9467bd"
@@ -5957,7 +5957,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </rect>
         <rect x="1"
-              y="676.8902404250964"
+              y="700.7825565661066"
               height="52.58355501732649"
               width="15"
               fill="#8c564b"
@@ -5967,8 +5967,8 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </rect>
         <rect x="237.83333333333334"
-              y="773.6376342415393"
-              height="2.0384807629732222"
+              y="762.9414618469743"
+              height="2.0384807629731085"
               width="15"
               fill="#e377c2"
         >
@@ -5977,150 +5977,100 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </rect>
         <rect x="1"
-              y="739.4737954424229"
-              height="0.07447240327815052"
-              width="15"
-              fill="#7f7f7f"
-        >
-          <title>
-            Income:US:ETrade:ITOT:Dividend: $1
-          </title>
-        </rect>
-        <rect x="1"
-              y="749.548267845701"
-              height="0.07447240327815052"
-              width="15"
-              fill="#bcbd22"
-        >
-          <title>
-            Income:US:ETrade:VEA:Dividend: $1
-          </title>
-        </rect>
-        <rect x="1"
-              y="773.1104640435829"
+              y="763.366111583433"
               height="1.3850357433989302"
               width="15"
-              fill="#17becf"
+              fill="#7f7f7f"
         >
           <title>
             Income:US:ETrade:PnL: $21
           </title>
         </rect>
-        <rect x="1"
-              y="784.4954997869818"
-              height="0.34103831974152854"
-              width="15"
-              fill="#1f77b4"
-        >
-          <title>
-            Income:US:ETrade:GLD:Dividend: $5
-          </title>
-        </rect>
-        <rect x="1"
-              y="794.8365381067233"
-              height="0.16346189327634875"
-              width="15"
-              fill="#ff7f0e"
-        >
-          <title>
-            Income:US:ETrade:VHT:Dividend: $3
-          </title>
-        </rect>
         <rect x="948.3333333333334"
-              y="301.1960117008892"
-              height="13.896399494124353"
+              y="311.99809961187145"
+              height="13.896399494124466"
               width="15"
-              fill="#2ca02c"
+              fill="#bcbd22"
         >
           <title>
             Expenses:Health: $213
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="321.19601170088936"
-              height="3.4877237946037667"
+              y="335.12256916372894"
+              height="3.4877237946038804"
               width="15"
-              fill="#d62728"
+              fill="#17becf"
         >
           <title>
             Expenses:Health:Life:GroupTermLife: $53
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="402.00885114576795"
-              height="0.415888116955216"
+              y="321.1960117008896"
+              height="3.926557462839355"
               width="15"
-              fill="#9467bd"
-        >
-          <title>
-            Expenses:Health:Dental:Insurance: $6
-          </title>
-        </rect>
-        <rect x="1185.1666666666667"
-              y="334.6837354954931"
-              height="3.9265574628392415"
-              width="15"
-              fill="#8c564b"
+              fill="#1f77b4"
         >
           <title>
             Expenses:Health:Medical:Insurance: $60
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="385.9426210260418"
+              y="348.6102929583328"
               height="6.066230119726129"
               width="15"
-              fill="#e377c2"
+              fill="#ff7f0e"
         >
           <title>
             Expenses:Health:Vision:Insurance: $93
           </title>
         </rect>
         <rect x="948.3333333333334"
-              y="5"
-              height="286.1960117008892"
+              y="4.999999999999998"
+              height="286.19601170088947"
               width="15"
-              fill="#7f7f7f"
+              fill="#2ca02c"
         >
           <title>
             Expenses:Taxes: $4,380
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="5"
-              height="136.63227909036317"
+              y="4.9999999999999964"
+              height="136.63227909036328"
               width="15"
-              fill="#bcbd22"
+              fill="#d62728"
         >
           <title>
             Expenses:Taxes:Y2020:US: $2,091
           </title>
         </rect>
         <rect x="1422"
-              y="5"
-              height="7.24279345313775"
+              y="88.80579979000123"
+              height="7.242793453137736"
               width="15"
-              fill="#17becf"
+              fill="#9467bd"
         >
           <title>
             Expenses:Taxes:Y2020:US:Medicare: $111
           </title>
         </rect>
         <rect x="1422"
-              y="22.24279345313775"
-              height="73.80579979000125"
+              y="5"
+              height="73.80579979000123"
               width="15"
-              fill="#1f77b4"
+              fill="#8c564b"
         >
           <title>
             Expenses:Taxes:Y2020:US:Federal: $1,129
           </title>
         </rect>
         <rect x="1422"
-              y="106.048593243139"
-              height="26.013311103432798"
+              y="106.04859324313897"
+              height="26.013311103432827"
               width="15"
-              fill="#ff7f0e"
+              fill="#e377c2"
         >
           <title>
             Expenses:Taxes:Y2020:US:State: $398
@@ -6130,47 +6080,37 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
               y="142.0619043465718"
               height="11.882474496556483"
               width="15"
-              fill="#2ca02c"
+              fill="#7f7f7f"
         >
           <title>
             Expenses:Taxes:Y2020:US:CityNYC: $182
           </title>
         </rect>
         <rect x="1422"
-              y="243.4752362486037"
-              height="0.07608261740307398"
+              y="243.47523624860366"
+              height="17.611817629831933"
               width="15"
-              fill="#d62728"
-        >
-          <title>
-            Expenses:Taxes:Y2020:US:SDI: $1
-          </title>
-        </rect>
-        <rect x="1422"
-              y="253.55131886600677"
-              height="17.611817629831904"
-              width="15"
-              fill="#9467bd"
+              fill="#bcbd22"
         >
           <title>
             Expenses:Taxes:Y2020:US:SocSec: $270
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="151.63227909036317"
-              height="129.5145539874605"
+              y="151.63227909036328"
+              height="129.51455398746066"
               width="15"
-              fill="#8c564b"
+              fill="#17becf"
         >
           <title>
             Expenses:Taxes:Y2021:US: $1,982
           </title>
         </rect>
         <rect x="1422"
-              y="281.16313649583867"
+              y="271.0870538784356"
               height="6.9745418437622675"
               width="15"
-              fill="#e377c2"
+              fill="#1f77b4"
         >
           <title>
             Expenses:Taxes:Y2021:US:Medicare: $107
@@ -6178,176 +6118,136 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
         </rect>
         <rect x="1422"
               y="163.94437884312828"
-              height="69.53085740547542"
+              height="69.53085740547539"
               width="15"
-              fill="#7f7f7f"
+              fill="#ff7f0e"
         >
           <title>
             Expenses:Taxes:Y2021:US:Federal: $1,064
           </title>
         </rect>
         <rect x="1422"
-              y="298.13767833960094"
+              y="288.06159572219786"
               height="23.88168951717057"
               width="15"
-              fill="#bcbd22"
+              fill="#2ca02c"
         >
           <title>
             Expenses:Taxes:Y2021:US:State: $365
           </title>
         </rect>
         <rect x="1422"
-              y="332.0193678567715"
-              height="11.442382848535885"
+              y="321.94328523936844"
+              height="11.442382848535829"
               width="15"
-              fill="#17becf"
+              fill="#d62728"
         >
           <title>
             Expenses:Taxes:Y2021:US:CityNYC: $175
           </title>
         </rect>
         <rect x="1422"
-              y="385.23181212826694"
-              height="0.07326474268450056"
+              y="375.15572951086386"
+              height="17.611817629831876"
               width="15"
-              fill="#1f77b4"
-        >
-          <title>
-            Expenses:Taxes:Y2021:US:SDI: $1
-          </title>
-        </rect>
-        <rect x="1422"
-              y="395.30507687095144"
-              height="17.61181762983199"
-              width="15"
-              fill="#ff7f0e"
+              fill="#9467bd"
         >
           <title>
             Expenses:Taxes:Y2021:US:SocSec: $270
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="291.14683307782366"
-              height="20.0491786230657"
+              y="291.14683307782394"
+              height="20.049178623065643"
               width="15"
-              fill="#2ca02c"
+              fill="#8c564b"
         >
           <title>
             Expenses:Taxes:Y2022:US: $307
           </title>
         </rect>
         <rect x="1422"
-              y="353.4617507053074"
-              height="1.0730064375018173"
+              y="343.38566808790426"
+              height="1.073006437501931"
               width="15"
-              fill="#d62728"
+              fill="#e377c2"
         >
           <title>
             Expenses:Taxes:Y2022:US:Medicare: $16
           </title>
         </rect>
         <rect x="1422"
-              y="364.5347571428092"
-              height="10.697054985457726"
+              y="354.4586745254062"
+              height="10.697054985457669"
               width="15"
-              fill="#9467bd"
+              fill="#7f7f7f"
         >
           <title>
             Expenses:Taxes:Y2022:US:Federal: $164
           </title>
         </rect>
         <rect x="1422"
-              y="422.9168945007834"
-              height="3.6741060795646945"
+              y="402.76754714069574"
+              height="3.674106079564808"
               width="15"
-              fill="#8c564b"
+              fill="#bcbd22"
         >
           <title>
             Expenses:Taxes:Y2022:US:State: $56
           </title>
         </rect>
         <rect x="1422"
-              y="436.5910005803481"
+              y="416.44165322026055"
               height="1.7603665920823914"
               width="15"
-              fill="#e377c2"
+              fill="#17becf"
         >
           <title>
             Expenses:Taxes:Y2022:US:CityNYC: $27
           </title>
         </rect>
         <rect x="1422"
-              y="448.3513671724305"
-              height="0.011271498874521058"
-              width="15"
-              fill="#7f7f7f"
-        >
-          <title>
-            Expenses:Taxes:Y2022:US:SDI: $0
-          </title>
-        </rect>
-        <rect x="1422"
-              y="458.36263867130504"
+              y="428.20201981234294"
               height="2.833373029584436"
               width="15"
-              fill="#bcbd22"
+              fill="#1f77b4"
         >
           <title>
             Expenses:Taxes:Y2022:US:SocSec: $43
           </title>
         </rect>
         <rect x="948.3333333333334"
-              y="325.09241119501354"
-              height="39.990649016930774"
+              y="335.8944991059959"
+              height="39.99064901693066"
               width="15"
-              fill="#17becf"
+              fill="#ff7f0e"
         >
           <title>
             Expenses:Food: $612
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="348.61029295833237"
-              height="27.332328067709454"
+              y="364.67652307805895"
+              height="27.332328067709568"
               width="15"
-              fill="#1f77b4"
+              fill="#2ca02c"
         >
           <title>
             Expenses:Food:Restaurant: $418
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="412.42473926272316"
+              y="402.0088511457685"
               height="12.173319422872396"
               width="15"
-              fill="#ff7f0e"
+              fill="#d62728"
         >
           <title>
             Expenses:Food:Groceries: $186
           </title>
         </rect>
-        <rect x="1185.1666666666667"
-              y="595.5556328980167"
-              height="0.2956000899035871"
-              width="15"
-              fill="#2ca02c"
-        >
-          <title>
-            Expenses:Food:Coffee: $5
-          </title>
-        </rect>
-        <rect x="1185.1666666666667"
-              y="605.8512329879203"
-              height="0.18940143644522323"
-              width="15"
-              fill="#d62728"
-        >
-          <title>
-            Expenses:Food:Alcohol: $3
-          </title>
-        </rect>
         <rect x="948.3333333333334"
-              y="578.267854087763"
+              y="301.19601170088947"
               height="0.8020879109819816"
               width="15"
               fill="#9467bd"
@@ -6356,94 +6256,84 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             Expenses:Financial: $12
           </title>
         </rect>
-        <rect x="1185.1666666666667"
-              y="669.2979550280614"
-              height="0.2616597953015116"
+        <rect x="948.3333333333334"
+              y="385.8851481229266"
+              height="163.6744667004366"
               width="15"
               fill="#8c564b"
-        >
-          <title>
-            Expenses:Financial:Fees: $4
-          </title>
-        </rect>
-        <rect x="1185.1666666666667"
-              y="658.757526912381"
-              height="0.54042811568047"
-              width="15"
-              fill="#e377c2"
-        >
-          <title>
-            Expenses:Financial:Commissions: $8
-          </title>
-        </rect>
-        <rect x="948.3333333333334"
-              y="375.0830602119443"
-              height="163.67446670043608"
-              width="15"
-              fill="#7f7f7f"
         >
           <title>
             Expenses:Housing: $2,505
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="434.59805868559556"
+              y="424.1821705686409"
               height="150.95757421242115"
               width="15"
-              fill="#bcbd22"
+              fill="#e377c2"
         >
           <title>
             Expenses:Housing:Rent: $2,310
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="616.0406344243655"
-              height="4.088434301586403"
+              y="585.1397447810621"
+              height="4.088434301585949"
               width="15"
-              fill="#17becf"
+              fill="#7f7f7f"
         >
           <title>
             Expenses:Housing:Electricity: $63
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="630.1290687259519"
-              height="3.59726867429049"
+              y="599.228179082648"
+              height="3.597268674290717"
               width="15"
-              fill="#1f77b4"
+              fill="#bcbd22"
         >
           <title>
             Expenses:Housing:Phone: $55
           </title>
         </rect>
         <rect x="1185.1666666666667"
-              y="643.7263374002424"
+              y="612.8254477569387"
               height="5.031189512138553"
               width="15"
-              fill="#ff7f0e"
+              fill="#17becf"
         >
           <title>
             Expenses:Housing:Internet: $77
           </title>
         </rect>
         <rect x="948.3333333333334"
-              y="548.7575269123804"
-              height="7.245963562196266"
+              y="787.7540364378041"
+              height="7.245963562196039"
               width="15"
-              fill="#2ca02c"
+              fill="#1f77b4"
         >
           <title>
             Expenses:Transport:Tram: $111
           </title>
         </rect>
         <rect x="948.3333333333334"
-              y="566.0034904745767"
+              y="559.5596148233632"
               height="2.264363613186333"
               width="15"
-              fill="#d62728"
+              fill="#ff7f0e"
         >
           <title>
             Expenses:Shopping:Electronics: $35
+          </title>
+        </rect>
+        <rect x="948.3333333333334"
+              y="571.8239784365495"
+              height="205.93005800125457"
+              width="15"
+              fill="#2ca02c"
+        >
+          <title>
+            Savings: $3,151
           </title>
         </rect>
       </g>
@@ -6465,9 +6355,9 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M489.6666666666667,369.1287257811054C600.5833333333334,369.1287257811054,600.5833333333334,370.79468451260396,711.5,370.79468451260396"
+          <path d="M489.6666666666667,378.13866633377944C600.5833333333334,378.13866633377944,600.5833333333334,378.8654507005344,711.5,378.8654507005344"
                 stroke="url(#link-0)"
-                stroke-width="719.9999999999997"
+                stroke-width="720"
           >
           </path>
           <title>
@@ -6489,9 +6379,9 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M252.83333333333334,366.3173595961766C363.75,366.3173595961766,363.75,368.10948539961896,474.6666666666667,368.10948539961896"
+          <path d="M252.83333333333334,376.33782346642C363.75,376.33782346642,363.75,377.11942595229294,474.6666666666667,377.11942595229294"
                 stroke="url(#link-1)"
-                stroke-width="717.9615192370268"
+                stroke-width="717.961519237027"
           >
           </path>
           <title>
@@ -6513,9 +6403,9 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M16,335.9451202125482C126.91666666666667,335.9451202125482,126.91666666666667,338.2817201902114,237.83333333333334,338.2817201902114"
+          <path d="M16,346.34971255895465C126.91666666666667,346.34971255895465,126.91666666666667,348.3021840604548,237.83333333333334,348.3021840604548"
                 stroke="url(#link-2)"
-                stroke-width="661.8902404250964"
+                stroke-width="661.8902404250967"
           >
           </path>
           <title>
@@ -6537,9 +6427,9 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M16,761.3666021462811C126.91666666666667,761.3666021462811,126.91666666666667,723.5542573173881,237.83333333333334,723.5542573173881"
+          <path d="M16,689.0386946688049C126.91666666666667,689.0386946688049,126.91666666666667,680.9911661703052,237.83333333333334,680.9911661703052"
                 stroke="url(#link-3)"
-                stroke-width="3.48772379460377"
+                stroke-width="3.4877237946037716"
           >
           </path>
           <title>
@@ -6561,9 +6451,9 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M16,703.1820179337597C126.91666666666667,703.1820179337597,126.91666666666667,695.5186179114228,237.83333333333334,695.5186179114228"
+          <path d="M16,727.0743340747698C126.91666666666667,727.0743340747698,126.91666666666667,709.0268055762702,237.83333333333334,709.0268055762702"
                 stroke="url(#link-4)"
-                stroke-width="52.583555017326574"
+                stroke-width="52.583555017326596"
           >
           </path>
           <title>
@@ -6585,9 +6475,9 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M252.83333333333334,774.6568746230259C363.75,774.6568746230259,363.75,728.109485399619,474.6666666666667,728.109485399619"
+          <path d="M252.83333333333334,763.960702228461C363.75,763.960702228461,363.75,737.119425952293,474.6666666666667,737.119425952293"
                 stroke="url(#link-5)"
-                stroke-width="2.0384807629731263"
+                stroke-width="2.038480762973127"
           >
           </path>
           <title>
@@ -6609,57 +6499,9 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M16,739.511031644062C126.91666666666667,739.511031644062,126.91666666666667,773.6748704431784,237.83333333333334,773.6748704431784"
+          <path d="M16,764.0586294551325C126.91666666666667,764.0586294551325,126.91666666666667,763.6339797186738,237.83333333333334,763.6339797186738"
                 stroke="url(#link-6)"
-                stroke-width="1"
-          >
-          </path>
-          <title>
-            Income:US:ETrade:ITOT:Dividend → Income:US:ETrade: $1
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-7"
-                          gradientunits="userSpaceOnUse"
-                          x1="16"
-                          x2="237.83333333333334"
-          >
-            <stop offset="0%"
-                  stop-color="#bcbd22"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#e377c2"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M16,749.5855040473401C126.91666666666667,749.5855040473401,126.91666666666667,773.7493428464566,237.83333333333334,773.7493428464566"
-                stroke="url(#link-7)"
-                stroke-width="1"
-          >
-          </path>
-          <title>
-            Income:US:ETrade:VEA:Dividend → Income:US:ETrade: $1
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-8"
-                          gradientunits="userSpaceOnUse"
-                          x1="16"
-                          x2="237.83333333333334"
-          >
-            <stop offset="0%"
-                  stop-color="#17becf"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#e377c2"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M16,773.8029819152823C126.91666666666667,773.8029819152823,126.91666666666667,774.4790969197951,237.83333333333334,774.4790969197951"
-                stroke="url(#link-8)"
-                stroke-width="1.3850357433989609"
+                stroke-width="1.3850357433989615"
           >
           </path>
           <title>
@@ -6667,51 +6509,99 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-9"
+          <linearGradient id="link-7"
                           gradientunits="userSpaceOnUse"
-                          x1="16"
-                          x2="237.83333333333334"
+                          x1="726.5"
+                          x2="948.3333333333334"
           >
             <stop offset="0%"
                   stop-color="#1f77b4"
             >
             </stop>
             <stop offset="100%"
-                  stop-color="#e377c2"
+                  stop-color="#bcbd22"
             >
             </stop>
           </linearGradient>
-          <path d="M16,784.6660189468525C126.91666666666667,784.6660189468525,126.91666666666667,775.3421339513653,237.83333333333334,775.3421339513653"
-                stroke="url(#link-9)"
-                stroke-width="1"
+          <path d="M726.5,312.8117500594679C837.4166666666667,312.8117500594679,837.4166666666667,318.94629935893363,948.3333333333334,318.94629935893363"
+                stroke="url(#link-7)"
+                stroke-width="13.896399494124399"
           >
           </path>
           <title>
-            Income:US:ETrade:GLD:Dividend → Income:US:ETrade: $5
+            Income → Expenses:Health: $213
+          </title>
+        </g>
+        <g style="mix-blend-mode: multiply;">
+          <linearGradient id="link-8"
+                          gradientunits="userSpaceOnUse"
+                          x1="963.3333333333334"
+                          x2="1185.1666666666667"
+          >
+            <stop offset="0%"
+                  stop-color="#bcbd22"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="#17becf"
+            >
+            </stop>
+          </linearGradient>
+          <path d="M963.3333333333334,317.66851897201263C1074.25,317.66851897201263,1074.25,336.8664310610308,1185.1666666666667,336.8664310610308"
+                stroke="url(#link-8)"
+                stroke-width="3.4877237946037716"
+          >
+          </path>
+          <title>
+            Expenses:Health → Expenses:Health:Life:GroupTermLife: $53
+          </title>
+        </g>
+        <g style="mix-blend-mode: multiply;">
+          <linearGradient id="link-9"
+                          gradientunits="userSpaceOnUse"
+                          x1="963.3333333333334"
+                          x2="1185.1666666666667"
+          >
+            <stop offset="0%"
+                  stop-color="#bcbd22"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="#1f77b4"
+            >
+            </stop>
+          </linearGradient>
+          <path d="M963.3333333333334,313.9613783432911C1074.25,313.9613783432911,1074.25,323.1592904323092,1185.1666666666667,323.1592904323092"
+                stroke="url(#link-9)"
+                stroke-width="3.926557462839279"
+          >
+          </path>
+          <title>
+            Expenses:Health → Expenses:Health:Medical:Insurance: $60
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
           <linearGradient id="link-10"
                           gradientunits="userSpaceOnUse"
-                          x1="16"
-                          x2="237.83333333333334"
+                          x1="963.3333333333334"
+                          x2="1185.1666666666667"
           >
             <stop offset="0%"
-                  stop-color="#ff7f0e"
+                  stop-color="#bcbd22"
             >
             </stop>
             <stop offset="100%"
-                  stop-color="#e377c2"
+                  stop-color="#ff7f0e"
             >
             </stop>
           </linearGradient>
-          <path d="M16,794.9182690533615C126.91666666666667,794.9182690533615,126.91666666666667,775.5943840578743,237.83333333333334,775.5943840578743"
+          <path d="M963.3333333333334,322.4454959291776C1074.25,322.4454959291776,1074.25,351.6434080181959,1185.1666666666667,351.6434080181959"
                 stroke="url(#link-10)"
-                stroke-width="1"
+                stroke-width="6.066230119726132"
           >
           </path>
           <title>
-            Income:US:ETrade:VHT:Dividend → Income:US:ETrade: $3
+            Expenses:Health → Expenses:Health:Vision:Insurance: $93
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -6729,13 +6619,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M726.5,303.93889596055556C837.4166666666667,303.93889596055556,837.4166666666667,308.14421144795136,948.3333333333334,308.14421144795136"
+          <path d="M726.5,161.96345655097906C837.4166666666667,161.96345655097906,837.4166666666667,148.09800585044468,948.3333333333334,148.09800585044468"
                 stroke="url(#link-11)"
-                stroke-width="13.896399494124394"
+                stroke-width="286.19601170088936"
           >
           </path>
           <title>
-            Income → Expenses:Health: $213
+            Income → Expenses:Taxes: $4,380
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -6753,129 +6643,9 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M963.3333333333334,302.93987359819107C1074.25,302.93987359819107,1074.25,322.93987359819124,1185.1666666666667,322.93987359819124"
+          <path d="M963.3333333333334,73.31613954518163C1074.25,73.31613954518163,1074.25,73.31613954518163,1185.1666666666667,73.31613954518163"
                 stroke="url(#link-12)"
-                stroke-width="3.48772379460377"
-          >
-          </path>
-          <title>
-            Expenses:Health → Expenses:Health:Life:GroupTermLife: $53
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-13"
-                          gradientunits="userSpaceOnUse"
-                          x1="963.3333333333334"
-                          x2="1185.1666666666667"
-          >
-            <stop offset="0%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#9467bd"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M963.3333333333334,314.884467136536C1074.25,314.884467136536,1074.25,402.21679520424556,1185.1666666666667,402.21679520424556"
-                stroke="url(#link-13)"
-                stroke-width="1"
-          >
-          </path>
-          <title>
-            Expenses:Health → Expenses:Health:Dental:Insurance: $6
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-14"
-                          gradientunits="userSpaceOnUse"
-                          x1="963.3333333333334"
-                          x2="1185.1666666666667"
-          >
-            <stop offset="0%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#8c564b"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M963.3333333333334,306.6470142269126C1074.25,306.6470142269126,1074.25,336.64701422691275,1185.1666666666667,336.64701422691275"
-                stroke="url(#link-14)"
-                stroke-width="3.9265574628392774"
-          >
-          </path>
-          <title>
-            Expenses:Health → Expenses:Health:Medical:Insurance: $60
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-15"
-                          gradientunits="userSpaceOnUse"
-                          x1="963.3333333333334"
-                          x2="1185.1666666666667"
-          >
-            <stop offset="0%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#e377c2"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M963.3333333333334,311.6434080181953C1074.25,311.6434080181953,1074.25,388.9757360859049,1185.1666666666667,388.9757360859049"
-                stroke="url(#link-15)"
-                stroke-width="6.0662301197261295"
-          >
-          </path>
-          <title>
-            Expenses:Health → Expenses:Health:Vision:Insurance: $93
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-16"
-                          gradientunits="userSpaceOnUse"
-                          x1="726.5"
-                          x2="948.3333333333334"
-          >
-            <stop offset="0%"
-                  stop-color="#1f77b4"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#7f7f7f"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M726.5,153.89269036304876C837.4166666666667,153.89269036304876,837.4166666666667,148.09800585044462,948.3333333333334,148.09800585044462"
-                stroke="url(#link-16)"
-                stroke-width="286.19601170088924"
-          >
-          </path>
-          <title>
-            Income → Expenses:Taxes: $4,380
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-17"
-                          gradientunits="userSpaceOnUse"
-                          x1="963.3333333333334"
-                          x2="1185.1666666666667"
-          >
-            <stop offset="0%"
-                  stop-color="#7f7f7f"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#bcbd22"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M963.3333333333334,73.3161395451816C1074.25,73.3161395451816,1074.25,73.3161395451816,1185.1666666666667,73.3161395451816"
-                stroke="url(#link-17)"
-                stroke-width="136.6322790903632"
+                stroke-width="136.63227909036326"
           >
           </path>
           <title>
@@ -6883,13 +6653,133 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-18"
+          <linearGradient id="link-13"
                           gradientunits="userSpaceOnUse"
                           x1="1200.1666666666667"
                           x2="1422"
           >
             <stop offset="0%"
+                  stop-color="#d62728"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="#9467bd"
+            >
+            </stop>
+          </linearGradient>
+          <path d="M1200.1666666666667,82.42719651657015C1311.0833333333335,82.42719651657015,1311.0833333333335,92.4271965165701,1422,92.4271965165701"
+                stroke="url(#link-13)"
+                stroke-width="7.24279345313774"
+          >
+          </path>
+          <title>
+            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:Medicare: $111
+          </title>
+        </g>
+        <g style="mix-blend-mode: multiply;">
+          <linearGradient id="link-14"
+                          gradientunits="userSpaceOnUse"
+                          x1="1200.1666666666667"
+                          x2="1422"
+          >
+            <stop offset="0%"
+                  stop-color="#d62728"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="#8c564b"
+            >
+            </stop>
+          </linearGradient>
+          <path d="M1200.1666666666667,41.90289989500063C1311.0833333333335,41.90289989500063,1311.0833333333335,41.90289989500064,1422,41.90289989500064"
+                stroke="url(#link-14)"
+                stroke-width="73.80579979000127"
+          >
+          </path>
+          <title>
+            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:Federal: $1,129
+          </title>
+        </g>
+        <g style="mix-blend-mode: multiply;">
+          <linearGradient id="link-15"
+                          gradientunits="userSpaceOnUse"
+                          x1="1200.1666666666667"
+                          x2="1422"
+          >
+            <stop offset="0%"
+                  stop-color="#d62728"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="#e377c2"
+            >
+            </stop>
+          </linearGradient>
+          <path d="M1200.1666666666667,99.0552487948554C1311.0833333333335,99.0552487948554,1311.0833333333335,119.05524879485536,1422,119.05524879485536"
+                stroke="url(#link-15)"
+                stroke-width="26.013311103432788"
+          >
+          </path>
+          <title>
+            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:State: $398
+          </title>
+        </g>
+        <g style="mix-blend-mode: multiply;">
+          <linearGradient id="link-16"
+                          gradientunits="userSpaceOnUse"
+                          x1="1200.1666666666667"
+                          x2="1422"
+          >
+            <stop offset="0%"
+                  stop-color="#d62728"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="#7f7f7f"
+            >
+            </stop>
+          </linearGradient>
+          <path d="M1200.1666666666667,118.00314159485004C1311.0833333333335,118.00314159485004,1311.0833333333335,148.00314159485004,1422,148.00314159485004"
+                stroke="url(#link-16)"
+                stroke-width="11.882474496556496"
+          >
+          </path>
+          <title>
+            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:CityNYC: $182
+          </title>
+        </g>
+        <g style="mix-blend-mode: multiply;">
+          <linearGradient id="link-17"
+                          gradientunits="userSpaceOnUse"
+                          x1="1200.1666666666667"
+                          x2="1422"
+          >
+            <stop offset="0%"
+                  stop-color="#d62728"
+            >
+            </stop>
+            <stop offset="100%"
                   stop-color="#bcbd22"
+            >
+            </stop>
+          </linearGradient>
+          <path d="M1200.1666666666667,132.75028765804424C1311.0833333333335,132.75028765804424,1311.0833333333335,252.28114506351963,1422,252.28114506351963"
+                stroke="url(#link-17)"
+                stroke-width="17.611817629831908"
+          >
+          </path>
+          <title>
+            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:SocSec: $270
+          </title>
+        </g>
+        <g style="mix-blend-mode: multiply;">
+          <linearGradient id="link-18"
+                          gradientunits="userSpaceOnUse"
+                          x1="963.3333333333334"
+                          x2="1185.1666666666667"
+          >
+            <stop offset="0%"
+                  stop-color="#2ca02c"
             >
             </stop>
             <stop offset="100%"
@@ -6897,13 +6787,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,8.621396726568868C1311.0833333333335,8.621396726568868,1311.0833333333335,8.621396726568868,1422,8.621396726568868"
+          <path d="M963.3333333333334,206.3895560840935C1074.25,206.3895560840935,1074.25,216.38955608409356,1185.1666666666667,216.38955608409356"
                 stroke="url(#link-18)"
-                stroke-width="7.242793453137737"
+                stroke-width="129.51455398746052"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:Medicare: $111
+            Expenses:Taxes → Expenses:Taxes:Y2021:US: $1,982
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -6913,7 +6803,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
                           x2="1422"
           >
             <stop offset="0%"
-                  stop-color="#bcbd22"
+                  stop-color="#17becf"
             >
             </stop>
             <stop offset="100%"
@@ -6921,13 +6811,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,49.14569334813835C1311.0833333333335,49.14569334813835,1311.0833333333335,59.145693348138366,1422,59.145693348138366"
+          <path d="M1200.1666666666667,224.65040741771986C1311.0833333333335,224.65040741771986,1311.0833333333335,274.57432480031673,1422,274.57432480031673"
                 stroke="url(#link-19)"
-                stroke-width="73.80579979000123"
+                stroke-width="6.9745418437622675"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:Federal: $1,129
+            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:Medicare: $107
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -6937,7 +6827,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
                           x2="1422"
           >
             <stop offset="0%"
-                  stop-color="#bcbd22"
+                  stop-color="#17becf"
             >
             </stop>
             <stop offset="100%"
@@ -6945,13 +6835,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,99.05524879485536C1311.0833333333335,99.05524879485536,1311.0833333333335,119.05524879485539,1422,119.05524879485539"
+          <path d="M1200.1666666666667,186.397707793101C1311.0833333333335,186.397707793101,1311.0833333333335,198.709807545866,1422,198.709807545866"
                 stroke="url(#link-20)"
-                stroke-width="26.013311103432777"
+                stroke-width="69.53085740547543"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:State: $398
+            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:Federal: $1,064
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -6961,7 +6851,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
                           x2="1422"
           >
             <stop offset="0%"
-                  stop-color="#bcbd22"
+                  stop-color="#17becf"
             >
             </stop>
             <stop offset="100%"
@@ -6969,13 +6859,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,118.00314159484998C1311.0833333333335,118.00314159484998,1311.0833333333335,148.00314159485004,1422,148.00314159485004"
+          <path d="M1200.1666666666667,240.07852309818628C1311.0833333333335,240.07852309818628,1311.0833333333335,300.00244048078315,1422,300.00244048078315"
                 stroke="url(#link-21)"
-                stroke-width="11.88247449655649"
+                stroke-width="23.881689517170596"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:CityNYC: $182
+            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:State: $365
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -6985,7 +6875,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
                           x2="1422"
           >
             <stop offset="0%"
-                  stop-color="#bcbd22"
+                  stop-color="#17becf"
             >
             </stop>
             <stop offset="100%"
@@ -6993,13 +6883,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,123.98242015182976C1311.0833333333335,123.98242015182976,1311.0833333333335,243.51327755730523,1422,243.51327755730523"
+          <path d="M1200.1666666666667,257.7405592810395C1311.0833333333335,257.7405592810395,1311.0833333333335,327.6644766636364,1422,327.6644766636364"
                 stroke="url(#link-22)"
-                stroke-width="1"
+                stroke-width="11.442382848535884"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:SDI: $1
+            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:CityNYC: $175
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -7009,7 +6899,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
                           x2="1422"
           >
             <stop offset="0%"
-                  stop-color="#bcbd22"
+                  stop-color="#17becf"
             >
             </stop>
             <stop offset="100%"
@@ -7017,13 +6907,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,132.82637027544723C1311.0833333333335,132.82637027544723,1311.0833333333335,262.35722768092273,1422,262.35722768092273"
+          <path d="M1200.1666666666667,272.2676595202234C1311.0833333333335,272.2676595202234,1311.0833333333335,383.9616383257798,1422,383.9616383257798"
                 stroke="url(#link-23)"
-                stroke-width="17.6118176298319"
+                stroke-width="17.611817629831908"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2020:US → Expenses:Taxes:Y2020:US:SocSec: $270
+            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:SocSec: $270
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -7033,7 +6923,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
                           x2="1185.1666666666667"
           >
             <stop offset="0%"
-                  stop-color="#7f7f7f"
+                  stop-color="#2ca02c"
             >
             </stop>
             <stop offset="100%"
@@ -7041,13 +6931,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M963.3333333333334,206.38955608409344C1074.25,206.38955608409344,1074.25,216.38955608409339,1185.1666666666667,216.38955608409339"
+          <path d="M963.3333333333334,281.1714223893566C1074.25,281.1714223893566,1074.25,301.1714223893568,1185.1666666666667,301.1714223893568"
                 stroke="url(#link-24)"
-                stroke-width="129.51455398746046"
+                stroke-width="20.04917862306565"
           >
           </path>
           <title>
-            Expenses:Taxes → Expenses:Taxes:Y2021:US: $1,982
+            Expenses:Taxes → Expenses:Taxes:Y2022:US: $307
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -7065,13 +6955,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,224.6504074177197C1311.0833333333335,224.6504074177197,1311.0833333333335,284.6504074177198,1422,284.6504074177198"
+          <path d="M1200.1666666666667,291.6833362965749C1311.0833333333335,291.6833362965749,1311.0833333333335,343.92217130665523,1422,343.92217130665523"
                 stroke="url(#link-25)"
-                stroke-width="6.974541843762265"
+                stroke-width="1.0730064375018873"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:Medicare: $107
+            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:Medicare: $16
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -7089,13 +6979,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,186.39770779310086C1311.0833333333335,186.39770779310086,1311.0833333333335,198.70980754586597,1422,198.70980754586597"
+          <path d="M1200.1666666666667,297.5683670080547C1311.0833333333335,297.5683670080547,1311.0833333333335,359.80720201813506,1422,359.80720201813506"
                 stroke="url(#link-26)"
-                stroke-width="69.5308574054754"
+                stroke-width="10.69705498545776"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:Federal: $1,064
+            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:Federal: $164
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -7113,13 +7003,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,240.0785230981861C1311.0833333333335,240.0785230981861,1311.0833333333335,310.0785230981862,1422,310.0785230981862"
+          <path d="M1200.1666666666667,304.75394754056595C1311.0833333333335,304.75394754056595,1311.0833333333335,404.6046001804781,1422,404.6046001804781"
                 stroke="url(#link-27)"
-                stroke-width="23.88168951717059"
+                stroke-width="3.674106079564707"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:State: $365
+            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:State: $56
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -7137,13 +7027,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,257.74055928103934C1311.0833333333335,257.74055928103934,1311.0833333333335,337.74055928103945,1422,337.74055928103945"
+          <path d="M1200.1666666666667,307.4711838763895C1311.0833333333335,307.4711838763895,1311.0833333333335,417.32183651630174,1422,417.32183651630174"
                 stroke="url(#link-28)"
-                stroke-width="11.442382848535878"
+                stroke-width="1.7603665920824436"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:CityNYC: $175
+            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:CityNYC: $27
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -7161,23 +7051,23 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,263.4983830766495C1311.0833333333335,263.4983830766495,1311.0833333333335,385.26844449960913,1422,385.26844449960913"
+          <path d="M1200.1666666666667,309.7680536872229C1311.0833333333335,309.7680536872229,1311.0833333333335,429.6187063271351,1422,429.6187063271351"
                 stroke="url(#link-29)"
-                stroke-width="1"
+                stroke-width="2.8333730295843313"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:SDI: $1
+            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:SocSec: $43
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
           <linearGradient id="link-30"
                           gradientunits="userSpaceOnUse"
-                          x1="1200.1666666666667"
-                          x2="1422"
+                          x1="726.5"
+                          x2="948.3333333333334"
           >
             <stop offset="0%"
-                  stop-color="#8c564b"
+                  stop-color="#1f77b4"
             >
             </stop>
             <stop offset="100%"
@@ -7185,13 +7075,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M1200.1666666666667,272.34092426290766C1311.0833333333335,272.34092426290766,1311.0833333333335,404.1109856858674,1422,404.1109856858674"
+          <path d="M726.5,339.7552743149955C837.4166666666667,339.7552743149955,837.4166666666667,355.8898236144613,948.3333333333334,355.8898236144613"
                 stroke="url(#link-30)"
-                stroke-width="17.6118176298319"
+                stroke-width="39.99064901693075"
           >
           </path>
           <title>
-            Expenses:Taxes:Y2021:US → Expenses:Taxes:Y2021:US:SocSec: $270
+            Income → Expenses:Food: $612
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
@@ -7201,7 +7091,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
                           x2="1185.1666666666667"
           >
             <stop offset="0%"
-                  stop-color="#7f7f7f"
+                  stop-color="#ff7f0e"
             >
             </stop>
             <stop offset="100%"
@@ -7209,201 +7099,9 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M963.3333333333334,281.1714223893565C1074.25,281.1714223893565,1074.25,301.1714223893565,1185.1666666666667,301.1714223893565"
+          <path d="M963.3333333333334,349.5606631398507C1074.25,349.5606631398507,1074.25,378.34268711191373,1185.1666666666667,378.34268711191373"
                 stroke="url(#link-31)"
-                stroke-width="20.049178623065643"
-          >
-          </path>
-          <title>
-            Expenses:Taxes → Expenses:Taxes:Y2022:US: $307
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-32"
-                          gradientunits="userSpaceOnUse"
-                          x1="1200.1666666666667"
-                          x2="1422"
-          >
-            <stop offset="0%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#d62728"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M1200.1666666666667,291.6833362965746C1311.0833333333335,291.6833362965746,1311.0833333333335,353.99825392405836,1422,353.99825392405836"
-                stroke="url(#link-32)"
-                stroke-width="1.0730064375018868"
-          >
-          </path>
-          <title>
-            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:Medicare: $16
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-33"
-                          gradientunits="userSpaceOnUse"
-                          x1="1200.1666666666667"
-                          x2="1422"
-          >
-            <stop offset="0%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#9467bd"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M1200.1666666666667,297.5683670080544C1311.0833333333335,297.5683670080544,1311.0833333333335,369.8832846355381,1422,369.8832846355381"
-                stroke="url(#link-33)"
-                stroke-width="10.697054985457754"
-          >
-          </path>
-          <title>
-            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:Federal: $164
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-34"
-                          gradientunits="userSpaceOnUse"
-                          x1="1200.1666666666667"
-                          x2="1422"
-          >
-            <stop offset="0%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#8c564b"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M1200.1666666666667,304.75394754056566C1311.0833333333335,304.75394754056566,1311.0833333333335,424.7539475405658,1422,424.7539475405658"
-                stroke="url(#link-34)"
-                stroke-width="3.674106079564705"
-          >
-          </path>
-          <title>
-            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:State: $56
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-35"
-                          gradientunits="userSpaceOnUse"
-                          x1="1200.1666666666667"
-                          x2="1422"
-          >
-            <stop offset="0%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#e377c2"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M1200.1666666666667,307.4711838763892C1311.0833333333335,307.4711838763892,1311.0833333333335,437.4711838763893,1422,437.4711838763893"
-                stroke="url(#link-35)"
-                stroke-width="1.760366592082443"
-          >
-          </path>
-          <title>
-            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:CityNYC: $27
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-36"
-                          gradientunits="userSpaceOnUse"
-                          x1="1200.1666666666667"
-                          x2="1422"
-          >
-            <stop offset="0%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#7f7f7f"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M1200.1666666666667,308.3570029218677C1311.0833333333335,308.3570029218677,1311.0833333333335,448.3570029218678,1422,448.3570029218678"
-                stroke="url(#link-36)"
-                stroke-width="1"
-          >
-          </path>
-          <title>
-            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:SDI: $0
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-37"
-                          gradientunits="userSpaceOnUse"
-                          x1="1200.1666666666667"
-                          x2="1422"
-          >
-            <stop offset="0%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#bcbd22"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M1200.1666666666667,309.77932518609714C1311.0833333333335,309.77932518609714,1311.0833333333335,459.7793251860972,1422,459.7793251860972"
-                stroke="url(#link-37)"
-                stroke-width="2.83337302958433"
-          >
-          </path>
-          <title>
-            Expenses:Taxes:Y2022:US → Expenses:Taxes:Y2022:US:SocSec: $43
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-38"
-                          gradientunits="userSpaceOnUse"
-                          x1="726.5"
-                          x2="948.3333333333334"
-          >
-            <stop offset="0%"
-                  stop-color="#1f77b4"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#17becf"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M726.5,330.8824202160832C837.4166666666667,330.8824202160832,837.4166666666667,345.0877357034789,948.3333333333334,345.0877357034789"
-                stroke="url(#link-38)"
-                stroke-width="39.99064901693074"
-          >
-          </path>
-          <title>
-            Income → Expenses:Food: $612
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-39"
-                          gradientunits="userSpaceOnUse"
-                          x1="963.3333333333334"
-                          x2="1185.1666666666667"
-          >
-            <stop offset="0%"
-                  stop-color="#17becf"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#1f77b4"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M963.3333333333334,338.75857522886827C1074.25,338.75857522886827,1074.25,362.2764569921871,1185.1666666666667,362.2764569921871"
-                stroke="url(#link-39)"
-                stroke-width="27.332328067709504"
+                stroke-width="27.332328067709515"
           >
           </path>
           <title>
@@ -7411,61 +7109,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-40"
+          <linearGradient id="link-32"
                           gradientunits="userSpaceOnUse"
                           x1="963.3333333333334"
                           x2="1185.1666666666667"
           >
             <stop offset="0%"
-                  stop-color="#17becf"
-            >
-            </stop>
-            <stop offset="100%"
                   stop-color="#ff7f0e"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M963.3333333333334,358.51139897415925C1074.25,358.51139897415925,1074.25,418.51139897415936,1185.1666666666667,418.51139897415936"
-                stroke="url(#link-40)"
-                stroke-width="12.173319422872419"
-          >
-          </path>
-          <title>
-            Expenses:Food → Expenses:Food:Groceries: $186
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-41"
-                          gradientunits="userSpaceOnUse"
-                          x1="963.3333333333334"
-                          x2="1185.1666666666667"
-          >
-            <stop offset="0%"
-                  stop-color="#17becf"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#2ca02c"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M963.3333333333334,364.74585873054724C1074.25,364.74585873054724,1074.25,595.7034329429686,1185.1666666666667,595.7034329429686"
-                stroke="url(#link-41)"
-                stroke-width="1"
-          >
-          </path>
-          <title>
-            Expenses:Food → Expenses:Food:Coffee: $5
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-42"
-                          gradientunits="userSpaceOnUse"
-                          x1="963.3333333333334"
-                          x2="1185.1666666666667"
-          >
-            <stop offset="0%"
-                  stop-color="#17becf"
             >
             </stop>
             <stop offset="100%"
@@ -7473,17 +7123,17 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M963.3333333333334,364.9883594937217C1074.25,364.9883594937217,1074.25,605.9459337061429,1185.1666666666667,605.9459337061429"
-                stroke="url(#link-42)"
-                stroke-width="1"
+          <path d="M963.3333333333334,369.31348688514163C1074.25,369.31348688514163,1074.25,408.0955108572047,1185.1666666666667,408.0955108572047"
+                stroke="url(#link-32)"
+                stroke-width="12.173319422872424"
           >
           </path>
           <title>
-            Expenses:Food → Expenses:Food:Alcohol: $3
+            Expenses:Food → Expenses:Food:Groceries: $186
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-43"
+          <linearGradient id="link-33"
                           gradientunits="userSpaceOnUse"
                           x1="726.5"
                           x2="948.3333333333334"
@@ -7497,8 +7147,8 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M726.5,524.4635825558585C837.4166666666667,524.4635825558585,837.4166666666667,578.668898043254,948.3333333333334,578.668898043254"
-                stroke="url(#link-43)"
+          <path d="M726.5,305.46250635691473C837.4166666666667,305.46250635691473,837.4166666666667,301.59705565638046,948.3333333333334,301.59705565638046"
+                stroke="url(#link-33)"
                 stroke-width="1"
           >
           </path>
@@ -7507,55 +7157,7 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-44"
-                          gradientunits="userSpaceOnUse"
-                          x1="963.3333333333334"
-                          x2="1185.1666666666667"
-          >
-            <stop offset="0%"
-                  stop-color="#9467bd"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#8c564b"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M963.3333333333334,578.9391121010942C1074.25,578.9391121010942,1074.25,669.4287849257122,1185.1666666666667,669.4287849257122"
-                stroke="url(#link-44)"
-                stroke-width="1"
-          >
-          </path>
-          <title>
-            Expenses:Financial → Expenses:Financial:Fees: $4
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-45"
-                          gradientunits="userSpaceOnUse"
-                          x1="963.3333333333334"
-                          x2="1185.1666666666667"
-          >
-            <stop offset="0%"
-                  stop-color="#9467bd"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#e377c2"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M963.3333333333334,578.5380681456032C1074.25,578.5380681456032,1074.25,659.0277409702212,1185.1666666666667,659.0277409702212"
-                stroke="url(#link-45)"
-                stroke-width="1"
-          >
-          </path>
-          <title>
-            Expenses:Financial → Expenses:Financial:Commissions: $8
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-46"
+          <linearGradient id="link-34"
                           gradientunits="userSpaceOnUse"
                           x1="726.5"
                           x2="948.3333333333334"
@@ -7565,13 +7167,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
             <stop offset="100%"
-                  stop-color="#7f7f7f"
+                  stop-color="#8c564b"
             >
             </stop>
           </linearGradient>
-          <path d="M726.5,432.7149780747667C837.4166666666667,432.7149780747667,837.4166666666667,456.92029356216256,948.3333333333334,456.92029356216256"
-                stroke="url(#link-46)"
-                stroke-width="163.67446670043643"
+          <path d="M726.5,441.58783217367915C837.4166666666667,441.58783217367915,837.4166666666667,467.7223814731448,948.3333333333334,467.7223814731448"
+                stroke="url(#link-34)"
+                stroke-width="163.67446670043648"
           >
           </path>
           <title>
@@ -7579,23 +7181,23 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-47"
+          <linearGradient id="link-35"
                           gradientunits="userSpaceOnUse"
                           x1="963.3333333333334"
                           x2="1185.1666666666667"
           >
             <stop offset="0%"
-                  stop-color="#7f7f7f"
+                  stop-color="#8c564b"
             >
             </stop>
             <stop offset="100%"
-                  stop-color="#bcbd22"
+                  stop-color="#e377c2"
             >
             </stop>
           </linearGradient>
-          <path d="M963.3333333333334,450.5618473181547C1074.25,450.5618473181547,1074.25,510.07684579180597,1185.1666666666667,510.07684579180597"
-                stroke="url(#link-47)"
-                stroke-width="150.95757421242078"
+          <path d="M963.3333333333334,461.36393522913704C1074.25,461.36393522913704,1074.25,499.6609576748514,1185.1666666666667,499.6609576748514"
+                stroke="url(#link-35)"
+                stroke-width="150.95757421242087"
           >
           </path>
           <title>
@@ -7603,23 +7205,23 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-48"
+          <linearGradient id="link-36"
                           gradientunits="userSpaceOnUse"
                           x1="963.3333333333334"
                           x2="1185.1666666666667"
           >
             <stop offset="0%"
-                  stop-color="#7f7f7f"
+                  stop-color="#8c564b"
             >
             </stop>
             <stop offset="100%"
-                  stop-color="#17becf"
+                  stop-color="#7f7f7f"
             >
             </stop>
           </linearGradient>
-          <path d="M963.3333333333334,528.0848515751583C1074.25,528.0848515751583,1074.25,618.0848515751587,1185.1666666666667,618.0848515751587"
-                stroke="url(#link-48)"
-                stroke-width="4.088434301586396"
+          <path d="M963.3333333333334,538.8869394861406C1074.25,538.8869394861406,1074.25,587.1839619318553,1185.1666666666667,587.1839619318553"
+                stroke="url(#link-36)"
+                stroke-width="4.088434301586398"
           >
           </path>
           <title>
@@ -7627,23 +7229,23 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-49"
+          <linearGradient id="link-37"
                           gradientunits="userSpaceOnUse"
                           x1="963.3333333333334"
                           x2="1185.1666666666667"
           >
             <stop offset="0%"
-                  stop-color="#7f7f7f"
+                  stop-color="#8c564b"
             >
             </stop>
             <stop offset="100%"
-                  stop-color="#1f77b4"
+                  stop-color="#bcbd22"
             >
             </stop>
           </linearGradient>
-          <path d="M963.3333333333334,531.9277030630967C1074.25,531.9277030630967,1074.25,631.9277030630972,1185.1666666666667,631.9277030630972"
-                stroke="url(#link-49)"
-                stroke-width="3.597268674290583"
+          <path d="M963.3333333333334,542.729790974079C1074.25,542.729790974079,1074.25,601.0268134197933,1185.1666666666667,601.0268134197933"
+                stroke="url(#link-37)"
+                stroke-width="3.597268674290585"
           >
           </path>
           <title>
@@ -7651,23 +7253,23 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-50"
+          <linearGradient id="link-38"
                           gradientunits="userSpaceOnUse"
                           x1="963.3333333333334"
                           x2="1185.1666666666667"
           >
             <stop offset="0%"
-                  stop-color="#7f7f7f"
+                  stop-color="#8c564b"
             >
             </stop>
             <stop offset="100%"
-                  stop-color="#ff7f0e"
+                  stop-color="#17becf"
             >
             </stop>
           </linearGradient>
-          <path d="M963.3333333333334,536.2419321563113C1074.25,536.2419321563113,1074.25,646.2419321563117,1185.1666666666667,646.2419321563117"
-                stroke="url(#link-50)"
-                stroke-width="5.031189512138666"
+          <path d="M963.3333333333334,547.0440200672938C1074.25,547.0440200672938,1074.25,615.3410425130081,1185.1666666666667,615.3410425130081"
+                stroke="url(#link-38)"
+                stroke-width="5.031189512138669"
           >
           </path>
           <title>
@@ -7675,7 +7277,55 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           </title>
         </g>
         <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-51"
+          <linearGradient id="link-39"
+                          gradientunits="userSpaceOnUse"
+                          x1="726.5"
+                          x2="948.3333333333334"
+          >
+            <stop offset="0%"
+                  stop-color="#1f77b4"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="#1f77b4"
+            >
+            </stop>
+          </linearGradient>
+          <path d="M726.5,735.2424689194364C837.4166666666667,735.2424689194364,837.4166666666667,791.3770182189022,948.3333333333334,791.3770182189022"
+                stroke="url(#link-39)"
+                stroke-width="7.2459635621962"
+          >
+          </path>
+          <title>
+            Income → Expenses:Transport:Tram: $111
+          </title>
+        </g>
+        <g style="mix-blend-mode: multiply;">
+          <linearGradient id="link-40"
+                          gradientunits="userSpaceOnUse"
+                          x1="726.5"
+                          x2="948.3333333333334"
+          >
+            <stop offset="0%"
+                  stop-color="#1f77b4"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="#ff7f0e"
+            >
+            </stop>
+          </linearGradient>
+          <path d="M726.5,524.5572473304906C837.4166666666667,524.5572473304906,837.4166666666667,560.6917966299563,948.3333333333334,560.6917966299563"
+                stroke="url(#link-40)"
+                stroke-width="2.2643636131863127"
+          >
+          </path>
+          <title>
+            Income → Expenses:Shopping:Electronics: $35
+          </title>
+        </g>
+        <g style="mix-blend-mode: multiply;">
+          <linearGradient id="link-41"
                           gradientunits="userSpaceOnUse"
                           x1="726.5"
                           x2="948.3333333333334"
@@ -7689,37 +7339,13 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
             >
             </stop>
           </linearGradient>
-          <path d="M726.5,518.1751932060831C837.4166666666667,518.1751932060831,837.4166666666667,552.3805086934785,948.3333333333334,552.3805086934785"
-                stroke="url(#link-51)"
-                stroke-width="7.245963562196198"
+          <path d="M726.5,628.654458137711C837.4166666666667,628.654458137711,837.4166666666667,674.7890074371768,948.3333333333334,674.7890074371768"
+                stroke="url(#link-41)"
+                stroke-width="205.93005800125454"
           >
           </path>
           <title>
-            Income → Expenses:Transport:Tram: $111
-          </title>
-        </g>
-        <g style="mix-blend-mode: multiply;">
-          <linearGradient id="link-52"
-                          gradientunits="userSpaceOnUse"
-                          x1="726.5"
-                          x2="948.3333333333334"
-          >
-            <stop offset="0%"
-                  stop-color="#1f77b4"
-            >
-            </stop>
-            <stop offset="100%"
-                  stop-color="#d62728"
-            >
-            </stop>
-          </linearGradient>
-          <path d="M726.5,522.9303567937743C837.4166666666667,522.9303567937743,837.4166666666667,567.1356722811698,948.3333333333334,567.1356722811698"
-                stroke="url(#link-52)"
-                stroke-width="2.264363613186312"
-          >
-          </path>
-          <title>
-            Income → Expenses:Shopping:Electronics: $35
+            Income → Savings: $3,151
           </title>
         </g>
       </g>
@@ -7727,154 +7353,119 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
          font-size="10"
       >
         <text x="732.5"
-              y="370.794684512604"
+              y="378.8654507005344"
               dy="0.35em"
               text-anchor="start"
         >
           Income $11,018
         </text>
         <text x="495.6666666666667"
-              y="369.1287257811054"
+              y="378.1386663337794"
               dy="0.35em"
               text-anchor="start"
         >
           US $11,018
         </text>
         <text x="258.83333333333337"
-              y="366.3173595961765"
+              y="376.3378234664199"
               dy="0.35em"
               text-anchor="start"
         >
           Hooli $10,987
         </text>
         <text x="22"
-              y="335.9451202125482"
+              y="346.3497125589546"
               dy="0.35em"
               text-anchor="start"
         >
           Salary $10,129
         </text>
         <text x="22"
-              y="761.366602146281"
+              y="689.0386946688047"
               dy="0.35em"
               text-anchor="start"
         >
           GroupTermLife $53
         </text>
         <text x="22"
-              y="703.1820179337597"
+              y="727.0743340747698"
               dy="0.35em"
               text-anchor="start"
         >
           Match401k $805
         </text>
         <text x="258.83333333333337"
-              y="774.6568746230259"
+              y="763.9607022284608"
               dy="0.35em"
               text-anchor="start"
         >
           ETrade $31
         </text>
         <text x="22"
-              y="739.511031644062"
-              dy="0.35em"
-              text-anchor="start"
-        >
-          ITOT:Dividend $1
-        </text>
-        <text x="22"
-              y="749.5855040473401"
-              dy="0.35em"
-              text-anchor="start"
-        >
-          VEA:Dividend $1
-        </text>
-        <text x="22"
-              y="773.8029819152823"
+              y="764.0586294551325"
               dy="0.35em"
               text-anchor="start"
         >
           PnL $21
         </text>
-        <text x="22"
-              y="784.6660189468525"
-              dy="0.35em"
-              text-anchor="start"
-        >
-          GLD:Dividend $5
-        </text>
-        <text x="22"
-              y="794.9182690533614"
-              dy="0.35em"
-              text-anchor="start"
-        >
-          VHT:Dividend $3
-        </text>
         <text x="942.3333333333334"
-              y="308.14421144795136"
+              y="318.9462993589337"
               dy="0.35em"
               text-anchor="end"
         >
           Health $213
         </text>
         <text x="1179.1666666666667"
-              y="322.93987359819124"
+              y="336.8664310610309"
               dy="0.35em"
               text-anchor="end"
         >
           Life:GroupTermLife $53
         </text>
         <text x="1179.1666666666667"
-              y="402.21679520424556"
-              dy="0.35em"
-              text-anchor="end"
-        >
-          Dental:Insurance $6
-        </text>
-        <text x="1179.1666666666667"
-              y="336.64701422691275"
+              y="323.15929043230926"
               dy="0.35em"
               text-anchor="end"
         >
           Medical:Insurance $60
         </text>
         <text x="1179.1666666666667"
-              y="388.9757360859049"
+              y="351.6434080181959"
               dy="0.35em"
               text-anchor="end"
         >
           Vision:Insurance $93
         </text>
         <text x="942.3333333333334"
-              y="148.0980058504446"
+              y="148.09800585044474"
               dy="0.35em"
               text-anchor="end"
         >
           Taxes $4,380
         </text>
         <text x="1179.1666666666667"
-              y="73.31613954518158"
+              y="73.31613954518164"
               dy="0.35em"
               text-anchor="end"
         >
           Y2020:US $2,091
         </text>
         <text x="1416"
-              y="8.621396726568875"
+              y="92.42719651657009"
               dy="0.35em"
               text-anchor="end"
         >
           Medicare $111
         </text>
         <text x="1416"
-              y="59.14569334813837"
+              y="41.902899895000616"
               dy="0.35em"
               text-anchor="end"
         >
           Federal $1,129
         </text>
         <text x="1416"
-              y="119.0552487948554"
+              y="119.05524879485537"
               dy="0.35em"
               text-anchor="end"
         >
@@ -7888,221 +7479,179 @@ exports[`Dashboard: SVG Snapshot Tests Sankey 1`] = `
           CityNYC $182
         </text>
         <text x="1416"
-              y="243.51327755730523"
-              dy="0.35em"
-              text-anchor="end"
-        >
-          SDI $1
-        </text>
-        <text x="1416"
-              y="262.35722768092273"
+              y="252.28114506351963"
               dy="0.35em"
               text-anchor="end"
         >
           SocSec $270
         </text>
         <text x="1179.1666666666667"
-              y="216.3895560840934"
+              y="216.3895560840936"
               dy="0.35em"
               text-anchor="end"
         >
           Y2021:US $1,982
         </text>
         <text x="1416"
-              y="284.6504074177198"
+              y="274.57432480031673"
               dy="0.35em"
               text-anchor="end"
         >
           Medicare $107
         </text>
         <text x="1416"
-              y="198.709807545866"
+              y="198.70980754586597"
               dy="0.35em"
               text-anchor="end"
         >
           Federal $1,064
         </text>
         <text x="1416"
-              y="310.0785230981862"
+              y="300.00244048078315"
               dy="0.35em"
               text-anchor="end"
         >
           State $365
         </text>
         <text x="1416"
-              y="337.74055928103945"
+              y="327.6644766636364"
               dy="0.35em"
               text-anchor="end"
         >
           CityNYC $175
         </text>
         <text x="1416"
-              y="385.2684444996092"
-              dy="0.35em"
-              text-anchor="end"
-        >
-          SDI $1
-        </text>
-        <text x="1416"
-              y="404.11098568586743"
+              y="383.9616383257798"
               dy="0.35em"
               text-anchor="end"
         >
           SocSec $270
         </text>
         <text x="1179.1666666666667"
-              y="301.1714223893565"
+              y="301.17142238935674"
               dy="0.35em"
               text-anchor="end"
         >
           Y2022:US $307
         </text>
         <text x="1416"
-              y="353.9982539240583"
+              y="343.92217130665523"
               dy="0.35em"
               text-anchor="end"
         >
           Medicare $16
         </text>
         <text x="1416"
-              y="369.8832846355381"
+              y="359.80720201813506"
               dy="0.35em"
               text-anchor="end"
         >
           Federal $164
         </text>
         <text x="1416"
-              y="424.7539475405658"
+              y="404.60460018047814"
               dy="0.35em"
               text-anchor="end"
         >
           State $56
         </text>
         <text x="1416"
-              y="437.4711838763893"
+              y="417.32183651630174"
               dy="0.35em"
               text-anchor="end"
         >
           CityNYC $27
         </text>
         <text x="1416"
-              y="448.3570029218678"
-              dy="0.35em"
-              text-anchor="end"
-        >
-          SDI $0
-        </text>
-        <text x="1416"
-              y="459.77932518609725"
+              y="429.61870632713516"
               dy="0.35em"
               text-anchor="end"
         >
           SocSec $43
         </text>
         <text x="942.3333333333334"
-              y="345.0877357034789"
+              y="355.88982361446125"
               dy="0.35em"
               text-anchor="end"
         >
           Food $612
         </text>
         <text x="1179.1666666666667"
-              y="362.2764569921871"
+              y="378.34268711191373"
               dy="0.35em"
               text-anchor="end"
         >
           Restaurant $418
         </text>
         <text x="1179.1666666666667"
-              y="418.51139897415936"
+              y="408.0955108572047"
               dy="0.35em"
               text-anchor="end"
         >
           Groceries $186
         </text>
-        <text x="1179.1666666666667"
-              y="595.7034329429684"
-              dy="0.35em"
-              text-anchor="end"
-        >
-          Coffee $5
-        </text>
-        <text x="1179.1666666666667"
-              y="605.9459337061429"
-              dy="0.35em"
-              text-anchor="end"
-        >
-          Alcohol $3
-        </text>
         <text x="942.3333333333334"
-              y="578.668898043254"
+              y="301.59705565638046"
               dy="0.35em"
               text-anchor="end"
         >
           Financial $12
         </text>
-        <text x="1179.1666666666667"
-              y="669.4287849257122"
-              dy="0.35em"
-              text-anchor="end"
-        >
-          Fees $4
-        </text>
-        <text x="1179.1666666666667"
-              y="659.0277409702212"
-              dy="0.35em"
-              text-anchor="end"
-        >
-          Commissions $8
-        </text>
         <text x="942.3333333333334"
-              y="456.9202935621623"
+              y="467.7223814731449"
               dy="0.35em"
               text-anchor="end"
         >
           Housing $2,505
         </text>
         <text x="1179.1666666666667"
-              y="510.07684579180614"
+              y="499.6609576748515"
               dy="0.35em"
               text-anchor="end"
         >
           Rent $2,310
         </text>
         <text x="1179.1666666666667"
-              y="618.0848515751587"
+              y="587.183961931855"
               dy="0.35em"
               text-anchor="end"
         >
           Electricity $63
         </text>
         <text x="1179.1666666666667"
-              y="631.9277030630972"
+              y="601.0268134197934"
               dy="0.35em"
               text-anchor="end"
         >
           Phone $55
         </text>
         <text x="1179.1666666666667"
-              y="646.2419321563117"
+              y="615.341042513008"
               dy="0.35em"
               text-anchor="end"
         >
           Internet $77
         </text>
         <text x="942.3333333333334"
-              y="552.3805086934785"
+              y="791.3770182189021"
               dy="0.35em"
               text-anchor="end"
         >
           Transport:Tram $111
         </text>
         <text x="942.3333333333334"
-              y="567.1356722811698"
+              y="560.6917966299563"
               dy="0.35em"
               text-anchor="end"
         >
           Shopping:Electronics $35
+        </text>
+        <text x="942.3333333333334"
+              y="674.7890074371768"
+              dy="0.35em"
+              text-anchor="end"
+        >
+          Savings $3,151
         </text>
       </g>
     </svg>

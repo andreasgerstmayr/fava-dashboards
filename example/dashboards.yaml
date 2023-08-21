@@ -157,7 +157,7 @@ dashboards:
             `${params.marker} ${
               ledger.commodities[params.name]?.meta.name ?? params.name
             } <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
-              params.value
+              params.value,
             )}</span> (${params.percent.toFixed(0)}%)`,
         },
         series: [
@@ -363,7 +363,7 @@ dashboards:
         tooltip: {
           formatter: (params) =>
             `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
-              params.value
+              params.value,
             )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
         },
         series: [
@@ -412,7 +412,7 @@ dashboards:
 
         const ccy = Object.keys(row.units)[0];
         const allocations = Object.entries(ledger.commodities[ccy]?.meta ?? {}).filter(([k, v]) =>
-          k.startsWith("asset_allocation_")
+          k.startsWith("asset_allocation_"),
         );
         if (allocations.length === 0) {
           allocations.push(["asset_allocation_Unknown", 100]);
@@ -440,7 +440,7 @@ dashboards:
         tooltip: {
           formatter: (params) =>
             `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
-              params.value
+              params.value,
             )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
         },
         series: [
@@ -552,7 +552,7 @@ dashboards:
       const accountTree = helpers.buildAccountTree(
         panel.queries[0].result,
         (row) => -row.value[ledger.ccy] / divisor,
-        (parts, i) => parts[i]
+        (parts, i) => parts[i],
       );
       // use click event on desktop, dblclick on mobile
       const clickEvt = window.screen.width < 800 ? "onDblClick" : "onClick";
@@ -600,7 +600,7 @@ dashboards:
       const accountTree = helpers.buildAccountTree(
         panel.queries[0].result,
         (row) => row.value[ledger.ccy] / divisor,
-        (parts, i) => parts[i]
+        (parts, i) => parts[i],
       );
       // use click event on desktop, dblclick on mobile
       const clickEvt = window.screen.width < 800 ? "onDblClick" : "onClick";
@@ -788,7 +788,7 @@ dashboards:
             return `${params.seriesName}<br>${
               params.marker
             } ${month}/${year} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
-              params.value
+              params.value,
             )}</span>`;
           },
         },
@@ -948,7 +948,8 @@ dashboards:
         maximumFractionDigits: 0,
       });
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
-      const divisor = days / (365 / 12);
+      const divisor = days / (365 / 12); // monthly
+      const valueThreshold = 10; // skip nodes below this value
 
       const nodes = [{ name: "Income" }];
       const links = [];
@@ -961,6 +962,9 @@ dashboards:
             node = node.children[0];
             label += ":" + node.name.split(":").pop();
           }
+
+          // skip nodes below the threshold
+          if (Math.abs(node.value / divisor) < valueThreshold) continue;
 
           nodes.push({ name: node.name, label });
           if (node.name.startsWith("Income")) {
@@ -980,6 +984,15 @@ dashboards:
       addNode(accountTree.children[0]);
       addNode(accountTree.children[1]);
 
+      const savings =
+        accountTree.children[0].name === "Income"
+          ? -accountTree.children[0].value - accountTree.children[1].value
+          : -accountTree.children[1].value - accountTree.children[0].value;
+      if (savings > 0) {
+        nodes.push({ name: "Savings" });
+        links.push({ source: "Income", target: "Savings", value: savings / divisor });
+      }
+
       return {
         align: "left",
         valueFormatter: currencyFormat.format,
@@ -988,6 +1001,7 @@ dashboards:
           links,
         },
         onClick: (event, node) => {
+          if (node.name === "Savings") return;
           const time = new URLSearchParams(window.location.search).get("time") ?? "";
           const link = panel.queries[0].link.replaceAll("#", "%23").replace("{account}", node.name).replace("{time}", time);
           window.open(link);
