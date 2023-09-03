@@ -1,5 +1,6 @@
 import datetime
 import yaml
+import re
 from collections import namedtuple
 from functools import cached_property
 from beancount.query.query import run_query
@@ -106,7 +107,13 @@ class FavaDashboards(FavaExtensionBase):
 
     def dashboards_js(self):
         """Optionally load JavaScript helper functions, accessible from every panel"""
-        dashboards_js_path = self.ext_config.dashboards_path.replace(".yaml", ".js")
+        dashboards_js_path, num_subs = re.subn(
+            r"\.yaml$", ".js", self.ext_config.dashboards_path, count=1
+        )
+        if num_subs == 0:
+            # no substitutions were made, don't try to load yaml file.
+            return ""
+
         try:
             with open(dashboards_js_path, encoding="utf-8") as f:
                 return f.read()
