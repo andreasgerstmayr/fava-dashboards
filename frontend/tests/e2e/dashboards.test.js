@@ -25,14 +25,14 @@ describe("Dashboard: PNG Snapshot Tests", () => {
     }
 });
 
-describe("Dashboard: SVG Snapshot Tests", () => {
+describe("Dashboard: HTML Snapshot Tests", () => {
     for (let dashboard of dashboards) {
         it(dashboard.name, async () => {
             await page.setUserAgent("puppeteer");
             await page.goto(`${BASE_URL}${dashboard.link}`);
             await waitFor(1500); // wait for animations to finish
 
-            let html = await page.$eval("#dashboard", (element) => element.innerHTML);
+            let html = await page.$eval("article", (element) => element.innerHTML);
             html = html.replaceAll(/_echarts_instance_="ec_[0-9]+"/g, "");
             expect(html).toMatchSnapshot();
         });

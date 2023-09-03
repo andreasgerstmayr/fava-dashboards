@@ -880,7 +880,7 @@ dashboards:
     - bql: |
         SELECT tags, CONVERT(position, '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
-        ORDER BY date
+        ORDER BY date, tags
       link: /beancount/account/Expenses/?filter=#{travel}
     type: echarts
     script: |
