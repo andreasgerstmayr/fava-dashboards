@@ -103,3 +103,14 @@ class FavaDashboards(FavaExtensionBase):
             "dashboards": dashboards,
             "dashboardId": dashboard_id,
         }
+
+    def dashboards_js(self):
+        """Optionally load JavaScript helper functions, accessible from every panel"""
+        dashboards_js_path = self.ext_config.dashboards_path.replace(".yaml", ".js")
+        try:
+            with open(dashboards_js_path, encoding="utf-8") as f:
+                return f.read()
+        except FileNotFoundError:
+            return ""
+        except Exception as ex:
+            raise FavaAPIError(f"Failed to read file {dashboards_js_path}: {ex}")

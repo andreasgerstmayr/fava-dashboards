@@ -5,6 +5,9 @@
 <script id="favaDashboardsBootstrap" type="application/json">
 {{ bootstrap|tojson }}
 </script>
+<script type="application/javascript">
+{{ extension.dashboards_js()|safe }}
+</script>
 
 <div class="headerline">
   {% for dashboard in bootstrap.dashboards %}
