@@ -27,8 +27,8 @@ class Panel {
             return;
         }
 
-        const chart = echarts.init(elem);
-        //const chart = echarts.init(elem, null, { renderer: "svg" });
+        const renderer = window.navigator.userAgent === "puppeteer" ? "svg" : undefined;
+        const chart = echarts.init(elem, undefined, { renderer });
         if (options.onClick) {
             chart.on("click", options.onClick);
             delete options.onClick;
