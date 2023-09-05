@@ -13,8 +13,9 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const value = currencyFormat.format(panel.queries[0].result[0].value[ledger.ccy]);
-      return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
+      const value = panel.queries[0].result[0].value[ledger.ccy];
+      const valueFmt = currencyFormat.format(value ?? 0);
+      return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${valueFmt}</div>`;
 
   - title: Liabilities 💳
     width: 50%
@@ -28,8 +29,9 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const value = currencyFormat.format(-panel.queries[0].result[0].value[ledger.ccy]);
-      return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${value}</div>`;
+      const value = panel.queries[0].result[0].value[ledger.ccy];
+      const valueFmt = currencyFormat.format(value ? -value : 0);
+      return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${valueFmt}</div>`;
 
   - title: Income/Expenses 💸
     height: 520px
