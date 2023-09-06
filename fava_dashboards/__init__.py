@@ -1,26 +1,35 @@
-import os
 import datetime
 import yaml
+from collections import namedtuple
+from functools import cached_property
 from beancount.query.query import run_query
 from fava.ext import FavaExtensionBase
 from fava.helpers import FavaAPIError
 from fava.context import g
 from fava.application import render_template_string
 
+Config = namedtuple("Config", ["dashboards_path"])
+
 
 class FavaDashboards(FavaExtensionBase):
     report_title = "Dashboards"
     has_js_module = True
 
-    def read_config(self):
-        ext_config = self.config if isinstance(self.config, dict) else {}
-        config_file = os.path.abspath(ext_config.get("config", "dashboards.yaml"))
+    @cached_property
+    def ext_config(self) -> Config:
+        cfg = self.config if isinstance(self.config, dict) else {}
+        return Config(
+            dashboards_path=self.ledger.join_path(cfg.get("config", "dashboards.yaml"))
+        )
 
+    def read_dashboards_config(self):
         try:
-            with open(config_file, encoding="utf-8") as f:
+            with open(self.ext_config.dashboards_path, encoding="utf-8") as f:
                 return yaml.safe_load(f)
         except Exception as ex:
-            raise FavaAPIError(f"Cannot read configuration file {config_file}: {ex}")
+            raise FavaAPIError(
+                f"Cannot read configuration file {self.ext_config.dashboards_path}: {ex}"
+            )
 
     def exec_query(self, query, tmpl):
         try:
@@ -81,7 +90,7 @@ class FavaDashboards(FavaExtensionBase):
             "commodities": commodities,
         }
 
-        config = self.read_config()
+        config = self.read_dashboards_config()
         dashboards = config.get("dashboards", [])
         if not (0 <= dashboard_id < len(dashboards)):
             raise FavaAPIError(f"Invalid dashboard ID: {dashboard_id}")

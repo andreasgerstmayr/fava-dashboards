@@ -39,7 +39,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
               "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Assets:\\u0027"
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ?? 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Assets \\ud83d\\udcb0",
           "type": "html",
           "width": "50%"
@@ -51,7 +51,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
               "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Liabilities:\\u0027"
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(-panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ? -value : 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Liabilities \\ud83d\\udcb3",
           "type": "html",
           "width": "50%"
@@ -3705,7 +3705,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
               "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Assets:\\u0027"
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ?? 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Assets \\ud83d\\udcb0",
           "type": "html",
           "width": "50%"
@@ -3717,7 +3717,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
               "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Liabilities:\\u0027"
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(-panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ? -value : 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Liabilities \\ud83d\\udcb3",
           "type": "html",
           "width": "50%"
@@ -8357,7 +8357,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
               ]
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ?? 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Assets \\ud83d\\udcb0",
           "type": "html",
           "width": "50%"
@@ -8376,7 +8376,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
               ]
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(-panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ? -value : 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Liabilities \\ud83d\\udcb3",
           "type": "html",
           "width": "50%"
@@ -10764,7 +10764,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Assets:\\u0027"
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ?? 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Assets \\ud83d\\udcb0",
           "type": "html",
           "width": "50%"
@@ -10776,7 +10776,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Liabilities:\\u0027"
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(-panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ? -value : 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Liabilities \\ud83d\\udcb3",
           "type": "html",
           "width": "50%"
@@ -13323,7 +13323,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
               "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Assets:\\u0027"
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ?? 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Assets \\ud83d\\udcb0",
           "type": "html",
           "width": "50%"
@@ -13335,7 +13335,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
               "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Liabilities:\\u0027"
             }
           ],
-          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = currencyFormat.format(-panel.queries[0].result[0].value[ledger.ccy]);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${value}\\u003c/div\\u003e\`;\\n",
+          "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ? -value : 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
           "title": "Liabilities \\ud83d\\udcb3",
           "type": "html",
           "width": "50%"
@@ -13981,8 +13981,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -13991,8 +13991,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14001,8 +14001,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14011,8 +14011,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14021,8 +14021,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14031,8 +14031,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14041,8 +14041,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14051,8 +14051,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14061,8 +14061,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14071,8 +14071,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14081,8 +14081,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14091,8 +14091,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14101,8 +14101,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14111,8 +14111,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14281,8 +14281,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14291,8 +14291,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14301,8 +14301,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14311,8 +14311,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14321,8 +14321,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14331,8 +14331,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14341,8 +14341,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14351,8 +14351,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14361,8 +14361,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14371,8 +14371,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14381,8 +14381,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14391,8 +14391,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14401,8 +14401,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14411,8 +14411,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14421,8 +14421,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14431,8 +14431,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14441,8 +14441,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14451,8 +14451,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14461,8 +14461,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14471,8 +14471,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14481,8 +14481,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14491,8 +14491,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14501,8 +14501,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14511,8 +14511,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14521,8 +14521,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14531,8 +14531,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14541,8 +14541,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14551,8 +14551,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
@@ -14561,8 +14561,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 },
                 {
                   "tags": [
-                    "trip-chicago-2021",
-                    "travel"
+                    "travel",
+                    "trip-chicago-2021"
                   ],
                   "value": {
                     "currency": "USD",
