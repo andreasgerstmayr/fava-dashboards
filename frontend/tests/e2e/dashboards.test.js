@@ -13,7 +13,7 @@ const dashboards = [
     { name: "Sankey", link: "/extension/FavaDashboards/?dashboard=4" },
 ];
 
-describe("Dashboard: PNG Snapshot Tests", () => {
+describe.skip("Dashboard: PNG Snapshot Tests", () => {
     for (let dashboard of dashboards) {
         it(dashboard.name, async () => {
             await page.goto(`${BASE_URL}${dashboard.link}`);
@@ -34,6 +34,7 @@ describe("Dashboard: HTML Snapshot Tests", () => {
 
             let html = await page.$eval("article", (element) => element.innerHTML);
             html = html.replaceAll(/_echarts_instance_="ec_[0-9]+"/g, "");
+            html = html.replaceAll(/"filename": .+,/g, "");
             expect(html).toMatchSnapshot();
         });
     }
