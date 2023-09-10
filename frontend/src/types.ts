@@ -16,6 +16,5 @@ export interface Dashboard {
 
 export interface Bootstrap {
     ledger: Ledger;
-    dashboards: Dashboard[];
-    dashboardId: number;
+    dashboard: Dashboard;
 }

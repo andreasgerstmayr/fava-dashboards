@@ -77,9 +77,6 @@ export default {
         if (!boostrapJSON) return;
 
         const bootstrap = JSON.parse(boostrapJSON);
-        const ledger = bootstrap.ledger;
-        const dashboard = bootstrap.dashboards[bootstrap.dashboardId];
-
-        renderDashboard(ledger, dashboard);
+        renderDashboard(bootstrap.ledger, bootstrap.dashboard);
     },
 };
