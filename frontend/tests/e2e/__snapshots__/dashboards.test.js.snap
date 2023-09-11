@@ -6836,7 +6836,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
             ]
           }
         ],
-        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ?? 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0]?.value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ?? 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
         "title": "Assets \\ud83d\\udcb0",
         "type": "html",
         "width": "50%"
@@ -6855,7 +6855,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
             ]
           }
         ],
-        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0].value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ? -value : 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst value = panel.queries[0].result[0]?.value[ledger.ccy];\\nconst valueFmt = currencyFormat.format(value ? -value : 0);\\nreturn \`\\u003cdiv style=\\"font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;\\"\\u003e\${valueFmt}\\u003c/div\\u003e\`;\\n",
         "title": "Liabilities \\ud83d\\udcb3",
         "type": "html",
         "width": "50%"
@@ -10666,560 +10666,56 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
         "height": "300px",
         "queries": [
           {
-            "bql": "SELECT tags, CONVERT(position, \\u0027{{ledger.ccy}}\\u0027) AS value\\nWHERE account ~ \\u0027^Expenses:\\u0027 AND \\u0027travel\\u0027 IN tags\\nORDER BY date, tags\\n",
+            "bql": "SELECT tags, CONVERT(position, \\u0027{{ledger.ccy}}\\u0027) AS value\\nWHERE account ~ \\u0027^Expenses:\\u0027 AND \\u0027travel\\u0027 IN tags\\nORDER BY date, tags DESC\\n",
             "link": "/beancount/account/Expenses/?filter=#{travel}",
             "result": [
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 74.96
+                  "number": 43.82
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 68.70
+                  "number": 6.23
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 52.03
+                  "number": 27.57
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 16.48
+                  "number": 43.21
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 58.99
+                  "number": 28.67
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 6.15
+                  "number": 37.75
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 18.61
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 25.21
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 6.28
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 69.03
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 17.76
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 31.63
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 31.55
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 6.00
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 52.67
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 4.92
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 72.30
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 21.09
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 38.14
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 19.30
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 47.86
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 5.93
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 32.61
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 70.01
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 37.90
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 5.98
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 64.31
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 17.70
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 21.24
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 5.88
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 6.53
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 41.06
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 25.08
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 49.28
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 24.10
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 21.72
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 6.46
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 25.66
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 21.51
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 14.37
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 5.90
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 11.59
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 13.13
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 37.80
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 15.23
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 21.15
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 53.92
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 17.63
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 59.83
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 52.71
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 56.60
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 51.19
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 36.13
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 18.58
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 5.87
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 86.48
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 21.38
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 24.69
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 18.72
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 6.28
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 25.34
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 36.34
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 6.61
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 23.32
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 40.92
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 9.01
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 45.38
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 14.39
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 51.26
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 6.83
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 24.16
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 41.66
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 25.14
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 47.14
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 32.84
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 6.57
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 28.27
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 23.98
-                }
-              },
-              {
-                
-                "value": {
-                  "currency": "USD",
-                  "number": 6.90
+                  "number": 6.30
                 }
               },
               {
@@ -11254,55 +10750,559 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 
                 "value": {
                   "currency": "USD",
-                  "number": 28.67
+                  "number": 28.27
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 37.75
+                  "number": 23.98
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 6.30
+                  "number": 6.90
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 27.57
+                  "number": 25.14
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 43.21
+                  "number": 47.14
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 43.82
+                  "number": 32.84
                 }
               },
               {
                 
                 "value": {
                   "currency": "USD",
-                  "number": 6.23
+                  "number": 6.57
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 24.16
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 41.66
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 51.26
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 6.83
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 45.38
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 14.39
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 40.92
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 9.01
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 23.32
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 36.34
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 6.61
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 25.34
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 18.72
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 6.28
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 86.48
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 21.38
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 24.69
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 18.58
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 5.87
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 36.13
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 51.19
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 56.60
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 59.83
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 52.71
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 21.15
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 53.92
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 17.63
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 13.13
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 37.80
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 15.23
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 11.59
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 14.37
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 5.90
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 25.66
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 21.51
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 21.72
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 6.46
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 24.10
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 25.08
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 49.28
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 41.06
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 6.53
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 21.24
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 5.88
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 64.31
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 17.70
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 37.90
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 5.98
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 70.01
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 32.61
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 47.86
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 5.93
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 19.30
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 72.30
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 21.09
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 38.14
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 52.67
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 4.92
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 31.55
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 6.00
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 69.03
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 17.76
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 31.63
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 18.61
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 25.21
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 6.28
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 58.99
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 6.15
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 16.48
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 68.70
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 52.03
+                }
+              },
+              {
+                
+                "value": {
+                  "currency": "USD",
+                  "number": 74.96
                 }
               }
             ]
           }
         ],
-        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst travels = [];\\nconst amounts = {};\\n\\nfor (let row of panel.queries[0].result) {\\n  const tag = row.tags.find((tag) =\\u003e tag.match(/\\\\-\\\\d{4}/));\\n  if (!(tag in amounts)) {\\n    travels.unshift(tag);\\n    amounts[tag] = 0;\\n  }\\n  amounts[tag] += row.value.number;\\n}\\n\\nreturn {\\n  tooltip: {\\n    valueFormatter: currencyFormat.format,\\n  },\\n  grid: {\\n    left: \\"150px\\",\\n  },\\n  xAxis: {\\n    type: \\"value\\",\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    type: \\"category\\",\\n    data: travels,\\n  },\\n  series: [\\n    {\\n      type: \\"bar\\",\\n      data: travels.map((travel) =\\u003e amounts[travel]),\\n    },\\n  ],\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link.replaceAll(\\"#\\", \\"%23\\").replace(\\"{travel}\\", event.name);\\n    window.open(link);\\n  },\\n};\\n",
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst travels = [];\\nconst amounts = {};\\n\\nfor (let row of panel.queries[0].result) {\\n  const tag = row.tags.find((tag) =\\u003e tag.match(/\\\\-\\\\d{4}/));\\n  if (!(tag in amounts)) {\\n    travels.push(tag);\\n    amounts[tag] = 0;\\n  }\\n  amounts[tag] += row.value.number;\\n}\\n\\nreturn {\\n  tooltip: {\\n    valueFormatter: currencyFormat.format,\\n  },\\n  grid: {\\n    left: \\"150px\\",\\n  },\\n  xAxis: {\\n    type: \\"value\\",\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    type: \\"category\\",\\n    data: travels,\\n  },\\n  series: [\\n    {\\n      type: \\"bar\\",\\n      data: travels.map((travel) =\\u003e amounts[travel]),\\n    },\\n  ],\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link.replaceAll(\\"#\\", \\"%23\\").replace(\\"{travel}\\", event.name);\\n    window.open(link);\\n  },\\n};\\n",
         "title": "Destinations \\u2708\\ufe0f",
         "type": "echarts"
       }
@@ -11703,14 +11703,14 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                   style="font-size:12px;font-family:sans-serif;"
                   fill="#6E7079"
             >
-              trip-san-francisco-2021
+              trip-chicago-2021
             </text>
             <text dominant-baseline="central"
                   text-anchor="end"
                   style="font-size:12px;font-family:sans-serif;"
                   fill="#6E7079"
             >
-              trip-chicago-2021
+              trip-san-francisco-2021
             </text>
             <text dominant-baseline="central"
                   text-anchor="end"

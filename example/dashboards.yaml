@@ -13,7 +13,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const value = panel.queries[0].result[0].value[ledger.ccy];
+      const value = panel.queries[0].result[0]?.value[ledger.ccy];
       const valueFmt = currencyFormat.format(value ?? 0);
       return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${valueFmt}</div>`;
 
@@ -29,7 +29,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const value = panel.queries[0].result[0].value[ledger.ccy];
+      const value = panel.queries[0].result[0]?.value[ledger.ccy];
       const valueFmt = currencyFormat.format(value ? -value : 0);
       return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${valueFmt}</div>`;
 
@@ -882,7 +882,7 @@ dashboards:
     - bql: |
         SELECT tags, CONVERT(position, '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
-        ORDER BY date, tags
+        ORDER BY date, tags DESC
       link: /beancount/account/Expenses/?filter=#{travel}
     type: echarts
     script: |
@@ -897,7 +897,7 @@ dashboards:
       for (let row of panel.queries[0].result) {
         const tag = row.tags.find((tag) => tag.match(/\-\d{4}/));
         if (!(tag in amounts)) {
-          travels.unshift(tag);
+          travels.push(tag);
           amounts[tag] = 0;
         }
         amounts[tag] += row.value.number;
