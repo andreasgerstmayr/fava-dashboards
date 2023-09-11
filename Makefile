@@ -16,7 +16,7 @@ test: frontend/node_modules
 
 .PHONY: format
 format:
-	prettier -w frontend fava_dashboards/templates/*.css
-	black fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
+	prettier -w frontend src/fava_dashboards/templates/*.css
+	black src/fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
 	./scripts/format_js_in_dashboard.py example/dashboards.yaml
-	find . -name '*.beancount' -exec bean-format -c 59 -o "{}" "{}" \;
+	find example -name '*.beancount' -exec bean-format -c 59 -o "{}" "{}" \;
