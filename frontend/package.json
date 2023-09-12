@@ -1,8 +1,8 @@
 {
     "name": "fava-dashboards",
     "scripts": {
-        "build": "esbuild src/extension.ts --bundle --format=esm --outfile=../fava_dashboards/FavaDashboards.js --minify",
-        "watch": "esbuild src/extension.ts --bundle --format=esm --outfile=../fava_dashboards/FavaDashboards.js --watch",
+        "build": "esbuild src/extension.ts --bundle --format=esm --outfile=../src/fava_dashboards/FavaDashboards.js --minify",
+        "watch": "esbuild src/extension.ts --bundle --format=esm --outfile=../src/fava_dashboards/FavaDashboards.js --watch",
         "test": "jest"
     },
     "devDependencies": {
