@@ -548,7 +548,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
             ]
           }
         ],
-        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) =\\u003e \`\${m.month}/\${m.year}\`);\\nconst amounts = {};\\n\\n// the beancount query only returns months where there was at least one matching transaction, therefore we group by month\\nfor (let row of panel.queries[0].result) {\\n  amounts[\`\${row.month}/\${row.year}\`] = {\\n    market_value: row.market_value[ledger.ccy],\\n    book_value: row.book_value[ledger.ccy],\\n  };\\n}\\n\\nreturn {\\n  tooltip: {\\n    valueFormatter: currencyFormat.format,\\n  },\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  xAxis: {\\n    data: months,\\n  },\\n  yAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  series: [\\n    {\\n      type: \\"line\\",\\n      name: \\"Market Value\\",\\n      smooth: true,\\n      connectNulls: true,\\n      data: months.map((month) =\\u003e amounts[month]?.market_value),\\n    },\\n    {\\n      type: \\"line\\",\\n      name: \\"Book Value\\",\\n      smooth: true,\\n      connectNulls: true,\\n      data: months.map((month) =\\u003e amounts[month]?.book_value),\\n    },\\n  ],\\n  onClick: (event) =\\u003e {\\n    if (!panel.queries[0].link) return;\\n    const [month, year] = event.name.split(\\"/\\");\\n    const link = panel.queries[0].link.replaceAll(\\"#\\", \\"%23\\").replace(\\"{time}\\", \`\${year}-\${month.padStart(2, \\"0\\")}\`);\\n    window.open(link);\\n  },\\n};\\n",
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) =\\u003e \`\${m.month}/\${m.year}\`);\\nconst amounts = {};\\n\\n// the beancount query only returns months where there was at least one matching transaction, therefore we group by month\\nfor (let row of panel.queries[0].result) {\\n  amounts[\`\${row.month}/\${row.year}\`] = {\\n    market_value: row.market_value[ledger.ccy],\\n    book_value: row.book_value[ledger.ccy],\\n  };\\n}\\n\\nreturn {\\n  tooltip: {\\n    trigger: \\"axis\\",\\n    valueFormatter: currencyFormat.format,\\n  },\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  xAxis: {\\n    data: months,\\n  },\\n  yAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  series: [\\n    {\\n      type: \\"line\\",\\n      name: \\"Market Value\\",\\n      smooth: true,\\n      connectNulls: true,\\n      data: months.map((month) =\\u003e amounts[month]?.market_value),\\n    },\\n    {\\n      type: \\"line\\",\\n      name: \\"Book Value\\",\\n      smooth: true,\\n      connectNulls: true,\\n      data: months.map((month) =\\u003e amounts[month]?.book_value),\\n    },\\n  ],\\n  onClick: (event) =\\u003e {\\n    if (!panel.queries[0].link) return;\\n    const [month, year] = event.name.split(\\"/\\");\\n    const link = panel.queries[0].link.replaceAll(\\"#\\", \\"%23\\").replace(\\"{time}\\", \`\${year}-\${month.padStart(2, \\"0\\")}\`);\\n    window.open(link);\\n  },\\n};\\n",
         "title": "Portfolio \\ud83d\\udcc8",
         "type": "echarts",
         "width": "50%"
@@ -1209,6 +1209,11 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
   <h3>
     <a href="/beancount/extension/FavaDashboards/?dashboard=4">
       Sankey
+    </a>
+  </h3>
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=5">
+      Projection
     </a>
   </h3>
 </div>
@@ -3183,7 +3188,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         "queries": [
           {
             "bql": "SELECT root(account, 4) AS account, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value\\nWHERE account ~ \\u0027^Income:\\u0027\\nGROUP BY account\\n",
-            "link": "/beancount/account/{account}/changes/?time={time}",
+            "link": "/beancount/account/{account}/?r=changes\\u0026time={time}",
             "result": [
               {
                 "account": "Income:US:Hooli:Salary",
@@ -3246,7 +3251,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         "queries": [
           {
             "bql": "SELECT root(account, 3) AS account, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value\\nWHERE account ~ \\u0027^Expenses:\\u0027\\nGROUP BY account\\n",
-            "link": "/beancount/account/{account}/changes/?time={time}",
+            "link": "/beancount/account/{account}/?r=changes\\u0026time={time}",
             "result": [
               {
                 "account": "Expenses:Health:Life",
@@ -4872,6 +4877,11 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
   <h3>
     <a href="/beancount/extension/FavaDashboards/?dashboard=4">
       Sankey
+    </a>
+  </h3>
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=5">
+      Projection
     </a>
   </h3>
 </div>
@@ -7914,6 +7924,11 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
       Sankey
     </a>
   </h3>
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=5">
+      Projection
+    </a>
+  </h3>
 </div>
 <div id="dashboard">
   <div class="panel"
@@ -8598,6 +8613,1389 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
 </script>
 `;
 
+exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
+<style type="text/css">
+  #dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#dashboard .panel {
+    padding: 20px;
+    min-width: 300px;
+}
+#dashboard .panel h2 {
+    text-align: center;
+}
+#dashboard a {
+    color: #333;
+}
+
+/* set panel min-width to 100% on screens
+  < 802px (navbar + padding + 2*300px) */
+@media (max-width: 802px) {
+    #dashboard .panel {
+        min-width: 100%;
+    }
+}
+</style>
+<script id="favaDashboardsBootstrap"
+        type="application/json"
+>
+  {
+  "dashboard": {
+    "name": "Projection",
+    "panels": [
+      {
+        "link": "/beancount/income_statement/",
+        "queries": [
+          {
+            "bql": "SELECT year, month,\\nCONVERT(LAST(balance), \\u0027{{ledger.ccy}}\\u0027, DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS value\\nWHERE account_sortkey(account) ~ \\u0027^[01]\\u0027\\nGROUP BY year, month\\nORDER BY year, month\\n",
+            "link": "/beancount/balance_sheet/?time={time}",
+            "result": [
+              {
+                "month": 1,
+                "value": {
+                  "USD": 29234.73618
+                },
+                "year": 2020
+              },
+              {
+                "month": 2,
+                "value": {
+                  "USD": 32430.84356
+                },
+                "year": 2020
+              },
+              {
+                "month": 3,
+                "value": {
+                  "USD": 35638.84345
+                },
+                "year": 2020
+              },
+              {
+                "month": 4,
+                "value": {
+                  "USD": 38674.87320
+                },
+                "year": 2020
+              },
+              {
+                "month": 5,
+                "value": {
+                  "USD": 41716.41678
+                },
+                "year": 2020
+              },
+              {
+                "month": 6,
+                "value": {
+                  "USD": 44435.59516
+                },
+                "year": 2020
+              },
+              {
+                "month": 7,
+                "value": {
+                  "USD": 50611.69697
+                },
+                "year": 2020
+              },
+              {
+                "month": 8,
+                "value": {
+                  "USD": 51735.46788
+                },
+                "year": 2020
+              },
+              {
+                "month": 9,
+                "value": {
+                  "USD": 54045.40396
+                },
+                "year": 2020
+              },
+              {
+                "month": 10,
+                "value": {
+                  "USD": 56077.40796
+                },
+                "year": 2020
+              },
+              {
+                "month": 11,
+                "value": {
+                  "USD": 57174.07826
+                },
+                "year": 2020
+              },
+              {
+                "month": 12,
+                "value": {
+                  "USD": 62493.75704
+                },
+                "year": 2020
+              },
+              {
+                "month": 1,
+                "value": {
+                  "USD": 45723.39256
+                },
+                "year": 2021
+              },
+              {
+                "month": 2,
+                "value": {
+                  "USD": 49281.63140
+                },
+                "year": 2021
+              },
+              {
+                "month": 3,
+                "value": {
+                  "USD": 51746.88049
+                },
+                "year": 2021
+              },
+              {
+                "month": 4,
+                "value": {
+                  "USD": 55400.47188
+                },
+                "year": 2021
+              },
+              {
+                "month": 5,
+                "value": {
+                  "USD": 58680.93796
+                },
+                "year": 2021
+              },
+              {
+                "month": 6,
+                "value": {
+                  "USD": 63628.97993
+                },
+                "year": 2021
+              },
+              {
+                "month": 7,
+                "value": {
+                  "USD": 71450.90651
+                },
+                "year": 2021
+              },
+              {
+                "month": 8,
+                "value": {
+                  "USD": 76042.56887
+                },
+                "year": 2021
+              },
+              {
+                "month": 9,
+                "value": {
+                  "USD": 77417.29226
+                },
+                "year": 2021
+              },
+              {
+                "month": 10,
+                "value": {
+                  "USD": 80058.06354
+                },
+                "year": 2021
+              },
+              {
+                "month": 11,
+                "value": {
+                  "USD": 81316.15822
+                },
+                "year": 2021
+              },
+              {
+                "month": 12,
+                "value": {
+                  "USD": 88062.05306
+                },
+                "year": 2021
+              },
+              {
+                "month": 1,
+                "value": {
+                  "USD": 90631.22126
+                },
+                "year": 2022
+              },
+              {
+                "month": 2,
+                "value": {
+                  "USD": 96542.96103
+                },
+                "year": 2022
+              }
+            ]
+          },
+          {
+            "bql": "SELECT year, month,\\nCONVERT(LAST(balance), \\u0027{{ledger.ccy}}\\u0027, DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS value\\nWHERE account_sortkey(account) ~ \\u0027^[01]\\u0027 AND NOT \\u0027wedding\\u0027 IN tags\\nGROUP BY year, month\\nORDER BY year, month\\n",
+            "result": [
+              {
+                "month": 1,
+                "value": {
+                  "USD": 29234.73618
+                },
+                "year": 2020
+              },
+              {
+                "month": 2,
+                "value": {
+                  "USD": 32430.84356
+                },
+                "year": 2020
+              },
+              {
+                "month": 3,
+                "value": {
+                  "USD": 35638.84345
+                },
+                "year": 2020
+              },
+              {
+                "month": 4,
+                "value": {
+                  "USD": 38674.87320
+                },
+                "year": 2020
+              },
+              {
+                "month": 5,
+                "value": {
+                  "USD": 41716.41678
+                },
+                "year": 2020
+              },
+              {
+                "month": 6,
+                "value": {
+                  "USD": 44435.59516
+                },
+                "year": 2020
+              },
+              {
+                "month": 7,
+                "value": {
+                  "USD": 50611.69697
+                },
+                "year": 2020
+              },
+              {
+                "month": 8,
+                "value": {
+                  "USD": 51735.46788
+                },
+                "year": 2020
+              },
+              {
+                "month": 9,
+                "value": {
+                  "USD": 54045.40396
+                },
+                "year": 2020
+              },
+              {
+                "month": 10,
+                "value": {
+                  "USD": 56077.40796
+                },
+                "year": 2020
+              },
+              {
+                "month": 11,
+                "value": {
+                  "USD": 57174.07826
+                },
+                "year": 2020
+              },
+              {
+                "month": 12,
+                "value": {
+                  "USD": 62493.75704
+                },
+                "year": 2020
+              },
+              {
+                "month": 1,
+                "value": {
+                  "USD": 65723.39256
+                },
+                "year": 2021
+              },
+              {
+                "month": 2,
+                "value": {
+                  "USD": 69281.63140
+                },
+                "year": 2021
+              },
+              {
+                "month": 3,
+                "value": {
+                  "USD": 71746.88049
+                },
+                "year": 2021
+              },
+              {
+                "month": 4,
+                "value": {
+                  "USD": 75400.47188
+                },
+                "year": 2021
+              },
+              {
+                "month": 5,
+                "value": {
+                  "USD": 78680.93796
+                },
+                "year": 2021
+              },
+              {
+                "month": 6,
+                "value": {
+                  "USD": 83628.97993
+                },
+                "year": 2021
+              },
+              {
+                "month": 7,
+                "value": {
+                  "USD": 91450.90651
+                },
+                "year": 2021
+              },
+              {
+                "month": 8,
+                "value": {
+                  "USD": 96042.56887
+                },
+                "year": 2021
+              },
+              {
+                "month": 9,
+                "value": {
+                  "USD": 97417.29226
+                },
+                "year": 2021
+              },
+              {
+                "month": 10,
+                "value": {
+                  "USD": 100058.06354
+                },
+                "year": 2021
+              },
+              {
+                "month": 11,
+                "value": {
+                  "USD": 101316.15822
+                },
+                "year": 2021
+              },
+              {
+                "month": 12,
+                "value": {
+                  "USD": 108062.05306
+                },
+                "year": 2021
+              },
+              {
+                "month": 1,
+                "value": {
+                  "USD": 110631.22126
+                },
+                "year": 2022
+              },
+              {
+                "month": 2,
+                "value": {
+                  "USD": 116542.96103
+                },
+                "year": 2022
+              }
+            ]
+          }
+        ],
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst projectYears = 2; // number of years to project\\n\\n// the beancount query only returns months where there was at least one matching transaction, therefore we group by month\\nconst amounts = {};\\nconst amountsEx = {};\\nfor (let row of panel.queries[0].result) {\\n  amounts[\`\${row.month}/\${row.year}\`] = row.value[ledger.ccy];\\n}\\nfor (let row of panel.queries[1].result) {\\n  amountsEx[\`\${row.month}/\${row.year}\`] = row.value[ledger.ccy];\\n}\\n\\nconst [year, month] = ledger.dateLast.split(\\"-\\").map((x) =\\u003e parseInt(x));\\nconst projectUntil = \`\${year + projectYears}-\${month}-1\`;\\nconst months = helpers.iterateMonths(ledger.dateFirst, projectUntil).map((m) =\\u003e \`\${m.month}/\${m.year}\`);\\nconst lastMonthIdx = months.findIndex((m) =\\u003e m === \`\${month}/\${year}\`);\\nconst ledgerDays = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;\\n\\nconst results = panel.queries[0].result;\\nconst finalAmount = results[results.length - 1].value[ledger.ccy];\\nconst resultsEx = panel.queries[1].result;\\nconst totalDiffEx = resultsEx[resultsEx.length - 1].value[ledger.ccy] - resultsEx[0].value[ledger.ccy];\\nconst monthlyDiffEx = (totalDiffEx / ledgerDays) * (365 / 12);\\n\\nconst projection = [];\\nlet sum = finalAmount;\\nfor (let i = lastMonthIdx; i \\u003c months.length; i++) {\\n  projection[months[i]] = sum;\\n  sum += monthlyDiffEx;\\n}\\n\\nreturn {\\n  tooltip: {\\n    valueFormatter: currencyFormat.format,\\n  },\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  xAxis: {\\n    data: months,\\n  },\\n  yAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  series: [\\n    {\\n      type: \\"line\\",\\n      name: \\"Net Worth\\",\\n      smooth: true,\\n      connectNulls: true,\\n      data: months.map((month) =\\u003e amounts[month] || null),\\n    },\\n    {\\n      type: \\"line\\",\\n      name: \\"Excluding onetime txns\\",\\n      smooth: true,\\n      connectNulls: true,\\n      data: months.map((month) =\\u003e amountsEx[month]),\\n    },\\n    {\\n      type: \\"line\\",\\n      name: \\"Projection\\",\\n      lineStyle: {\\n        type: \\"dotted\\",\\n      },\\n      data: months.map((month) =\\u003e projection[month]),\\n    },\\n  ],\\n  onClick: (event) =\\u003e {\\n    if (!panel.queries[0].link) return;\\n    const [month, year] = event.name.split(\\"/\\");\\n    const link = panel.queries[0].link.replaceAll(\\"#\\", \\"%23\\").replace(\\"{time}\\", \`\${year}-\${month.padStart(2, \\"0\\")}\`);\\n    window.open(link);\\n  },\\n};\\n",
+        "title": "Net Worth \\ud83d\\udcb0",
+        "type": "echarts"
+      }
+    ]
+  },
+  "ledger": {
+    "ccy": "USD",
+    "commodities": {
+      "GLD": {
+        "currency": "GLD",
+        "date": "2004-11-01",
+        "meta": {
+          "asset_allocation_Commodity_Gold": 100,
+          "asset_class": "ETF",
+          "export": "NYSEARCA:GLD",
+          
+          "lineno": 52,
+          "name": "SPDR Gold Trust (ETF)",
+          "price": "USD:google/NYSEARCA:GLD"
+        }
+      },
+      "ITOT": {
+        "currency": "ITOT",
+        "date": "2004-01-20",
+        "meta": {
+          "asset_allocation_Equity_Market_NonUS": 1,
+          "asset_allocation_Equity_Market_US": 99,
+          "asset_class": "ETF",
+          "export": "NYSEARCA:ITOT",
+          
+          "lineno": 37,
+          "name": "iShares Core S\\u0026P Total U.S. Stock Market ETF",
+          "price": "USD:google/NYSEARCA:ITOT"
+        }
+      },
+      "RGAGX": {
+        "currency": "RGAGX",
+        "date": "2009-05-01",
+        "meta": {
+          "asset_allocation_Bond_Cash": 10,
+          "asset_allocation_Equity_Market_NonUS": 11,
+          "asset_allocation_Equity_Market_US": 79,
+          "asset_class": "Fund",
+          "export": "MUTF:RGAGX",
+          
+          "lineno": 66,
+          "name": "American Funds The Growth Fund of America Class R-6",
+          "price": "USD:google/MUTF:RGAGX"
+        }
+      },
+      "USD": {
+        "currency": "USD",
+        "date": "1792-01-01",
+        "meta": {
+          "asset_allocation_Bond_Cash": 100,
+          "asset_class": "Cash",
+          "export": "CASH",
+          
+          "lineno": 16,
+          "name": "US Dollar"
+        }
+      },
+      "VBMPX": {
+        "currency": "VBMPX",
+        "date": "1995-09-18",
+        "meta": {
+          "asset_allocation_Bond_NonUS": 9,
+          "asset_allocation_Bond_US": 91,
+          "asset_class": "Fund",
+          "export": "MUTF:VBMPX",
+          
+          "lineno": 29,
+          "name": "Vanguard Total Bond Market Index Fund Institutional Plus Shares",
+          "price": "USD:google/MUTF:VBMPX"
+        }
+      },
+      "VEA": {
+        "currency": "VEA",
+        "date": "2007-07-20",
+        "meta": {
+          "asset_allocation_Equity_Market_DevelopedWorld": 100,
+          "asset_class": "ETF",
+          "export": "NYSEARCA:VEA",
+          
+          "lineno": 59,
+          "name": "Vanguard FTSE Developed Markets ETF",
+          "price": "USD:google/NYSEARCA:VEA"
+        }
+      },
+      "VHT": {
+        "currency": "VHT",
+        "date": "2004-01-26",
+        "meta": {
+          "asset_allocation_Equity_Sector_Health": 100,
+          "asset_class": "ETF",
+          "export": "NYSEARCA:VHT",
+          
+          "lineno": 45,
+          "name": "Vanguard Health Care ETF",
+          "price": "USD:google/NYSEARCA:VHT"
+        }
+      },
+      "VMMXX": {
+        "currency": "VMMXX",
+        "date": "1900-01-01",
+        "meta": {
+          "asset_allocation_Bond_Cash": 82,
+          "asset_allocation_Bond_US": 18,
+          "asset_class": "Fund",
+          "export": "MUTF:VMMXX (MONEY:USD)",
+          
+          "lineno": 22,
+          "name": "Vanguard Cash Reserves Federal Money Market Fund"
+        }
+      }
+    },
+    "dateFirst": "2020-01-01",
+    "dateLast": "2022-02-28",
+    "operatingCurrencies": [
+      "USD"
+    ]
+  }
+}
+</script>
+<div class="headerline">
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=0">
+      Overview
+    </a>
+  </h3>
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=1">
+      Assets
+    </a>
+  </h3>
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=2">
+      Income and Expenses
+    </a>
+  </h3>
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=3">
+      Travelling
+    </a>
+  </h3>
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=4">
+      Sankey
+    </a>
+  </h3>
+  <h3>
+    Projection
+  </h3>
+</div>
+<div id="dashboard">
+  <div class="panel"
+       style="width: 100%"
+  >
+    <h2>
+      <a href="/beancount/income_statement/">
+        Net Worth 💰
+      </a>
+    </h2>
+    <div id="panel0"
+         style="height: 400px; position: relative;"
+    >
+      <div style="position: relative; overflow: hidden; width: 1438px; height: 400px;">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             version="1.1"
+             baseprofile="full"
+             width="1438"
+             height="400"
+             style="position:absolute;left:0;top:0;user-select:none"
+        >
+          <rect width="1438"
+                height="400"
+                x="0"
+                id="0"
+                fill="none"
+          >
+          </rect>
+          <g>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+                  stroke-linecap="round"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $0
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $30,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $60,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $90,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $120,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $150,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $180,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              1/2020
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              4/2020
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              7/2020
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              10/2020
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              1/2021
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              4/2021
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              7/2021
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              10/2021
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              1/2022
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              4/2022
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              7/2022
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              10/2022
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              1/2023
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              4/2023
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              7/2023
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              10/2023
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              1/2024
+            </text>
+            <g clip-path="url(#zr0-c0)">
+              <path fill="none"
+                    stroke="#5470c6"
+                    stroke-width="2"
+                    stroke-linejoin="bevel"
+              >
+              </path>
+            </g>
+            <g clip-path="url(#zr0-c1)">
+              <path fill="none"
+                    stroke="#91cc75"
+                    stroke-width="2"
+                    stroke-linejoin="bevel"
+              >
+              </path>
+            </g>
+            <g clip-path="url(#zr0-c2)">
+              <path fill="none"
+                    stroke="#fac858"
+                    stroke-width="2"
+                    stroke-dasharra
+                    stroke-linejoin="bevel"
+              >
+              </path>
+            </g>
+            <path transform="matrix(2,0,0,2,155.304,286.1479)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,178.312,281.3537)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,201.32,276.5417)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,224.328,271.9877)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,247.336,267.4254)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,270.344,263.3466)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,293.352,254.0825)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,316.36,252.3968)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,339.368,248.9319)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,362.376,245.8839)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,385.384,244.2389)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,408.392,236.2594)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,431.4,261.4149)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,454.408,256.0775)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,477.416,252.3797)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,500.424,246.8993)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,523.432,241.9786)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,546.44,234.5565)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,569.448,222.8236)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,592.456,215.9361)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,615.464,213.8741)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,638.472,209.9129)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,661.48,208.0258)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,684.488,197.9069)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,707.496,194.0532)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,730.504,185.1856)"
+                  fill="#fff"
+                  stroke="#5470c6"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,155.304,286.1479)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,178.312,281.3537)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,201.32,276.5417)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,224.328,271.9877)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,247.336,267.4254)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,270.344,263.3466)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,293.352,254.0825)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,316.36,252.3968)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,339.368,248.9319)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,362.376,245.8839)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,385.384,244.2389)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,408.392,236.2594)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,431.4,231.4149)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,454.408,226.0776)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,477.416,222.3797)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,500.424,216.8993)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,523.432,211.9786)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,546.44,204.5565)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,569.448,192.8236)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,592.456,185.9361)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,615.464,183.8741)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,638.472,179.9129)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,661.48,178.0258)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,684.488,167.9069)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,707.496,164.0532)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,730.504,155.1856)"
+                  fill="#fff"
+                  stroke="#91cc75"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,730.504,185.1856)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,753.512,180.1432)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,776.52,175.1009)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,799.528,170.0586)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,822.536,165.0163)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,845.544,159.9739)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,868.552,154.9316)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,891.56,149.8893)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,914.568,144.847)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,937.576,139.8046)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,960.584,134.7623)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,983.592,129.72)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1006.6,124.6776)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1029.608,119.6353)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1052.616,114.593)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1075.624,109.5507)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1098.632,104.5083)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1121.64,99.466)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1144.6479,94.4237)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1167.656,89.3814)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1190.6639,84.339)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1213.672,79.2967)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1236.6801,74.2544)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1259.688,69.2121)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path transform="matrix(2,0,0,2,1282.696,64.1697)"
+                  fill="#fff"
+                  stroke="#fac858"
+            >
+            </path>
+            <path fill="rgb(0,0,0)"
+                  fill-opacit
+                  stroke="#ccc"
+                  stroke-width="0"
+            >
+            </path>
+            <path fill="#000"
+                  stroke="#5470c6"
+                  stroke-width="2"
+                  stroke-linecap="butt"
+                  stroke-miterlimit="10"
+            >
+            </path>
+            <path fill="#fff"
+                  stroke="#5470c6"
+                  stroke-width="2"
+                  stroke-linecap="butt"
+                  stroke-miterlimit="10"
+            >
+            </path>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  xml:space="preserve"
+                  x="30"
+                  fill="#333"
+            >
+              Net Worth
+            </text>
+            <path fill="#000"
+                  stroke="#91cc75"
+                  stroke-width="2"
+                  stroke-linecap="butt"
+                  stroke-miterlimit="10"
+            >
+            </path>
+            <path fill="#fff"
+                  stroke="#91cc75"
+                  stroke-width="2"
+                  stroke-linecap="butt"
+                  stroke-miterlimit="10"
+            >
+            </path>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  xml:space="preserve"
+                  x="30"
+                  fill="#333"
+            >
+              Excluding onetime txns
+            </text>
+            <path fill="#000"
+                  stroke="#fac858"
+                  stroke-width="2"
+                  stroke-dasharra
+                  stroke-linecap="butt"
+                  stroke-miterlimit="10"
+            >
+            </path>
+            <path fill="#fff"
+                  stroke="#fac858"
+                  stroke-width="2"
+                  stroke-linecap="butt"
+                  stroke-miterlimit="10"
+            >
+            </path>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  x="30"
+                  fill="#333"
+            >
+              Projection
+            </text>
+          </g>
+          <defs>
+            <clipPath id="zr0-c0">
+              <path fill="#000">
+              </path>
+            </clipPath>
+            <clipPath id="zr0-c1">
+              <path fill="#000">
+              </path>
+            </clipPath>
+            <clipPath id="zr0-c2">
+              <path fill="#000">
+              </path>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      <div class>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/json"
+        id="page-title"
+>
+  "Dashboards"
+</script>
+`;
+
 exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
 <style type="text/css">
   #dashboard {
@@ -9048,6 +10446,11 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
   </h3>
   <h3>
     Sankey
+  </h3>
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=5">
+      Projection
+    </a>
   </h3>
 </div>
 <div id="dashboard">
@@ -11586,6 +12989,11 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
   <h3>
     <a href="/beancount/extension/FavaDashboards/?dashboard=4">
       Sankey
+    </a>
+  </h3>
+  <h3>
+    <a href="/beancount/extension/FavaDashboards/?dashboard=5">
+      Projection
     </a>
   </h3>
 </div>
