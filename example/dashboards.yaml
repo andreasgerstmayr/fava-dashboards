@@ -4,6 +4,7 @@ dashboards:
   - title: Assets 💰
     width: 50%
     height: 80px
+    link: /beancount/balance_sheet/
     queries:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Assets:'
     type: html
@@ -20,6 +21,7 @@ dashboards:
   - title: Liabilities 💳
     width: 50%
     height: 80px
+    link: /beancount/balance_sheet/
     queries:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Liabilities:'
     type: html
@@ -35,6 +37,7 @@ dashboards:
 
   - title: Income/Expenses 💸
     height: 520px
+    link: /beancount/income_statement/
     queries:
     - name: Income
       stack: income
@@ -172,6 +175,7 @@ dashboards:
 
   - title: Net Worth 💰
     width: 50%
+    link: /beancount/income_statement/
     queries:
     - bql: |
         SELECT year, month,
@@ -477,6 +481,7 @@ dashboards:
   - title: Avg. Income per Month 💰
     width: 33.3%
     height: 80px
+    link: /beancount/account/Income/?r=changes
     queries:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Income:'
     type: html
@@ -494,6 +499,7 @@ dashboards:
   - title: Avg. Expenses per Month 💸
     width: 33.3%
     height: 80px
+    link: /beancount/account/Expenses/?r=changes
     queries:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Expenses:'
     type: html
@@ -511,6 +517,7 @@ dashboards:
   - title: Avg. Savings per Month ✨
     width: 33.3%
     height: 80px
+    link: /beancount/income_statement/
     queries:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Income:'
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Expenses:'
@@ -536,6 +543,7 @@ dashboards:
 
   - title: Income Categories (per month) 💸
     width: 50%
+    link: /beancount/account/Income/?r=changes
     queries:
     - bql: |
         SELECT root(account, 4) AS account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
@@ -584,6 +592,7 @@ dashboards:
 
   - title: Expenses Categories (per month) 💸
     width: 50%
+    link: /beancount/account/Expenses/?r=changes
     queries:
     - bql: |
         SELECT root(account, 3) AS account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
@@ -632,6 +641,7 @@ dashboards:
 
   - title: Recurring Expenses 🔁
     width: 50%
+    link: /beancount/income_statement/?filter=#recurring
     queries:
     - name: Recurring
       stack: expenses
@@ -652,6 +662,7 @@ dashboards:
 
   - title: Food Expenses 🥐
     width: 50%
+    link: /beancount/account/Expenses:Food/
     queries:
     - bql: |
         SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
@@ -830,6 +841,7 @@ dashboards:
   panels:
   - title: Travel Costs per Year 📅
     # Note: Holidays over New Year's Eve are counted in both years aliquot.
+    link: /beancount/income_statement/?filter=#travel
     queries:
     - bql: |
         SELECT year, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
@@ -878,6 +890,7 @@ dashboards:
 
   - title: Destinations ✈️
     height: 300px
+    link: /beancount/income_statement/?filter=#travel
     queries:
     - bql: |
         SELECT tags, CONVERT(position, '{{ledger.ccy}}') AS value
@@ -936,6 +949,7 @@ dashboards:
   panels:
   - title: Sankey (per month) 💸
     height: 800px
+    link: /beancount/income_statement/
     queries:
     - bql: |
         SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value

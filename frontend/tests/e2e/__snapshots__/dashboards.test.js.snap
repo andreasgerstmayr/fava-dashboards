@@ -14,6 +14,9 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
 #dashboard .panel h2 {
     text-align: center;
 }
+#dashboard a {
+    color: #333;
+}
 
 /* set panel min-width to 100% on screens
   < 802px (navbar + padding + 2*300px) */
@@ -101,6 +104,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
         "width": "50%"
       },
       {
+        "link": "/beancount/income_statement/",
         "queries": [
           {
             "bql": "SELECT year, month,\\nCONVERT(LAST(balance), \\u0027{{ledger.ccy}}\\u0027, DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS value\\nWHERE account_sortkey(account) ~ \\u0027^[01]\\u0027\\nGROUP BY year, month\\n",
@@ -1365,7 +1369,9 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
        style="width: 50%"
   >
     <h2>
-      Net Worth 💰
+      <a href="/beancount/income_statement/">
+        Net Worth 💰
+      </a>
     </h2>
     <div id="panel1"
          style="height: 400px; position: relative;"
@@ -3083,6 +3089,9 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
 #dashboard .panel h2 {
     text-align: center;
 }
+#dashboard a {
+    color: #333;
+}
 
 /* set panel min-width to 100% on screens
   < 802px (navbar + padding + 2*300px) */
@@ -3101,6 +3110,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
     "panels": [
       {
         "height": "80px",
+        "link": "/beancount/account/Income/?r=changes",
         "queries": [
           {
             "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Income:\\u0027",
@@ -3120,6 +3130,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
       },
       {
         "height": "80px",
+        "link": "/beancount/account/Expenses/?r=changes",
         "queries": [
           {
             "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Expenses:\\u0027",
@@ -3139,6 +3150,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
       },
       {
         "height": "80px",
+        "link": "/beancount/income_statement/",
         "queries": [
           {
             "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Income:\\u0027",
@@ -3167,6 +3179,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         "width": "33.3%"
       },
       {
+        "link": "/beancount/account/Income/?r=changes",
         "queries": [
           {
             "bql": "SELECT root(account, 4) AS account, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value\\nWHERE account ~ \\u0027^Income:\\u0027\\nGROUP BY account\\n",
@@ -3229,6 +3242,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         "width": "50%"
       },
       {
+        "link": "/beancount/account/Expenses/?r=changes",
         "queries": [
           {
             "bql": "SELECT root(account, 3) AS account, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value\\nWHERE account ~ \\u0027^Expenses:\\u0027\\nGROUP BY account\\n",
@@ -3357,6 +3371,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         "width": "50%"
       },
       {
+        "link": "/beancount/income_statement/?filter=#recurring",
         "queries": [
           {
             "bql": "SELECT year, month, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027, LAST(date)) AS value\\nWHERE account ~ \\u0027^Expenses:\\u0027 AND \\u0027recurring\\u0027 IN tags\\nGROUP BY year, month\\n",
@@ -3738,6 +3753,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         "width": "50%"
       },
       {
+        "link": "/beancount/account/Expenses:Food/",
         "queries": [
           {
             "bql": "SELECT year, month, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027, LAST(date)) AS value\\nWHERE account ~ \\u0027^Expenses:Food:\\u0027\\nGROUP BY year, month\\n",
@@ -4858,7 +4874,9 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
        style="width: 33.3%"
   >
     <h2>
-      Avg. Income per Month 💰
+      <a href="/beancount/account/Income/?r=changes">
+        Avg. Income per Month 💰
+      </a>
     </h2>
     <div id="panel0"
          style="height: 80px"
@@ -4872,7 +4890,9 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
        style="width: 33.3%"
   >
     <h2>
-      Avg. Expenses per Month 💸
+      <a href="/beancount/account/Expenses/?r=changes">
+        Avg. Expenses per Month 💸
+      </a>
     </h2>
     <div id="panel1"
          style="height: 80px"
@@ -4886,7 +4906,9 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
        style="width: 33.3%"
   >
     <h2>
-      Avg. Savings per Month ✨
+      <a href="/beancount/income_statement/">
+        Avg. Savings per Month ✨
+      </a>
     </h2>
     <div id="panel2"
          style="height: 80px"
@@ -4900,7 +4922,9 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
        style="width: 50%"
   >
     <h2>
-      Income Categories (per month) 💸
+      <a href="/beancount/account/Income/?r=changes">
+        Income Categories (per month) 💸
+      </a>
     </h2>
     <div id="panel3"
          style="height: 400px; position: relative;"
@@ -5020,7 +5044,9 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
        style="width: 50%"
   >
     <h2>
-      Expenses Categories (per month) 💸
+      <a href="/beancount/account/Expenses/?r=changes">
+        Expenses Categories (per month) 💸
+      </a>
     </h2>
     <div id="panel4"
          style="height: 400px; position: relative;"
@@ -5231,7 +5257,9 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
        style="width: 50%"
   >
     <h2>
-      Recurring Expenses 🔁
+      <a href="/beancount/income_statement/?filter=%23recurring">
+        Recurring Expenses 🔁
+      </a>
     </h2>
     <div id="panel5"
          style="height: 400px; position: relative;"
@@ -5568,7 +5596,9 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
        style="width: 50%"
   >
     <h2>
-      Food Expenses 🥐
+      <a href="/beancount/account/Expenses:Food/">
+        Food Expenses 🥐
+      </a>
     </h2>
     <div id="panel6"
          style="height: 400px; position: relative;"
@@ -6806,6 +6836,9 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
 #dashboard .panel h2 {
     text-align: center;
 }
+#dashboard a {
+    color: #333;
+}
 
 /* set panel min-width to 100% on screens
   < 802px (navbar + padding + 2*300px) */
@@ -6824,6 +6857,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
     "panels": [
       {
         "height": "80px",
+        "link": "/beancount/balance_sheet/",
         "queries": [
           {
             "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Assets:\\u0027",
@@ -6843,6 +6877,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
       },
       {
         "height": "80px",
+        "link": "/beancount/balance_sheet/",
         "queries": [
           {
             "bql": "SELECT CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value WHERE account ~ \\u0027^Liabilities:\\u0027",
@@ -6862,6 +6897,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
       },
       {
         "height": "520px",
+        "link": "/beancount/income_statement/",
         "queries": [
           {
             "bql": "SELECT year, month, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027, LAST(date)) AS value\\nWHERE account ~ \\u0027^Income:\\u0027\\nGROUP BY year, month\\n",
@@ -7844,7 +7880,9 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
        style="width: 50%"
   >
     <h2>
-      Assets 💰
+      <a href="/beancount/balance_sheet/">
+        Assets 💰
+      </a>
     </h2>
     <div id="panel0"
          style="height: 80px"
@@ -7858,7 +7896,9 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
        style="width: 50%"
   >
     <h2>
-      Liabilities 💳
+      <a href="/beancount/balance_sheet/">
+        Liabilities 💳
+      </a>
     </h2>
     <div id="panel1"
          style="height: 80px"
@@ -7872,7 +7912,9 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
        style="width: 100%"
   >
     <h2>
-      Income/Expenses 💸
+      <a href="/beancount/income_statement/">
+        Income/Expenses 💸
+      </a>
     </h2>
     <div id="panel2"
          style="height: 520px; position: relative;"
@@ -8530,6 +8572,9 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
 #dashboard .panel h2 {
     text-align: center;
 }
+#dashboard a {
+    color: #333;
+}
 
 /* set panel min-width to 100% on screens
   < 802px (navbar + padding + 2*300px) */
@@ -8548,6 +8593,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
     "panels": [
       {
         "height": "800px",
+        "link": "/beancount/income_statement/",
         "queries": [
           {
             "bql": "SELECT account, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027) AS value\\nWHERE account ~ \\u0027^(Income|Expenses):\\u0027\\nGROUP BY account\\n",
@@ -8963,7 +9009,9 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
        style="width: 100%"
   >
     <h2>
-      Sankey (per month) 💸
+      <a href="/beancount/income_statement/">
+        Sankey (per month) 💸
+      </a>
     </h2>
     <div id="panel0"
          style="height: 800px"
@@ -10615,6 +10663,9 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
 #dashboard .panel h2 {
     text-align: center;
 }
+#dashboard a {
+    color: #333;
+}
 
 /* set panel min-width to 100% on screens
   < 802px (navbar + padding + 2*300px) */
@@ -10632,6 +10683,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
     "name": "Travelling",
     "panels": [
       {
+        "link": "/beancount/income_statement/?filter=#travel",
         "queries": [
           {
             "bql": "SELECT year, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027, LAST(date)) AS value\\nWHERE account ~ \\u0027^Expenses:\\u0027 AND \\u0027travel\\u0027 IN tags\\nGROUP BY year\\n",
@@ -10664,6 +10716,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
       },
       {
         "height": "300px",
+        "link": "/beancount/income_statement/?filter=#travel",
         "queries": [
           {
             "bql": "SELECT tags, CONVERT(position, \\u0027{{ledger.ccy}}\\u0027) AS value\\nWHERE account ~ \\u0027^Expenses:\\u0027 AND \\u0027travel\\u0027 IN tags\\nORDER BY date, tags DESC\\n",
@@ -11457,7 +11510,9 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
        style="width: 100%"
   >
     <h2>
-      Travel Costs per Year 📅
+      <a href="/beancount/income_statement/?filter=%23travel">
+        Travel Costs per Year 📅
+      </a>
     </h2>
     <div id="panel0"
          style="height: 400px; position: relative;"
@@ -11627,7 +11682,9 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
        style="width: 100%"
   >
     <h2>
-      Destinations ✈️
+      <a href="/beancount/income_statement/?filter=%23travel">
+        Destinations ✈️
+      </a>
     </h2>
     <div id="panel1"
          style="height: 300px; position: relative;"

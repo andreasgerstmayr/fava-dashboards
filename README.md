@@ -63,6 +63,7 @@ The following variables are available:
 * `title`: title of the panel. Default: unset
 * `width`: width of the panel. Default: 100%
 * `height`: height of the panel. Default: 400px
+* `link`: optional link target of the panel header.
 * `queries`: a list of dicts with a `bql` attribute.
 * `type`: panel type. Must be one of `html`, `echarts`, `d3_sankey` or `jinja2`.
 

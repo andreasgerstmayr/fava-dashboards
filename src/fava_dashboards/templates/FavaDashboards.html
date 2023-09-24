@@ -9,11 +9,11 @@
 <div class="headerline">
   {% for dashboard in bootstrap.dashboards %}
   <h3>
-    {% if dashboard_id == loop.index0 %}
+    {%- if dashboard_id == loop.index0 -%}
       {{ dashboard.name }}
-    {% else %}
+    {%- else -%}
       <a href="{{ url_for('extension_report', extension_name='FavaDashboards', dashboard=loop.index0) }}">{{ dashboard.name }}</a>
-    {% endif %}
+    {%- endif -%}
   </h3>
   {% endfor %}
 </div>
@@ -21,7 +21,13 @@
 <div id="dashboard">
   {% for panel in bootstrap.dashboards[dashboard_id].panels %}
   <div class="panel" style="width: {{ panel.width|default("100%") }}">
-    {% if panel.title %}<h2>{{ panel.title }}</h2>{% endif %}
+    {% if panel.title %}
+    <h2>
+      {%- if panel.link %}<a href="{{ panel.link|replace("#", "%23") }}">{% endif -%}
+      {{ panel.title }}
+      {%- if panel.link %}</a>{% endif -%}
+    </h2>
+    {% endif %}
     <div id="panel{{ loop.index0 }}" style="height: {{ panel.height|default("400px") }}"></div>
   </div>
   {% endfor %}
