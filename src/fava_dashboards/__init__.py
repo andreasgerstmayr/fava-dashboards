@@ -2,11 +2,13 @@ import datetime
 import yaml
 from collections import namedtuple
 from functools import cached_property
+from beancount.core.inventory import Inventory
 from beancount.query.query import run_query
+from fava.application import render_template_string
+from fava.context import g
+from fava.core.conversion import simple_units
 from fava.ext import FavaExtensionBase
 from fava.helpers import FavaAPIError
-from fava.context import g
-from fava.application import render_template_string
 
 Config = namedtuple("Config", ["dashboards_path"])
 
@@ -69,8 +71,16 @@ class FavaDashboards(FavaExtensionBase):
             raise FavaAPIError(f"Failed to parse template {template}: {ex}")
 
     def sanitize_panel(self, ledger, panel):
-        """remove fields which are not JSON serializable"""
+        """replace or remove fields which are not JSON serializable"""
         for query in panel.get("queries", []):
+            if "result" in query:
+                for i, row in enumerate(query["result"]):
+                    for k, v in row._asdict().items():
+                        if isinstance(v, Inventory):
+                            query["result"][i] = query["result"][i]._replace(
+                                **{k: simple_units(v)}
+                            )
+
             if "result_types" in query:
                 del query["result_types"]
 
@@ -101,5 +111,4 @@ class FavaDashboards(FavaExtensionBase):
         return {
             "ledger": ledger,
             "dashboards": dashboards,
-            "dashboardId": dashboard_id,
         }
