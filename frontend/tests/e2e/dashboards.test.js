@@ -11,6 +11,7 @@ const dashboards = [
     { name: "Income and Expenses", link: "/extension/FavaDashboards/?dashboard=2" },
     { name: "Travelling", link: "/extension/FavaDashboards/?dashboard=3" },
     { name: "Sankey", link: "/extension/FavaDashboards/?dashboard=4" },
+    { name: "Projection", link: "/extension/FavaDashboards/?dashboard=5" },
 ];
 
 describe("Dashboard: PNG Snapshot Tests", () => {
