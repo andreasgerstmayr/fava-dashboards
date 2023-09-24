@@ -1089,7 +1089,8 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          trigger: "axis",
+          valueFormatter: (val) => (val ? currencyFormat.format(val) : ""),
         },
         legend: {
           top: "bottom",
@@ -1108,21 +1109,24 @@ dashboards:
             name: "Net Worth",
             smooth: true,
             connectNulls: true,
-            data: months.map((month) => amounts[month] || null),
+            showSymbol: false,
+            data: months.map((month) => amounts[month]),
           },
           {
             type: "line",
             name: "Excluding onetime txns",
             smooth: true,
             connectNulls: true,
+            showSymbol: false,
             data: months.map((month) => amountsEx[month]),
           },
           {
             type: "line",
             name: "Projection",
             lineStyle: {
-              type: "dotted",
+              type: "dashed",
             },
+            showSymbol: false,
             data: months.map((month) => projection[month]),
           },
         ],
