@@ -113,84 +113,84 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
               {
                 "month": 1,
                 "value": {
-                  "USD": 9234.73618
+                  "USD": 29234.73618
                 },
                 "year": 2020
               },
               {
                 "month": 2,
                 "value": {
-                  "USD": 12430.84356
+                  "USD": 32430.84356
                 },
                 "year": 2020
               },
               {
                 "month": 3,
                 "value": {
-                  "USD": 15638.84345
+                  "USD": 35638.84345
                 },
                 "year": 2020
               },
               {
                 "month": 4,
                 "value": {
-                  "USD": 18674.87320
+                  "USD": 38674.87320
                 },
                 "year": 2020
               },
               {
                 "month": 5,
                 "value": {
-                  "USD": 21716.41678
+                  "USD": 41716.41678
                 },
                 "year": 2020
               },
               {
                 "month": 6,
                 "value": {
-                  "USD": 24435.59516
+                  "USD": 44435.59516
                 },
                 "year": 2020
               },
               {
                 "month": 7,
                 "value": {
-                  "USD": 30611.69697
+                  "USD": 50611.69697
                 },
                 "year": 2020
               },
               {
                 "month": 8,
                 "value": {
-                  "USD": 31735.46788
+                  "USD": 51735.46788
                 },
                 "year": 2020
               },
               {
                 "month": 9,
                 "value": {
-                  "USD": 34045.40396
+                  "USD": 54045.40396
                 },
                 "year": 2020
               },
               {
                 "month": 10,
                 "value": {
-                  "USD": 36077.40796
+                  "USD": 56077.40796
                 },
                 "year": 2020
               },
               {
                 "month": 11,
                 "value": {
-                  "USD": 37174.07826
+                  "USD": 57174.07826
                 },
                 "year": 2020
               },
               {
                 "month": 12,
                 "value": {
-                  "USD": 42493.75704
+                  "USD": 62493.75704
                 },
                 "year": 2020
               },
@@ -1575,62 +1575,62 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
               >
               </path>
             </g>
-            <path transform="matrix(2,0,0,2,80.6538,305.0662)"
+            <path transform="matrix(2,0,0,2,80.6538,251.0662)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,102.1615,296.4367)"
+            <path transform="matrix(2,0,0,2,102.1615,242.4367)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,123.6692,287.7751)"
+            <path transform="matrix(2,0,0,2,123.6692,233.7751)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,145.1769,279.5779)"
+            <path transform="matrix(2,0,0,2,145.1769,225.5778)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,166.6846,271.3657)"
+            <path transform="matrix(2,0,0,2,166.6846,217.3657)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,188.1923,264.0239)"
+            <path transform="matrix(2,0,0,2,188.1923,210.0239)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,209.7,247.3484)"
+            <path transform="matrix(2,0,0,2,209.7,193.3484)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,231.2077,244.3142)"
+            <path transform="matrix(2,0,0,2,231.2077,190.3142)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,252.7154,238.0774)"
+            <path transform="matrix(2,0,0,2,252.7154,184.0774)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,274.2231,232.591)"
+            <path transform="matrix(2,0,0,2,274.2231,178.591)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,295.7308,229.63)"
+            <path transform="matrix(2,0,0,2,295.7308,175.63)"
                   fill="#fff"
                   stroke="#5470c6"
             >
             </path>
-            <path transform="matrix(2,0,0,2,317.2385,215.2669)"
+            <path transform="matrix(2,0,0,2,317.2385,161.2669)"
                   fill="#fff"
                   stroke="#5470c6"
             >
@@ -3137,7 +3137,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             "result": [
               {
                 "value": {
-                  "USD": 204323.61
+                  "USD": 224323.61
                 }
               }
             ]
@@ -3167,7 +3167,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             "result": [
               {
                 "value": {
-                  "USD": 204323.61
+                  "USD": 224323.61
                 }
               }
             ]
@@ -3342,6 +3342,12 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 "account": "Expenses:Taxes:Y2021",
                 "value": {
                   "USD": 51477.20
+                }
+              },
+              {
+                "account": "Expenses:Wedding",
+                "value": {
+                  "USD": 20000.00
                 }
               },
               {
@@ -3648,7 +3654,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
               {
                 "month": 1,
                 "value": {
-                  "USD": 5108.68
+                  "USD": 25108.68
                 },
                 "year": 2021
               },
@@ -4488,7 +4494,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
               {
                 "month": 1,
                 "value": {
-                  "USD": 4302.20
+                  "USD": 24302.20
                 },
                 "year": 2021
               },
@@ -4597,6 +4603,18 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             "bql": "SELECT date, payee, narration, position WHERE account ~ \\"^Expenses:\\" ORDER BY position DESC LIMIT 10",
             "result": [
               {
+                "date": "2021-01-15",
+                "narration": "Wedding",
+                "payee": "",
+                "position": {
+                  "cost": null,
+                  "units": {
+                    "currency": "USD",
+                    "number": 20000.00
+                  }
+                }
+              },
+              {
                 "date": "2020-01-04",
                 "narration": "Paying the rent",
                 "payee": "RiverBank Properties",
@@ -4703,23 +4721,11 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                     "number": 2400.00
                   }
                 }
-              },
-              {
-                "date": "2020-10-05",
-                "narration": "Paying the rent",
-                "payee": "RiverBank Properties",
-                "position": {
-                  "cost": null,
-                  "units": {
-                    "currency": "USD",
-                    "number": 2400.00
-                  }
-                }
               }
             ]
           }
         ],
-        "template": "\\u003ctable is=\\"sortable-table\\" class=\\"queryresults\\"\\u003e\\n  \\u003cthead\\u003e\\n    \\u003ctr\\u003e\\n      \\u003cth data-sort=\\"string\\"\\u003edate\\u003c/th\\u003e\\n      \\u003cth data-sort=\\"string\\"\\u003epayee\\u003c/th\\u003e\\n      \\u003cth data-sort=\\"string\\"\\u003enarration\\u003c/th\\u003e\\n      \\u003cth data-sort=\\"num\\"\\u003eposition\\u003c/th\\u003e\\n    \\u003c/tr\\u003e\\n  \\u003c/thead\\u003e\\n  \\u003ctbody\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-01-04\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-02-05\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-03-03\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-04-03\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-05-05\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-06-04\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-07-06\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-08-06\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-09-04\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-10-05\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n  \\u003c/tbody\\u003e\\n\\u003c/table\\u003e\\n",
+        "template": "\\u003ctable is=\\"sortable-table\\" class=\\"queryresults\\"\\u003e\\n  \\u003cthead\\u003e\\n    \\u003ctr\\u003e\\n      \\u003cth data-sort=\\"string\\"\\u003edate\\u003c/th\\u003e\\n      \\u003cth data-sort=\\"string\\"\\u003epayee\\u003c/th\\u003e\\n      \\u003cth data-sort=\\"string\\"\\u003enarration\\u003c/th\\u003e\\n      \\u003cth data-sort=\\"num\\"\\u003eposition\\u003c/th\\u003e\\n    \\u003c/tr\\u003e\\n  \\u003c/thead\\u003e\\n  \\u003ctbody\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2021-01-15\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  \\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Wedding\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e20000.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-01-04\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-02-05\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-03-03\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-04-03\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-05-05\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-06-04\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-07-06\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-08-06\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n    \\u003ctr\\u003e\\n      \\u003ctd\\u003e2020-09-04\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  RiverBank Properties\\n\\u003c/td\\u003e\\n\\n      \\u003ctd\\u003e\\n  Paying the rent\\n\\u003c/td\\u003e\\n\\n      \\u003ctd class=\\"num\\"\\u003e\\u003cspan class=\\"num\\" title=\\"US Dollar\\"\\u003e2400.00 USD\\u003c/span\\u003e\\u003c/td\\u003e\\n\\n    \\u003c/tr\\u003e\\n  \\u003c/tbody\\u003e\\n\\u003c/table\\u003e\\n",
         "title": "Top 10 biggest expenses",
         "type": "jinja2"
       }
@@ -4898,7 +4904,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
          style="height: 80px"
     >
       <div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">
-        $7,867
+        $8,637
       </div>
     </div>
   </div>
@@ -4914,7 +4920,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
          style="height: 80px"
     >
       <div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">
-        $3,151 (29%)
+        $2,381 (22%)
       </div>
     </div>
   </div>
@@ -5118,26 +5124,6 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   stroke-linejoin="bevel"
             >
             </path>
-            <path fill="rgb(242,140,140)"
-                  stroke="white"
-                  stroke-linejoin="bevel"
-            >
-            </path>
-            <path fill="rgb(242,140,140)"
-                  stroke="white"
-                  stroke-linejoin="bevel"
-            >
-            </path>
-            <path fill="rgb(242,140,140)"
-                  stroke="white"
-                  stroke-linejoin="bevel"
-            >
-            </path>
-            <path fill="rgb(242,140,140)"
-                  stroke="white"
-                  stroke-linejoin="bevel"
-            >
-            </path>
             <path fill="#73c0de"
                   stroke="white"
                   stroke-linejoin="bevel"
@@ -5173,6 +5159,21 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   stroke-linejoin="bevel"
             >
             </path>
+            <path fill="rgb(108,185,149)"
+                  stroke="white"
+                  stroke-linejoin="bevel"
+            >
+            </path>
+            <path fill="rgb(108,185,149)"
+                  stroke="white"
+                  stroke-linejoin="bevel"
+            >
+            </path>
+            <path fill="rgb(108,185,149)"
+                  stroke="white"
+                  stroke-linejoin="bevel"
+            >
+            </path>
             <path fill="#fc8452"
                   stroke="white"
                   stroke-linejoin="bevel"
@@ -5193,7 +5194,17 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   stroke-linejoin="bevel"
             >
             </path>
-            <path fill="rgb(179,135,198)"
+            <path fill="#ea7ccc"
+                  stroke="white"
+                  stroke-linejoin="bevel"
+            >
+            </path>
+            <path fill="rgb(239,156,216)"
+                  stroke="white"
+                  stroke-linejoin="bevel"
+            >
+            </path>
+            <path fill="rgb(239,156,216)"
                   stroke="white"
                   stroke-linejoin="bevel"
             >
@@ -5201,7 +5212,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             <text dominant-baseline="central"
                   text-anchor="middle"
                   style="font-size:12px;font-family:sans-serif;"
-                  transform="matrix(0.984,0.177,-0.177,0.984,398.7081,208.8634)"
+                  transform="matrix(1,0.022,-0.022,1,399.4876,201.1136)"
                   fill="#333"
             >
               Taxes
@@ -5209,7 +5220,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             <text dominant-baseline="central"
                   text-anchor="middle"
                   style="font-size:12px;font-family:sans-serif;"
-                  transform="matrix(0.741,-0.671,0.671,0.741,460.6934,99.3222)"
+                  transform="matrix(0.689,-0.724,0.724,0.689,452.8974,91.3309)"
                   fill="#333"
             >
               Y2020
@@ -5217,7 +5228,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             <text dominant-baseline="central"
                   text-anchor="middle"
                   style="font-size:12px;font-family:sans-serif;"
-                  transform="matrix(0.629,0.777,-0.777,0.629,443.8332,316.6244)"
+                  transform="matrix(0.783,0.622,-0.622,0.783,466.9598,293.2909)"
                   fill="#333"
             >
               Y2021
@@ -5225,7 +5236,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             <text dominant-baseline="central"
                   text-anchor="middle"
                   style="font-size:12px;font-family:sans-serif;"
-                  transform="matrix(0.977,-0.212,0.212,0.977,300.6419,210.6247)"
+                  transform="matrix(0.817,-0.577,0.577,0.817,308.6665,228.8552)"
                   fill="#333"
             >
               Housing
@@ -5233,7 +5244,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             <text dominant-baseline="central"
                   text-anchor="middle"
                   style="font-size:12px;font-family:sans-serif;"
-                  transform="matrix(0.958,-0.288,0.288,0.958,205.8427,243.1577)"
+                  transform="matrix(0.774,-0.633,0.633,0.774,233.4288,295.013)"
                   fill="#333"
             >
               Rent
@@ -5241,7 +5252,15 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             <text dominant-baseline="central"
                   text-anchor="middle"
                   style="font-size:12px;font-family:sans-serif;"
-                  transform="matrix(0.514,0.858,-0.858,0.514,323.7811,157.1218)"
+                  transform="matrix(0.839,0.545,-0.545,0.839,307.5672,172.7669)"
+                  fill="#333"
+            >
+              Wedding
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  transform="matrix(0.472,0.881,-0.881,0.472,325.8756,155.9332)"
                   fill="#333"
             >
               Food
@@ -5281,6 +5300,10 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           >
           </rect>
           <g>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
             <path fill="none"
                   stroke="#E0E6F1"
             >
@@ -5362,28 +5385,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   style="font-size:12px;font-family:sans-serif;"
                   fill="#6E7079"
             >
-              $2,000
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="end"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#6E7079"
-            >
-              $4,000
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="end"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#6E7079"
-            >
-              $6,000
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="end"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#6E7079"
-            >
-              $8,000
+              $5,000
             </text>
             <text dominant-baseline="central"
                   text-anchor="end"
@@ -5391,6 +5393,34 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   fill="#6E7079"
             >
               $10,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $15,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $20,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $25,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $30,000
             </text>
             <text dominant-baseline="central"
                   text-anchor="middle"
@@ -5996,6 +6026,10 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             >
             </path>
             <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
                   stroke="#6E7079"
                   stroke-linecap="round"
             >
@@ -6064,28 +6098,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   style="font-size:12px;font-family:sans-serif;"
                   fill="#6E7079"
             >
-              $2,000
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="end"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#6E7079"
-            >
-              $4,000
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="end"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#6E7079"
-            >
-              $6,000
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="end"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#6E7079"
-            >
-              $8,000
+              $5,000
             </text>
             <text dominant-baseline="central"
                   text-anchor="end"
@@ -6093,6 +6106,34 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   fill="#6E7079"
             >
               $10,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $15,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $20,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $25,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $30,000
             </text>
             <text dominant-baseline="central"
                   text-anchor="middle"
@@ -6632,6 +6673,23 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         <tbody>
           <tr>
             <td>
+              2021-01-15
+            </td>
+            <td>
+            </td>
+            <td>
+              Wedding
+            </td>
+            <td class="num">
+              <span class="num"
+                    title="US Dollar"
+              >
+                20000.00 USD
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
               2020-01-04
             </td>
             <td>
@@ -6777,24 +6835,6 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <tr>
             <td>
               2020-09-04
-            </td>
-            <td>
-              RiverBank Properties
-            </td>
-            <td>
-              Paying the rent
-            </td>
-            <td class="num">
-              <span class="num"
-                    title="US Dollar"
-              >
-                2400.00 USD
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              2020-10-05
             </td>
             <td>
               RiverBank Properties
@@ -7626,7 +7666,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
               {
                 "month": 1,
                 "value": {
-                  "USD": 4302.20
+                  "USD": 24302.20
                 },
                 "year": 2021
               },
@@ -8037,28 +8077,14 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
                   style="font-size:12px;font-family:sans-serif;"
                   fill="#6E7079"
             >
-              $3,000
+              $5,000
             </text>
             <text dominant-baseline="central"
                   text-anchor="end"
                   style="font-size:12px;font-family:sans-serif;"
                   fill="#6E7079"
             >
-              $6,000
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="end"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#6E7079"
-            >
-              $9,000
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="end"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#6E7079"
-            >
-              $12,000
+              $10,000
             </text>
             <text dominant-baseline="central"
                   text-anchor="end"
@@ -8072,7 +8098,21 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
                   style="font-size:12px;font-family:sans-serif;"
                   fill="#6E7079"
             >
-              $18,000
+              $20,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $25,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $30,000
             </text>
             <text dominant-baseline="central"
                   text-anchor="middle"
@@ -8786,6 +8826,12 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
                 }
               },
               {
+                "account": "Expenses:Wedding",
+                "value": {
+                  "USD": 20000.00
+                }
+              },
+              {
                 "account": "Expenses:Food:Alcohol",
                 "value": {
                   "USD": 75.28
@@ -9019,7 +9065,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
       <svg viewbox="0,0,1438,800">
         <g stroke="#000">
           <rect x="711.5"
-                height="719.9999999999999"
+                height="710"
                 width="15"
                 fill="#1f77b4"
           >
@@ -9028,7 +9074,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="474.6666666666667"
-                height="720"
+                height="710"
                 width="15"
                 fill="#ff7f0e"
           >
@@ -9037,7 +9083,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="237.83333333333334"
-                height="717.9615192370268"
+                height="707.9898314698461"
                 width="15"
                 fill="#2ca02c"
           >
@@ -9046,7 +9092,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1"
-                height="661.8902404250966"
+                height="652.6973204191926"
                 width="15"
                 fill="#d62728"
           >
@@ -9055,7 +9101,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1"
-                height="3.487723794603653"
+                height="3.439283186345392"
                 width="15"
                 fill="#9467bd"
           >
@@ -9064,7 +9110,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1"
-                height="52.58355501732649"
+                height="51.85322786430834"
                 width="15"
                 fill="#8c564b"
           >
@@ -9073,7 +9119,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="237.83333333333334"
-                height="2.0384807629731085"
+                height="2.010168530154033"
                 width="15"
                 fill="#e377c2"
           >
@@ -9082,7 +9128,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1"
-                height="1.3850357433989302"
+                height="1.3657991358516028"
                 width="15"
                 fill="#7f7f7f"
           >
@@ -9091,7 +9137,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="948.3333333333334"
-                height="13.896399494124466"
+                height="13.70339394559494"
                 width="15"
                 fill="#bcbd22"
           >
@@ -9100,7 +9146,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="3.4877237946038804"
+                height="3.4392831863453353"
                 width="15"
                 fill="#17becf"
           >
@@ -9109,7 +9155,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="3.926557462839355"
+                height="3.8720219425219966"
                 width="15"
                 fill="#1f77b4"
           >
@@ -9118,7 +9164,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="6.066230119726129"
+                height="5.981976923618845"
                 width="15"
                 fill="#ff7f0e"
           >
@@ -9127,7 +9173,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="948.3333333333334"
-                height="286.19601170088947"
+                height="282.2210670939327"
                 width="15"
                 fill="#2ca02c"
           >
@@ -9136,7 +9182,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="136.63227909036328"
+                height="134.73460854744158"
                 width="15"
                 fill="#d62728"
           >
@@ -9145,7 +9191,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="7.242793453137736"
+                height="7.142199099621948"
                 width="15"
                 fill="#9467bd"
           >
@@ -9154,7 +9200,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="73.80579979000123"
+                height="72.78071923736235"
                 width="15"
                 fill="#8c564b"
           >
@@ -9163,7 +9209,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="26.013311103432827"
+                height="25.652015115885106"
                 width="15"
                 fill="#e377c2"
           >
@@ -9172,7 +9218,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="11.882474496556483"
+                height="11.71744012854873"
                 width="15"
                 fill="#7f7f7f"
           >
@@ -9181,7 +9227,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="17.611817629831933"
+                height="17.367209051639804"
                 width="15"
                 fill="#bcbd22"
           >
@@ -9190,7 +9236,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="129.51455398746066"
+                height="127.7157407376346"
                 width="15"
                 fill="#17becf"
           >
@@ -9199,7 +9245,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="6.9745418437622675"
+                height="6.877673207043358"
                 width="15"
                 fill="#1f77b4"
           >
@@ -9208,7 +9254,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="69.53085740547539"
+                height="68.56515105262156"
                 width="15"
                 fill="#ff7f0e"
           >
@@ -9217,7 +9263,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="23.88168951717057"
+                height="23.5499993849877"
                 width="15"
                 fill="#2ca02c"
           >
@@ -9226,7 +9272,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="11.442382848535829"
+                height="11.283460864528479"
                 width="15"
                 fill="#d62728"
           >
@@ -9235,7 +9281,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="17.611817629831876"
+                height="17.367209051639634"
                 width="15"
                 fill="#9467bd"
           >
@@ -9244,7 +9290,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="20.049178623065643"
+                height="19.77071780885649"
                 width="15"
                 fill="#8c564b"
           >
@@ -9253,7 +9299,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="1.073006437501931"
+                height="1.0581035703144153"
                 width="15"
                 fill="#e377c2"
           >
@@ -9262,7 +9308,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="10.697054985457669"
+                height="10.548484777326394"
                 width="15"
                 fill="#7f7f7f"
           >
@@ -9271,7 +9317,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="3.674106079564808"
+                height="3.623076828459716"
                 width="15"
                 fill="#bcbd22"
           >
@@ -9280,7 +9326,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="1.7603665920823914"
+                height="1.7359170560813482"
                 width="15"
                 fill="#17becf"
           >
@@ -9289,7 +9335,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1422"
-                height="2.833373029584436"
+                height="2.7940206263956497"
                 width="15"
                 fill="#1f77b4"
           >
@@ -9298,7 +9344,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="948.3333333333334"
-                height="39.99064901693066"
+                height="39.435223336139984"
                 width="15"
                 fill="#ff7f0e"
           >
@@ -9307,7 +9353,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="27.332328067709568"
+                height="26.952712400102428"
                 width="15"
                 fill="#2ca02c"
           >
@@ -9316,7 +9362,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="12.173319422872396"
+                height="12.00424554199924"
                 width="15"
                 fill="#d62728"
           >
@@ -9325,7 +9371,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="948.3333333333334"
-                height="0.8020879109819816"
+                height="0.7909478011072224"
                 width="15"
                 fill="#9467bd"
           >
@@ -9334,7 +9380,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="948.3333333333334"
-                height="163.6744667004366"
+                height="161.40121021848597"
                 width="15"
                 fill="#8c564b"
           >
@@ -9343,7 +9389,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="150.95757421242115"
+                height="148.86094123724837"
                 width="15"
                 fill="#e377c2"
           >
@@ -9352,7 +9398,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="4.088434301585949"
+                height="4.031650491842129"
                 width="15"
                 fill="#7f7f7f"
           >
@@ -9361,7 +9407,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="3.597268674290717"
+                height="3.547306609370139"
                 width="15"
                 fill="#bcbd22"
           >
@@ -9370,7 +9416,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="1185.1666666666667"
-                height="5.031189512138553"
+                height="4.9613118800257325"
                 width="15"
                 fill="#17becf"
           >
@@ -9379,7 +9425,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="948.3333333333334"
-                height="7.245963562196039"
+                height="7.14532517938801"
                 width="15"
                 fill="#1f77b4"
           >
@@ -9388,21 +9434,30 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             </title>
           </rect>
           <rect x="948.3333333333334"
-                height="2.264363613186333"
+                height="49.6203137457494"
                 width="15"
                 fill="#ff7f0e"
+          >
+            <title>
+              Expenses:Wedding: $770
+            </title>
+          </rect>
+          <rect x="948.3333333333334"
+                height="2.2329141185587105"
+                width="15"
+                fill="#2ca02c"
           >
             <title>
               Expenses:Shopping:Electronics: $35
             </title>
           </rect>
           <rect x="948.3333333333334"
-                height="205.93005800125457"
+                height="153.44960456104332"
                 width="15"
-                fill="#2ca02c"
+                fill="#d62728"
           >
             <title>
-              Savings: $3,151
+              Savings: $2,381
             </title>
           </rect>
         </g>
@@ -9425,7 +9480,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-0)"
-                  stroke-width="720"
+                  stroke-width="710"
             >
             </path>
             <title>
@@ -9448,7 +9503,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-1)"
-                  stroke-width="717.961519237027"
+                  stroke-width="707.9898314698461"
             >
             </path>
             <title>
@@ -9471,7 +9526,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-2)"
-                  stroke-width="661.8902404250967"
+                  stroke-width="652.6973204191926"
             >
             </path>
             <title>
@@ -9494,7 +9549,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-3)"
-                  stroke-width="3.4877237946037716"
+                  stroke-width="3.4392831863453854"
             >
             </path>
             <title>
@@ -9517,7 +9572,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-4)"
-                  stroke-width="52.583555017326596"
+                  stroke-width="51.85322786430817"
             >
             </path>
             <title>
@@ -9540,7 +9595,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-5)"
-                  stroke-width="2.038480762973127"
+                  stroke-width="2.010168530154056"
             >
             </path>
             <title>
@@ -9563,7 +9618,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-6)"
-                  stroke-width="1.3850357433989615"
+                  stroke-width="1.3657991358517536"
             >
             </path>
             <title>
@@ -9586,7 +9641,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-7)"
-                  stroke-width="13.896399494124399"
+                  stroke-width="13.703393945594893"
             >
             </path>
             <title>
@@ -9609,7 +9664,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-8)"
-                  stroke-width="3.4877237946037716"
+                  stroke-width="3.4392831863453854"
             >
             </path>
             <title>
@@ -9632,7 +9687,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-9)"
-                  stroke-width="3.926557462839279"
+                  stroke-width="3.8720219425220668"
             >
             </path>
             <title>
@@ -9655,7 +9710,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-10)"
-                  stroke-width="6.066230119726132"
+                  stroke-width="5.9819769236188245"
             >
             </path>
             <title>
@@ -9678,7 +9733,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-11)"
-                  stroke-width="286.19601170088936"
+                  stroke-width="282.22106709393256"
             >
             </path>
             <title>
@@ -9701,7 +9756,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-12)"
-                  stroke-width="136.63227909036326"
+                  stroke-width="134.73460854744152"
             >
             </path>
             <title>
@@ -9724,7 +9779,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-13)"
-                  stroke-width="7.24279345313774"
+                  stroke-width="7.142199099621938"
             >
             </path>
             <title>
@@ -9747,7 +9802,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-14)"
-                  stroke-width="73.80579979000127"
+                  stroke-width="72.78071923736236"
             >
             </path>
             <title>
@@ -9770,7 +9825,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-15)"
-                  stroke-width="26.013311103432788"
+                  stroke-width="25.65201511588511"
             >
             </path>
             <title>
@@ -9793,7 +9848,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-16)"
-                  stroke-width="11.882474496556496"
+                  stroke-width="11.717440128548766"
             >
             </path>
             <title>
@@ -9816,7 +9871,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-17)"
-                  stroke-width="17.611817629831908"
+                  stroke-width="17.367209051639797"
             >
             </path>
             <title>
@@ -9839,7 +9894,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-18)"
-                  stroke-width="129.51455398746052"
+                  stroke-width="127.71574073763466"
             >
             </path>
             <title>
@@ -9862,7 +9917,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-19)"
-                  stroke-width="6.9745418437622675"
+                  stroke-width="6.877673207043347"
             >
             </path>
             <title>
@@ -9885,7 +9940,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-20)"
-                  stroke-width="69.53085740547543"
+                  stroke-width="68.5651510526216"
             >
             </path>
             <title>
@@ -9908,7 +9963,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-21)"
-                  stroke-width="23.881689517170596"
+                  stroke-width="23.54999938498767"
             >
             </path>
             <title>
@@ -9931,7 +9986,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-22)"
-                  stroke-width="11.442382848535884"
+                  stroke-width="11.28346086452844"
             >
             </path>
             <title>
@@ -9954,7 +10009,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-23)"
-                  stroke-width="17.611817629831908"
+                  stroke-width="17.367209051639797"
             >
             </path>
             <title>
@@ -9977,7 +10032,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-24)"
-                  stroke-width="20.04917862306565"
+                  stroke-width="19.770717808856407"
             >
             </path>
             <title>
@@ -10000,7 +10055,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-25)"
-                  stroke-width="1.0730064375018873"
+                  stroke-width="1.058103570314361"
             >
             </path>
             <title>
@@ -10023,7 +10078,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-26)"
-                  stroke-width="10.69705498545776"
+                  stroke-width="10.5484847773264"
             >
             </path>
             <title>
@@ -10046,7 +10101,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-27)"
-                  stroke-width="3.674106079564707"
+                  stroke-width="3.623076828459641"
             >
             </path>
             <title>
@@ -10069,7 +10124,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-28)"
-                  stroke-width="1.7603665920824436"
+                  stroke-width="1.7359170560812986"
             >
             </path>
             <title>
@@ -10092,7 +10147,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-29)"
-                  stroke-width="2.8333730295843313"
+                  stroke-width="2.79402062639566"
             >
             </path>
             <title>
@@ -10115,7 +10170,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-30)"
-                  stroke-width="39.99064901693075"
+                  stroke-width="39.43522333614005"
             >
             </path>
             <title>
@@ -10138,7 +10193,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-31)"
-                  stroke-width="27.332328067709515"
+                  stroke-width="26.95271240010244"
             >
             </path>
             <title>
@@ -10161,7 +10216,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-32)"
-                  stroke-width="12.173319422872424"
+                  stroke-width="12.004245541999195"
             >
             </path>
             <title>
@@ -10207,7 +10262,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-34)"
-                  stroke-width="163.67446670043648"
+                  stroke-width="161.40121021848597"
             >
             </path>
             <title>
@@ -10230,7 +10285,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-35)"
-                  stroke-width="150.95757421242087"
+                  stroke-width="148.86094123724834"
             >
             </path>
             <title>
@@ -10253,7 +10308,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-36)"
-                  stroke-width="4.088434301586398"
+                  stroke-width="4.031650491842142"
             >
             </path>
             <title>
@@ -10276,7 +10331,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-37)"
-                  stroke-width="3.597268674290585"
+                  stroke-width="3.547306609369882"
             >
             </path>
             <title>
@@ -10299,7 +10354,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-38)"
-                  stroke-width="5.031189512138669"
+                  stroke-width="4.961311880025631"
             >
             </path>
             <title>
@@ -10322,7 +10377,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-39)"
-                  stroke-width="7.2459635621962"
+                  stroke-width="7.14532517938792"
             >
             </path>
             <title>
@@ -10345,11 +10400,11 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-40)"
-                  stroke-width="2.2643636131863127"
+                  stroke-width="49.62031374574945"
             >
             </path>
             <title>
-              Income → Expenses:Shopping:Electronics: $35
+              Income → Expenses:Wedding: $770
             </title>
           </g>
           <g style="mix-blend-mode: multiply;">
@@ -10368,11 +10423,34 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
               </stop>
             </linearGradient>
             <path stroke="url(#link-41)"
-                  stroke-width="205.93005800125454"
+                  stroke-width="2.2329141185587247"
             >
             </path>
             <title>
-              Income → Savings: $3,151
+              Income → Expenses:Shopping:Electronics: $35
+            </title>
+          </g>
+          <g style="mix-blend-mode: multiply;">
+            <linearGradient id="link-42"
+                            gradientunits="userSpaceOnUse"
+                            x1="726.5"
+                            x2="948.3333333333334"
+            >
+              <stop offset="0%"
+                    stop-color="#1f77b4"
+              >
+              </stop>
+              <stop offset="100%"
+                    stop-color="#d62728"
+              >
+              </stop>
+            </linearGradient>
+            <path stroke="url(#link-42)"
+                  stroke-width="153.4496045610432"
+            >
+            </path>
+            <title>
+              Income → Savings: $2,381
             </title>
           </g>
         </g>
@@ -10629,13 +10707,19 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
                 d
                 text-anchor="end"
           >
+            Wedding $770
+          </text>
+          <text x="942.3333333333334"
+                d
+                text-anchor="end"
+          >
             Shopping:Electronics $35
           </text>
           <text x="942.3333333333334"
                 d
                 text-anchor="end"
           >
-            Savings $3,151
+            Savings $2,381
           </text>
         </g>
       </svg>

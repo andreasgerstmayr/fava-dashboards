@@ -177,6 +177,11 @@ dashboards:
     width: 50%
     link: /beancount/income_statement/
     queries:
+    # Workaround for getting the last day of a given month:
+    # YMONTH(date) returns a date instance of 1st of the given month and year
+    # adding 31 days gives us the next month (unless it's e.g. Jan 31... this case should be avoided by using FIRST(date))
+    # YMONTH() gives 1st of the (next) month
+    # minus 1 day gives us the last day of the month
     - bql: |
         SELECT year, month,
         CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS value

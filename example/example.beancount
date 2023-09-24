@@ -91,10 +91,10 @@ option "operating_currency" "USD"
   account: "00234-48574897"
 
 2020-01-01 * "Opening Balance for checking account"
-  Assets:US:BofA:Checking                         2863.71 USD
-  Equity:Opening-Balances                        -2863.71 USD
+  Assets:US:BofA:Checking                        22863.71 USD
+  Equity:Opening-Balances                       -22863.71 USD
 
-2020-01-02 balance Assets:US:BofA:Checking        2863.71 USD
+2020-01-02 balance Assets:US:BofA:Checking       22863.71 USD
 
 2020-01-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -116,7 +116,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -79.99 USD
   Expenses:Housing:Internet                         79.99 USD
 
-2020-01-25 balance Assets:US:BofA:Checking        2851.83 USD
+2020-01-25 balance Assets:US:BofA:Checking       22851.83 USD
 
 2020-02-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -130,7 +130,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -65.00 USD
   Expenses:Housing:Electricity                      65.00 USD
 
-2020-02-17 balance Assets:US:BofA:Checking        2491.46 USD
+2020-02-17 balance Assets:US:BofA:Checking       22491.46 USD
 
 2020-02-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -60.94 USD
@@ -152,7 +152,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -65.00 USD
   Expenses:Housing:Electricity                      65.00 USD
 
-2020-03-11 balance Assets:US:BofA:Checking         689.56 USD
+2020-03-11 balance Assets:US:BofA:Checking       20689.56 USD
 
 2020-03-19 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -57.31 USD
@@ -162,7 +162,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -79.93 USD
   Expenses:Housing:Internet                         79.93 USD
 
-2020-04-02 balance Assets:US:BofA:Checking        3253.52 USD
+2020-04-02 balance Assets:US:BofA:Checking       23253.52 USD
 
 2020-04-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
@@ -184,7 +184,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -79.88 USD
   Expenses:Housing:Internet                         79.88 USD
 
-2020-04-30 balance Assets:US:BofA:Checking        2565.55 USD
+2020-04-30 balance Assets:US:BofA:Checking       22565.55 USD
 
 2020-05-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -206,7 +206,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -79.92 USD
   Expenses:Housing:Internet                         79.92 USD
 
-2020-05-27 balance Assets:US:BofA:Checking        1907.32 USD
+2020-05-27 balance Assets:US:BofA:Checking       21907.32 USD
 
 2020-06-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -224,7 +224,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -52.18 USD
   Expenses:Housing:Phone                            52.18 USD
 
-2020-06-19 balance Assets:US:BofA:Checking        1406.63 USD
+2020-06-19 balance Assets:US:BofA:Checking       21406.63 USD
 
 2020-06-22 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -79.78 USD
@@ -242,7 +242,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -65.00 USD
   Expenses:Housing:Electricity                      65.00 USD
 
-2020-07-12 balance Assets:US:BofA:Checking              0 USD
+2020-07-12 balance Assets:US:BofA:Checking          20000 USD
 
 2020-07-19 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -54.58 USD
@@ -260,7 +260,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Housing:Rent                           2400.00 USD
 
-2020-08-08 balance Assets:US:BofA:Checking         862.45 USD
+2020-08-08 balance Assets:US:BofA:Checking       20862.45 USD
 
 2020-08-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
@@ -274,7 +274,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -80.06 USD
   Expenses:Housing:Internet                         80.06 USD
 
-2020-09-03 balance Assets:US:BofA:Checking        5232.37 USD
+2020-09-03 balance Assets:US:BofA:Checking       25232.37 USD
 
 2020-09-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -300,7 +300,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -79.96 USD
   Expenses:Housing:Internet                         79.96 USD
 
-2020-09-24 balance Assets:US:BofA:Checking         976.51 USD
+2020-09-24 balance Assets:US:BofA:Checking       20976.51 USD
 
 2020-10-04 * "BANK FEES" "Monthly bank fee"
   Assets:US:BofA:Checking                           -4.00 USD
@@ -318,7 +318,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -65.35 USD
   Expenses:Housing:Phone                            65.35 USD
 
-2020-10-22 balance Assets:US:BofA:Checking        2900.73 USD
+2020-10-22 balance Assets:US:BofA:Checking       22900.73 USD
 
 2020-10-23 * "Wine-Tarner Cable" ""
   Assets:US:BofA:Checking                          -80.13 USD
@@ -340,7 +340,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -65.00 USD
   Expenses:Housing:Electricity                      65.00 USD
 
-2020-11-14 balance Assets:US:BofA:Checking         627.99 USD
+2020-11-14 balance Assets:US:BofA:Checking       20627.99 USD
 
 2020-11-18 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -56.26 USD
@@ -358,7 +358,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                        -2400.00 USD
   Expenses:Housing:Rent                           2400.00 USD
 
-2020-12-06 balance Assets:US:BofA:Checking        3227.31 USD
+2020-12-06 balance Assets:US:BofA:Checking       23227.31 USD
 
 2020-12-09 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
@@ -372,7 +372,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -80.04 USD
   Expenses:Housing:Internet                         80.04 USD
 
-2020-12-29 balance Assets:US:BofA:Checking        5192.27 USD
+2020-12-29 balance Assets:US:BofA:Checking       25192.27 USD
 
 2021-01-03 * "RiverBank Properties" "Paying the rent" #recurring
   Assets:US:BofA:Checking                        -2400.00 USD
@@ -385,6 +385,10 @@ option "operating_currency" "USD"
 2021-01-08 * "EDISON POWER" ""
   Assets:US:BofA:Checking                          -65.00 USD
   Expenses:Housing:Electricity                      65.00 USD
+
+2021-01-15 * "Wedding" #wedding
+  Assets:US:BofA:Checking                       -20000.00 USD
+  Expenses:Wedding
 
 2021-01-19 * "Verizon Wireless" ""
   Assets:US:BofA:Checking                          -54.81 USD
@@ -4469,6 +4473,7 @@ option "operating_currency" "USD"
 1980-05-12 open Expenses:Financial:Fees
 1980-05-12 open Expenses:Financial:Commissions
 1980-05-12 open Expenses:Shopping:Electronics
+1980-05-12 open Expenses:Wedding
 
 
 
