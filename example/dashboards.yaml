@@ -224,7 +224,6 @@ dashboards:
           },
         ],
         onClick: (event) => {
-          if (!panel.queries[0].link) return;
           const [month, year] = event.name.split("/");
           const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
           window.open(link);
@@ -240,6 +239,7 @@ dashboards:
         CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS book_value
         WHERE account ~ '^Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
+      link: /beancount/balance_sheet/?time={time}
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -291,7 +291,6 @@ dashboards:
           },
         ],
         onClick: (event) => {
-          if (!panel.queries[0].link) return;
           const [month, year] = event.name.split("/");
           const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
           window.open(link);
@@ -1137,7 +1136,7 @@ dashboards:
           },
         ],
         onClick: (event) => {
-          if (!panel.queries[0].link) return;
+          if (event.seriesName === "Projection") return;
           const [month, year] = event.name.split("/");
           const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
           window.open(link);
