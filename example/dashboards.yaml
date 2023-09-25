@@ -1068,23 +1068,29 @@ dashboards:
         amountsEx[`${row.month}/${row.year}`] = row.value[ledger.ccy];
       }
 
-      const [year, month] = ledger.dateLast.split("-").map((x) => parseInt(x));
-      const projectUntil = `${year + projectYears}-${month}-1`;
-      const months = helpers.iterateMonths(ledger.dateFirst, projectUntil).map((m) => `${m.month}/${m.year}`);
-      const lastMonthIdx = months.findIndex((m) => m === `${month}/${year}`);
-      const ledgerDays = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
-
       const results = panel.queries[0].result;
-      const finalAmount = results[results.length - 1].value[ledger.ccy];
       const resultsEx = panel.queries[1].result;
-      const totalDiffEx = resultsEx[resultsEx.length - 1].value[ledger.ccy] - resultsEx[0].value[ledger.ccy];
-      const monthlyDiffEx = (totalDiffEx / ledgerDays) * (365 / 12);
+      const finalAmount = results[results.length - 1].value[ledger.ccy];
+      const dateFirst = new Date(resultsEx[0].year, resultsEx[0].month - 1, 1);
+      const dateLast = new Date(
+        new Date(resultsEx[resultsEx.length - 1].year, resultsEx[resultsEx.length - 1].month, 1).getTime() - 1,
+      );
+      const days = (dateLast - dateFirst) / (1000 * 60 * 60 * 24) + 1;
+      const totalDiff = resultsEx[resultsEx.length - 1].value[ledger.ccy] - resultsEx[0].value[ledger.ccy];
+      const monthlyDiff = (totalDiff / days) * (365 / 12);
+
+      const dateLastYear = dateLast.getFullYear();
+      const dateLastMonth = dateLast.getMonth() + 1;
+      const dateFirstStr = `${dateFirst.getFullYear()}-${dateFirst.getMonth() + 1}-1`;
+      const dateProjectUntilStr = `${dateLastYear + projectYears}-${dateLastMonth}-1`;
+      const months = helpers.iterateMonths(dateFirstStr, dateProjectUntilStr).map((m) => `${m.month}/${m.year}`);
+      const lastMonthIdx = months.findIndex((m) => m === `${dateLastMonth}/${dateLastYear}`);
 
       const projection = [];
       let sum = finalAmount;
       for (let i = lastMonthIdx; i < months.length; i++) {
         projection[months[i]] = sum;
-        sum += monthlyDiffEx;
+        sum += monthlyDiff;
       }
 
       return {
