@@ -100,10 +100,10 @@ export function render_d3sankey(elem, options) {
                 edgeColor === "none"
                     ? "#aaa"
                     : edgeColor === "path"
-                    ? `url(#${d.uid})`
-                    : edgeColor === "input"
-                    ? color(d.source)
-                    : color(d.target),
+                      ? `url(#${d.uid})`
+                      : edgeColor === "input"
+                        ? color(d.source)
+                        : color(d.target),
             )
             .attr("stroke-width", (d) => Math.max(1, d.width!));
 
