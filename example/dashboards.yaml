@@ -770,7 +770,7 @@ dashboards:
         onClick: (event) => {
           const link = panel.queries[0].link
             .replaceAll("#", "%23")
-            .replace("{account}", event.name)
+            .replace("{account}", accounts[event.dataIndex])
             .replace("{time}", event.seriesName);
           window.open(link);
         },
