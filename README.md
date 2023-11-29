@@ -7,6 +7,7 @@ Example dashboards with random data:
 [![Income and Expenses](frontend/tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)](frontend/tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)
 [![Travelling](frontend/tests/e2e/__image_snapshots__/dashboard_travelling.png)](frontend/tests/e2e/__image_snapshots__/dashboard_travelling.png)
 [![Sankey](frontend/tests/e2e/__image_snapshots__/dashboard_sankey.png)](frontend/tests/e2e/__image_snapshots__/dashboard_sankey.png)
+[![Projection](frontend/tests/e2e/__image_snapshots__/dashboard_projection.png)](frontend/tests/e2e/__image_snapshots__/dashboard_projection.png)
 
 ## Installation
 ```

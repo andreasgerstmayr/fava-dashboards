@@ -100,13 +100,6 @@ dashboards:
         }
       }
 
-      const series = panel.queries.map((query) => ({
-        type: "bar",
-        name: query.name,
-        stack: query.stack,
-        data: months.map((month) => amounts[query.name][month] ?? 0),
-      }));
-
       return {
         tooltip: {
           valueFormatter: currencyFormat.format,
@@ -122,7 +115,12 @@ dashboards:
             formatter: currencyFormat.format,
           },
         },
-        series,
+        series: panel.queries.map((query) => ({
+          type: "bar",
+          name: query.name,
+          stack: query.stack,
+          data: months.map((month) => amounts[query.name][month] ?? 0),
+        })),
         onClick: (event) => {
           const query = panel.queries.find((q) => q.name === event.seriesName);
           if (query) {
@@ -716,42 +714,14 @@ dashboards:
       };
 
   - title: Expenses Year-Over-Year 💸
+    height: 700px
     queries:
-    - name: Housing
-      stack: expenses
-      bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ '^Expenses:Housing:' AND NOT 'travel' IN tags
-        GROUP BY year, month
-      link: /beancount/account/Expenses:Housing/?filter=-#travel&time={time}
-    - name: Food
-      stack: expenses
-      bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ '^Expenses:Food:' AND NOT 'travel' IN tags
-        GROUP BY year, month
-      link: /beancount/account/Expenses:Food/?filter=-#travel&time={time}
-    - name: Shopping
-      stack: expenses
-      bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ '^Expenses:Shopping:' AND NOT 'travel' IN tags
-        GROUP BY year, month
-      link: /beancount/account/Expenses:Shopping/?filter=-#travel&time={time}
-    - name: Travel
-      stack: expenses
-      bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ '^Expenses:' AND 'travel' IN tags
-        GROUP BY year, month
-      link: /beancount/account/Expenses/?filter=#travel&time={time}
-    - name: Other
-      stack: expenses
-      bql: |
-        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ '^Expenses:' AND NOT account ~ '^Expenses:(Housing|Food|Shopping):' AND NOT 'travel' IN tags
-        GROUP BY year, month
-      link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Housing|Food|Shopping)") -#travel&time={time}
+    - bql: |
+        SELECT year, root(account, 2) AS account, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ "^Expenses:"
+        GROUP BY account, year
+        ORDER BY account
+      link: /beancount/account/{account}/?time={time}
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -759,78 +729,50 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "Mai",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
       const years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);
+      const maxExpenseAccounts = 10; // number of expense accounts to show (sorted by biggest expenses)
 
-      // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
+      const accountSums = {};
       const amounts = {};
-      for (let query of panel.queries) {
-        amounts[query.name] = {};
-        for (let row of query.result) {
-          amounts[query.name][`${row.month}/${row.year}`] = row.value[ledger.ccy];
-        }
+      for (let row of panel.queries[0].result) {
+        if (!(row.account in accountSums)) accountSums[row.account] = 0;
+        amounts[`${row.year}/${row.account}`] = row.value[ledger.ccy];
+        accountSums[row.account] += row.value[ledger.ccy];
       }
 
-      let series = [];
-      for (let query of panel.queries) {
-        for (let year of years) {
-          series.push({
-            type: "bar",
-            name: query.name,
-            stack: year,
-            blub: 5,
-            data: months.map((_, i) => amounts[query.name][`${i + 1}/${year}`] ?? 0),
-          });
-        }
-      }
-
+      const accounts = Object.entries(accountSums)
+        .sort(([, a], [, b]) => b - a)
+        .map(([name]) => name)
+        .slice(0, maxExpenseAccounts)
+        .reverse();
       return {
-        tooltip: {
-          formatter: (params) => {
-            const month = params.dataIndex + 1;
-            const stackIdx = params.seriesIndex % years.length;
-            const year = years[stackIdx];
-            return `${params.seriesName}<br>${
-              params.marker
-            } ${month}/${year} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
-              params.value,
-            )}</span>`;
-          },
-        },
         legend: {
           top: "bottom",
         },
         xAxis: {
-          data: months,
-        },
-        yAxis: {
           axisLabel: {
             formatter: currencyFormat.format,
           },
         },
-        series,
+        yAxis: {
+          data: accounts.map((account) => account.split(":").pop()),
+        },
+        series: years.map((year) => ({
+          type: "bar",
+          name: year,
+          data: accounts.map((account) => amounts[`${year}/${account}`] ?? 0),
+          label: {
+            show: true,
+            position: "right",
+            formatter: (params) => currencyFormat.format(params.value),
+          },
+        })),
         onClick: (event) => {
-          const query = panel.queries.find((q) => q.name === event.seriesName);
-          if (query) {
-            const month = event.dataIndex + 1;
-            const stackIdx = event.seriesIndex % years.length;
-            const year = years[stackIdx];
-            const link = query.link.replaceAll("#", "%23").replace("{time}", `${year}-${month.toString().padStart(2, "0")}`);
-            window.open(link);
-          }
+          const link = panel.queries[0].link
+            .replaceAll("#", "%23")
+            .replace("{account}", event.name)
+            .replace("{time}", event.seriesName);
+          window.open(link);
         },
       };
 
@@ -1045,7 +987,7 @@ dashboards:
     - bql: |
         SELECT year, month,
         CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS value
-        WHERE account_sortkey(account) ~ '^[01]' AND NOT 'wedding' IN tags
+        WHERE account_sortkey(account) ~ '^[01]' AND NOT 'wedding' IN tags AND NOT 'weddinggift' IN tags
         GROUP BY year, month
         ORDER BY year, month
     type: echarts
