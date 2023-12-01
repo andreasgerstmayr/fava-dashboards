@@ -3965,6 +3965,56 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         "height": "700px",
         "queries": [
           {
+            "bql": "SELECT year, root(account, 3) AS account, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027, LAST(date)) AS value\\nWHERE account ~ \\"^Income:\\"\\nGROUP BY account, year\\nORDER BY account\\n",
+            "link": "/beancount/account/{account}/?time={time}",
+            "result": [
+              {
+                "account": "Income:US:ETrade",
+                "value": {
+                  "USD": -29.60
+                },
+                "year": 2020
+              },
+              {
+                "account": "Income:US:ETrade",
+                "value": {
+                  "USD": -780.62
+                },
+                "year": 2021
+              },
+              {
+                "account": "Income:US:Hooli",
+                "value": {
+                  "USD": -134521.90
+                },
+                "year": 2020
+              },
+              {
+                "account": "Income:US:Hooli",
+                "value": {
+                  "USD": -129882.20
+                },
+                "year": 2021
+              },
+              {
+                "account": "Income:US:Hooli",
+                "value": {
+                  "USD": -20958.80
+                },
+                "year": 2022
+              }
+            ]
+          }
+        ],
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);\\nconst maxAccounts = 8; // number of accounts to show, sorted by sum\\n\\nconst accountSums = {};\\nconst amounts = {};\\nfor (let row of panel.queries[0].result) {\\n  if (!(row.account in accountSums)) accountSums[row.account] = 0;\\n  const value = row.account.startsWith(\\"Income:\\") ? -row.value[ledger.ccy] : row.value[ledger.ccy];\\n  amounts[\`\${row.year}/\${row.account}\`] = value;\\n  accountSums[row.account] += value;\\n}\\n\\nconst accounts = Object.entries(accountSums)\\n  .sort(([, a], [, b]) =\\u003e b - a)\\n  .map(([name]) =\\u003e name)\\n  .slice(0, maxAccounts)\\n  .reverse();\\nreturn {\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  xAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    data: accounts.map((account) =\\u003e account.split(\\":\\").slice(1).join(\\":\\")),\\n  },\\n  grid: {\\n    containLabel: true,\\n    left: 0,\\n  },\\n  series: years.map((year) =\\u003e ({\\n    type: \\"bar\\",\\n    name: year,\\n    data: accounts.map((account) =\\u003e amounts[\`\${year}/\${account}\`] ?? 0),\\n    label: {\\n      show: true,\\n      position: \\"right\\",\\n      formatter: (params) =\\u003e currencyFormat.format(params.value),\\n    },\\n  })),\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link\\n      .replaceAll(\\"#\\", \\"%23\\")\\n      .replace(\\"{account}\\", accounts[event.dataIndex])\\n      .replace(\\"{time}\\", event.seriesName);\\n    window.open(link);\\n  },\\n};\\n",
+        "title": "Income Year-Over-Year \\ud83d\\udcb0",
+        "type": "echarts",
+        "width": "50%"
+      },
+      {
+        "height": "700px",
+        "queries": [
+          {
             "bql": "SELECT year, root(account, 2) AS account, CONVERT(SUM(position), \\u0027{{ledger.ccy}}\\u0027, LAST(date)) AS value\\nWHERE account ~ \\"^Expenses:\\"\\nGROUP BY account, year\\nORDER BY account\\n",
             "link": "/beancount/account/{account}/?time={time}",
             "result": [
@@ -4111,9 +4161,10 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             ]
           }
         ],
-        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);\\nconst maxExpenseAccounts = 10; // number of expense accounts to show (sorted by biggest expenses)\\n\\nconst accountSums = {};\\nconst amounts = {};\\nfor (let row of panel.queries[0].result) {\\n  if (!(row.account in accountSums)) accountSums[row.account] = 0;\\n  amounts[\`\${row.year}/\${row.account}\`] = row.value[ledger.ccy];\\n  accountSums[row.account] += row.value[ledger.ccy];\\n}\\n\\nconst accounts = Object.entries(accountSums)\\n  .sort(([, a], [, b]) =\\u003e b - a)\\n  .map(([name]) =\\u003e name)\\n  .slice(0, maxExpenseAccounts)\\n  .reverse();\\nreturn {\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  xAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    data: accounts.map((account) =\\u003e account.split(\\":\\").pop()),\\n  },\\n  series: years.map((year) =\\u003e ({\\n    type: \\"bar\\",\\n    name: year,\\n    data: accounts.map((account) =\\u003e amounts[\`\${year}/\${account}\`] ?? 0),\\n    label: {\\n      show: true,\\n      position: \\"right\\",\\n      formatter: (params) =\\u003e currencyFormat.format(params.value),\\n    },\\n  })),\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link\\n      .replaceAll(\\"#\\", \\"%23\\")\\n      .replace(\\"{account}\\", accounts[event.dataIndex])\\n      .replace(\\"{time}\\", event.seriesName);\\n    window.open(link);\\n  },\\n};\\n",
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);\\nconst maxAccounts = 8; // number of accounts to show, sorted by sum\\n\\nconst accountSums = {};\\nconst amounts = {};\\nfor (let row of panel.queries[0].result) {\\n  if (!(row.account in accountSums)) accountSums[row.account] = 0;\\n  const value = row.account.startsWith(\\"Income:\\") ? -row.value[ledger.ccy] : row.value[ledger.ccy];\\n  amounts[\`\${row.year}/\${row.account}\`] = value;\\n  accountSums[row.account] += value;\\n}\\n\\nconst accounts = Object.entries(accountSums)\\n  .sort(([, a], [, b]) =\\u003e b - a)\\n  .map(([name]) =\\u003e name)\\n  .slice(0, maxAccounts)\\n  .reverse();\\nreturn {\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  xAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    data: accounts.map((account) =\\u003e account.split(\\":\\").slice(1).join(\\":\\")),\\n  },\\n  grid: {\\n    containLabel: true,\\n    left: 0,\\n  },\\n  series: years.map((year) =\\u003e ({\\n    type: \\"bar\\",\\n    name: year,\\n    data: accounts.map((account) =\\u003e amounts[\`\${year}/\${account}\`] ?? 0),\\n    label: {\\n      show: true,\\n      position: \\"right\\",\\n      formatter: (params) =\\u003e currencyFormat.format(params.value),\\n    },\\n  })),\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link\\n      .replaceAll(\\"#\\", \\"%23\\")\\n      .replace(\\"{account}\\", accounts[event.dataIndex])\\n      .replace(\\"{time}\\", event.seriesName);\\n    window.open(link);\\n  },\\n};\\n",
         "title": "Expenses Year-Over-Year \\ud83d\\udcb8",
-        "type": "echarts"
+        "type": "echarts",
+        "width": "50%"
       },
       {
         "queries": [
@@ -5499,24 +5550,266 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
     </div>
   </div>
   <div class="panel"
-       style="width: 100%"
+       style="width: 50%"
   >
     <h2>
-      Expenses Year-Over-Year 💸
+      Income Year-Over-Year 💰
     </h2>
     <div id="panel7"
          style="height: 700px"
     >
-      <div style="position: relative; overflow: hidden; width: 1438px; height: 700px;">
+      <div style="position: relative; overflow: hidden; width: 699px; height: 700px;">
         <svg xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              version="1.1"
              baseprofile="full"
-             width="1438"
+             width="699"
              height="700"
              style="position:absolute;left:0;top:0;user-select:none"
         >
-          <rect width="1438"
+          <rect width="699"
+                height="700"
+                x="0"
+                id="0"
+                fill="none"
+          >
+          </rect>
+          <g>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#E0E6F1"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+                  stroke-linecap="round"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <path fill="none"
+                  stroke="#6E7079"
+            >
+            </path>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              US:ETrade
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="end"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              US:Hooli
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $0
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $30,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $60,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $90,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $120,000
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="middle"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#6E7079"
+            >
+              $150,000
+            </text>
+            <path fill="#5470c6">
+            </path>
+            <path fill="#5470c6">
+            </path>
+            <path fill="#91cc75">
+            </path>
+            <path fill="#91cc75">
+            </path>
+            <path fill="#fac858">
+            </path>
+            <path fill="#fac858">
+            </path>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#333"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="2"
+                  paint-order="stroke"
+                  stroke-miterlimit="2"
+            >
+              $30
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#333"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="2"
+                  paint-order="stroke"
+                  stroke-miterlimit="2"
+            >
+              $134,522
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#333"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="2"
+                  paint-order="stroke"
+                  stroke-miterlimit="2"
+            >
+              $781
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#333"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="2"
+                  paint-order="stroke"
+                  stroke-miterlimit="2"
+            >
+              $129,882
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#333"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="2"
+                  paint-order="stroke"
+                  stroke-miterlimit="2"
+            >
+              $0
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#333"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="2"
+                  paint-order="stroke"
+                  stroke-miterlimit="2"
+            >
+              $20,959
+            </text>
+            <path fill="rgb(0,0,0)"
+                  fill-opacit
+                  stroke="#ccc"
+                  stroke-width="0"
+            >
+            </path>
+            <path fill="#5470c6">
+            </path>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  x="30"
+                  fill="#333"
+            >
+              2020
+            </text>
+            <path fill="#91cc75">
+            </path>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  x="30"
+                  fill="#333"
+            >
+              2021
+            </text>
+            <path fill="#fac858">
+            </path>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  x="30"
+                  fill="#333"
+            >
+              2022
+            </text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="panel"
+       style="width: 50%"
+  >
+    <h2>
+      Expenses Year-Over-Year 💸
+    </h2>
+    <div id="panel8"
+         style="height: 700px"
+    >
+      <div style="position: relative; overflow: hidden; width: 699px; height: 700px;">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             version="1.1"
+             baseprofile="full"
+             width="699"
+             height="700"
+             style="position:absolute;left:0;top:0;user-select:none"
+        >
+          <rect width="699"
                 height="700"
                 x="0"
                 id="0"
@@ -6057,7 +6350,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
     <h2>
       Top 10 biggest expenses
     </h2>
-    <div id="panel8"
+    <div id="panel9"
          style="height: 400px"
     >
       <table is="sortable-table"
@@ -9312,7 +9605,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
             ]
           }
         ],
-        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;\\nconst divisor = days / (365 / 12); // monthly\\nconst valueThreshold = 10; // skip nodes below this value\\n\\nconst nodes = [{ name: \\"Income\\" }];\\nconst links = [];\\nfunction addNode(root) {\\n  for (let node of root.children) {\\n    let label = node.name.split(\\":\\").pop();\\n\\n    // skip over pass-through accounts\\n    while (node.children.length === 1) {\\n      node = node.children[0];\\n      label += \\":\\" + node.name.split(\\":\\").pop();\\n    }\\n\\n    // skip nodes below the threshold\\n    if (Math.abs(node.value / divisor) \\u003c valueThreshold) continue;\\n\\n    nodes.push({ name: node.name, label });\\n    if (node.name.startsWith(\\"Income\\")) {\\n      links.push({ source: node.name, target: root.name, value: -node.value / divisor });\\n    } else {\\n      links.push({\\n        source: root.name == \\"Expenses\\" ? \\"Income\\" : root.name,\\n        target: node.name,\\n        value: node.value / divisor,\\n      });\\n    }\\n    addNode(node);\\n  }\\n}\\n\\nconst accountTree = helpers.buildAccountTree(panel.queries[0].result, (row) =\\u003e row.value[ledger.ccy]);\\naddNode(accountTree.children[0]);\\naddNode(accountTree.children[1]);\\n\\nconst savings =\\n  accountTree.children[0].name === \\"Income\\"\\n    ? -accountTree.children[0].value - accountTree.children[1].value\\n    : -accountTree.children[1].value - accountTree.children[0].value;\\nif (savings \\u003e 0) {\\n  nodes.push({ name: \\"Savings\\" });\\n  links.push({ source: \\"Income\\", target: \\"Savings\\", value: savings / divisor });\\n}\\n\\nreturn {\\n  align: \\"left\\",\\n  valueFormatter: currencyFormat.format,\\n  data: {\\n    nodes,\\n    links,\\n  },\\n  onClick: (event, node) =\\u003e {\\n    if (node.name === \\"Savings\\") return;\\n    const time = new URLSearchParams(window.location.search).get(\\"time\\") ?? \\"\\";\\n    const link = panel.queries[0].link.replaceAll(\\"#\\", \\"%23\\").replace(\\"{account}\\", node.name).replace(\\"{time}\\", time);\\n    window.open(link);\\n  },\\n};\\n",
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;\\nconst divisor = days / (365 / 12); // monthly\\nconst valueThreshold = 10; // skip nodes below this value\\n\\nconst nodes = [{ name: \\"Income\\" }];\\nconst links = [];\\nfunction addNode(root) {\\n  for (let node of root.children) {\\n    let label = node.name.split(\\":\\").pop();\\n\\n    // skip over pass-through accounts\\n    while (node.children.length === 1) {\\n      node = node.children[0];\\n      label += \\":\\" + node.name.split(\\":\\").pop();\\n    }\\n\\n    // skip nodes below the threshold\\n    if (Math.abs(node.value / divisor) \\u003c valueThreshold) continue;\\n\\n    nodes.push({ name: node.name, label });\\n    if (node.name.startsWith(\\"Income:\\")) {\\n      links.push({ source: node.name, target: root.name, value: -node.value / divisor });\\n    } else {\\n      links.push({\\n        source: root.name == \\"Expenses\\" ? \\"Income\\" : root.name,\\n        target: node.name,\\n        value: node.value / divisor,\\n      });\\n    }\\n    addNode(node);\\n  }\\n}\\n\\nconst accountTree = helpers.buildAccountTree(panel.queries[0].result, (row) =\\u003e row.value[ledger.ccy]);\\naddNode(accountTree.children[0]);\\naddNode(accountTree.children[1]);\\n\\nconst savings =\\n  accountTree.children[0].name === \\"Income\\"\\n    ? -accountTree.children[0].value - accountTree.children[1].value\\n    : -accountTree.children[1].value - accountTree.children[0].value;\\nif (savings \\u003e 0) {\\n  nodes.push({ name: \\"Savings\\" });\\n  links.push({ source: \\"Income\\", target: \\"Savings\\", value: savings / divisor });\\n}\\n\\nreturn {\\n  align: \\"left\\",\\n  valueFormatter: currencyFormat.format,\\n  data: {\\n    nodes,\\n    links,\\n  },\\n  onClick: (event, node) =\\u003e {\\n    if (node.name === \\"Savings\\") return;\\n    const time = new URLSearchParams(window.location.search).get(\\"time\\") ?? \\"\\";\\n    const link = panel.queries[0].link.replaceAll(\\"#\\", \\"%23\\").replace(\\"{account}\\", node.name).replace(\\"{time}\\", time);\\n    window.open(link);\\n  },\\n};\\n",
         "title": "Sankey (per month) \\ud83d\\udcb8",
         "type": "d3_sankey"
       }
@@ -11856,7 +12149,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
             ]
           }
         ],
-        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst travels = [];\\nconst amounts = {};\\n\\nfor (let row of panel.queries[0].result) {\\n  const tag = row.tags.find((tag) =\\u003e tag.match(/\\\\-\\\\d{4}/));\\n  if (!(tag in amounts)) {\\n    travels.push(tag);\\n    amounts[tag] = 0;\\n  }\\n  amounts[tag] += row.value.number;\\n}\\n\\nreturn {\\n  tooltip: {\\n    valueFormatter: currencyFormat.format,\\n  },\\n  grid: {\\n    left: \\"150px\\",\\n  },\\n  xAxis: {\\n    type: \\"value\\",\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    type: \\"category\\",\\n    data: travels,\\n  },\\n  series: [\\n    {\\n      type: \\"bar\\",\\n      data: travels.map((travel) =\\u003e amounts[travel]),\\n    },\\n  ],\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link.replaceAll(\\"#\\", \\"%23\\").replace(\\"{travel}\\", event.name);\\n    window.open(link);\\n  },\\n};\\n",
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst travels = [];\\nconst amounts = {};\\n\\nfor (let row of panel.queries[0].result) {\\n  const tag = row.tags.find((tag) =\\u003e tag.match(/\\\\-\\\\d{4}/));\\n  if (!(tag in amounts)) {\\n    travels.push(tag);\\n    amounts[tag] = 0;\\n  }\\n  amounts[tag] += row.value.number;\\n}\\n\\nreturn {\\n  tooltip: {\\n    valueFormatter: currencyFormat.format,\\n  },\\n  grid: {\\n    containLabel: true,\\n    left: 0,\\n  },\\n  xAxis: {\\n    type: \\"value\\",\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    type: \\"category\\",\\n    data: travels,\\n  },\\n  series: [\\n    {\\n      type: \\"bar\\",\\n      data: travels.map((travel) =\\u003e amounts[travel]),\\n      label: {\\n        show: true,\\n        position: \\"right\\",\\n        formatter: (params) =\\u003e currencyFormat.format(params.value),\\n      },\\n    },\\n  ],\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link.replaceAll(\\"#\\", \\"%23\\").replace(\\"{travel}\\", event.name);\\n    window.open(link);\\n  },\\n};\\n",
         "title": "Destinations \\u2708\\ufe0f",
         "type": "echarts"
       }
@@ -12337,6 +12630,39 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
             </path>
             <path fill="#5470c6">
             </path>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#333"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="2"
+                  paint-order="stroke"
+                  stroke-miterlimit="2"
+            >
+              $1,056
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#333"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="2"
+                  paint-order="stroke"
+                  stroke-miterlimit="2"
+            >
+              $556
+            </text>
+            <text dominant-baseline="central"
+                  text-anchor="start"
+                  style="font-size:12px;font-family:sans-serif;"
+                  fill="#333"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="2"
+                  paint-order="stroke"
+                  stroke-miterlimit="2"
+            >
+              $1,008
+            </text>
           </g>
         </svg>
       </div>

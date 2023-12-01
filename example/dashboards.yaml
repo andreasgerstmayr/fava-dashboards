@@ -713,37 +713,39 @@ dashboards:
         },
       };
 
-  - title: Expenses Year-Over-Year 💸
+  - title: Income Year-Over-Year 💰
+    width: 50%
     height: 700px
     queries:
     - bql: |
-        SELECT year, root(account, 2) AS account, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ "^Expenses:"
+        SELECT year, root(account, 3) AS account, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ "^Income:"
         GROUP BY account, year
         ORDER BY account
       link: /beancount/account/{account}/?time={time}
     type: echarts
-    script: |
+    script: &year_over_year |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
       const years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);
-      const maxExpenseAccounts = 10; // number of expense accounts to show (sorted by biggest expenses)
+      const maxAccounts = 8; // number of accounts to show, sorted by sum
 
       const accountSums = {};
       const amounts = {};
       for (let row of panel.queries[0].result) {
         if (!(row.account in accountSums)) accountSums[row.account] = 0;
-        amounts[`${row.year}/${row.account}`] = row.value[ledger.ccy];
-        accountSums[row.account] += row.value[ledger.ccy];
+        const value = row.account.startsWith("Income:") ? -row.value[ledger.ccy] : row.value[ledger.ccy];
+        amounts[`${row.year}/${row.account}`] = value;
+        accountSums[row.account] += value;
       }
 
       const accounts = Object.entries(accountSums)
         .sort(([, a], [, b]) => b - a)
         .map(([name]) => name)
-        .slice(0, maxExpenseAccounts)
+        .slice(0, maxAccounts)
         .reverse();
       return {
         legend: {
@@ -755,7 +757,11 @@ dashboards:
           },
         },
         yAxis: {
-          data: accounts.map((account) => account.split(":").pop()),
+          data: accounts.map((account) => account.split(":").slice(1).join(":")),
+        },
+        grid: {
+          containLabel: true,
+          left: 0,
         },
         series: years.map((year) => ({
           type: "bar",
@@ -775,6 +781,19 @@ dashboards:
           window.open(link);
         },
       };
+
+  - title: Expenses Year-Over-Year 💸
+    width: 50%
+    height: 700px
+    queries:
+    - bql: |
+        SELECT year, root(account, 2) AS account, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ "^Expenses:"
+        GROUP BY account, year
+        ORDER BY account
+      link: /beancount/account/{account}/?time={time}
+    type: echarts
+    script: *year_over_year
 
   - title: Top 10 biggest expenses
     queries:
@@ -868,7 +887,8 @@ dashboards:
           valueFormatter: currencyFormat.format,
         },
         grid: {
-          left: "150px",
+          containLabel: true,
+          left: 0,
         },
         xAxis: {
           type: "value",
@@ -884,6 +904,11 @@ dashboards:
           {
             type: "bar",
             data: travels.map((travel) => amounts[travel]),
+            label: {
+              show: true,
+              position: "right",
+              formatter: (params) => currencyFormat.format(params.value),
+            },
           },
         ],
         onClick: (event) => {
@@ -930,7 +955,7 @@ dashboards:
           if (Math.abs(node.value / divisor) < valueThreshold) continue;
 
           nodes.push({ name: node.name, label });
-          if (node.name.startsWith("Income")) {
+          if (node.name.startsWith("Income:")) {
             links.push({ source: node.name, target: root.name, value: -node.value / divisor });
           } else {
             links.push({
