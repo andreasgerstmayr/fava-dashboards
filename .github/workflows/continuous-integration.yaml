@@ -14,23 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: |
-          sudo pip3 install black
-
-      - name: Build frontend
-        run: make build
-
-      - name: Install fava-dashboards
-        run: pip3 install .
-
-      - name: Start Fava
-        run: cd example; fava example.beancount &
-
-      - name: Run HTML tests
-        run: cd frontend; npm run test -- -t HTML
-
-      - name: Run formatter
-        run: |
-          make format
-          git diff --exit-code
+      - name: Build and run dev container task
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: make ci

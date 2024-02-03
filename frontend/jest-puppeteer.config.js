@@ -5,5 +5,7 @@ module.exports = {
             height: 1000,
         },
         headless: "new",
+        // chrome sandbox does not work inside container
+        args: ["--no-sandbox"],
     },
 };

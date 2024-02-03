@@ -18,6 +18,10 @@ describe("Dashboard: PNG Snapshot Tests", () => {
     for (let dashboard of dashboards) {
         it(dashboard.name, async () => {
             await page.goto(`${BASE_URL}${dashboard.link}`);
+            await page.evaluate(() => {
+                // full page screenshot doesn't work due to sticky sidebar
+                document.body.style.height = "inherit";
+            });
             await waitFor(1500); // wait for animations to finish
 
             const screenshot = await page.screenshot({ fullPage: true });
