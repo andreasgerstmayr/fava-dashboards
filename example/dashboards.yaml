@@ -731,7 +731,7 @@ dashboards:
         maximumFractionDigits: 0,
       });
       const years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);
-      const maxAccounts = 8; // number of accounts to show, sorted by sum
+      const maxAccounts = 7; // number of accounts to show, sorted by sum
 
       const accountSums = {};
       const amounts = {};
@@ -750,6 +750,9 @@ dashboards:
       return {
         legend: {
           top: "bottom",
+        },
+        tooltip: {
+          formatter: "{a}",
         },
         xAxis: {
           axisLabel: {

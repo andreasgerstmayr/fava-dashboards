@@ -4006,7 +4006,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             ]
           }
         ],
-        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);\\nconst maxAccounts = 8; // number of accounts to show, sorted by sum\\n\\nconst accountSums = {};\\nconst amounts = {};\\nfor (let row of panel.queries[0].result) {\\n  if (!(row.account in accountSums)) accountSums[row.account] = 0;\\n  const value = row.account.startsWith(\\"Income:\\") ? -row.value[ledger.ccy] : row.value[ledger.ccy];\\n  amounts[\`\${row.year}/\${row.account}\`] = value;\\n  accountSums[row.account] += value;\\n}\\n\\nconst accounts = Object.entries(accountSums)\\n  .sort(([, a], [, b]) =\\u003e b - a)\\n  .map(([name]) =\\u003e name)\\n  .slice(0, maxAccounts)\\n  .reverse();\\nreturn {\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  xAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    data: accounts.map((account) =\\u003e account.split(\\":\\").slice(1).join(\\":\\")),\\n  },\\n  grid: {\\n    containLabel: true,\\n    left: 0,\\n  },\\n  series: years.map((year) =\\u003e ({\\n    type: \\"bar\\",\\n    name: year,\\n    data: accounts.map((account) =\\u003e amounts[\`\${year}/\${account}\`] ?? 0),\\n    label: {\\n      show: true,\\n      position: \\"right\\",\\n      formatter: (params) =\\u003e currencyFormat.format(params.value),\\n    },\\n  })),\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link\\n      .replaceAll(\\"#\\", \\"%23\\")\\n      .replace(\\"{account}\\", accounts[event.dataIndex])\\n      .replace(\\"{time}\\", event.seriesName);\\n    window.open(link);\\n  },\\n};\\n",
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);\\nconst maxAccounts = 7; // number of accounts to show, sorted by sum\\n\\nconst accountSums = {};\\nconst amounts = {};\\nfor (let row of panel.queries[0].result) {\\n  if (!(row.account in accountSums)) accountSums[row.account] = 0;\\n  const value = row.account.startsWith(\\"Income:\\") ? -row.value[ledger.ccy] : row.value[ledger.ccy];\\n  amounts[\`\${row.year}/\${row.account}\`] = value;\\n  accountSums[row.account] += value;\\n}\\n\\nconst accounts = Object.entries(accountSums)\\n  .sort(([, a], [, b]) =\\u003e b - a)\\n  .map(([name]) =\\u003e name)\\n  .slice(0, maxAccounts)\\n  .reverse();\\nreturn {\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  tooltip: {\\n    formatter: \\"{a}\\",\\n  },\\n  xAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    data: accounts.map((account) =\\u003e account.split(\\":\\").slice(1).join(\\":\\")),\\n  },\\n  grid: {\\n    containLabel: true,\\n    left: 0,\\n  },\\n  series: years.map((year) =\\u003e ({\\n    type: \\"bar\\",\\n    name: year,\\n    data: accounts.map((account) =\\u003e amounts[\`\${year}/\${account}\`] ?? 0),\\n    label: {\\n      show: true,\\n      position: \\"right\\",\\n      formatter: (params) =\\u003e currencyFormat.format(params.value),\\n    },\\n  })),\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link\\n      .replaceAll(\\"#\\", \\"%23\\")\\n      .replace(\\"{account}\\", accounts[event.dataIndex])\\n      .replace(\\"{time}\\", event.seriesName);\\n    window.open(link);\\n  },\\n};\\n",
         "title": "Income Year-Over-Year \\ud83d\\udcb0",
         "type": "echarts",
         "width": "50%"
@@ -4161,7 +4161,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             ]
           }
         ],
-        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);\\nconst maxAccounts = 8; // number of accounts to show, sorted by sum\\n\\nconst accountSums = {};\\nconst amounts = {};\\nfor (let row of panel.queries[0].result) {\\n  if (!(row.account in accountSums)) accountSums[row.account] = 0;\\n  const value = row.account.startsWith(\\"Income:\\") ? -row.value[ledger.ccy] : row.value[ledger.ccy];\\n  amounts[\`\${row.year}/\${row.account}\`] = value;\\n  accountSums[row.account] += value;\\n}\\n\\nconst accounts = Object.entries(accountSums)\\n  .sort(([, a], [, b]) =\\u003e b - a)\\n  .map(([name]) =\\u003e name)\\n  .slice(0, maxAccounts)\\n  .reverse();\\nreturn {\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  xAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    data: accounts.map((account) =\\u003e account.split(\\":\\").slice(1).join(\\":\\")),\\n  },\\n  grid: {\\n    containLabel: true,\\n    left: 0,\\n  },\\n  series: years.map((year) =\\u003e ({\\n    type: \\"bar\\",\\n    name: year,\\n    data: accounts.map((account) =\\u003e amounts[\`\${year}/\${account}\`] ?? 0),\\n    label: {\\n      show: true,\\n      position: \\"right\\",\\n      formatter: (params) =\\u003e currencyFormat.format(params.value),\\n    },\\n  })),\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link\\n      .replaceAll(\\"#\\", \\"%23\\")\\n      .replace(\\"{account}\\", accounts[event.dataIndex])\\n      .replace(\\"{time}\\", event.seriesName);\\n    window.open(link);\\n  },\\n};\\n",
+        "script": "const currencyFormat = new Intl.NumberFormat(undefined, {\\n  style: \\"currency\\",\\n  currency: ledger.ccy,\\n  maximumFractionDigits: 0,\\n});\\nconst years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);\\nconst maxAccounts = 7; // number of accounts to show, sorted by sum\\n\\nconst accountSums = {};\\nconst amounts = {};\\nfor (let row of panel.queries[0].result) {\\n  if (!(row.account in accountSums)) accountSums[row.account] = 0;\\n  const value = row.account.startsWith(\\"Income:\\") ? -row.value[ledger.ccy] : row.value[ledger.ccy];\\n  amounts[\`\${row.year}/\${row.account}\`] = value;\\n  accountSums[row.account] += value;\\n}\\n\\nconst accounts = Object.entries(accountSums)\\n  .sort(([, a], [, b]) =\\u003e b - a)\\n  .map(([name]) =\\u003e name)\\n  .slice(0, maxAccounts)\\n  .reverse();\\nreturn {\\n  legend: {\\n    top: \\"bottom\\",\\n  },\\n  tooltip: {\\n    formatter: \\"{a}\\",\\n  },\\n  xAxis: {\\n    axisLabel: {\\n      formatter: currencyFormat.format,\\n    },\\n  },\\n  yAxis: {\\n    data: accounts.map((account) =\\u003e account.split(\\":\\").slice(1).join(\\":\\")),\\n  },\\n  grid: {\\n    containLabel: true,\\n    left: 0,\\n  },\\n  series: years.map((year) =\\u003e ({\\n    type: \\"bar\\",\\n    name: year,\\n    data: accounts.map((account) =\\u003e amounts[\`\${year}/\${account}\`] ?? 0),\\n    label: {\\n      show: true,\\n      position: \\"right\\",\\n      formatter: (params) =\\u003e currencyFormat.format(params.value),\\n    },\\n  })),\\n  onClick: (event) =\\u003e {\\n    const link = panel.queries[0].link\\n      .replaceAll(\\"#\\", \\"%23\\")\\n      .replace(\\"{account}\\", accounts[event.dataIndex])\\n      .replace(\\"{time}\\", event.seriesName);\\n    window.open(link);\\n  },\\n};\\n",
         "title": "Expenses Year-Over-Year \\ud83d\\udcb8",
         "type": "echarts",
         "width": "50%"
@@ -5556,7 +5556,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
       Income Year-Over-Year 💰
     </h2>
     <div id="panel7"
-         style="height: 700px"
+         style="height: 700px; position: relative;"
     >
       <div style="position: relative; overflow: hidden; width: 699px; height: 700px;">
         <svg xmlns="http://www.w3.org/2000/svg"
@@ -5789,6 +5789,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </g>
         </svg>
       </div>
+      <div class>
+      </div>
     </div>
   </div>
   <div class="panel"
@@ -5798,7 +5800,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
       Expenses Year-Over-Year 💸
     </h2>
     <div id="panel8"
-         style="height: 700px"
+         style="height: 700px; position: relative;"
     >
       <div style="position: relative; overflow: hidden; width: 699px; height: 700px;">
         <svg xmlns="http://www.w3.org/2000/svg"
@@ -5882,17 +5884,6 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   stroke="#6E7079"
             >
             </path>
-            <path fill="none"
-                  stroke="#6E7079"
-            >
-            </path>
-            <text dominant-baseline="central"
-                  text-anchor="end"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#6E7079"
-            >
-              Financial
-            </text>
             <text dominant-baseline="central"
                   text-anchor="end"
                   style="font-size:12px;font-family:sans-serif;"
@@ -6005,10 +5996,6 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             </path>
             <path fill="#5470c6">
             </path>
-            <path fill="#5470c6">
-            </path>
-            <path fill="#91cc75">
-            </path>
             <path fill="#91cc75">
             </path>
             <path fill="#91cc75">
@@ -6037,19 +6024,6 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             </path>
             <path fill="#fac858">
             </path>
-            <path fill="#fac858">
-            </path>
-            <text dominant-baseline="central"
-                  text-anchor="start"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#333"
-                  stroke="rgb(255,255,255)"
-                  stroke-width="2"
-                  paint-order="stroke"
-                  stroke-miterlimit="2"
-            >
-              $84
-            </text>
             <text dominant-baseline="central"
                   text-anchor="start"
                   style="font-size:12px;font-family:sans-serif;"
@@ -6136,17 +6110,6 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   paint-order="stroke"
                   stroke-miterlimit="2"
             >
-              $227
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="start"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#333"
-                  stroke="rgb(255,255,255)"
-                  stroke-width="2"
-                  paint-order="stroke"
-                  stroke-miterlimit="2"
-            >
               $0
             </text>
             <text dominant-baseline="central"
@@ -6214,17 +6177,6 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                   stroke-miterlimit="2"
             >
               $52,596
-            </text>
-            <text dominant-baseline="central"
-                  text-anchor="start"
-                  style="font-size:12px;font-family:sans-serif;"
-                  fill="#333"
-                  stroke="rgb(255,255,255)"
-                  stroke-width="2"
-                  paint-order="stroke"
-                  stroke-miterlimit="2"
-            >
-              $8
             </text>
             <text dominant-baseline="central"
                   text-anchor="start"
@@ -6341,6 +6293,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             </text>
           </g>
         </svg>
+      </div>
+      <div class>
       </div>
     </div>
   </div>
