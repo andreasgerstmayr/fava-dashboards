@@ -7,8 +7,6 @@ def run_prettier(code, indent):
     p = subprocess.run(
         [
             "npx",
-            "--no-install",
-            "--",
             "prettier",
             "--stdin-filepath",
             "script.js",
