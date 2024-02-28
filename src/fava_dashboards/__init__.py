@@ -92,11 +92,13 @@ class FavaDashboards(FavaExtensionBase):
     def bootstrap(self, dashboard_id):
         operating_currencies = self.ledger.options["operating_currency"]
         commodities = {c.currency: c for c in self.ledger.all_entries_by_type.Commodity}
+        accounts = self.ledger.accounts
         ledger = {
             "dateFirst": g.filtered._date_first,
             "dateLast": g.filtered._date_last - datetime.timedelta(days=1),
             "operatingCurrencies": operating_currencies,
             "ccy": operating_currencies[0],
+            "accounts": accounts,
             "commodities": commodities,
         }
 
