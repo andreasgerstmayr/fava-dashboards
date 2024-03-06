@@ -3,11 +3,13 @@ import yaml
 import re
 from collections import namedtuple
 from functools import cached_property
+from beancount.core.inventory import Inventory
 from beancount.query.query import run_query
+from fava.application import render_template_string
+from fava.context import g
+from fava.core.conversion import simple_units
 from fava.ext import FavaExtensionBase
 from fava.helpers import FavaAPIError
-from fava.context import g
-from fava.application import render_template_string
 
 Config = namedtuple("Config", ["dashboards_path"])
 
@@ -70,8 +72,16 @@ class FavaDashboards(FavaExtensionBase):
             raise FavaAPIError(f"Failed to parse template {template}: {ex}")
 
     def sanitize_panel(self, ledger, panel):
-        """remove fields which are not JSON serializable"""
+        """replace or remove fields which are not JSON serializable"""
         for query in panel.get("queries", []):
+            if "result" in query:
+                for i, row in enumerate(query["result"]):
+                    for k, v in row._asdict().items():
+                        if isinstance(v, Inventory):
+                            query["result"][i] = query["result"][i]._replace(
+                                **{k: simple_units(v)}
+                            )
+
             if "result_types" in query:
                 del query["result_types"]
 
@@ -83,11 +93,13 @@ class FavaDashboards(FavaExtensionBase):
     def bootstrap(self, dashboard_id):
         operating_currencies = self.ledger.options["operating_currency"]
         commodities = {c.currency: c for c in self.ledger.all_entries_by_type.Commodity}
+        accounts = self.ledger.accounts
         ledger = {
             "dateFirst": g.filtered._date_first,
             "dateLast": g.filtered._date_last - datetime.timedelta(days=1),
             "operatingCurrencies": operating_currencies,
             "ccy": operating_currencies[0],
+            "accounts": accounts,
             "commodities": commodities,
         }
 
@@ -102,7 +114,6 @@ class FavaDashboards(FavaExtensionBase):
         return {
             "ledger": ledger,
             "dashboards": dashboards,
-            "dashboardId": dashboard_id,
         }
 
     def dashboards_js(self):

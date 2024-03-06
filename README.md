@@ -7,6 +7,7 @@ Example dashboards with random data:
 [![Income and Expenses](frontend/tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)](frontend/tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)
 [![Travelling](frontend/tests/e2e/__image_snapshots__/dashboard_travelling.png)](frontend/tests/e2e/__image_snapshots__/dashboard_travelling.png)
 [![Sankey](frontend/tests/e2e/__image_snapshots__/dashboard_sankey.png)](frontend/tests/e2e/__image_snapshots__/dashboard_sankey.png)
+[![Projection](frontend/tests/e2e/__image_snapshots__/dashboard_projection.png)](frontend/tests/e2e/__image_snapshots__/dashboard_projection.png)
 
 ## Installation
 ```
@@ -63,6 +64,7 @@ The following variables are available:
 * `title`: title of the panel. Default: unset
 * `width`: width of the panel. Default: 100%
 * `height`: height of the panel. Default: 400px
+* `link`: optional link target of the panel header.
 * `queries`: a list of dicts with a `bql` attribute.
 * `type`: panel type. Must be one of `html`, `echarts`, `d3_sankey` or `jinja2`.
 
@@ -89,6 +91,9 @@ The rendered template will be shown in the panel.
 The main reason is simplicity.
 This project is small enough to use plain HTML/CSS/JS and Jinja2 templates only, and doesn't warrant using a modern and ever-changing web development toolchain.
 Currently it requires only two external dependencies: pyyaml and echarts.
+
+## Articles
+* [Dashboards with Beancount and Fava](https://www.andreasgerstmayr.at/2023/03/12/dashboards-with-beancount-and-fava.html)
 
 ## Related Projects
 * [Fava Portfolio Returns](https://github.com/andreasgerstmayr/fava-portfolio-returns)

@@ -5,9 +5,18 @@ import subprocess
 
 def run_prettier(code, indent):
     p = subprocess.run(
-        ["prettier", "--stdin-filepath", "script.js", "--tab-width", "2"],
+        [
+            "npx",
+            "prettier",
+            "--stdin-filepath",
+            "script.js",
+            "--tab-width",
+            "2",
+        ],
         input=code.encode(),
         capture_output=True,
+        check=True,
+        cwd="frontend",
     )
     formatted = p.stdout.decode()
     return (

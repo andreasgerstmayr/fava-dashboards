@@ -1,0 +1,12 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "Lencerf.beancount"]
+    }
+  },
+  "postCreateCommand": "make deps",
+  "forwardPorts": [5000]
+}

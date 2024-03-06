@@ -10,6 +10,9 @@
 #dashboard .panel h2 {
     text-align: center;
 }
+#dashboard a {
+    color: #333;
+}
 
 /* set panel min-width to 100% on screens < 802px (navbar + padding + 2*300px) */
 @media (max-width: 802px) {

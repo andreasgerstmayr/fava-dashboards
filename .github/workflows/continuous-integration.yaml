@@ -14,26 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Replace canvas renderer with SVG renderer
-        run: |
-          sed -i 's/echarts.init(elem)/echarts.init(elem, null, { renderer: "svg" })/' frontend/src/extension.ts
-
-      - name: Install test dependencies
-        run: cd frontend; npm ci
-
-      - name: Build
-        run: cd frontend; npm run build
-
-      - name: Install fava-dashboards
-        run: pip3 install .
-
-      - name: Start Fava
-        run: cd example; fava example.beancount &
-
-      - name: Run tests
-        run: cd frontend; npm run test -- -t SVG
-
-      - name: Run formatter
-        run: |
-          make format
-          git diff --exit-code
+      - name: Build and run dev container task
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: make ci
