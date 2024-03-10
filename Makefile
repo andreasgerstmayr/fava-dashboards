@@ -21,6 +21,9 @@ test-js-update:
 run:
 	cd example; pipenv run fava example.beancount
 
+run-debug:
+	cd example; pipenv run fava --debug example.beancount
+
 format:
 	cd frontend; npx prettier -w . ../src/fava_dashboards/templates/*.css
 	cd example; pipenv run black ../src/fava_dashboards/__init__.py ../scripts/format_js_in_dashboard.py
@@ -28,7 +31,9 @@ format:
 	./scripts/format_js_in_dashboard.py example/dashboards.yaml
 
 ci:
+	make build-js
 	make run &
 	make test-js
+
 	make format
 	git diff --exit-code
