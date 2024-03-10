@@ -1,4 +1,7 @@
 # Fava Dashboards
+[![Continuous Integration](https://github.com/andreasgerstmayr/fava-dashboards/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/andreasgerstmayr/fava-dashboards/actions/workflows/continuous-integration.yaml)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/andreasgerstmayr/fava-dashboards)
+
 fava-dashboards allows creating custom dashboards in [Fava](https://github.com/beancount/fava).
 
 Example dashboards with random data:
