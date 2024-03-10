@@ -3,10 +3,11 @@
 {% set dashboard_id = request.args.get('dashboard', '0') | int %}
 {% set bootstrap = extension.bootstrap(dashboard_id) %}
 <script id="favaDashboardsBootstrap" type="application/json">
-{{ {"ledger": bootstrap["ledger"], "dashboard": bootstrap["dashboards"][dashboard_id]}|tojson }}
-</script>
-<script type="application/javascript">
-{{ extension.dashboards_js()|safe }}
+{{ {
+  "ledger": bootstrap["ledger"],
+  "dashboard": bootstrap["dashboards"][dashboard_id],
+  "utils": bootstrap["utils"]
+}|tojson }}
 </script>
 
 <div class="headerline">

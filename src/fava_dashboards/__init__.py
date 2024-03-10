@@ -11,7 +11,7 @@ from fava.core.conversion import simple_units
 from fava.ext import FavaExtensionBase
 from fava.helpers import FavaAPIError
 
-Config = namedtuple("Config", ["dashboards_path"])
+ExtConfig = namedtuple("ExtConfig", ["dashboards_path"])
 
 
 class FavaDashboards(FavaExtensionBase):
@@ -19,13 +19,13 @@ class FavaDashboards(FavaExtensionBase):
     has_js_module = True
 
     @cached_property
-    def ext_config(self) -> Config:
+    def ext_config(self) -> ExtConfig:
         cfg = self.config if isinstance(self.config, dict) else {}
-        return Config(
+        return ExtConfig(
             dashboards_path=self.ledger.join_path(cfg.get("config", "dashboards.yaml"))
         )
 
-    def read_dashboards_config(self):
+    def read_dashboards_yaml(self):
         try:
             with open(self.ext_config.dashboards_path, encoding="utf-8") as f:
                 return yaml.safe_load(f)
@@ -33,6 +33,20 @@ class FavaDashboards(FavaExtensionBase):
             raise FavaAPIError(
                 f"Cannot read configuration file {self.ext_config.dashboards_path}: {ex}"
             )
+
+    def read_dashboards_utils(self, dashboards_yaml):
+        utils = dashboards_yaml.get("utils", {})
+        if "inline" in utils:
+            return utils["inline"]
+        elif "path" in utils:
+            path = self.ledger.join_path(utils["path"])
+            try:
+                with open(path, encoding="utf-8") as f:
+                    return f.read()
+            except Exception as ex:
+                raise FavaAPIError(f"Cannot read utils file {path}: {ex}")
+        else:
+            return ""
 
     def exec_query(self, query, tmpl):
         try:
@@ -103,32 +117,17 @@ class FavaDashboards(FavaExtensionBase):
             "commodities": commodities,
         }
 
-        config = self.read_dashboards_config()
-        dashboards = config.get("dashboards", [])
+        dashboards_yaml = self.read_dashboards_yaml()
+        dashboards = dashboards_yaml.get("dashboards", [])
         if not (0 <= dashboard_id < len(dashboards)):
             raise FavaAPIError(f"Invalid dashboard ID: {dashboard_id}")
 
         for panel in dashboards[dashboard_id].get("panels", []):
             self.process_panel(ledger, panel)
 
+        utils = self.read_dashboards_utils(dashboards_yaml)
         return {
             "ledger": ledger,
             "dashboards": dashboards,
+            "utils": utils,
         }
-
-    def dashboards_js(self):
-        """Optionally load JavaScript helper functions, accessible from every panel"""
-        dashboards_js_path, num_subs = re.subn(
-            r"\.yaml$", ".js", self.ext_config.dashboards_path, count=1
-        )
-        if num_subs == 0:
-            # no substitutions were made, don't try to load yaml file.
-            return ""
-
-        try:
-            with open(dashboards_js_path, encoding="utf-8") as f:
-                return f.read()
-        except FileNotFoundError:
-            return ""
-        except Exception as ex:
-            raise FavaAPIError(f"Failed to read file {dashboards_js_path}: {ex}")

@@ -28,7 +28,7 @@ The location of the `dashboards.yaml` configuration file can be customized:
 }"
 ```
 
-Please take a look at the example dashboard configuration [dashboards.yaml](example/dashboards.yaml), which uses most of the functionality described below.
+Please take a look at the example dashboards configuration [dashboards.yaml](example/dashboards.yaml), which uses most of the functionality described below.
 
 The configuration file can contain multiple dashboards, and a dashboard contains one or more panels.
 A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column layouts) and a absolute height.
@@ -38,6 +38,8 @@ The Beancount query must be stored in the `bql` field of the respective query.
 It can contain Jinja template syntax to access the `panel` and `ledger` variables described below (example: use `{{ledger.ccy}}` to access the first configured operating currency).
 The query results can be accessed via `panel.queries[i].result`, where `i` is the index of the query in the `queries` field.
 Note: Additionally to the Beancount query, Fava's filter bar further filters the available entries of the ledger.
+
+Common code for utility functions can be defined in the dashboards configuration file, either inline in `utils.inline` or in an external file defined in `utils.path`.
 
 **HTML, echarts and d3-sankey panels:**
 The `script` field must contain valid JavaScript code.
@@ -49,9 +51,7 @@ The following variables and functions are available:
 * `ledger.operatingCurrencies`: configured operating currencies of the ledger
 * `ledger.ccy`: shortcut for the first configured operating currency of the ledger
 * `ledger.commodities`: declared commodities of the ledger
-* `helpers.iterateMonths(dateFirst, dateLast)`: iterate over all months between `dateFirst` and `dateLast`, e.g. `[{year: 2022, month: 1}, {year: 2022, month: 2}, ...]`
-* `helpers.iterateYears(dateFirst, dateLast)`: iterate over all years between `dateFirst` and `dateLast`, e.g. `[2022, 2023, ...]`
-* `helpers.buildAccountTree(rows, valueFn, [nameFn])`: build an account tree based on the results of a BQL query
+* `utils`: the return value of the `utils` code of the dashboard configuration
 
 **Jinja2 panels:**
 The `template` field must contain valid Jinja2 template code.
