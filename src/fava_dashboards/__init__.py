@@ -1,6 +1,5 @@
 import datetime
 import yaml
-import re
 from collections import namedtuple
 from functools import cached_property
 from beancount.core.inventory import Inventory
