@@ -14,6 +14,8 @@ export interface Dashboard {
     panels: Panel[];
 }
 
+export type Utils = { [k: string]: any };
+
 export interface Bootstrap {
     ledger: Ledger;
     dashboard: Dashboard;

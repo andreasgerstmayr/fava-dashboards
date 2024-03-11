@@ -1,4 +1,8 @@
 export const iterateMonths = (dateFirst: string, dateLast: string) => {
+    console.warn(
+        "helpers.iterateMonths() is deprecated, please define this function in utils.inline in dashboards.yaml",
+    );
+
     const months: { year: number; month: number }[] = [];
     let [year, month] = dateFirst.split("-").map((x) => parseInt(x));
     let [lastYear, lastMonth] = dateLast.split("-").map((x) => parseInt(x));
@@ -16,6 +20,10 @@ export const iterateMonths = (dateFirst: string, dateLast: string) => {
 };
 
 export const iterateYears = (dateFirst: string, dateLast: string) => {
+    console.warn(
+        "helpers.iterateMonths() is deprecated, please define this function in utils.inline in dashboards.yaml",
+    );
+
     const years: number[] = [];
     let year = parseInt(dateFirst.split("-")[0]);
     let lastYear = parseInt(dateLast.split("-")[0]);
@@ -37,6 +45,10 @@ export const buildAccountTree = (
     valueFn: (row: any) => number,
     nameFn: (parts: string[], i: number) => string,
 ) => {
+    console.warn(
+        "helpers.iterateMonths() is deprecated, please define this function in utils.inline in dashboards.yaml",
+    );
+
     nameFn = nameFn ?? ((parts: string[], i: number) => parts.slice(0, i + 1).join(":"));
 
     const accountTree: { children: AccountTreeNode[] } = { children: [] };

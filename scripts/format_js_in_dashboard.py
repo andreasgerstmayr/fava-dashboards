@@ -18,36 +18,38 @@ def run_prettier(code, indent):
         check=True,
         cwd="frontend",
     )
-    formatted = p.stdout.decode()
-    return (
-        indent
-        + formatted.rstrip().replace("\n", "\n" + indent).replace(indent + "\n", "\n")
-        + "\n\n"
-    )
+    formatted = p.stdout.decode().rstrip()
+    intended = indent + formatted.replace("\n", "\n" + indent)
+    # strip lines with only whitespace
+    return intended.replace(indent + "\n", "\n") + "\n"
 
 
 def format_js_in_dashboard(f):
     # cannot use YAML parser here, because it won't preserve comments, additional newlines etc.
     formatted = ""
-    script_started = False
-    current_script = ""
-    for line in f:
-        if script_started:
-            if line == "\n" or line.startswith("      "):
-                current_script += line
-            else:
-                formatted += run_prettier(current_script, "      ")
-                formatted += line
-                script_started = False
-                current_script = ""
-        else:
-            if line == "    script: |\n" or line.startswith("    script: &"):
-                script_started = True
-            formatted += line
 
-    if script_started:
-        formatted += run_prettier(current_script, "      ")
-    return formatted.rstrip() + "\n"
+    for line in f:
+        formatted += line
+        if line == "    script: |\n" or line.startswith("    script: &"):
+            current_script = ""
+            for line in f:
+                if line == "\n" or line.startswith("      "):
+                    current_script += line
+                else:
+                    formatted += run_prettier(current_script, "      ") + "\n" + line
+                    break
+        elif line == "  inline: |\n":
+            current_script = ""
+            for line in f:
+                if line == "\n" or line.startswith("    "):
+                    current_script += line
+                else:
+                    formatted += run_prettier(current_script, "    ") + "\n" + line
+                    break
+            if current_script:
+                formatted += run_prettier(current_script, "    ")
+
+    return formatted
 
 
 def main():

@@ -1,27 +1,27 @@
 import * as echarts from "echarts";
 import * as helpers from "./helpers";
 import { render_d3sankey } from "./sankey";
-import { Dashboard, Ledger, Panel as PanelType } from "./types";
+import { Dashboard, Ledger, Panel as PanelType, Utils } from "./types";
 
 class Panel {
-    static runScript(ledger: Ledger, panel: PanelType) {
-        // pass 'fava' for backwards compatibility
-        const scriptFn = new Function("panel", "ledger", "fava", "helpers", panel.script!);
-        return scriptFn(panel, ledger, ledger, helpers);
+    static runScript(ledger: Ledger, utils: Utils, panel: PanelType) {
+        // pass 'fava' and 'helpers' for backwards compatibility
+        const scriptFn = new Function("panel", "ledger", "fava", "helpers", "utils", panel.script!);
+        return scriptFn(panel, ledger, ledger, helpers, utils);
     }
 
-    static html(ledger: Ledger, panel: PanelType, elem: HTMLDivElement) {
+    static html(ledger: Ledger, utils: Utils, panel: PanelType, elem: HTMLDivElement) {
         try {
-            elem.innerHTML = Panel.runScript(ledger, panel);
+            elem.innerHTML = Panel.runScript(ledger, utils, panel);
         } catch (e) {
             elem.innerHTML = e;
         }
     }
 
-    static echarts(ledger: Ledger, panel: PanelType, elem: HTMLDivElement) {
+    static echarts(ledger: Ledger, utils: Utils, panel: PanelType, elem: HTMLDivElement) {
         let options;
         try {
-            options = Panel.runScript(ledger, panel);
+            options = Panel.runScript(ledger, utils, panel);
         } catch (e) {
             elem.innerHTML = e;
             return;
@@ -40,10 +40,10 @@ class Panel {
         chart.setOption(options);
     }
 
-    static d3_sankey(ledger: Ledger, panel: PanelType, elem: HTMLDivElement) {
+    static d3_sankey(ledger: Ledger, utils: Utils, panel: PanelType, elem: HTMLDivElement) {
         let options;
         try {
-            options = Panel.runScript(ledger, panel);
+            options = Panel.runScript(ledger, utils, panel);
         } catch (e) {
             elem.innerHTML = e;
             return;
@@ -52,22 +52,20 @@ class Panel {
         render_d3sankey(elem, options);
     }
 
-    static jinja2(ledger: Ledger, panel: PanelType, elem: HTMLDivElement) {
+    static jinja2(ledger: Ledger, utils: Utils, panel: PanelType, elem: HTMLDivElement) {
         elem.innerHTML = panel.template!;
     }
 }
 
-function renderDashboard(ledger: Ledger, dashboard: Dashboard) {
+function renderDashboard(ledger: Ledger, dashboard: Dashboard, utils: Utils) {
     for (let i = 0; i < dashboard.panels.length; i++) {
         const panel = dashboard.panels[i];
-        if (!panel.type) {
+        if (!panel.type || !(panel.type in Panel)) {
             continue;
         }
 
         const elem = document.getElementById(`panel${i}`);
-        if (panel.type in Panel) {
-            Panel[panel.type](ledger, panel, elem as HTMLDivElement);
-        }
+        Panel[panel.type](ledger, utils, panel, elem as HTMLDivElement);
     }
 }
 
@@ -77,6 +75,7 @@ export default {
         if (!boostrapJSON) return;
 
         const bootstrap = JSON.parse(boostrapJSON);
-        renderDashboard(bootstrap.ledger, bootstrap.dashboard);
+        const utils = new Function(bootstrap.utils)();
+        renderDashboard(bootstrap.ledger, bootstrap.dashboard, utils);
     },
 };

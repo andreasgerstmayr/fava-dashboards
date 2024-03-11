@@ -88,7 +88,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
       const amounts = {};
@@ -193,7 +193,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
       const amounts = {};
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
@@ -245,7 +245,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
       const amounts = {};
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
@@ -306,7 +306,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
       const amounts = {};
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
@@ -562,7 +562,7 @@ dashboards:
       });
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const divisor = days / (365 / 12);
-      const accountTree = helpers.buildAccountTree(
+      const accountTree = utils.buildAccountTree(
         panel.queries[0].result,
         (row) => -row.value[ledger.ccy] / divisor,
         (parts, i) => parts[i],
@@ -611,7 +611,7 @@ dashboards:
       });
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const divisor = days / (365 / 12);
-      const accountTree = helpers.buildAccountTree(
+      const accountTree = utils.buildAccountTree(
         panel.queries[0].result,
         (row) => row.value[ledger.ccy] / divisor,
         (parts, i) => parts[i],
@@ -679,7 +679,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
       const amounts = {};
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
@@ -730,7 +730,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);
+      const years = utils.iterateYears(ledger.dateFirst, ledger.dateLast);
       const maxAccounts = 7; // number of accounts to show, sorted by sum
 
       const accountSums = {};
@@ -824,7 +824,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);
+      const years = utils.iterateYears(ledger.dateFirst, ledger.dateLast);
       const amounts = {};
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by year
@@ -971,7 +971,7 @@ dashboards:
         }
       }
 
-      const accountTree = helpers.buildAccountTree(panel.queries[0].result, (row) => row.value[ledger.ccy]);
+      const accountTree = utils.buildAccountTree(panel.queries[0].result, (row) => row.value[ledger.ccy]);
       addNode(accountTree.children[0]);
       addNode(accountTree.children[1]);
 
@@ -1052,7 +1052,7 @@ dashboards:
       const dateLastMonth = dateLast.getMonth() + 1;
       const dateFirstStr = `${dateFirst.getFullYear()}-${dateFirst.getMonth() + 1}-1`;
       const dateProjectUntilStr = `${dateLastYear + projectYears}-${dateLastMonth}-1`;
-      const months = helpers.iterateMonths(dateFirstStr, dateProjectUntilStr).map((m) => `${m.month}/${m.year}`);
+      const months = utils.iterateMonths(dateFirstStr, dateProjectUntilStr).map((m) => `${m.month}/${m.year}`);
       const lastMonthIdx = months.findIndex((m) => m === `${dateLastMonth}/${dateLastYear}`);
 
       const projection = [];
@@ -1112,3 +1112,57 @@ dashboards:
           window.open(link);
         },
       };
+
+utils:
+  inline: |
+    function iterateMonths(dateFirst, dateLast) {
+      const months = [];
+      let [year, month] = dateFirst.split("-").map((x) => parseInt(x));
+      let [lastYear, lastMonth] = dateLast.split("-").map((x) => parseInt(x));
+
+      while (year < lastYear || (year === lastYear && month <= lastMonth)) {
+        months.push({ year, month });
+        if (month == 12) {
+          year++;
+          month = 1;
+        } else {
+          month++;
+        }
+      }
+      return months;
+    }
+
+    function iterateYears(dateFirst, dateLast) {
+      const years = [];
+      let year = parseInt(dateFirst.split("-")[0]);
+      let lastYear = parseInt(dateLast.split("-")[0]);
+
+      for (; year <= lastYear; year++) {
+        years.push(year);
+      }
+      return years;
+    }
+
+    function buildAccountTree(rows, valueFn, nameFn) {
+      nameFn = nameFn ?? ((parts, i) => parts.slice(0, i + 1).join(":"));
+
+      const accountTree = { children: [] };
+      for (let row of rows) {
+        const accountParts = row.account.split(":");
+        let node = accountTree;
+        for (let i = 0; i < accountParts.length; i++) {
+          const account = nameFn(accountParts, i);
+          let child = node.children.find((c) => c.name == account);
+          if (!child) {
+            child = { name: account, children: [], value: 0 };
+            node.children.push(child);
+          }
+
+          child.value += valueFn(row);
+          node = child;
+        }
+      }
+      return accountTree;
+    }
+
+    return { iterateMonths, iterateYears, buildAccountTree };

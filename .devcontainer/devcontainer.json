@@ -4,7 +4,7 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": ["ms-python.python", "Lencerf.beancount"]
+      "extensions": ["editorconfig.editorconfig", "ms-python.python", "Lencerf.beancount"]
     }
   },
   "postCreateCommand": "make deps",
