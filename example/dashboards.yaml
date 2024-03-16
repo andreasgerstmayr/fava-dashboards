@@ -137,9 +137,9 @@ dashboards:
     width: 50%
     queries:
     - bql: |
-        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
+        SELECT currency, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
         WHERE account_sortkey(account) ~ '^[01]'
-        GROUP BY currency, cost_currency
+        GROUP BY currency
         ORDER BY market_value
       link: /beancount/account/{account}/?time={time}
     type: echarts
@@ -152,7 +152,7 @@ dashboards:
 
       const data = panel.queries[0].result
         .filter((row) => row.market_value[ledger.ccy])
-        .map((row) => ({ name: Object.keys(row.units)[0], value: row.market_value[ledger.ccy] }));
+        .map((row) => ({ name: row.currency, value: row.market_value[ledger.ccy] }));
 
       return {
         tooltip: {
@@ -339,10 +339,10 @@ dashboards:
   - title: Asset Classes 🏦
     width: 50%
     queries:
-    - bql: |
-        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
+    - bql: &assets_bql |
+        SELECT currency, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
         WHERE account_sortkey(account) ~ '^[01]'
-        GROUP BY currency, cost_currency
+        GROUP BY currency
         ORDER BY market_value
     type: echarts
     script: &asset_classes |
@@ -357,7 +357,7 @@ dashboards:
       for (let row of panel.queries[0].result) {
         if (!row.market_value[ledger.ccy]) continue;
 
-        const ccy = Object.keys(row.units)[0];
+        const ccy = row.currency;
         const value = row.market_value[ledger.ccy];
         const assetName = ledger.commodities[ccy]?.meta.name ?? ccy;
         const assetClass = ledger.commodities[ccy]?.meta.asset_class ?? "unknown";
@@ -395,10 +395,10 @@ dashboards:
   - title: Investment Classes 🏦
     width: 50%
     queries:
-    - bql: |
-        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
+    - bql: &investments_bql |
+        SELECT currency, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
         WHERE account_sortkey(account) ~ '^[01]' AND currency != '{{ledger.ccy}}'
-        GROUP BY currency, cost_currency
+        GROUP BY currency
         ORDER BY market_value
     type: echarts
     script: *asset_classes
@@ -406,11 +406,7 @@ dashboards:
   - title: Assets Allocation 🏦
     width: 50%
     queries:
-    - bql: |
-        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
-        WHERE account_sortkey(account) ~ '^[01]'
-        GROUP BY currency, cost_currency
-        ORDER BY market_value
+    - bql: *assets_bql
     type: echarts
     script: &assets_allocation |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -424,8 +420,7 @@ dashboards:
       for (let row of panel.queries[0].result) {
         if (!row.market_value[ledger.ccy]) continue;
 
-        const ccy = Object.keys(row.units)[0];
-        const allocations = Object.entries(ledger.commodities[ccy]?.meta ?? {}).filter(([k, v]) =>
+        const allocations = Object.entries(ledger.commodities[row.currency]?.meta ?? {}).filter(([k, v]) =>
           k.startsWith("asset_allocation_"),
         );
         if (allocations.length === 0) {
@@ -476,11 +471,7 @@ dashboards:
   - title: Investments Allocation 🏦
     width: 50%
     queries:
-    - bql: |
-        SELECT UNITS(SUM(position)) as units, CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
-        WHERE account_sortkey(account) ~ '^[01]' AND currency != '{{ledger.ccy}}'
-        GROUP BY currency, cost_currency
-        ORDER BY market_value
+    - bql: *investments_bql
     type: echarts
     script: *assets_allocation
 
