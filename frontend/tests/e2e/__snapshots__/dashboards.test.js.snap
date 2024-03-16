@@ -1665,12 +1665,266 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
   </div>
 </div>
 <div class="panel"
+     style="width: 100%"
+>
+  <h2>
+    Asset Classes Year-over-Year 🏦
+  </h2>
+  <div id="panel4"
+       style="height: 400px; position: relative;"
+  >
+    <div style="position: relative; overflow: hidden; width: 1438px; height: 400px;">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           version="1.1"
+           baseprofile="full"
+           width="1438"
+           height="400"
+           style="position:absolute;left:0;top:0;user-select:none"
+      >
+        <rect width="1438"
+              height="400"
+              x="0"
+              y="0"
+              id="0"
+              fill="none"
+        >
+        </rect>
+        <g>
+          <path d="M143.8 330.5L1294.2 330.5"
+                fill="none"
+                stroke="#E0E6F1"
+          >
+          </path>
+          <path d="M143.8 276.5L1294.2 276.5"
+                fill="none"
+                stroke="#E0E6F1"
+          >
+          </path>
+          <path d="M143.8 222.5L1294.2 222.5"
+                fill="none"
+                stroke="#E0E6F1"
+          >
+          </path>
+          <path d="M143.8 168.5L1294.2 168.5"
+                fill="none"
+                stroke="#E0E6F1"
+          >
+          </path>
+          <path d="M143.8 114.5L1294.2 114.5"
+                fill="none"
+                stroke="#E0E6F1"
+          >
+          </path>
+          <path d="M143.8 60.5L1294.2 60.5"
+                fill="none"
+                stroke="#E0E6F1"
+          >
+          </path>
+          <path d="M143.8 330.5L1294.2 330.5"
+                fill="none"
+                stroke="#6E7079"
+                stroke-linecap="round"
+          >
+          </path>
+          <path d="M144.5 330L144.5 335"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M527.5 330L527.5 335"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M910.5 330L910.5 335"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M1294.5 330L1294.5 335"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(135.8 330)"
+                fill="#6E7079"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(135.8 276)"
+                fill="#6E7079"
+          >
+            $20,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(135.8 222)"
+                fill="#6E7079"
+          >
+            $40,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(135.8 168)"
+                fill="#6E7079"
+          >
+            $60,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(135.8 114)"
+                fill="#6E7079"
+          >
+            $80,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(135.8 60)"
+                fill="#6E7079"
+          >
+            $100,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(335.5333 338)"
+                fill="#6E7079"
+          >
+            2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(719 338)"
+                fill="#6E7079"
+          >
+            2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(1102.4667 338)"
+                fill="#6E7079"
+          >
+            2022
+          </text>
+          <path d="M203.2373 330l264.592 0l0 -71.4677l-264.592 0Z"
+                fill="#5470c6"
+          >
+          </path>
+          <path d="M586.704 330l264.592 0l0 -3.4961l-264.592 0Z"
+                fill="#5470c6"
+          >
+          </path>
+          <path d="M970.1707 330l264.592 0l0 -4.9945l-264.592 0Z"
+                fill="#5470c6"
+          >
+          </path>
+          <path d="M203.2373 258.5323l264.592 0l0 -93.7317l-264.592 0Z"
+                fill="#91cc75"
+          >
+          </path>
+          <path d="M586.704 326.5039l264.592 0l0 -179.8816l-264.592 0Z"
+                fill="#91cc75"
+          >
+          </path>
+          <path d="M970.1707 325.0055l264.592 0l0 -199.5073l-264.592 0Z"
+                fill="#91cc75"
+          >
+          </path>
+          <path d="M203.2373 164.8006l264.592 0l0 -23.0487l-264.592 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M586.704 146.6222l264.592 0l0 -56.1642l-264.592 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M970.1707 125.4982l264.592 0l0 -56.1642l-264.592 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M-5 -5l195.4925 0l0 24l-195.4925 0Z"
+                transform="translate(626.2537 381)"
+                fill="rgb(0,0,0)"
+                fill-opacity="0"
+                stroke="#ccc"
+                stroke-width="0"
+          >
+          </path>
+          <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
+                transform="translate(626.2537 381)"
+                fill="#5470c6"
+          >
+          </path>
+          <text dominant-baseline="central"
+                text-anchor="start"
+                style="font-size:12px;font-family:sans-serif;"
+                x="30"
+                y="7"
+                transform="translate(626.2537 381)"
+                fill="#333"
+          >
+            Cash
+          </text>
+          <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
+                transform="translate(693.7339 381)"
+                fill="#91cc75"
+          >
+          </path>
+          <text dominant-baseline="central"
+                text-anchor="start"
+                style="font-size:12px;font-family:sans-serif;"
+                x="30"
+                y="7"
+                transform="translate(693.7339 381)"
+                fill="#333"
+          >
+            Fund
+          </text>
+          <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
+                transform="translate(762.1741 381)"
+                fill="#fac858"
+          >
+          </path>
+          <text dominant-baseline="central"
+                text-anchor="start"
+                style="font-size:12px;font-family:sans-serif;"
+                x="30"
+                y="7"
+                transform="translate(762.1741 381)"
+                fill="#333"
+          >
+            ETF
+          </text>
+        </g>
+      </svg>
+    </div>
+    <div class>
+    </div>
+  </div>
+</div>
+<div class="panel"
      style="width: 50%"
 >
   <h2>
     Asset Classes 🏦
   </h2>
-  <div id="panel4"
+  <div id="panel5"
        style="height: 400px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 400px;">
@@ -1843,7 +2097,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
   <h2>
     Investment Classes 🏦
   </h2>
-  <div id="panel5"
+  <div id="panel6"
        style="height: 400px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 400px;">
@@ -1987,7 +2241,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
   <h2>
     Assets Allocation 🏦
   </h2>
-  <div id="panel6"
+  <div id="panel7"
        style="height: 400px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 400px;">
@@ -2163,7 +2417,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
   <h2>
     Investments Allocation 🏦
   </h2>
-  <div id="panel7"
+  <div id="panel8"
        style="height: 400px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 400px;">

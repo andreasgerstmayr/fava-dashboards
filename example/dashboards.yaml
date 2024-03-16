@@ -336,6 +336,63 @@ dashboards:
         ],
       };
 
+  - title: Asset Classes Year-over-Year 🏦
+    queries:
+    - bql: |
+        SELECT year, currency,
+        CONVERT(SUM(position), '{{ledger.ccy}}') as market_value
+        WHERE account_sortkey(account) ~ '^[01]'
+        GROUP BY year, currency
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+      const years = helpers.iterateYears(ledger.dateFirst, ledger.dateLast);
+
+      const balances = {};
+      const amounts = {};
+      for (let row of panel.queries[0].result) {
+        if (!row.market_value[ledger.ccy]) continue;
+
+        const value = row.market_value[ledger.ccy];
+        const asset = ledger.commodities[row.currency]?.meta.asset_class ?? "unknown";
+        balances[asset] = (balances[asset] ?? 0) + value;
+        // the query returns only asset classes with transactions in a given year
+        // therefore we need to carry over the balances of all asset classes
+        amounts[row.year] = { ...balances };
+      }
+
+      return {
+        tooltip: {
+          formatter: (params) => {
+            const sum = Object.values(amounts[params.name]).reduce((prev, cur) => prev + cur, 0);
+            return `${params.marker} ${params.seriesName} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+              params.value,
+            )}</span> (${((params.value / sum) * 100).toFixed(0)}%)`;
+          },
+        },
+        legend: {
+          top: "bottom",
+        },
+        xAxis: {
+          data: years,
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: currencyFormat.format,
+          },
+        },
+        series: Object.keys(balances).map((asset) => ({
+          type: "bar",
+          name: asset,
+          stack: "assets",
+          data: years.map((year) => amounts[year]?.[asset] ?? 0),
+        })),
+      };
+
   - title: Asset Classes 🏦
     width: 50%
     queries:
