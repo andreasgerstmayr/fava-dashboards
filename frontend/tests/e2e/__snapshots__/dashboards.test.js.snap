@@ -1751,6 +1751,85 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke-linejoin="bevel"
           >
           </path>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="matrix(0.672,0.74,-0.74,0.672,383.107,237.0212)"
+                fill="#333"
+          >
+            Fund
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.997,-0.078,0.078,0.997,499.045,188.325)"
+                fill="#333"
+          >
+            American Funds The Growt...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.686,-0.728,0.728,0.686,246.6205,309.1596)"
+                fill="#333"
+          >
+            Vanguard Total Bond Mark...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.942,0.335,-0.335,0.942,208.1488,149.802)"
+                fill="#333"
+          >
+            SPDR Gold Trust (ETF)
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.733,0.68,-0.68,0.733,239.5209,97.997)"
+                fill="#333"
+          >
+            iShares Core S&amp;P Total U...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.493,0.87,-0.87,0.493,275.4844,69.5328)"
+                fill="#333"
+          >
+            Vanguard FTSE Developed ...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.243,0.97,-0.97,0.243,313.0163,54.5045)"
+                fill="#333"
+          >
+            Vanguard Health Care ETF
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="matrix(0.06,0.998,-0.998,0.06,346.4921,150.0906)"
+                fill="#333"
+          >
+            Cash
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.06,0.998,-0.998,0.06,340.4763,50.2717)"
+                fill="#333"
+          >
+            US Dollar
+          </text>
         </g>
       </svg>
     </div>
@@ -1833,6 +1912,68 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke-linejoin="bevel"
           >
           </path>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="matrix(0.637,0.771,-0.771,0.637,381.3316,238.5584)"
+                fill="#333"
+          >
+            Fund
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.999,-0.049,0.049,0.999,499.3218,192.6905)"
+                fill="#333"
+          >
+            American Funds The Growt...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.739,-0.673,0.673,0.739,238.6158,301.0183)"
+                fill="#333"
+          >
+            Vanguard Total Bond Mark...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.905,0.426,-0.426,0.905,213.7846,136.1147)"
+                fill="#333"
+          >
+            SPDR Gold Trust (ETF)
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.657,0.754,-0.754,0.657,251.0053,86.8683)"
+                fill="#333"
+          >
+            iShares Core S&amp;P Total U...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.393,0.92,-0.92,0.393,290.6209,62.0389)"
+                fill="#333"
+          >
+            Vanguard FTSE Developed ...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                xml:space="preserve"
+                transform="matrix(0.127,0.992,-0.992,0.127,330.3898,51.2223)"
+                fill="#333"
+          >
+            Vanguard Health Care ETF
+          </text>
         </g>
       </svg>
     </div>
@@ -2628,7 +2769,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
 >
   <h2>
     <a href="/beancount/income_statement/?filter=%23recurring">
-      Recurring Expenses 🔁
+      Recurring, Regular and Irregular Expenses 🔁
     </a>
   </h2>
   <div id="panel5"
@@ -2652,93 +2793,178 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         >
         </rect>
         <g>
-          <path d="M69.9 330.5L629.1 330.5"
+          <path d="M70.5 60L70.5 330"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M69.9 285.5L629.1 285.5"
+          <path d="M163.5 60L163.5 330"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M69.9 240.5L629.1 240.5"
+          <path d="M256.5 60L256.5 330"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M69.9 195.5L629.1 195.5"
+          <path d="M349.5 60L349.5 330"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M69.9 150.5L629.1 150.5"
+          <path d="M442.5 60L442.5 330"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M69.9 105.5L629.1 105.5"
+          <path d="M536.5 60L536.5 330"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M69.9 60.5L629.1 60.5"
+          <path d="M629.5 60L629.5 330"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M69.9 330.5L629.1 330.5"
+          <path d="M70.5 330L70.5 60"
                 fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
-          <path d="M70.5 330L70.5 335"
+          <path d="M69.9 330.5L64.9 330.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M134.5 330L134.5 335"
+          <path d="M69.9 319.5L64.9 319.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M199.5 330L199.5 335"
+          <path d="M69.9 309.5L64.9 309.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M263.5 330L263.5 335"
+          <path d="M69.9 299.5L64.9 299.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M328.5 330L328.5 335"
+          <path d="M69.9 288.5L64.9 288.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M392.5 330L392.5 335"
+          <path d="M69.9 278.5L64.9 278.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M457.5 330L457.5 335"
+          <path d="M69.9 267.5L64.9 267.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M521.5 330L521.5 335"
+          <path d="M69.9 257.5L64.9 257.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M586.5 330L586.5 335"
+          <path d="M69.9 247.5L64.9 247.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M629.5 330L629.5 335"
+          <path d="M69.9 236.5L64.9 236.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 226.5L64.9 226.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 216.5L64.9 216.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 205.5L64.9 205.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 195.5L64.9 195.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 184.5L64.9 184.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 174.5L64.9 174.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 164.5L64.9 164.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 153.5L64.9 153.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 143.5L64.9 143.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 132.5L64.9 132.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 122.5L64.9 122.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 112.5L64.9 112.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 101.5L64.9 101.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 91.5L64.9 91.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 81.5L64.9 81.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 70.5L64.9 70.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M69.9 60.5L64.9 60.5"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -2746,350 +2972,588 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(61.9 330)"
-                fill="#6E7079"
-          >
-            $0
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="end"
-                style="font-size:12px;font-family:sans-serif;"
-                transform="translate(61.9 285)"
-                fill="#6E7079"
-          >
-            $5,000
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="end"
-                style="font-size:12px;font-family:sans-serif;"
-                transform="translate(61.9 240)"
-                fill="#6E7079"
-          >
-            $10,000
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="end"
-                style="font-size:12px;font-family:sans-serif;"
-                transform="translate(61.9 195)"
-                fill="#6E7079"
-          >
-            $15,000
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="end"
-                style="font-size:12px;font-family:sans-serif;"
-                transform="translate(61.9 150)"
-                fill="#6E7079"
-          >
-            $20,000
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="end"
-                style="font-size:12px;font-family:sans-serif;"
-                transform="translate(61.9 105)"
-                fill="#6E7079"
-          >
-            $25,000
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="end"
-                style="font-size:12px;font-family:sans-serif;"
-                transform="translate(61.9 60)"
-                fill="#6E7079"
-          >
-            $30,000
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="middle"
-                style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(80.6538 338)"
+                transform="translate(61.9 324.8077)"
                 fill="#6E7079"
           >
             1/2020
           </text>
           <text dominant-baseline="central"
-                text-anchor="middle"
+                text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(145.1769 338)"
+                transform="translate(61.9 314.4231)"
+                fill="#6E7079"
+          >
+            2/2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 304.0385)"
+                fill="#6E7079"
+          >
+            3/2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 293.6538)"
                 fill="#6E7079"
           >
             4/2020
           </text>
           <text dominant-baseline="central"
-                text-anchor="middle"
+                text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(209.7 338)"
+                transform="translate(61.9 283.2692)"
+                fill="#6E7079"
+          >
+            5/2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 272.8846)"
+                fill="#6E7079"
+          >
+            6/2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 262.5)"
                 fill="#6E7079"
           >
             7/2020
           </text>
           <text dominant-baseline="central"
-                text-anchor="middle"
+                text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(274.2231 338)"
+                transform="translate(61.9 252.1154)"
+                fill="#6E7079"
+          >
+            8/2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 241.7308)"
+                fill="#6E7079"
+          >
+            9/2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 231.3462)"
                 fill="#6E7079"
           >
             10/2020
           </text>
           <text dominant-baseline="central"
-                text-anchor="middle"
+                text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(338.7462 338)"
+                transform="translate(61.9 220.9615)"
+                fill="#6E7079"
+          >
+            11/2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 210.5769)"
+                fill="#6E7079"
+          >
+            12/2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 200.1923)"
                 fill="#6E7079"
           >
             1/2021
           </text>
           <text dominant-baseline="central"
-                text-anchor="middle"
+                text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(403.2692 338)"
+                transform="translate(61.9 189.8077)"
+                fill="#6E7079"
+          >
+            2/2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 179.4231)"
+                fill="#6E7079"
+          >
+            3/2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 169.0385)"
                 fill="#6E7079"
           >
             4/2021
           </text>
           <text dominant-baseline="central"
-                text-anchor="middle"
+                text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(467.7923 338)"
+                transform="translate(61.9 158.6538)"
+                fill="#6E7079"
+          >
+            5/2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 148.2692)"
+                fill="#6E7079"
+          >
+            6/2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 137.8846)"
                 fill="#6E7079"
           >
             7/2021
           </text>
           <text dominant-baseline="central"
-                text-anchor="middle"
+                text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(532.3154 338)"
+                transform="translate(61.9 127.5)"
+                fill="#6E7079"
+          >
+            8/2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 117.1154)"
+                fill="#6E7079"
+          >
+            9/2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 106.7308)"
                 fill="#6E7079"
           >
             10/2021
           </text>
           <text dominant-baseline="central"
-                text-anchor="middle"
+                text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(596.8385 338)"
+                transform="translate(61.9 96.3462)"
+                fill="#6E7079"
+          >
+            11/2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 85.9615)"
+                fill="#6E7079"
+          >
+            12/2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 75.5769)"
                 fill="#6E7079"
           >
             1/2022
           </text>
-          <path d="M73.2337 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(61.9 65.1923)"
+                fill="#6E7079"
+          >
+            2/2022
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(69.9 338)"
+                fill="#6E7079"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(163.1 338)"
+                fill="#6E7079"
+          >
+            $5,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(256.3 338)"
+                fill="#6E7079"
+          >
+            $10,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(349.5 338)"
+                fill="#6E7079"
+          >
+            $15,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(442.7 338)"
+                fill="#6E7079"
+          >
+            $20,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(535.9 338)"
+                fill="#6E7079"
+          >
+            $25,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                style="font-size:12px;font-family:sans-serif;"
+                y="3.6000289916992188"
+                transform="translate(629.1 338)"
+                fill="#6E7079"
+          >
+            $30,000
+          </text>
+          <path d="M69.9 321.225l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M94.7414 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 310.8404l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M116.2491 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 300.4558l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M137.7568 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 290.0712l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M159.2645 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 279.6865l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M180.7722 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 269.3019l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M202.2798 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 258.9173l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M223.7875 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 248.5327l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M245.2952 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 238.1481l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M266.8029 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 227.7635l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M288.3106 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 217.3788l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M309.8183 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 206.9942l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M331.326 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 196.6096l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M352.8337 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 186.225l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M374.3414 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 175.8404l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M395.8491 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 165.4558l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M417.3568 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 155.0712l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M438.8645 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 144.6865l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M460.3722 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 134.3019l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M481.8798 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 123.9173l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M503.3875 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 113.5327l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M524.8952 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 103.1481l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M546.4029 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 92.7635l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M567.9106 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 82.3788l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M589.4183 330l14.8403 0l0 -21.6l-14.8403 0Z"
+          <path d="M69.9 71.9942l44.736 0l0 7.1654l-44.736 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M610.926 330l14.8403 0l0 0l-14.8403 0Z"
+          <path d="M69.9 61.6096l0 0l0 7.1654l0 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M73.2337 308.4l14.8403 0l0 -62.6351l-14.8403 0Z"
+          <path d="M114.636 321.225l129.7243 0l0 7.1654l-129.7243 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M94.7414 308.4l14.8403 0l0 -44.0491l-14.8403 0Z"
+          <path d="M114.636 310.8404l91.2307 0l0 7.1654l-91.2307 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M116.2491 308.4l14.8403 0l0 -46.3422l-14.8403 0Z"
+          <path d="M114.636 300.4558l95.9798 0l0 7.1654l-95.9798 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M137.7568 308.4l14.8403 0l0 -45.3653l-14.8403 0Z"
+          <path d="M114.636 290.0712l93.9566 0l0 7.1654l-93.9566 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M159.2645 308.4l14.8403 0l0 -46.6577l-14.8403 0Z"
+          <path d="M114.636 279.6865l96.6333 0l0 7.1654l-96.6333 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M180.7722 308.4l14.8403 0l0 -47.3416l-14.8403 0Z"
+          <path d="M114.636 269.3019l98.0498 0l0 7.1654l-98.0498 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M202.2798 308.4l14.8403 0l0 -66.9695l-14.8403 0Z"
+          <path d="M114.636 258.9173l138.7014 0l0 7.1654l-138.7014 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M223.7875 308.4l14.8403 0l0 -45.0055l-14.8403 0Z"
+          <path d="M114.636 248.5327l93.2114 0l0 7.1654l-93.2114 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M245.2952 308.4l14.8403 0l0 -45.7316l-14.8403 0Z"
+          <path d="M114.636 238.1481l94.7152 0l0 7.1654l-94.7152 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M266.8029 308.4l14.8403 0l0 -46.3766l-14.8403 0Z"
+          <path d="M114.636 227.7635l96.0512 0l0 7.1654l-96.0512 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M288.3106 308.4l14.8403 0l0 -46.4487l-14.8403 0Z"
+          <path d="M114.636 217.3788l96.2005 0l0 7.1654l-96.2005 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M309.8183 308.4l14.8403 0l0 -60.0391l-14.8403 0Z"
+          <path d="M114.636 206.9942l124.3476 0l0 7.1654l-124.3476 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M331.326 308.4l14.8403 0l0 -225.9781l-14.8403 0Z"
+          <path d="M114.636 196.6096l95.2258 0l0 7.1654l-95.2258 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M352.8337 308.4l14.8403 0l0 -47.194l-14.8403 0Z"
+          <path d="M114.636 186.225l97.7441 0l0 7.1654l-97.7441 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M374.3414 308.4l14.8403 0l0 -55.2654l-14.8403 0Z"
+          <path d="M114.636 175.8404l114.4608 0l0 7.1654l-114.4608 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M395.8491 308.4l14.8403 0l0 -45.5724l-14.8403 0Z"
+          <path d="M114.636 165.4558l94.3855 0l0 7.1654l-94.3855 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M417.3568 308.4l14.8403 0l0 -47.6882l-14.8403 0Z"
+          <path d="M114.636 155.0712l98.7676 0l0 7.1654l-98.7676 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M438.8645 308.4l14.8403 0l0 -47.0508l-14.8403 0Z"
+          <path d="M114.636 144.6865l97.4475 0l0 7.1654l-97.4475 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M460.3722 308.4l14.8403 0l0 -65.5766l-14.8403 0Z"
+          <path d="M114.636 134.3019l135.8164 0l0 7.1654l-135.8164 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M481.8798 308.4l14.8403 0l0 -43.9444l-14.8403 0Z"
+          <path d="M114.636 123.9173l91.0137 0l0 7.1654l-91.0137 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M503.3875 308.4l14.8403 0l0 -45.1982l-14.8403 0Z"
+          <path d="M114.636 113.5327l93.6105 0l0 7.1654l-93.6105 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M524.8952 308.4l14.8403 0l0 -45.1052l-14.8403 0Z"
+          <path d="M114.636 103.1481l93.4179 0l0 7.1654l-93.4179 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M546.4029 308.4l14.8403 0l0 -44.8931l-14.8403 0Z"
+          <path d="M114.636 92.7635l92.9786 0l0 7.1654l-92.9786 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M567.9106 308.4l14.8403 0l0 -65.2488l-14.8403 0Z"
+          <path d="M114.636 82.3788l135.1376 0l0 7.1654l-135.1376 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M589.4183 308.4l14.8403 0l0 -47.3197l-14.8403 0Z"
+          <path d="M114.636 71.9942l98.0045 0l0 7.1654l-98.0045 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M610.926 330l14.8403 0l0 -49.9153l-14.8403 0Z"
+          <path d="M69.9 61.6096l103.38 0l0 7.1654l-103.38 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M-5 -5l185.3007 0l0 24l-185.3007 0Z"
-                transform="translate(261.8496 381)"
+          <path d="M244.3603 321.225l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M205.8667 310.8404l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M210.6158 300.4558l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M208.5926 290.0712l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M211.2693 279.6865l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M212.6858 269.3019l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M253.3374 258.9173l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M207.8474 248.5327l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M209.3512 238.1481l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M210.6872 227.7635l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M210.8365 217.3788l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M238.9836 206.9942l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M209.8618 196.6096l372.8 0l0 7.1654l-372.8 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M212.3801 186.225l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M229.0968 175.8404l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M209.0215 165.4558l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M213.4036 155.0712l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M212.0835 144.6865l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M250.4524 134.3019l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M205.6497 123.9173l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M208.2465 113.5327l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M208.0539 103.1481l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M207.6146 92.7635l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M249.7736 82.3788l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M212.6405 71.9942l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M173.28 61.6096l0 0l0 7.1654l0 0Z"
+                fill="#fac858"
+          >
+          </path>
+          <path d="M-5 -5l269.113 0l0 24l-269.113 0Z"
+                transform="translate(219.9435 381)"
                 fill="rgb(0,0,0)"
                 fill-opacity="0"
                 stroke="#ccc"
@@ -3097,7 +3561,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(261.8496 381)"
+                transform="translate(219.9435 381)"
                 fill="#5470c6"
           >
           </path>
@@ -3106,13 +3570,13 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(261.8496 381)"
+                transform="translate(219.9435 381)"
                 fill="#333"
           >
             Recurring
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(357.062 381)"
+                transform="translate(315.1559 381)"
                 fill="#91cc75"
           >
           </path>
@@ -3121,7 +3585,22 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(357.062 381)"
+                transform="translate(315.1559 381)"
+                fill="#333"
+          >
+            Regular
+          </text>
+          <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
+                transform="translate(398.9682 381)"
+                fill="#fac858"
+          >
+          </path>
+          <text dominant-baseline="central"
+                text-anchor="start"
+                style="font-size:12px;font-family:sans-serif;"
+                x="30"
+                y="7"
+                transform="translate(398.9682 381)"
                 fill="#333"
           >
             Irregular

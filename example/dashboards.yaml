@@ -82,7 +82,7 @@ dashboards:
         GROUP BY year, month
       link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Housing|Food|Shopping)") -#travel&time={time}
     type: echarts
-    script: &stacked_barcharts |
+    script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
         style: "currency",
         currency: ledger.ccy,
@@ -360,7 +360,7 @@ dashboards:
         const ccy = Object.keys(row.units)[0];
         const value = row.market_value[ledger.ccy];
         const assetName = ledger.commodities[ccy]?.meta.name ?? ccy;
-        const assetClass = ledger.commodities[ccy]?.meta.asset_class ?? "undefined";
+        const assetClass = ledger.commodities[ccy]?.meta.asset_class ?? "unknown";
         if (!(assetClass in assetClasses)) {
           assetClasses[assetClass] = { name: assetClass, children: [] };
         }
@@ -380,7 +380,12 @@ dashboards:
             type: "sunburst",
             radius: "100%",
             label: {
-              show: false,
+              minAngle: 3,
+              width: 170,
+              overflow: "truncate",
+            },
+            labelLayout: {
+              hideOverlap: true,
             },
             data: Object.values(assetClasses),
           },
@@ -642,26 +647,76 @@ dashboards:
         },
       };
 
-  - title: Recurring Expenses 🔁
+  - title: Recurring, Regular and Irregular Expenses 🔁
     width: 50%
     link: /beancount/income_statement/?filter=#recurring
     queries:
     - name: Recurring
-      stack: expenses
       bql: |
         SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ '^Expenses:' AND 'recurring' IN tags
         GROUP BY year, month
       link: /beancount/account/Expenses/?filter=#recurring&time={time}
-    - name: Irregular
-      stack: expenses
+    - name: Regular
       bql: |
         SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
-        WHERE account ~ '^Expenses:' AND NOT 'recurring' IN tags
+        WHERE account ~ '^Expenses:' AND NOT 'recurring' IN tags AND NOT 'irregular' IN tags
         GROUP BY year, month
-      link: /beancount/account/Expenses/?filter=-#recurring&time={time}
+      link: /beancount/account/Expenses/?filter=-#recurring -#irregular&time={time}
+    - name: Irregular
+      bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^Expenses:' AND 'irregular' IN tags
+        GROUP BY year, month
+      link: /beancount/account/Expenses/?filter=#irregular&time={time}
     type: echarts
-    script: *stacked_barcharts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+
+      // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
+      const amounts = {};
+      for (let query of panel.queries) {
+        amounts[query.name] = {};
+        for (let row of query.result) {
+          amounts[query.name][`${row.month}/${row.year}`] = row.value[ledger.ccy];
+        }
+      }
+
+      return {
+        tooltip: {
+          valueFormatter: currencyFormat.format,
+        },
+        legend: {
+          top: "bottom",
+        },
+        xAxis: {
+          axisLabel: {
+            formatter: currencyFormat.format,
+          },
+        },
+        yAxis: {
+          data: months,
+        },
+        series: panel.queries.map((query) => ({
+          type: "bar",
+          name: query.name,
+          stack: "expenses",
+          data: months.map((month) => amounts[query.name][month] ?? 0),
+        })),
+        onClick: (event) => {
+          const query = panel.queries.find((q) => q.name === event.seriesName);
+          if (query) {
+            const [month, year] = event.name.split("/");
+            const link = query.link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
+            window.open(link);
+          }
+        },
+      };
 
   - title: Food Expenses 🥐
     width: 50%
@@ -721,7 +776,6 @@ dashboards:
         SELECT year, root(account, 3) AS account, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ "^Income:"
         GROUP BY account, year
-        ORDER BY account
       link: /beancount/account/{account}/?time={time}
     type: echarts
     script: &year_over_year |
@@ -736,7 +790,9 @@ dashboards:
       const accountSums = {};
       const amounts = {};
       for (let row of panel.queries[0].result) {
-        if (!(row.account in accountSums)) accountSums[row.account] = 0;
+        if (!(row.account in accountSums)) {
+          accountSums[row.account] = 0;
+        }
         const value = row.account.startsWith("Income:") ? -row.value[ledger.ccy] : row.value[ledger.ccy];
         amounts[`${row.year}/${row.account}`] = value;
         accountSums[row.account] += value;
@@ -793,7 +849,6 @@ dashboards:
         SELECT year, root(account, 2) AS account, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
         WHERE account ~ "^Expenses:"
         GROUP BY account, year
-        ORDER BY account
       link: /beancount/account/{account}/?time={time}
     type: echarts
     script: *year_over_year
@@ -1009,7 +1064,6 @@ dashboards:
         CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS value
         WHERE account_sortkey(account) ~ '^[01]'
         GROUP BY year, month
-        ORDER BY year, month
       link: /beancount/balance_sheet/?time={time}
     # ignore onetime income and expenses, for example winning the lottery or wedding expenses
     - bql: |
@@ -1017,7 +1071,6 @@ dashboards:
         CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_ADD(YMONTH(DATE_ADD(YMONTH(FIRST(date)), 31)), -1)) AS value
         WHERE account_sortkey(account) ~ '^[01]' AND NOT 'wedding' IN tags AND NOT 'weddinggift' IN tags
         GROUP BY year, month
-        ORDER BY year, month
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {

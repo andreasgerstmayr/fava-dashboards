@@ -386,7 +386,7 @@ option "operating_currency" "USD"
   Assets:US:BofA:Checking                          -65.00 USD
   Expenses:Housing:Electricity                      65.00 USD
 
-2021-01-15 * "Wedding" #wedding
+2021-01-15 * "Wedding" #wedding #irregular
   Assets:US:BofA:Checking                       -20000.00 USD
   Expenses:Wedding
 
@@ -5155,4 +5155,3 @@ option "operating_currency" "USD"
 
 
 * Cash
-
