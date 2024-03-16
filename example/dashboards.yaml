@@ -667,7 +667,7 @@ dashboards:
         currency: ledger.ccy,
         maximumFractionDigits: 0,
       });
-      const months = helpers.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
       const amounts = {};
