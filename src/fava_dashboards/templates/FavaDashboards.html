@@ -4,8 +4,8 @@
 {% set bootstrap = extension.bootstrap(dashboard_id) %}
 <script id="favaDashboardsBootstrap" type="application/json">
 {{ {
-  "ledger": bootstrap["ledger"],
   "dashboard": bootstrap["dashboards"][dashboard_id],
+  "ledger": bootstrap["ledger"],
   "utils": bootstrap["utils"]
 }|tojson }}
 </script>

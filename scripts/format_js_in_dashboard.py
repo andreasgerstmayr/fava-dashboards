@@ -4,6 +4,7 @@ import subprocess
 
 
 def run_prettier(code, indent):
+    code = code.replace("\n" + indent, "\n")
     p = subprocess.run(
         [
             "npx",
@@ -57,9 +58,9 @@ def main():
     parser.add_argument("dashboard")
     args = parser.parse_args()
 
-    with open(args.dashboard) as f:
+    with open(args.dashboard, encoding="utf-8") as f:
         formatted = format_js_in_dashboard(f)
-    with open(args.dashboard, "w") as f:
+    with open(args.dashboard, "w", encoding="utf-8") as f:
         f.write(formatted)
 
 

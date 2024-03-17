@@ -2,7 +2,7 @@ deps-js:
 	cd frontend; npm install && npx puppeteer browsers install chrome
 
 deps-py:
-	cd example; pipenv install -d
+	pipenv install -d
 
 deps: deps-js deps-py
 
@@ -24,13 +24,18 @@ run:
 run-debug:
 	cd example; pipenv run fava --debug example.beancount
 
+lint:
+	pipenv run mypy src/fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
+	pipenv run pylint src/fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
+
 format:
 	cd frontend; npx prettier -w . ../src/fava_dashboards/templates/*.css
-	cd example; pipenv run black ../src/fava_dashboards/__init__.py ../scripts/format_js_in_dashboard.py
-	cd example; find . -name '*.beancount' -exec pipenv run bean-format -c 59 -o "{}" "{}" \;
+	pipenv run black src/fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
+	find example -name '*.beancount' -exec pipenv run bean-format -c 59 -o "{}" "{}" \;
 	./scripts/format_js_in_dashboard.py example/dashboards.yaml
 
 ci:
+	make lint
 	make build-js
 	make run &
 	make test-js
