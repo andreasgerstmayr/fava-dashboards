@@ -48,11 +48,13 @@ Common code for utility functions can be defined in the dashboards configuration
 The `script` field must contain valid JavaScript code.
 It must return a valid configuration depending on the panel `type`.
 The following variables and functions are available:
+* `ext`: the Fava [`ExtensionContext`](https://github.com/beancount/fava/blob/main/frontend/src/extensions.ts)
 * `panel`: the current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`.
 * `ledger.dateFirst`: first date in the current date filter
 * `ledger.dateLast`: last date in the current date filter
 * `ledger.operatingCurrencies`: configured operating currencies of the ledger
 * `ledger.ccy`: shortcut for the first configured operating currency of the ledger
+* `ledger.accounts`: declared accounts of the ledger
 * `ledger.commodities`: declared commodities of the ledger
 * `utils`: the return value of the `utils` code of the dashboard configuration
 
