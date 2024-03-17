@@ -1696,27 +1696,22 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M143.8 285.5L1294.2 285.5"
+          <path d="M143.8 276.5L1294.2 276.5"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M143.8 240.5L1294.2 240.5"
+          <path d="M143.8 222.5L1294.2 222.5"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M143.8 195.5L1294.2 195.5"
+          <path d="M143.8 168.5L1294.2 168.5"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M143.8 150.5L1294.2 150.5"
-                fill="none"
-                stroke="#E0E6F1"
-          >
-          </path>
-          <path d="M143.8 105.5L1294.2 105.5"
+          <path d="M143.8 114.5L1294.2 114.5"
                 fill="none"
                 stroke="#E0E6F1"
           >
@@ -1763,15 +1758,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(135.8 285)"
-                fill="#6E7079"
-          >
-            $10,000
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="end"
-                style="font-size:12px;font-family:sans-serif;"
-                transform="translate(135.8 240)"
+                transform="translate(135.8 276)"
                 fill="#6E7079"
           >
             $20,000
@@ -1779,15 +1766,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(135.8 195)"
-                fill="#6E7079"
-          >
-            $30,000
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="end"
-                style="font-size:12px;font-family:sans-serif;"
-                transform="translate(135.8 150)"
+                transform="translate(135.8 222)"
                 fill="#6E7079"
           >
             $40,000
@@ -1795,10 +1774,18 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(135.8 105)"
+                transform="translate(135.8 168)"
                 fill="#6E7079"
           >
-            $50,000
+            $60,000
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(135.8 114)"
+                fill="#6E7079"
+          >
+            $80,000
           </text>
           <text dominant-baseline="central"
                 text-anchor="end"
@@ -1806,7 +1793,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 transform="translate(135.8 60)"
                 fill="#6E7079"
           >
-            $60,000
+            $100,000
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -1835,39 +1822,39 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           >
             2022
           </text>
-          <path d="M203.2373 330l264.592 0l0 -96.1807l-264.592 0Z"
+          <path d="M203.2373 330l264.592 0l0 -93.7317l-264.592 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M586.704 330l264.592 0l0 -186.6752l-264.592 0Z"
+          <path d="M586.704 330l264.592 0l0 -179.8816l-264.592 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M970.1707 330l264.592 0l0 -206.4473l-264.592 0Z"
+          <path d="M970.1707 330l264.592 0l0 -199.5073l-264.592 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M203.2373 233.8193l264.592 0l0 -23.2254l-264.592 0Z"
+          <path d="M203.2373 236.2683l264.592 0l0 -23.0487l-264.592 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M586.704 143.3248l264.592 0l0 -20.0583l-264.592 0Z"
+          <path d="M586.704 150.1184l264.592 0l0 -56.1642l-264.592 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M970.1707 123.5527l264.592 0l0 -20.0583l-264.592 0Z"
+          <path d="M970.1707 130.4927l264.592 0l0 -56.1642l-264.592 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M203.2373 210.5939l264.592 0l0 -119.1128l-264.592 0Z"
+          <path d="M203.2373 213.2196l264.592 0l0 -71.4677l-264.592 0Z"
                 fill="#fac858"
           >
           </path>
-          <path d="M586.704 123.2665l264.592 0l0 -5.8269l-264.592 0Z"
+          <path d="M586.704 93.9542l264.592 0l0 -3.4961l-264.592 0Z"
                 fill="#fac858"
           >
           </path>
-          <path d="M970.1707 103.4944l264.592 0l0 -8.3241l-264.592 0Z"
+          <path d="M970.1707 74.3285l264.592 0l0 -4.9945l-264.592 0Z"
                 fill="#fac858"
           >
           </path>
