@@ -53,6 +53,7 @@ The following variables and functions are available:
 * `ledger.dateLast`: last date in the current date filter
 * `ledger.operatingCurrencies`: configured operating currencies of the ledger
 * `ledger.ccy`: shortcut for the first configured operating currency of the ledger
+* `ledger.accounts`: declared accounts of the ledger
 * `ledger.commodities`: declared commodities of the ledger
 * `utils`: the return value of the `utils` code of the dashboard configuration
 
