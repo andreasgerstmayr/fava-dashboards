@@ -139,3 +139,15 @@ class FavaDashboards(FavaExtensionBase):
             "ledger": ledger,
             "utils": utils,
         }
+
+    @extension_endpoint("query")  # type: ignore
+    def api_query(self) -> Response:
+        bql = request.args.get("bql")
+
+        try:
+            _, result = run_query(g.filtered.entries, self.ledger.options, bql)
+        except Exception as ex:  # pylint: disable=broad-exception-caught
+            return jsonify({"success": False, "error": str(ex)})
+
+        self.sanitize_query_result(result)
+        return jsonify({"success": True, "data": {"result": result}})

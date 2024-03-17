@@ -10,6 +10,9 @@ export interface Dashboard {
 }
 
 export interface PanelCtx {
+    // Fava [`ExtensionContext`](https://github.com/beancount/fava/blob/main/frontend/src/extensions.ts)
+    ext: any;
+
     // metadata of the Beancount ledger
     ledger: Ledger;
 
