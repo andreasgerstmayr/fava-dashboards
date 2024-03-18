@@ -56,6 +56,7 @@ The following variables and functions are available:
 * `ledger.ccy`: shortcut for the first configured operating currency of the ledger
 * `ledger.accounts`: declared accounts of the ledger
 * `ledger.commodities`: declared commodities of the ledger
+* `helpers.urlFor(url)`: add current Fava filter parameters to url
 * `utils`: the return value of the `utils` code of the dashboard configuration
 
 **Jinja2 panels:**
