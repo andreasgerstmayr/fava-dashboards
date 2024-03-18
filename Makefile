@@ -1,13 +1,25 @@
+default: run
+
+## Dependencies
 deps-js:
 	cd frontend; npm install && npx puppeteer browsers install chrome
+
+deps-js-update:
+	cd frontend; npx npm-check-updates -i
 
 deps-py:
 	pipenv install -d
 
+deps-py-update:
+	pipenv update
+
 deps: deps-js deps-py
 
+## Build and Test
 build-js:
 	cd frontend; npm run build
+
+build: build-js
 
 watch-js:
 	cd frontend; npm run watch
@@ -18,6 +30,9 @@ test-js:
 test-js-update:
 	cd frontend; LANG=en npm run test -- -u
 
+test: test-js
+
+## Utils
 run:
 	cd example; pipenv run fava example.beancount
 
@@ -25,6 +40,7 @@ run-debug:
 	cd example; pipenv run fava --debug example.beancount
 
 lint:
+	cd frontend; npx tsc --noEmit
 	pipenv run mypy src/fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
 	pipenv run pylint src/fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
 
@@ -36,9 +52,9 @@ format:
 
 ci:
 	make lint
-	make build-js
+	make build
 	make run &
-	make test-js
+	make test
 
 	make format
 	git diff --exit-code
