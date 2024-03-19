@@ -175,14 +175,9 @@ dashboards:
     width: 50%
     link: /beancount/income_statement/
     queries:
-    # Workaround for getting the last day of a given month:
-    # YEARMONTH(date) returns a date instance of 1st of the given month and year
-    # adding 31 days gives us the next month (unless it's e.g. Jan 31... this case should be avoided by using FIRST(date))
-    # YEARMONTH() gives 1st of the (next) month
-    # minus 1 day gives us the last day of the month
     - bql: |
         SELECT year, month,
-        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_ADD(YEARMONTH(DATE_ADD(YEARMONTH(FIRST(date)), 31)), -1)) AS value
+        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) - INTERVAL('1 month - 1 day')) AS value
         WHERE account_sortkey(account) ~ '^[01]'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
@@ -233,8 +228,8 @@ dashboards:
     queries:
     - bql: &portfolio_bql |
         SELECT year, month,
-        CONVERT(LAST(balance),       '{{ledger.ccy}}', DATE_ADD(YEARMONTH(DATE_ADD(YEARMONTH(FIRST(date)), 31)), -1)) AS market_value,
-        CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', DATE_ADD(YEARMONTH(DATE_ADD(YEARMONTH(FIRST(date)), 31)), -1)) AS book_value
+        CONVERT(LAST(balance),       '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) - INTERVAL('1 month - 1 day')) AS market_value,
+        CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) - INTERVAL('1 month - 1 day')) AS book_value
         WHERE account ~ '^Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
@@ -1053,14 +1048,14 @@ dashboards:
     queries:
     - bql: |
         SELECT year, month,
-        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_ADD(YEARMONTH(DATE_ADD(YEARMONTH(FIRST(date)), 31)), -1)) AS value
+        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) - INTERVAL('1 month - 1 day')) AS value
         WHERE account_sortkey(account) ~ '^[01]'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
     # ignore onetime income and expenses, for example winning the lottery or wedding expenses
     - bql: |
         SELECT year, month,
-        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_ADD(YEARMONTH(DATE_ADD(YEARMONTH(FIRST(date)), 31)), -1)) AS value
+        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) - INTERVAL('1 month - 1 day')) AS value
         WHERE account_sortkey(account) ~ '^[01]' AND NOT 'wedding' IN tags AND NOT 'weddinggift' IN tags
         GROUP BY year, month
     type: echarts
