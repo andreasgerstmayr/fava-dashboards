@@ -4997,6 +4997,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
             2021-01-15
           </td>
           <td>
+            None
           </td>
           <td>
             Wedding
@@ -8883,7 +8884,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 transform="translate(129.3249 189)"
                 fill="#6E7079"
           >
-            trip-chicago-2021
+            trip-san-francisco-2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="end"
@@ -8891,7 +8892,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 transform="translate(129.3249 137.4)"
                 fill="#6E7079"
           >
-            trip-san-francisco-2021
+            trip-chicago-2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="end"
@@ -8964,11 +8965,11 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           >
             $1,200
           </text>
-          <path d="M137.3249 171.198l1017.9922 0l0 35.604l-1017.9922 0Z"
+          <path d="M137.3249 171.198l536.5008 0l0 35.604l-536.5008 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M137.3249 119.598l536.5008 0l0 35.604l-536.5008 0Z"
+          <path d="M137.3249 119.598l1017.9922 0l0 35.604l-1017.9922 0Z"
                 fill="#5470c6"
           >
           </path>
@@ -8979,7 +8980,19 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(1160.3171 189)"
+                transform="translate(678.8257 189)"
+                fill="#333"
+                stroke="rgb(255,255,255)"
+                stroke-width="2"
+                paint-order="stroke"
+                stroke-miterlimit="2"
+          >
+            $557
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="start"
+                style="font-size:12px;font-family:sans-serif;"
+                transform="translate(1160.3171 137.4)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -8987,18 +9000,6 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
                 stroke-miterlimit="2"
           >
             $1,056
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="start"
-                style="font-size:12px;font-family:sans-serif;"
-                transform="translate(678.8257 137.4)"
-                fill="#333"
-                stroke="rgb(255,255,255)"
-                stroke-width="2"
-                paint-order="stroke"
-                stroke-miterlimit="2"
-          >
-            $556
           </text>
           <text dominant-baseline="central"
                 text-anchor="start"
