@@ -336,6 +336,81 @@ dashboards:
         ],
       };
 
+  - title: Asset Classes Year-over-Year 🏦
+    type: echarts
+    script: |
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: ledger.ccy,
+        maximumFractionDigits: 0,
+      });
+      const years = utils.iterateYears(ledger.dateFirst, ledger.dateLast);
+
+      // This chart requires the balances grouped by year and currency.
+      // Unfortunately the `balance` column does not support GROUP BY
+      // (see https://groups.google.com/g/beancount/c/TfZJswxuIDA/m/psc2BkrBAAAJ)
+      // therefore we need to run a separate query per year.
+      const queries = await Promise.all(
+        years.map((year) =>
+          ext.api.get("query", {
+            bql: `SELECT currency,
+                  CONVERT(SUM(position), '${ledger.ccy}') as market_value
+                  FROM CLOSE ON ${year + 1}-01-01
+                  WHERE account_sortkey(account) ~ '^[01]'
+                  GROUP BY currency`,
+          }),
+        ),
+      );
+
+      const amounts = {};
+      const balances = {};
+      for (let i = 0; i < years.length; i++) {
+        const year = years[i];
+        const query = queries[i];
+
+        amounts[year] = {};
+        for (let row of query.data.result) {
+          if (!row.market_value[ledger.ccy]) continue;
+
+          const value = row.market_value[ledger.ccy];
+          const assetClass = ledger.commodities[row.currency]?.meta.asset_class ?? "unknown";
+          amounts[year][assetClass] = (amounts[year][assetClass] ?? 0) + value;
+          balances[assetClass] = (balances[assetClass] ?? 0) + value;
+        }
+      }
+
+      const assetClasses = Object.entries(balances)
+        .sort(([, a], [, b]) => b - a)
+        .map(([name]) => name);
+
+      return {
+        tooltip: {
+          formatter: (params) => {
+            const sum = Object.values(amounts[params.name]).reduce((prev, cur) => prev + cur, 0);
+            return `${params.marker} ${params.seriesName} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+              params.value,
+            )}</span> (${((params.value / sum) * 100).toFixed(0)}%)`;
+          },
+        },
+        legend: {
+          top: "bottom",
+        },
+        xAxis: {
+          data: years,
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: currencyFormat.format,
+          },
+        },
+        series: assetClasses.map((assetClass) => ({
+          type: "bar",
+          name: assetClass,
+          stack: "assets",
+          data: years.map((year) => amounts[year][assetClass] ?? 0),
+        })),
+      };
+
   - title: Asset Classes 🏦
     width: 50%
     queries:
