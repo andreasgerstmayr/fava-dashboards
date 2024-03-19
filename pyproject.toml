@@ -1,8 +1,42 @@
-[build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
-build-backend = "setuptools.build_meta"
+[project]
+name = "fava-dashboards"
+dynamic = ["version"]
+description = "Custom Dashboards for Beancount in Fava"
+authors = [
+    { name = "Andreas Gerstmayr", email = "andreas@gerstmayr.me" }
+]
+dependencies = [
+    "fava>=1.26.1",
+    "pyyaml>=6.0.1",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+license = {text = "MIT License"}
 
-[tool.setuptools_scm]
+[project.urls]
+Source = "https://github.com/andreasgerstmayr/fava-dashboards"
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "black>=24.3.0",
+    "mypy>=1.9.0",
+    "pylint>=3.1.0",
+    "types-PyYAML>=6.0.12.20240311",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fava_dashboards"]
 
 [tool.pylint.'messages control']
 disable = [
