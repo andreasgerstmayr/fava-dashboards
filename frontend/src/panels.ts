@@ -1,5 +1,4 @@
 import * as echartslib from "echarts";
-import * as helpers from "./helpers";
 import { render_d3sankey } from "./sankey";
 import { PanelCtx } from "./types";
 
@@ -16,9 +15,8 @@ function runFunction(src: string, args: Record<string, any>): Promise<any> {
 function runScript(ctx: PanelCtx) {
     return runFunction(ctx.panel.script!, {
         ...ctx,
-        // pass 'fava' and 'helpers' for backwards compatibility
+        // pass 'fava' for backwards compatibility
         fava: ctx.ledger,
-        helpers,
     });
 }
 

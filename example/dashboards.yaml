@@ -125,8 +125,8 @@ dashboards:
           const query = panel.queries.find((q) => q.name === event.seriesName);
           if (query) {
             const [month, year] = event.name.split("/");
-            const link = query.link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
-            window.open(link);
+            const link = query.link.replace("{time}", `${year}-${month.padStart(2, "0")}`);
+            window.open(helpers.urlFor(link));
           }
         },
       };
@@ -223,8 +223,8 @@ dashboards:
         ],
         onClick: (event) => {
           const [month, year] = event.name.split("/");
-          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
-          window.open(link);
+          const link = panel.queries[0].link.replace("{time}", `${year}-${month.padStart(2, "0")}`);
+          window.open(helpers.urlFor(link));
         },
       };
 
@@ -290,8 +290,8 @@ dashboards:
         ],
         onClick: (event) => {
           const [month, year] = event.name.split("/");
-          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
-          window.open(link);
+          const link = panel.queries[0].link.replace("{time}", `${year}-${month.padStart(2, "0")}`);
+          window.open(helpers.urlFor(link));
         },
       };
 
@@ -659,8 +659,8 @@ dashboards:
         [clickEvt]: (event) => {
           const account = "Income" + event.treePathInfo.map((i) => i.name).join(":");
           const time = new URLSearchParams(window.location.search).get("time") ?? "";
-          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{account}", account).replace("{time}", time);
-          window.open(link);
+          const link = panel.queries[0].link.replace("{account}", account).replace("{time}", time);
+          window.open(helpers.urlFor(link));
         },
       };
 
@@ -708,14 +708,14 @@ dashboards:
         [clickEvt]: (event) => {
           const account = "Expenses" + event.treePathInfo.map((i) => i.name).join(":");
           const time = new URLSearchParams(window.location.search).get("time") ?? "";
-          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{account}", account).replace("{time}", time);
-          window.open(link);
+          const link = panel.queries[0].link.replace("{account}", account).replace("{time}", time);
+          window.open(helpers.urlFor(link));
         },
       };
 
   - title: Recurring, Regular and Irregular Expenses 🔁
     width: 50%
-    link: /beancount/income_statement/?filter=#recurring
+    link: /beancount/income_statement/
     queries:
     - name: Recurring
       bql: |
@@ -778,8 +778,8 @@ dashboards:
           const query = panel.queries.find((q) => q.name === event.seriesName);
           if (query) {
             const [month, year] = event.name.split("/");
-            const link = query.link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
-            window.open(link);
+            const link = query.link.replace("{time}", `${year}-${month.padStart(2, "0")}`);
+            window.open(helpers.urlFor(link));
           }
         },
       };
@@ -829,8 +829,8 @@ dashboards:
         ],
         onClick: (event) => {
           const [month, year] = event.name.split("/");
-          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
-          window.open(link);
+          const link = panel.queries[0].link.replace("{time}", `${year}-${month.padStart(2, "0")}`);
+          window.open(helpers.urlFor(link));
         },
       };
 
@@ -900,10 +900,9 @@ dashboards:
         })),
         onClick: (event) => {
           const link = panel.queries[0].link
-            .replaceAll("#", "%23")
             .replace("{account}", accounts[event.dataIndex])
             .replace("{time}", event.seriesName);
-          window.open(link);
+          window.open(helpers.urlFor(link));
         },
       };
 
@@ -973,8 +972,8 @@ dashboards:
           },
         ],
         onClick: (event) => {
-          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", event.name);
-          window.open(link);
+          const link = panel.queries[0].link.replace("{time}", event.name);
+          window.open(helpers.urlFor(link));
         },
       };
 
@@ -1036,8 +1035,8 @@ dashboards:
           },
         ],
         onClick: (event) => {
-          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{travel}", event.name);
-          window.open(link);
+          const link = panel.queries[0].link.replace("{travel}", event.name);
+          window.open(helpers.urlFor(link));
         },
       };
 
@@ -1115,8 +1114,8 @@ dashboards:
         onClick: (event, node) => {
           if (node.name === "Savings") return;
           const time = new URLSearchParams(window.location.search).get("time") ?? "";
-          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{account}", node.name).replace("{time}", time);
-          window.open(link);
+          const link = panel.queries[0].link.replace("{account}", node.name).replace("{time}", time);
+          window.open(helpers.urlFor(link));
         },
       };
 
@@ -1227,8 +1226,8 @@ dashboards:
         onClick: (event) => {
           if (event.seriesName === "Projection") return;
           const [month, year] = event.name.split("/");
-          const link = panel.queries[0].link.replaceAll("#", "%23").replace("{time}", `${year}-${month.padStart(2, "0")}`);
-          window.open(link);
+          const link = panel.queries[0].link.replace("{time}", `${year}-${month.padStart(2, "0")}`);
+          window.open(helpers.urlFor(link));
         },
       };
 

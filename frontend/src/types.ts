@@ -1,3 +1,5 @@
+import * as helpers from "./helpers";
+
 export interface Bootstrap {
     dashboard: Dashboard;
     ledger: Ledger;
@@ -10,16 +12,19 @@ export interface Dashboard {
 }
 
 export interface PanelCtx {
-    // Fava [`ExtensionContext`](https://github.com/beancount/fava/blob/main/frontend/src/extensions.ts)
+    /** Fava [`ExtensionContext`](https://github.com/beancount/fava/blob/main/frontend/src/extensions.ts) */
     ext: any;
 
-    // metadata of the Beancount ledger
+    /** metadata of the Beancount ledger */
     ledger: Ledger;
 
-    // return value of the `utils` code of the dashboard configuration
+    /** various helper functions */
+    helpers: typeof helpers;
+
+    /** return value of the `utils` code of the dashboard configuration */
     utils: Utils;
 
-    // current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`.
+    /** current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`. */
     panel: Panel;
 }
 
@@ -33,22 +38,22 @@ interface Panel {
 }
 
 export interface Ledger {
-    // first date in the current date filter
+    /** first date in the current date filter */
     dateFirst: string;
 
-    // last date in the current date filter
+    /** last date in the current date filter */
     dateLast: string;
 
-    // configured operating currencies of the ledger
+    /** configured operating currencies of the ledger */
     operatingCurrencies: string[];
 
-    // shortcut for the first configured operating currency of the ledger
+    /** shortcut for the first configured operating currency of the ledger */
     ccy: string;
 
-    // declared accounts of the ledger
+    /** declared accounts of the ledger */
     accounts: any[];
 
-    // declared commodities of the ledger
+    /** declared commodities of the ledger */
     commodities: any[];
 }
 

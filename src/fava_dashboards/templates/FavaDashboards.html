@@ -27,7 +27,7 @@
   <div class="panel" style="width: {{ panel.width|default("100%") }}">
     {% if panel.title %}
     <h2>
-      {%- if panel.link %}<a href="{{ panel.link|replace("#", "%23") }}">{% endif -%}
+      {%- if panel.link %}<a href="{{ panel.link }}">{% endif -%}
       {{ panel.title }}
       {%- if panel.link %}</a>{% endif -%}
     </h2>

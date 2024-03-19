@@ -186,7 +186,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
      style="width: 50%"
 >
   <h2>
-    <a href="/beancount/income_statement/">
+    <a href="http://127.0.0.1:5000/beancount/income_statement/">
       Net Worth 💰
     </a>
   </h2>
@@ -2586,7 +2586,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
      style="width: 33.3%"
 >
   <h2>
-    <a href="/beancount/account/Income/?r=changes">
+    <a href="http://127.0.0.1:5000/beancount/account/Income/?r=changes">
       Avg. Income per Month 💰
     </a>
   </h2>
@@ -2602,7 +2602,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
      style="width: 33.3%"
 >
   <h2>
-    <a href="/beancount/account/Expenses/?r=changes">
+    <a href="http://127.0.0.1:5000/beancount/account/Expenses/?r=changes">
       Avg. Expenses per Month 💸
     </a>
   </h2>
@@ -2618,7 +2618,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
      style="width: 33.3%"
 >
   <h2>
-    <a href="/beancount/income_statement/">
+    <a href="http://127.0.0.1:5000/beancount/income_statement/">
       Avg. Savings per Month ✨
     </a>
   </h2>
@@ -2634,7 +2634,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
      style="width: 50%"
 >
   <h2>
-    <a href="/beancount/account/Income/?r=changes">
+    <a href="http://127.0.0.1:5000/beancount/account/Income/?r=changes">
       Income Categories (per month) 💸
     </a>
   </h2>
@@ -2768,7 +2768,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
      style="width: 50%"
 >
   <h2>
-    <a href="/beancount/account/Expenses/?r=changes">
+    <a href="http://127.0.0.1:5000/beancount/account/Expenses/?r=changes">
       Expenses Categories (per month) 💸
     </a>
   </h2>
@@ -3022,7 +3022,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
      style="width: 50%"
 >
   <h2>
-    <a href="/beancount/income_statement/?filter=%23recurring">
+    <a href="http://127.0.0.1:5000/beancount/income_statement/">
       Recurring, Regular and Irregular Expenses 🔁
     </a>
   </h2>
@@ -3870,7 +3870,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
      style="width: 50%"
 >
   <h2>
-    <a href="/beancount/account/Expenses:Food/">
+    <a href="http://127.0.0.1:5000/beancount/account/Expenses:Food/">
       Food Expenses 🥐
     </a>
   </h2>
@@ -5436,7 +5436,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
      style="width: 50%"
 >
   <h2>
-    <a href="/beancount/balance_sheet/">
+    <a href="http://127.0.0.1:5000/beancount/balance_sheet/">
       Assets 💰
     </a>
   </h2>
@@ -5452,7 +5452,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
      style="width: 50%"
 >
   <h2>
-    <a href="/beancount/balance_sheet/">
+    <a href="http://127.0.0.1:5000/beancount/balance_sheet/">
       Liabilities 💳
     </a>
   </h2>
@@ -5468,7 +5468,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
      style="width: 100%"
 >
   <h2>
-    <a href="/beancount/income_statement/">
+    <a href="http://127.0.0.1:5000/beancount/income_statement/">
       Income/Expenses 💸
     </a>
   </h2>
@@ -6513,7 +6513,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
      style="width: 100%"
 >
   <h2>
-    <a href="/beancount/income_statement/">
+    <a href="http://127.0.0.1:5000/beancount/income_statement/">
       Net Worth 💰
     </a>
   </h2>
@@ -7035,7 +7035,7 @@ exports[`Dashboard: HTML Snapshot Tests Sankey 1`] = `
      style="width: 100%"
 >
   <h2>
-    <a href="/beancount/income_statement/">
+    <a href="http://127.0.0.1:5000/beancount/income_statement/">
       Sankey (per month) 💸
     </a>
   </h2>
@@ -8843,7 +8843,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
      style="width: 100%"
 >
   <h2>
-    <a href="/beancount/income_statement/?filter=%23travel">
+    <a href="http://127.0.0.1:5000/beancount/income_statement/?filter=%23travel">
       Travel Costs per Year 📅
     </a>
   </h2>
@@ -9045,7 +9045,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
      style="width: 100%"
 >
   <h2>
-    <a href="/beancount/income_statement/?filter=%23travel">
+    <a href="http://127.0.0.1:5000/beancount/income_statement/?filter=%23travel">
       Destinations ✈️
     </a>
   </h2>
