@@ -23,7 +23,7 @@ Enable this plugin in Fava by adding the following lines to your ledger:
 ```
 
 ## Configuration
-The plugin looks by default for a `dashboards.yaml` file in the same directory where Fava is started (e.g. if you run `fava personal.beancount`, the `dashboards.yaml` file should be in the same directory as `personal.beancount`).
+The plugin looks by default for a `dashboards.yaml` file in the directory of the Beancount ledger (e.g. if you run `fava personal.beancount`, the `dashboards.yaml` file should be in the same directory as `personal.beancount`).
 The location of the `dashboards.yaml` configuration file can be customized:
 ```
 2010-01-01 custom "fava-extension" "fava_dashboards" "{
@@ -49,6 +49,7 @@ The `script` field must contain valid JavaScript code.
 It must return a valid configuration depending on the panel `type`.
 The following variables and functions are available:
 * `ext`: the Fava [`ExtensionContext`](https://github.com/beancount/fava/blob/main/frontend/src/extensions.ts)
+* `ext.api.get("query", {bql: "SELECT ..."}`: executes the specified BQL query
 * `panel`: the current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`.
 * `ledger.dateFirst`: first date in the current date filter
 * `ledger.dateLast`: last date in the current date filter
