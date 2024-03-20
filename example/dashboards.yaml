@@ -203,7 +203,8 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          trigger: "axis",
+          valueFormatter: (val) => (val ? currencyFormat.format(val) : ""),
         },
         xAxis: {
           data: months,
@@ -259,7 +260,7 @@ dashboards:
       return {
         tooltip: {
           trigger: "axis",
-          valueFormatter: currencyFormat.format,
+          valueFormatter: (val) => (val ? currencyFormat.format(val) : ""),
         },
         legend: {
           top: "bottom",
@@ -316,7 +317,8 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          trigger: "axis",
+          valueFormatter: (val) => (val ? currencyFormat.format(val) : ""),
         },
         xAxis: {
           data: months,
