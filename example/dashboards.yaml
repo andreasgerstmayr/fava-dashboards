@@ -350,6 +350,7 @@ dashboards:
       // Unfortunately the `balance` column does not support GROUP BY
       // (see https://groups.google.com/g/beancount/c/TfZJswxuIDA/m/psc2BkrBAAAJ)
       // therefore we need to run a separate query per year.
+      const filterParams = Object.fromEntries(new URL(window.location.href).searchParams);
       const queries = await Promise.all(
         years.map((year) =>
           ext.api.get("query", {
@@ -358,6 +359,7 @@ dashboards:
                   FROM CLOSE ON ${year + 1}-01-01
                   WHERE account_sortkey(account) ~ '^[01]'
                   GROUP BY currency`,
+            ...filterParams,
           }),
         ),
       );
@@ -623,7 +625,7 @@ dashboards:
         SELECT root(account, 4) AS account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Income:'
         GROUP BY account
-      link: /beancount/account/{account}/?r=changes&time={time}
+      link: /beancount/account/{account}/?r=changes
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -658,8 +660,7 @@ dashboards:
         ],
         [clickEvt]: (event) => {
           const account = "Income" + event.treePathInfo.map((i) => i.name).join(":");
-          const time = new URLSearchParams(window.location.search).get("time") ?? "";
-          const link = panel.queries[0].link.replace("{account}", account).replace("{time}", time);
+          const link = panel.queries[0].link.replace("{account}", account);
           window.open(helpers.urlFor(link));
         },
       };
@@ -672,7 +673,7 @@ dashboards:
         SELECT root(account, 3) AS account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^Expenses:'
         GROUP BY account
-      link: /beancount/account/{account}/?r=changes&time={time}
+      link: /beancount/account/{account}/?r=changes
     type: echarts
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -707,8 +708,7 @@ dashboards:
         ],
         [clickEvt]: (event) => {
           const account = "Expenses" + event.treePathInfo.map((i) => i.name).join(":");
-          const time = new URLSearchParams(window.location.search).get("time") ?? "";
-          const link = panel.queries[0].link.replace("{account}", account).replace("{time}", time);
+          const link = panel.queries[0].link.replace("{account}", account);
           window.open(helpers.urlFor(link));
         },
       };
@@ -1050,7 +1050,7 @@ dashboards:
         SELECT account, CONVERT(SUM(position), '{{ledger.ccy}}') AS value
         WHERE account ~ '^(Income|Expenses):'
         GROUP BY account
-      link: /beancount/account/{account}/?time={time}
+      link: /beancount/account/{account}/
     type: d3_sankey
     script: |
       const currencyFormat = new Intl.NumberFormat(undefined, {
@@ -1113,8 +1113,7 @@ dashboards:
         },
         onClick: (event, node) => {
           if (node.name === "Savings") return;
-          const time = new URLSearchParams(window.location.search).get("time") ?? "";
-          const link = panel.queries[0].link.replace("{account}", node.name).replace("{time}", time);
+          const link = panel.queries[0].link.replace("{account}", node.name);
           window.open(helpers.urlFor(link));
         },
       };
