@@ -5,7 +5,7 @@ from collections import namedtuple
 import yaml
 from flask import request, Response, jsonify
 from beancount.core.inventory import Inventory  # type: ignore
-from beancount.query.query import run_query  # type: ignore
+from beanquery.query import run_query  # type: ignore
 from fava.application import render_template_string
 from fava.context import g
 from fava.core import FavaLedger
@@ -39,7 +39,7 @@ class FavaDashboards(FavaExtensionBase):
             with open(path, encoding="utf-8") as f:
                 return yaml.safe_load(f)
         except Exception as ex:
-            raise FavaAPIError(f"Cannot read configuration file {path}: {ex}") from ex
+            raise FavaAPIError(f"cannot read configuration file {path}: {ex}") from ex
 
     def read_dashboards_utils(self, dashboards_yaml):
         utils = dashboards_yaml.get("utils", {})
@@ -51,7 +51,7 @@ class FavaDashboards(FavaExtensionBase):
                 with open(path, encoding="utf-8") as f:
                     return f.read()
             except Exception as ex:
-                raise FavaAPIError(f"Cannot read utils file {path}: {ex}") from ex
+                raise FavaAPIError(f"cannot read utils file {path}: {ex}") from ex
         else:
             return ""
 
@@ -65,13 +65,19 @@ class FavaDashboards(FavaExtensionBase):
                 **ctx.__dict__,
             )
         except Exception as ex:
-            raise FavaAPIError(f"Failed to render template {source}: {ex}") from ex
+            raise FavaAPIError(f"failed to render template {source}: {ex}") from ex
 
     def exec_query(self, query):
         try:
             rtypes, rrows = run_query(g.filtered.entries, self.ledger.options, query)
         except Exception as ex:
-            raise FavaAPIError(f"Failed to execute query {query}: {ex}") from ex
+            raise FavaAPIError(f"failed to execute query {query}: {ex}") from ex
+
+        # convert to legacy beancount.query format for backwards compat
+        result_row = namedtuple("ResultRow", [col.name for col in rtypes])
+        rtypes = [(t.name, t.datatype) for t in rtypes]
+        rrows = [result_row(*row) for row in rrows]
+
         return rtypes, rrows
 
     def process_queries(self, ctx: PanelCtx):
@@ -127,11 +133,16 @@ class FavaDashboards(FavaExtensionBase):
         dashboards_yaml = self.read_dashboards_yaml(ext_config.dashboards_path)
         dashboards = dashboards_yaml.get("dashboards", [])
         if not 0 <= dashboard_id < len(dashboards):
-            raise FavaAPIError(f"Invalid dashboard ID: {dashboard_id}")
+            raise FavaAPIError(f"invalid dashboard ID: {dashboard_id}")
 
         for panel in dashboards[dashboard_id].get("panels", []):
             ctx = PanelCtx(ledger, self.ledger, panel)
-            self.process_panel(ctx)
+            try:
+                self.process_panel(ctx)
+            except Exception as ex:
+                raise FavaAPIError(
+                    f"error processing panel \"{panel.get('title', '')}\": {ex}"
+                ) from ex
 
         utils = self.read_dashboards_utils(dashboards_yaml)
         return {
@@ -145,7 +156,7 @@ class FavaDashboards(FavaExtensionBase):
         bql = request.args.get("bql")
 
         try:
-            _, result = run_query(g.filtered.entries, self.ledger.options, bql)
+            _, result = self.exec_query(bql)
         except Exception as ex:  # pylint: disable=broad-exception-caught
             return jsonify({"success": False, "error": str(ex)})
 
