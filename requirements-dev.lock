@@ -14,7 +14,10 @@ babel==2.14.0
     # via fava
     # via flask-babel
 beancount==2.3.6
+    # via beanquery
     # via fava
+beanquery @ git+https://github.com/andreasgerstmayr/beanquery@add-last_day-function
+    # via fava-dashboards
 beautifulsoup4==4.12.3
     # via beancount
 black==24.3.0
@@ -33,6 +36,7 @@ charset-normalizer==3.3.2
 cheroot==10.0.0
     # via fava
 click==8.1.7
+    # via beanquery
     # via black
     # via fava
     # via flask
@@ -49,7 +53,7 @@ google-api-core==2.17.1
     # via google-api-python-client
 google-api-python-client==2.122.0
     # via beancount
-google-auth==2.28.2
+google-auth==2.29.0
     # via google-api-core
     # via google-api-python-client
     # via google-auth-httplib2
@@ -120,6 +124,7 @@ pytest==8.1.1
     # via beancount
 python-dateutil==2.9.0.post0
     # via beancount
+    # via beanquery
 python-magic==0.4.27
     # via beancount
 pytz==2024.1
@@ -138,6 +143,8 @@ six==1.16.0
     # via python-dateutil
 soupsieve==2.5
     # via beautifulsoup4
+tatsu==5.7.4
+    # via beanquery
 tomlkit==0.12.4
     # via pylint
 types-pyyaml==6.0.12.20240311
