@@ -9,13 +9,9 @@ dashboards:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Assets:'
     type: html
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const value = panel.queries[0].result[0]?.value[ledger.ccy];
-      const valueFmt = currencyFormat.format(value ?? 0);
+      const valueFmt = currencyFormatter(value ?? 0);
       return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${valueFmt}</div>`;
 
   - title: Liabilities 💳
@@ -26,13 +22,9 @@ dashboards:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Liabilities:'
     type: html
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const value = panel.queries[0].result[0]?.value[ledger.ccy];
-      const valueFmt = currencyFormat.format(value ? -value : 0);
+      const valueFmt = currencyFormatter(value ? -value : 0);
       return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${valueFmt}</div>`;
 
   - title: Income/Expenses 💸
@@ -83,11 +75,7 @@ dashboards:
       link: /beancount/account/Expenses/?filter=all(-account:"^Expenses:(Housing|Food|Shopping)") -#travel&time={time}
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
@@ -102,7 +90,7 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          valueFormatter: currencyFormatter,
         },
         legend: {
           top: "bottom",
@@ -112,7 +100,7 @@ dashboards:
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         series: panel.queries.map((query) => ({
@@ -144,11 +132,7 @@ dashboards:
       link: /beancount/account/{account}/?time={time}
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
 
       const data = panel.queries[0].result
         .filter((row) => row.market_value[ledger.ccy])
@@ -159,7 +143,7 @@ dashboards:
           formatter: (params) =>
             `${params.marker} ${
               ledger.commodities[params.name]?.meta.name ?? params.name
-            } <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+            } <span style="padding-left: 15px; font-weight: bold;">${currencyFormatter(
               params.value,
             )}</span> (${params.percent.toFixed(0)}%)`,
         },
@@ -188,11 +172,7 @@ dashboards:
       link: /beancount/balance_sheet/?time={time}
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
       const amounts = {};
 
@@ -204,14 +184,14 @@ dashboards:
       return {
         tooltip: {
           trigger: "axis",
-          valueFormatter: (val) => (val ? currencyFormat.format(val) : ""),
+          valueFormatter: currencyFormatter,
         },
         xAxis: {
           data: months,
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         series: [
@@ -241,11 +221,7 @@ dashboards:
       link: /beancount/balance_sheet/?time={time}
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
       const amounts = {};
 
@@ -260,7 +236,7 @@ dashboards:
       return {
         tooltip: {
           trigger: "axis",
-          valueFormatter: (val) => (val ? currencyFormat.format(val) : ""),
+          valueFormatter: currencyFormatter,
         },
         legend: {
           top: "bottom",
@@ -270,7 +246,7 @@ dashboards:
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         series: [
@@ -302,11 +278,7 @@ dashboards:
     - bql: *portfolio_bql
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
       const amounts = {};
 
@@ -318,14 +290,14 @@ dashboards:
       return {
         tooltip: {
           trigger: "axis",
-          valueFormatter: (val) => (val ? currencyFormat.format(val) : ""),
+          valueFormatter: currencyFormatter,
         },
         xAxis: {
           data: months,
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         series: [
@@ -341,11 +313,7 @@ dashboards:
   - title: Asset Classes Year-over-Year 🏦
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const years = utils.iterateYears(ledger.dateFirst, ledger.dateLast);
 
       // This chart requires the balances grouped by year and currency.
@@ -391,7 +359,7 @@ dashboards:
         tooltip: {
           formatter: (params) => {
             const sum = Object.values(amounts[params.name]).reduce((prev, cur) => prev + cur, 0);
-            return `${params.marker} ${params.seriesName} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+            return `${params.marker} ${params.seriesName} <span style="padding-left: 15px; font-weight: bold;">${currencyFormatter(
               params.value,
             )}</span> (${((params.value / sum) * 100).toFixed(0)}%)`;
           },
@@ -404,7 +372,7 @@ dashboards:
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         series: assetClasses.map((assetClass) => ({
@@ -425,11 +393,7 @@ dashboards:
         ORDER BY market_value
     type: echarts
     script: &asset_classes |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
 
       let totalValue = 0;
       const assetClasses = {};
@@ -450,7 +414,7 @@ dashboards:
       return {
         tooltip: {
           formatter: (params) =>
-            `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+            `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormatter(
               params.value,
             )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
         },
@@ -488,11 +452,7 @@ dashboards:
     - bql: *assets_bql
     type: echarts
     script: &assets_allocation |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
 
       let totalValue = 0;
       const root = { children: [] };
@@ -527,7 +487,7 @@ dashboards:
       return {
         tooltip: {
           formatter: (params) =>
-            `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormat.format(
+            `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormatter(
               params.value,
             )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
         },
@@ -564,14 +524,10 @@ dashboards:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Income:'
     type: html
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const months = days / (365 / 12);
-      const value = currencyFormat.format(-panel.queries[0].result[0].value[ledger.ccy] / months);
+      const value = currencyFormatter(-panel.queries[0].result[0].value[ledger.ccy] / months);
       return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
 
   - title: Avg. Expenses per Month 💸
@@ -582,14 +538,10 @@ dashboards:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Expenses:'
     type: html
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const months = days / (365 / 12);
-      const value = currencyFormat.format(panel.queries[0].result[0].value[ledger.ccy] / months);
+      const value = currencyFormatter(panel.queries[0].result[0].value[ledger.ccy] / months);
       return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${value}</div>`;
 
   - title: Avg. Savings per Month ✨
@@ -601,11 +553,7 @@ dashboards:
     - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Expenses:'
     type: html
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const percentFormat = new Intl.NumberFormat(undefined, {
         style: "percent",
         maximumFractionDigits: 0,
@@ -616,7 +564,7 @@ dashboards:
       const expenses = panel.queries[1].result[0].value[ledger.ccy];
       const rate = (income - expenses) / months;
       const ratePercent = 1 - expenses / income;
-      const value = `${currencyFormat.format(rate)} (${percentFormat.format(ratePercent)})`;
+      const value = `${currencyFormatter(rate)} (${percentFormat.format(ratePercent)})`;
       return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
 
   - title: Income Categories (per month) 💸
@@ -630,11 +578,7 @@ dashboards:
       link: /beancount/account/{account}/?r=changes
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const divisor = days / (365 / 12);
       const accountTree = utils.buildAccountTree(
@@ -647,7 +591,7 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          valueFormatter: currencyFormatter,
         },
         series: [
           {
@@ -678,11 +622,7 @@ dashboards:
       link: /beancount/account/{account}/?r=changes
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const divisor = days / (365 / 12);
       const accountTree = utils.buildAccountTree(
@@ -695,7 +635,7 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          valueFormatter: currencyFormatter,
         },
         series: [
           {
@@ -739,11 +679,7 @@ dashboards:
       link: /beancount/account/Expenses/?filter=#irregular&time={time}
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
@@ -757,14 +693,14 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          valueFormatter: currencyFormatter,
         },
         legend: {
           top: "bottom",
         },
         xAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         yAxis: {
@@ -797,11 +733,7 @@ dashboards:
       link: /beancount/account/Expenses:Food/?time={time}
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
       const amounts = {};
 
@@ -812,14 +744,14 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          valueFormatter: currencyFormatter,
         },
         xAxis: {
           data: months,
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         series: [
@@ -847,11 +779,7 @@ dashboards:
       link: /beancount/account/{account}/?time={time}
     type: echarts
     script: &year_over_year |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const years = utils.iterateYears(ledger.dateFirst, ledger.dateLast);
       const maxAccounts = 7; // number of accounts to show, sorted by sum
 
@@ -880,7 +808,7 @@ dashboards:
         },
         xAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         yAxis: {
@@ -897,7 +825,7 @@ dashboards:
           label: {
             show: true,
             position: "right",
-            formatter: (params) => currencyFormat.format(params.value),
+            formatter: (params) => currencyFormatter(params.value),
           },
         })),
         onClick: (event) => {
@@ -941,11 +869,7 @@ dashboards:
       link: /beancount/account/Expenses/?filter=#travel&time={time}
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const years = utils.iterateYears(ledger.dateFirst, ledger.dateLast);
       const amounts = {};
 
@@ -956,14 +880,14 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          valueFormatter: currencyFormatter,
         },
         xAxis: {
           data: years,
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         series: [
@@ -990,11 +914,7 @@ dashboards:
       link: /beancount/account/Expenses/?filter=#{travel}
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const travels = [];
       const amounts = {};
 
@@ -1009,7 +929,7 @@ dashboards:
 
       return {
         tooltip: {
-          valueFormatter: currencyFormat.format,
+          valueFormatter: currencyFormatter,
         },
         grid: {
           containLabel: true,
@@ -1018,7 +938,7 @@ dashboards:
         xAxis: {
           type: "value",
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         yAxis: {
@@ -1032,7 +952,7 @@ dashboards:
             label: {
               show: true,
               position: "right",
-              formatter: (params) => currencyFormat.format(params.value),
+              formatter: (params) => currencyFormatter(params.value),
             },
           },
         ],
@@ -1055,11 +975,7 @@ dashboards:
       link: /beancount/account/{account}/
     type: d3_sankey
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const divisor = days / (365 / 12); // monthly
       const valueThreshold = 10; // skip nodes below this value
@@ -1108,7 +1024,7 @@ dashboards:
 
       return {
         align: "left",
-        valueFormatter: currencyFormat.format,
+        valueFormatter: currencyFormatter,
         data: {
           nodes,
           links,
@@ -1139,11 +1055,7 @@ dashboards:
         GROUP BY year, month
     type: echarts
     script: |
-      const currencyFormat = new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: ledger.ccy,
-        maximumFractionDigits: 0,
-      });
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const projectYears = 2; // number of years to project
 
       // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
@@ -1158,13 +1070,13 @@ dashboards:
 
       const results = panel.queries[0].result;
       const resultsEx = panel.queries[1].result;
+      const resultsExLast = resultsEx[resultsEx.length - 1];
+
       const finalAmount = results[results.length - 1].value[ledger.ccy];
       const dateFirst = new Date(resultsEx[0].year, resultsEx[0].month - 1, 1);
-      const dateLast = new Date(
-        new Date(resultsEx[resultsEx.length - 1].year, resultsEx[resultsEx.length - 1].month, 1).getTime() - 1,
-      );
+      const dateLast = new Date(new Date(resultsExLast.year, resultsExLast.month, 1).getTime() - 1);
       const days = (dateLast - dateFirst) / (1000 * 60 * 60 * 24) + 1;
-      const totalDiff = resultsEx[resultsEx.length - 1].value[ledger.ccy] - resultsEx[0].value[ledger.ccy];
+      const totalDiff = resultsExLast.value[ledger.ccy] - resultsEx[0].value[ledger.ccy];
       const monthlyDiff = (totalDiff / days) * (365 / 12);
 
       const dateLastYear = dateLast.getFullYear();
@@ -1184,7 +1096,7 @@ dashboards:
       return {
         tooltip: {
           trigger: "axis",
-          valueFormatter: (val) => (val ? currencyFormat.format(val) : ""),
+          valueFormatter: currencyFormatter,
         },
         legend: {
           top: "bottom",
@@ -1194,7 +1106,7 @@ dashboards:
         },
         yAxis: {
           axisLabel: {
-            formatter: currencyFormat.format,
+            formatter: currencyFormatter,
           },
         },
         series: [
@@ -1284,4 +1196,18 @@ utils:
       return accountTree;
     }
 
-    return { iterateMonths, iterateYears, buildAccountTree };
+    function currencyFormatter(currency) {
+      const currencyFormat = new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency,
+        maximumFractionDigits: 0,
+      });
+      return (val) => (val !== undefined ? currencyFormat.format(val) : "");
+    }
+
+    return {
+      iterateMonths,
+      iterateYears,
+      buildAccountTree,
+      currencyFormatter,
+    };
