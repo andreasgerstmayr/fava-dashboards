@@ -1189,7 +1189,8 @@ utils:
             node.children.push(child);
           }
 
-          child.value += valueFn(row);
+          const nodeValue = isNaN(valueFn(row)) ? 0 : valueFn(row);
+          child.value += nodeValue;
           node = child;
         }
       }
