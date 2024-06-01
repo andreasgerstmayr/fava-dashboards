@@ -22,7 +22,7 @@ describe("Dashboard: PNG Snapshot Tests", () => {
                 // full page screenshot doesn't work due to sticky sidebar
                 document.body.style.height = "inherit";
             });
-            await waitFor(1500); // wait for animations to finish
+            await waitFor(3000); // wait for animations to finish
 
             const screenshot = await page.screenshot({ fullPage: true });
             expect(screenshot).toMatchImageSnapshot({ customSnapshotIdentifier });
@@ -35,7 +35,7 @@ describe("Dashboard: HTML Snapshot Tests", () => {
         it(dashboard.name, async () => {
             await page.setUserAgent("puppeteer");
             await page.goto(`${BASE_URL}${dashboard.link}`);
-            await waitFor(1500); // wait for animations to finish
+            await waitFor(3000); // wait for animations to finish
 
             let html = await page.$eval("#dashboard", (element) => element.innerHTML);
             // remove nondeterministic rendering
