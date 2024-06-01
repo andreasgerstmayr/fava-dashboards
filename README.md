@@ -39,6 +39,11 @@ A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column 
 The `queries` field contains one or multiple queries.
 The Beancount query must be stored in the `bql` field of the respective query.
 It can contain Jinja template syntax to access the `panel` and `ledger` variables described below (example: use `{{ledger.ccy}}` to access the first configured operating currency).
+Note that Jinja will replace some protected HTML characters with escapes.
+For example, a `>` inside a Jinja variable will be turned into  `&gt`.
+This can cause problems because `>` *is* a valid Beancount query operator, but `&gt` is not.
+To skip replacing protected HTML characters, pass the [Jinja safe filter](https://jinja.palletsprojects.com/en/3.0.x/templates/#jinja-filters.safe) to your variable invokation (for example, `{{ panel.foo|safe }}`.
+
 The query results can be accessed via `panel.queries[i].result`, where `i` is the index of the query in the `queries` field.
 Note: Additionally to the Beancount query, Fava's filter bar further filters the available entries of the ledger.
 
