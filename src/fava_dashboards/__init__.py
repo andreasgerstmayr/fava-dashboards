@@ -5,7 +5,7 @@ from collections import namedtuple
 import yaml
 from flask import request, Response, jsonify
 from beancount.core.inventory import Inventory  # type: ignore
-from beancount.query.query import run_query  # type: ignore
+from beanquery.query import run_query  # type: ignore
 from fava.application import render_template_string
 from fava.context import g
 from fava.core import FavaLedger
@@ -72,6 +72,12 @@ class FavaDashboards(FavaExtensionBase):
             rtypes, rrows = run_query(g.filtered.entries, self.ledger.options, query)
         except Exception as ex:
             raise FavaAPIError(f"failed to execute query {query}: {ex}") from ex
+
+        # convert to legacy beancount.query format for backwards compat
+        result_row = namedtuple("ResultRow", [col.name for col in rtypes])
+        rtypes = [(t.name, t.datatype) for t in rtypes]
+        rrows = [result_row(*row) for row in rrows]
+
         return rtypes, rrows
 
     def process_queries(self, ctx: PanelCtx):
