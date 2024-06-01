@@ -33,7 +33,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke="#5470c6"
           >
           </path>
-          <path d="M385.9837 54.5045L400.9457 44.5989L415.9457 44.5989"
+          <path d="M385.9837 54.5045L400.9488 44.6L415.9488 44.6"
                 fill="none"
                 stroke="#91cc75"
           >
@@ -106,7 +106,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(420.9457 44.5989)"
+                transform="translate(420.9488 44.6)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -252,17 +252,12 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke="#6E7079"
           >
           </path>
-          <path d="M134.5 330L134.5 335"
+          <path d="M156.5 330L156.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M199.5 330L199.5 335"
-                fill="none"
-                stroke="#6E7079"
-          >
-          </path>
-          <path d="M263.5 330L263.5 335"
+          <path d="M242.5 330L242.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -272,17 +267,12 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke="#6E7079"
           >
           </path>
-          <path d="M392.5 330L392.5 335"
+          <path d="M414.5 330L414.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M457.5 330L457.5 335"
-                fill="none"
-                stroke="#6E7079"
-          >
-          </path>
-          <path d="M521.5 330L521.5 335"
+          <path d="M500.5 330L500.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -348,7 +338,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(80.6538 338)"
                 fill="#6E7079"
           >
@@ -357,34 +347,25 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(145.1769 338)"
+                y="3.6005859375"
+                transform="translate(166.6846 338)"
                 fill="#6E7079"
           >
-            4/2020
+            5/2020
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(209.7 338)"
+                y="3.6005859375"
+                transform="translate(252.7154 338)"
                 fill="#6E7079"
           >
-            7/2020
+            9/2020
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(274.2231 338)"
-                fill="#6E7079"
-          >
-            10/2020
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="middle"
-                style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(338.7462 338)"
                 fill="#6E7079"
           >
@@ -393,34 +374,25 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(403.2692 338)"
+                y="3.6005859375"
+                transform="translate(424.7769 338)"
                 fill="#6E7079"
           >
-            4/2021
+            5/2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(467.7923 338)"
+                y="3.6005859375"
+                transform="translate(510.8077 338)"
                 fill="#6E7079"
           >
-            7/2021
+            9/2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(532.3154 338)"
-                fill="#6E7079"
-          >
-            10/2021
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="middle"
-                style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(596.8385 338)"
                 fill="#6E7079"
           >
@@ -674,17 +646,12 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke="#6E7079"
           >
           </path>
-          <path d="M134.5 330L134.5 335"
+          <path d="M156.5 330L156.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M199.5 330L199.5 335"
-                fill="none"
-                stroke="#6E7079"
-          >
-          </path>
-          <path d="M263.5 330L263.5 335"
+          <path d="M242.5 330L242.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -694,17 +661,12 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke="#6E7079"
           >
           </path>
-          <path d="M392.5 330L392.5 335"
+          <path d="M414.5 330L414.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M457.5 330L457.5 335"
-                fill="none"
-                stroke="#6E7079"
-          >
-          </path>
-          <path d="M521.5 330L521.5 335"
+          <path d="M500.5 330L500.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -770,7 +732,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(80.6538 338)"
                 fill="#6E7079"
           >
@@ -779,34 +741,25 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(145.1769 338)"
+                y="3.6005859375"
+                transform="translate(166.6846 338)"
                 fill="#6E7079"
           >
-            4/2020
+            5/2020
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(209.7 338)"
+                y="3.6005859375"
+                transform="translate(252.7154 338)"
                 fill="#6E7079"
           >
-            7/2020
+            9/2020
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(274.2231 338)"
-                fill="#6E7079"
-          >
-            10/2020
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="middle"
-                style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(338.7462 338)"
                 fill="#6E7079"
           >
@@ -815,34 +768,25 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(403.2692 338)"
+                y="3.6005859375"
+                transform="translate(424.7769 338)"
                 fill="#6E7079"
           >
-            4/2021
+            5/2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(467.7923 338)"
+                y="3.6005859375"
+                transform="translate(510.8077 338)"
                 fill="#6E7079"
           >
-            7/2021
+            9/2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(532.3154 338)"
-                fill="#6E7079"
-          >
-            10/2021
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="middle"
-                style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(596.8385 338)"
                 fill="#6E7079"
           >
@@ -1154,8 +1098,8 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke="#91cc75"
           >
           </path>
-          <path d="M-5 -5l218.993 0l0 23.2l-218.993 0Z"
-                transform="translate(245.0035 381.8)"
+          <path d="M-5 -5l226.6504 0l0 23.2l-226.6504 0Z"
+                transform="translate(241.1748 381.8)"
                 fill="rgb(0,0,0)"
                 fill-opacity="0"
                 stroke="#ccc"
@@ -1163,7 +1107,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           >
           </path>
           <path d="M0 7L25 7"
-                transform="translate(246.0035 381.4)"
+                transform="translate(242.1748 381.4)"
                 fill="#000"
                 stroke="#5470c6"
                 stroke-width="2"
@@ -1172,7 +1116,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           >
           </path>
           <path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.9994"
-                transform="translate(246.0035 381.4)"
+                transform="translate(242.1748 381.4)"
                 fill="#fff"
                 stroke="#5470c6"
                 stroke-width="2"
@@ -1186,13 +1130,13 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 xml:space="preserve"
                 x="30"
                 y="7"
-                transform="translate(246.0035 381.4)"
+                transform="translate(242.1748 381.4)"
                 fill="#333"
           >
             Market Value
           </text>
           <path d="M0 7L25 7"
-                transform="translate(361.176 381.4)"
+                transform="translate(361.1924 381.4)"
                 fill="#000"
                 stroke="#91cc75"
                 stroke-width="2"
@@ -1201,7 +1145,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           >
           </path>
           <path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.9994"
-                transform="translate(361.176 381.4)"
+                transform="translate(361.1924 381.4)"
                 fill="#fff"
                 stroke="#91cc75"
                 stroke-width="2"
@@ -1215,7 +1159,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 xml:space="preserve"
                 x="30"
                 y="7"
-                transform="translate(361.176 381.4)"
+                transform="translate(361.1924 381.4)"
                 fill="#333"
           >
             Book Value
@@ -1314,17 +1258,12 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke="#6E7079"
           >
           </path>
-          <path d="M134.5 330L134.5 335"
+          <path d="M156.5 330L156.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M199.5 330L199.5 335"
-                fill="none"
-                stroke="#6E7079"
-          >
-          </path>
-          <path d="M263.5 330L263.5 335"
+          <path d="M242.5 330L242.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -1334,17 +1273,12 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 stroke="#6E7079"
           >
           </path>
-          <path d="M392.5 330L392.5 335"
+          <path d="M414.5 330L414.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M457.5 330L457.5 335"
-                fill="none"
-                stroke="#6E7079"
-          >
-          </path>
-          <path d="M521.5 330L521.5 335"
+          <path d="M500.5 330L500.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -1418,7 +1352,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(80.6538 338)"
                 fill="#6E7079"
           >
@@ -1427,34 +1361,25 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(145.1769 338)"
+                y="3.6005859375"
+                transform="translate(166.6846 338)"
                 fill="#6E7079"
           >
-            4/2020
+            5/2020
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(209.7 338)"
+                y="3.6005859375"
+                transform="translate(252.7154 338)"
                 fill="#6E7079"
           >
-            7/2020
+            9/2020
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(274.2231 338)"
-                fill="#6E7079"
-          >
-            10/2020
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="middle"
-                style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(338.7462 338)"
                 fill="#6E7079"
           >
@@ -1463,34 +1388,25 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(403.2692 338)"
+                y="3.6005859375"
+                transform="translate(424.7769 338)"
                 fill="#6E7079"
           >
-            4/2021
+            5/2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(467.7923 338)"
+                y="3.6005859375"
+                transform="translate(510.8077 338)"
                 fill="#6E7079"
           >
-            7/2021
+            9/2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(532.3154 338)"
-                fill="#6E7079"
-          >
-            10/2021
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="middle"
-                style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(596.8385 338)"
                 fill="#6E7079"
           >
@@ -1798,7 +1714,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(335.5333 338)"
                 fill="#6E7079"
           >
@@ -1807,7 +1723,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(719 338)"
                 fill="#6E7079"
           >
@@ -1816,7 +1732,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(1102.4667 338)"
                 fill="#6E7079"
           >
@@ -1858,8 +1774,8 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 fill="#fac858"
           >
           </path>
-          <path d="M-5 -5l195.4925 0l0 24l-195.4925 0Z"
-                transform="translate(626.2537 381)"
+          <path d="M-5 -5l200.4785 0l0 24l-200.4785 0Z"
+                transform="translate(623.7607 381)"
                 fill="rgb(0,0,0)"
                 fill-opacity="0"
                 stroke="#ccc"
@@ -1867,7 +1783,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(626.2537 381)"
+                transform="translate(623.7607 381)"
                 fill="#5470c6"
           >
           </path>
@@ -1876,13 +1792,13 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(626.2537 381)"
+                transform="translate(623.7607 381)"
                 fill="#333"
           >
             Fund
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(694.6939 381)"
+                transform="translate(692.835 381)"
                 fill="#91cc75"
           >
           </path>
@@ -1891,13 +1807,13 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(694.6939 381)"
+                transform="translate(692.835 381)"
                 fill="#333"
           >
             ETF
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(754.2661 381)"
+                transform="translate(754.6494 381)"
                 fill="#fac858"
           >
           </path>
@@ -1906,7 +1822,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(754.2661 381)"
+                transform="translate(754.6494 381)"
                 fill="#333"
           >
             Cash
@@ -2020,7 +1936,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 transform="matrix(0.997,-0.078,0.078,0.997,499.045,188.325)"
                 fill="#333"
           >
-            American Funds The Growt...
+            American Funds The Gro...
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -2029,7 +1945,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 transform="matrix(0.686,-0.728,0.728,0.686,246.6205,309.1596)"
                 fill="#333"
           >
-            Vanguard Total Bond Mark...
+            Vanguard Total Bond Ma...
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -2047,7 +1963,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 transform="matrix(0.733,0.68,-0.68,0.733,239.5209,97.997)"
                 fill="#333"
           >
-            iShares Core S&amp;P Total U...
+            iShares Core S&amp;P Total...
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -2056,7 +1972,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 transform="matrix(0.493,0.87,-0.87,0.493,275.4844,69.5328)"
                 fill="#333"
           >
-            Vanguard FTSE Developed ...
+            Vanguard FTSE Develope...
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -2181,7 +2097,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 transform="matrix(0.999,-0.049,0.049,0.999,499.3218,192.6905)"
                 fill="#333"
           >
-            American Funds The Growt...
+            American Funds The Gro...
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -2190,7 +2106,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 transform="matrix(0.739,-0.673,0.673,0.739,238.6158,301.0183)"
                 fill="#333"
           >
-            Vanguard Total Bond Mark...
+            Vanguard Total Bond Ma...
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -2208,7 +2124,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 transform="matrix(0.657,0.754,-0.754,0.657,251.0053,86.8683)"
                 fill="#333"
           >
-            iShares Core S&amp;P Total U...
+            iShares Core S&amp;P Total...
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -2217,7 +2133,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 transform="matrix(0.393,0.92,-0.92,0.393,290.6209,62.0389)"
                 fill="#333"
           >
-            Vanguard FTSE Developed ...
+            Vanguard FTSE Develope...
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -3434,7 +3350,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(69.9 338)"
                 fill="#6E7079"
           >
@@ -3443,7 +3359,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(163.1 338)"
                 fill="#6E7079"
           >
@@ -3452,7 +3368,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(256.3 338)"
                 fill="#6E7079"
           >
@@ -3461,7 +3377,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(349.5 338)"
                 fill="#6E7079"
           >
@@ -3470,7 +3386,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(442.7 338)"
                 fill="#6E7079"
           >
@@ -3479,7 +3395,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(535.9 338)"
                 fill="#6E7079"
           >
@@ -3488,7 +3404,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(629.1 338)"
                 fill="#6E7079"
           >
@@ -3806,8 +3722,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 fill="#fac858"
           >
           </path>
-          <path d="M-5 -5l269.113 0l0 24l-269.113 0Z"
-                transform="translate(219.9435 381)"
+          <path d="M-5 -5l274.7813 0l0 24l-274.7812 0Z"
+                transform="translate(217.1094 381)"
                 fill="rgb(0,0,0)"
                 fill-opacity="0"
                 stroke="#ccc"
@@ -3815,7 +3731,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(219.9435 381)"
+                transform="translate(217.1094 381)"
                 fill="#5470c6"
           >
           </path>
@@ -3824,13 +3740,13 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(219.9435 381)"
+                transform="translate(217.1094 381)"
                 fill="#333"
           >
             Recurring
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(315.1559 381)"
+                transform="translate(314.707 381)"
                 fill="#91cc75"
           >
           </path>
@@ -3839,13 +3755,13 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(315.1559 381)"
+                transform="translate(314.707 381)"
                 fill="#333"
           >
             Regular
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(398.9682 381)"
+                transform="translate(400.7324 381)"
                 fill="#fac858"
           >
           </path>
@@ -3854,7 +3770,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(398.9682 381)"
+                transform="translate(400.7324 381)"
                 fill="#333"
           >
             Irregular
@@ -3936,17 +3852,12 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 stroke="#6E7079"
           >
           </path>
-          <path d="M134.5 330L134.5 335"
+          <path d="M156.5 330L156.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M199.5 330L199.5 335"
-                fill="none"
-                stroke="#6E7079"
-          >
-          </path>
-          <path d="M263.5 330L263.5 335"
+          <path d="M242.5 330L242.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -3956,17 +3867,12 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 stroke="#6E7079"
           >
           </path>
-          <path d="M392.5 330L392.5 335"
+          <path d="M414.5 330L414.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M457.5 330L457.5 335"
-                fill="none"
-                stroke="#6E7079"
-          >
-          </path>
-          <path d="M521.5 330L521.5 335"
+          <path d="M500.5 330L500.5 335"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -4032,7 +3938,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(80.6538 338)"
                 fill="#6E7079"
           >
@@ -4041,34 +3947,25 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(145.1769 338)"
+                y="3.6005859375"
+                transform="translate(166.6846 338)"
                 fill="#6E7079"
           >
-            4/2020
+            5/2020
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(209.7 338)"
+                y="3.6005859375"
+                transform="translate(252.7154 338)"
                 fill="#6E7079"
           >
-            7/2020
+            9/2020
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(274.2231 338)"
-                fill="#6E7079"
-          >
-            10/2020
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="middle"
-                style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(338.7462 338)"
                 fill="#6E7079"
           >
@@ -4077,34 +3974,25 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(403.2692 338)"
+                y="3.6005859375"
+                transform="translate(424.7769 338)"
                 fill="#6E7079"
           >
-            4/2021
+            5/2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(467.7923 338)"
+                y="3.6005859375"
+                transform="translate(510.8077 338)"
                 fill="#6E7079"
           >
-            7/2021
+            9/2021
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(532.3154 338)"
-                fill="#6E7079"
-          >
-            10/2021
-          </text>
-          <text dominant-baseline="central"
-                text-anchor="middle"
-                style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(596.8385 338)"
                 fill="#6E7079"
           >
@@ -4317,53 +4205,53 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         >
         </rect>
         <g>
-          <path d="M65.5 60L65.5 614.7999"
+          <path d="M69.5 60L69.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M178.5 60L178.5 614.7999"
+          <path d="M181.5 60L181.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M290.5 60L290.5 614.7999"
+          <path d="M293.5 60L293.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M403.5 60L403.5 614.7999"
+          <path d="M405.5 60L405.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M516.5 60L516.5 614.7999"
+          <path d="M517.5 60L517.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M629.5 60L629.5 614.7999"
+          <path d="M629.5 60L629.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M65.5 614.7999L65.5 60"
+          <path d="M69.5 614.7988L69.5 60"
                 fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
-          <path d="M64.9164 615.5L59.9164 615.5"
+          <path d="M68.8789 615.5L63.8789 615.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M64.9164 337.5L59.9164 337.5"
+          <path d="M68.8789 337.5L63.8789 337.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M64.9164 60.5L59.9164 60.5"
+          <path d="M68.8789 60.5L63.8789 60.5"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -4371,7 +4259,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(56.9164 476.1)"
+                transform="translate(60.8789 476.0991)"
                 fill="#6E7079"
           >
             US:ETrade
@@ -4379,7 +4267,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(56.9164 198.7)"
+                transform="translate(60.8789 198.6997)"
                 fill="#6E7079"
           >
             US:Hooli
@@ -4387,8 +4275,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(64.9164 622.7999)"
+                y="3.6005859375"
+                transform="translate(68.8789 622.7988)"
                 fill="#6E7079"
           >
             $0
@@ -4396,8 +4284,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(177.7531 622.7999)"
+                y="3.6005859375"
+                transform="translate(180.9231 622.7988)"
                 fill="#6E7079"
           >
             $30,000
@@ -4405,8 +4293,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(290.5898 622.7999)"
+                y="3.6005859375"
+                transform="translate(292.9673 622.7988)"
                 fill="#6E7079"
           >
             $60,000
@@ -4414,8 +4302,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(403.4266 622.7999)"
+                y="3.6005859375"
+                transform="translate(405.0116 622.7988)"
                 fill="#6E7079"
           >
             $90,000
@@ -4423,8 +4311,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(516.2633 622.7999)"
+                y="3.6005859375"
+                transform="translate(517.0558 622.7988)"
                 fill="#6E7079"
           >
             $120,000
@@ -4432,40 +4320,40 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(629.1 622.7999)"
+                y="3.6005859375"
+                transform="translate(629.1 622.7988)"
                 fill="#6E7079"
           >
             $150,000
           </text>
-          <path d="M64.9164 369.301l0.1113 0l0 62.8229l-0.1113 0Z"
+          <path d="M68.8789 369.3003l0.1106 0l0 62.8228l-0.1106 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M64.9164 91.901l505.967 0l0 62.8229l-505.967 0Z"
+          <path d="M68.8789 91.9009l502.4134 0l0 62.8228l-502.4134 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M64.9164 444.6885l2.9361 0l0 62.8229l-2.9361 0Z"
+          <path d="M68.8789 444.6877l2.9155 0l0 62.8228l-2.9155 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M64.9164 167.2885l488.5161 0l0 62.8229l-488.5161 0Z"
+          <path d="M68.8789 167.2883l485.085 0l0 62.8228l-485.085 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M64.9164 520.076l0 0l0 62.8229l0 0Z"
+          <path d="M68.8789 520.0751l0 0l0 62.8228l0 0Z"
                 fill="#fac858"
           >
           </path>
-          <path d="M64.9164 242.676l78.8307 0l0 62.8229l-78.8307 0Z"
+          <path d="M68.8789 242.6757l78.2771 0l0 62.8228l-78.2771 0Z"
                 fill="#fac858"
           >
           </path>
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(70.0277 400.7124)"
+                transform="translate(73.9895 400.7118)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4477,7 +4365,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(575.8834 123.3125)"
+                transform="translate(576.2923 123.3123)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4489,7 +4377,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(72.8525 476.1)"
+                transform="translate(76.7944 476.0991)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4501,7 +4389,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(558.4324 198.7)"
+                transform="translate(558.9639 198.6997)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4513,7 +4401,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(69.9164 551.4875)"
+                transform="translate(73.8789 551.4865)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4525,7 +4413,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(148.7471 274.0875)"
+                transform="translate(152.156 274.0871)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4534,8 +4422,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           >
             $20,959
           </text>
-          <path d="M-5 -5l202.3685 0l0 24l-202.3685 0Z"
-                transform="translate(253.3157 681)"
+          <path d="M-5 -5l211.6172 0l0 24l-211.6172 0Z"
+                transform="translate(248.6914 681)"
                 fill="rgb(0,0,0)"
                 fill-opacity="0"
                 stroke="#ccc"
@@ -4543,7 +4431,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(253.3157 681)"
+                transform="translate(248.6914 681)"
                 fill="#5470c6"
           >
           </path>
@@ -4552,13 +4440,13 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(253.3157 681)"
+                transform="translate(248.6914 681)"
                 fill="#333"
           >
             2020
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(320.7719 681)"
+                transform="translate(319.2305 681)"
                 fill="#91cc75"
           >
           </path>
@@ -4567,13 +4455,13 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(320.7719 681)"
+                transform="translate(319.2305 681)"
                 fill="#333"
           >
             2021
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(388.2281 681)"
+                transform="translate(389.7695 681)"
                 fill="#fac858"
           >
           </path>
@@ -4582,7 +4470,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(388.2281 681)"
+                transform="translate(389.7695 681)"
                 fill="#333"
           >
             2022
@@ -4621,83 +4509,83 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         >
         </rect>
         <g>
-          <path d="M62.5 60L62.5 614.7999"
+          <path d="M64.5 60L64.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M157.5 60L157.5 614.7999"
+          <path d="M158.5 60L158.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M251.5 60L251.5 614.7999"
+          <path d="M252.5 60L252.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M346.5 60L346.5 614.7999"
+          <path d="M346.5 60L346.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M440.5 60L440.5 614.7999"
+          <path d="M441.5 60L441.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M534.5 60L534.5 614.7999"
+          <path d="M535.5 60L535.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M629.5 60L629.5 614.7999"
+          <path d="M629.5 60L629.5 614.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M62.5 614.7999L62.5 60"
+          <path d="M64.5 614.7988L64.5 60"
                 fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
-          <path d="M62.6124 615.5L57.6124 615.5"
+          <path d="M64.3555 615.5L59.3555 615.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M62.6124 535.5L57.6124 535.5"
+          <path d="M64.3555 535.5L59.3555 535.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M62.6124 456.5L57.6124 456.5"
+          <path d="M64.3555 456.5L59.3555 456.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M62.6124 377.5L57.6124 377.5"
+          <path d="M64.3555 377.5L59.3555 377.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M62.6124 298.5L57.6124 298.5"
+          <path d="M64.3555 298.5L59.3555 298.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M62.6124 218.5L57.6124 218.5"
+          <path d="M64.3555 218.5L59.3555 218.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M62.6124 139.5L57.6124 139.5"
+          <path d="M64.3555 139.5L59.3555 139.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M62.6124 60.5L57.6124 60.5"
+          <path d="M64.3555 60.5L59.3555 60.5"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -4705,7 +4593,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(54.6124 575.1714)"
+                transform="translate(56.3555 575.1703)"
                 fill="#6E7079"
           >
             Shopping
@@ -4713,7 +4601,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(54.6124 495.9142)"
+                transform="translate(56.3555 495.9134)"
                 fill="#6E7079"
           >
             Transport
@@ -4721,7 +4609,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(54.6124 416.6571)"
+                transform="translate(56.3555 416.6564)"
                 fill="#6E7079"
           >
             Health
@@ -4729,7 +4617,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(54.6124 337.4)"
+                transform="translate(56.3555 337.3994)"
                 fill="#6E7079"
           >
             Food
@@ -4737,7 +4625,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(54.6124 258.1428)"
+                transform="translate(56.3555 258.1424)"
                 fill="#6E7079"
           >
             Wedding
@@ -4745,7 +4633,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(54.6124 178.8857)"
+                transform="translate(56.3555 178.8855)"
                 fill="#6E7079"
           >
             Housing
@@ -4753,7 +4641,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(54.6124 99.6286)"
+                transform="translate(56.3555 99.6285)"
                 fill="#6E7079"
           >
             Taxes
@@ -4761,8 +4649,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(62.6124 622.7999)"
+                y="3.6005859375"
+                transform="translate(64.3555 622.7988)"
                 fill="#6E7079"
           >
             $0
@@ -4770,8 +4658,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(157.027 622.7999)"
+                y="3.6005859375"
+                transform="translate(158.4796 622.7988)"
                 fill="#6E7079"
           >
             $10,000
@@ -4779,8 +4667,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(251.4416 622.7999)"
+                y="3.6005859375"
+                transform="translate(252.6036 622.7988)"
                 fill="#6E7079"
           >
             $20,000
@@ -4788,8 +4676,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(345.8562 622.7999)"
+                y="3.6005859375"
+                transform="translate(346.7277 622.7988)"
                 fill="#6E7079"
           >
             $30,000
@@ -4797,8 +4685,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(440.2708 622.7999)"
+                y="3.6005859375"
+                transform="translate(440.8518 622.7988)"
                 fill="#6E7079"
           >
             $40,000
@@ -4806,8 +4694,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(534.6854 622.7999)"
+                y="3.6005859375"
+                transform="translate(534.9759 622.7988)"
                 fill="#6E7079"
           >
             $50,000
@@ -4815,100 +4703,100 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(629.1 622.7999)"
+                y="3.6005859375"
+                transform="translate(629.1 622.7988)"
                 fill="#6E7079"
           >
             $60,000
           </text>
-          <path d="M62.6124 544.6574l0 0l0 17.9494l0 0Z"
+          <path d="M64.3555 544.6564l0 0l0 17.9494l0 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M62.6124 465.4002l12.4627 0l0 17.9494l-12.4627 0Z"
+          <path d="M64.3555 465.3994l12.4244 0l0 17.9494l-12.4244 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M62.6124 386.1431l24.7017 0l0 17.9494l-24.7017 0Z"
+          <path d="M64.3555 386.1425l24.6257 0l0 17.9494l-24.6257 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M62.6124 306.886l69.7653 0l0 17.9494l-69.7653 0Z"
+          <path d="M64.3555 306.8855l69.5506 0l0 17.9494l-69.5506 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M62.6124 227.6288l0 0l0 17.9494l0 0Z"
+          <path d="M64.3555 227.6285l0 0l0 17.9494l0 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M62.6124 148.3717l294.5602 0l0 17.9494l-294.5602 0Z"
+          <path d="M64.3555 148.3715l293.6539 0l0 17.9494l-293.6539 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M62.6124 69.1146l502.1711 0l0 17.9494l-502.1711 0Z"
+          <path d="M64.3555 69.1146l500.6259 0l0 17.9494l-500.6259 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M62.6124 566.1967l0 0l0 17.9494l0 0Z"
+          <path d="M64.3555 566.1957l0 0l0 17.9494l0 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M62.6124 486.9395l12.4627 0l0 17.9494l-12.4627 0Z"
+          <path d="M64.3555 486.9387l12.4244 0l0 17.9494l-12.4244 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M62.6124 407.6824l23.7868 0l0 17.9494l-23.7868 0Z"
+          <path d="M64.3555 407.6817l23.7136 0l0 17.9494l-23.7136 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M62.6124 328.4253l69.8509 0l0 17.9494l-69.8509 0Z"
+          <path d="M64.3555 328.4247l69.6359 0l0 17.9494l-69.6359 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M62.6124 249.1681l188.8292 0l0 17.9494l-188.8292 0Z"
+          <path d="M64.3555 249.1678l188.2482 0l0 17.9494l-188.2482 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M62.6124 169.911l295.1744 0l0 17.9494l-295.1744 0Z"
+          <path d="M64.3555 169.9108l294.2662 0l0 17.9494l-294.2662 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M62.6124 90.6539l496.579 0l0 17.9494l-496.579 0Z"
+          <path d="M64.3555 90.6538l495.051 0l0 17.9494l-495.051 0Z"
                 fill="#91cc75"
           >
           </path>
-          <path d="M62.6124 587.736l8.4973 0l0 17.9494l-8.4973 0Z"
+          <path d="M64.3555 587.7349l8.4712 0l0 17.9494l-8.4712 0Z"
                 fill="#fac858"
           >
           </path>
-          <path d="M62.6124 508.4788l2.266 0l0 17.9494l-2.266 0Z"
+          <path d="M64.3555 508.4779l2.259 0l0 17.9494l-2.259 0Z"
                 fill="#fac858"
           >
           </path>
-          <path d="M62.6124 429.2217l3.6595 0l0 17.9494l-3.6595 0Z"
+          <path d="M64.3555 429.221l3.6482 0l0 17.9494l-3.6482 0Z"
                 fill="#fac858"
           >
           </path>
-          <path d="M62.6124 349.9646l10.4539 0l0 17.9494l-10.4539 0Z"
+          <path d="M64.3555 349.964l10.4217 0l0 17.9494l-10.4217 0Z"
                 fill="#fac858"
           >
           </path>
-          <path d="M62.6124 270.7074l0 0l0 17.9494l0 0Z"
+          <path d="M64.3555 270.707l0 0l0 17.9494l0 0Z"
                 fill="#fac858"
           >
           </path>
-          <path d="M62.6124 191.4503l24.4747 0l0 17.9494l-24.4747 0Z"
+          <path d="M64.3555 191.45l24.3994 0l0 17.9494l-24.3994 0Z"
                 fill="#fac858"
           >
           </path>
-          <path d="M62.6124 112.1932l75.2371 0l0 17.9494l-75.2371 0Z"
+          <path d="M64.3555 112.193l75.0056 0l0 17.9494l-75.0056 0Z"
                 fill="#fac858"
           >
           </path>
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(67.6124 553.6321)"
+                transform="translate(69.3555 553.6311)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4920,7 +4808,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(80.0751 474.3749)"
+                transform="translate(81.7798 474.3741)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4932,7 +4820,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(92.3141 395.1178)"
+                transform="translate(93.9812 395.1171)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4944,7 +4832,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(137.3777 315.8607)"
+                transform="translate(138.9061 315.8602)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4956,7 +4844,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(67.6124 236.6035)"
+                transform="translate(69.3555 236.6032)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4968,7 +4856,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(362.1726 157.3464)"
+                transform="translate(363.0094 157.3462)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4980,7 +4868,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(569.7835 78.0893)"
+                transform="translate(569.9814 78.0892)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -4992,7 +4880,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(67.6124 575.1714)"
+                transform="translate(69.3555 575.1703)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5004,7 +4892,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(80.0751 495.9142)"
+                transform="translate(81.7798 495.9134)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5016,7 +4904,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(91.3992 416.6571)"
+                transform="translate(93.0691 416.6564)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5028,7 +4916,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(137.4632 337.4)"
+                transform="translate(138.9914 337.3994)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5040,7 +4928,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(256.4416 258.1428)"
+                transform="translate(257.6036 258.1424)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5052,7 +4940,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(362.7868 178.8857)"
+                transform="translate(363.6216 178.8855)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5064,7 +4952,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(564.1914 99.6286)"
+                transform="translate(564.4065 99.6285)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5076,7 +4964,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(76.1097 596.7107)"
+                transform="translate(77.8266 596.7096)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5088,7 +4976,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(69.8783 517.4535)"
+                transform="translate(71.6144 517.4526)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5100,7 +4988,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(71.2719 438.1964)"
+                transform="translate(73.0037 438.1956)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5112,7 +5000,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(78.0662 358.9393)"
+                transform="translate(79.7772 358.9387)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5124,7 +5012,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(67.6124 279.6821)"
+                transform="translate(69.3555 279.6817)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5136,7 +5024,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(92.0871 200.425)"
+                transform="translate(93.7549 200.4247)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5148,7 +5036,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(142.8495 121.1679)"
+                transform="translate(144.3611 121.1677)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -5157,8 +5045,8 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           >
             $7,969
           </text>
-          <path d="M-5 -5l202.3685 0l0 24l-202.3685 0Z"
-                transform="translate(253.3157 681)"
+          <path d="M-5 -5l211.6172 0l0 24l-211.6172 0Z"
+                transform="translate(248.6914 681)"
                 fill="rgb(0,0,0)"
                 fill-opacity="0"
                 stroke="#ccc"
@@ -5166,7 +5054,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(253.3157 681)"
+                transform="translate(248.6914 681)"
                 fill="#5470c6"
           >
           </path>
@@ -5175,13 +5063,13 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(253.3157 681)"
+                transform="translate(248.6914 681)"
                 fill="#333"
           >
             2020
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(320.7719 681)"
+                transform="translate(319.2305 681)"
                 fill="#91cc75"
           >
           </path>
@@ -5190,13 +5078,13 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(320.7719 681)"
+                transform="translate(319.2305 681)"
                 fill="#333"
           >
             2021
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(388.2281 681)"
+                transform="translate(389.7695 681)"
                 fill="#fac858"
           >
           </path>
@@ -5205,7 +5093,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(388.2281 681)"
+                transform="translate(389.7695 681)"
                 fill="#333"
           >
             2022
@@ -5664,7 +5552,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(165.9231 458)"
                 fill="#6E7079"
           >
@@ -5673,7 +5561,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(254.4154 458)"
                 fill="#6E7079"
           >
@@ -5682,7 +5570,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(342.9077 458)"
                 fill="#6E7079"
           >
@@ -5691,7 +5579,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(431.4 458)"
                 fill="#6E7079"
           >
@@ -5700,7 +5588,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(519.8923 458)"
                 fill="#6E7079"
           >
@@ -5709,7 +5597,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(608.3846 458)"
                 fill="#6E7079"
           >
@@ -5718,7 +5606,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(696.8769 458)"
                 fill="#6E7079"
           >
@@ -5727,7 +5615,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(785.3692 458)"
                 fill="#6E7079"
           >
@@ -5736,7 +5624,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(873.8615 458)"
                 fill="#6E7079"
           >
@@ -5745,7 +5633,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(962.3538 458)"
                 fill="#6E7079"
           >
@@ -5754,7 +5642,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(1050.8462 458)"
                 fill="#6E7079"
           >
@@ -5763,7 +5651,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(1139.3385 458)"
                 fill="#6E7079"
           >
@@ -5772,7 +5660,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(1227.8308 458)"
                 fill="#6E7079"
           >
@@ -6402,8 +6290,8 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
                 fill="#3ba272"
           >
           </path>
-          <path d="M-5 -5l478.0697 0l0 24l-478.0697 0Z"
-                transform="translate(484.9652 501)"
+          <path d="M-5 -5l487.8105 0l0 24l-487.8105 0Z"
+                transform="translate(480.0947 501)"
                 fill="rgb(0,0,0)"
                 fill-opacity="0"
                 stroke="#ccc"
@@ -6411,7 +6299,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(484.9652 501)"
+                transform="translate(480.0947 501)"
                 fill="#5470c6"
           >
           </path>
@@ -6420,13 +6308,13 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(484.9652 501)"
+                transform="translate(480.0947 501)"
                 fill="#333"
           >
             Income
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(567.4575 501)"
+                transform="translate(564.251 501)"
                 fill="#91cc75"
           >
           </path>
@@ -6435,13 +6323,13 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(567.4575 501)"
+                transform="translate(564.251 501)"
                 fill="#333"
           >
             Housing
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(654.6658 501)"
+                transform="translate(653.0303 501)"
                 fill="#fac858"
           >
           </path>
@@ -6450,13 +6338,13 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(654.6658 501)"
+                transform="translate(653.0303 501)"
                 fill="#333"
           >
             Food
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(722.794 501)"
+                transform="translate(721.8057 501)"
                 fill="#ee6666"
           >
           </path>
@@ -6465,13 +6353,13 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(722.794 501)"
+                transform="translate(721.8057 501)"
                 fill="#333"
           >
             Shopping
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(816.7104 501)"
+                transform="translate(818.1611 501)"
                 fill="#73c0de"
           >
           </path>
@@ -6480,13 +6368,13 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(816.7104 501)"
+                transform="translate(818.1611 501)"
                 fill="#333"
           >
             Travel
           </text>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
-                transform="translate(890.1906 501)"
+                transform="translate(893.833 501)"
                 fill="#3ba272"
           >
           </path>
@@ -6495,7 +6383,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(890.1906 501)"
+                transform="translate(893.833 501)"
                 fill="#333"
           >
             Other
@@ -6729,7 +6617,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(155.304 338)"
                 fill="#6E7079"
           >
@@ -6738,7 +6626,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(224.328 338)"
                 fill="#6E7079"
           >
@@ -6747,7 +6635,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(293.352 338)"
                 fill="#6E7079"
           >
@@ -6756,7 +6644,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(362.376 338)"
                 fill="#6E7079"
           >
@@ -6765,7 +6653,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(431.4 338)"
                 fill="#6E7079"
           >
@@ -6774,7 +6662,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(500.424 338)"
                 fill="#6E7079"
           >
@@ -6783,7 +6671,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(569.448 338)"
                 fill="#6E7079"
           >
@@ -6792,7 +6680,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(638.472 338)"
                 fill="#6E7079"
           >
@@ -6801,7 +6689,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(707.496 338)"
                 fill="#6E7079"
           >
@@ -6810,7 +6698,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(776.52 338)"
                 fill="#6E7079"
           >
@@ -6819,7 +6707,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(845.544 338)"
                 fill="#6E7079"
           >
@@ -6828,7 +6716,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(914.568 338)"
                 fill="#6E7079"
           >
@@ -6837,7 +6725,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(983.592 338)"
                 fill="#6E7079"
           >
@@ -6846,7 +6734,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(1052.616 338)"
                 fill="#6E7079"
           >
@@ -6855,7 +6743,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(1121.64 338)"
                 fill="#6E7079"
           >
@@ -6864,7 +6752,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(1190.664 338)"
                 fill="#6E7079"
           >
@@ -6873,7 +6761,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(1259.688 338)"
                 fill="#6E7079"
           >
@@ -6907,8 +6795,8 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
             >
             </path>
           </g>
-          <path d="M-5 -5l369.4577 0l0 23.2l-369.4577 0Z"
-                transform="translate(539.2711 381.8)"
+          <path d="M-5 -5l383.8828 0l0 23.2l-383.8828 0Z"
+                transform="translate(532.0586 381.8)"
                 fill="rgb(0,0,0)"
                 fill-opacity="0"
                 stroke="#ccc"
@@ -6916,7 +6804,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           >
           </path>
           <path d="M0 7L25 7"
-                transform="translate(540.2711 381.4)"
+                transform="translate(533.0586 381.4)"
                 fill="#000"
                 stroke="#5470c6"
                 stroke-width="2"
@@ -6925,7 +6813,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           >
           </path>
           <path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.9994"
-                transform="translate(540.2711 381.4)"
+                transform="translate(533.0586 381.4)"
                 fill="#fff"
                 stroke="#5470c6"
                 stroke-width="2"
@@ -6939,13 +6827,13 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
                 xml:space="preserve"
                 x="30"
                 y="7"
-                transform="translate(540.2711 381.4)"
+                transform="translate(533.0586 381.4)"
                 fill="#333"
           >
             Net Worth
           </text>
           <path d="M0 7L25 7"
-                transform="translate(639.4956 381.4)"
+                transform="translate(634.6855 381.4)"
                 fill="#000"
                 stroke="#91cc75"
                 stroke-width="2"
@@ -6954,7 +6842,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           >
           </path>
           <path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.9994"
-                transform="translate(639.4956 381.4)"
+                transform="translate(634.6855 381.4)"
                 fill="#fff"
                 stroke="#91cc75"
                 stroke-width="2"
@@ -6968,13 +6856,13 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
                 xml:space="preserve"
                 x="30"
                 y="7"
-                transform="translate(639.4956 381.4)"
+                transform="translate(634.6855 381.4)"
                 fill="#333"
           >
             Excluding onetime txns
           </text>
           <path d="M0 7L25 7"
-                transform="translate(811.7645 381.4)"
+                transform="translate(816.6035 381.4)"
                 fill="#000"
                 stroke="#fac858"
                 stroke-width="2"
@@ -6984,7 +6872,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           >
           </path>
           <path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.9994"
-                transform="translate(811.7645 381.4)"
+                transform="translate(816.6035 381.4)"
                 fill="#fff"
                 stroke="#fac858"
                 stroke-width="2"
@@ -6997,7 +6885,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
                 style="font-size:12px;font-family:sans-serif;"
                 x="30"
                 y="7"
-                transform="translate(811.7645 381.4)"
+                transform="translate(816.6035 381.4)"
                 fill="#333"
           >
             Projection
@@ -8976,7 +8864,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(335.5333 338)"
                 fill="#6E7079"
           >
@@ -8985,7 +8873,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(719 338)"
                 fill="#6E7079"
           >
@@ -8994,7 +8882,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
+                y="3.6005859375"
                 transform="translate(1102.4667 338)"
                 fill="#6E7079"
           >
@@ -9071,63 +8959,63 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
         >
         </rect>
         <g>
-          <path d="M137.5 60L137.5 214.7999"
+          <path d="M148.5 60L148.5 214.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M330.5 60L330.5 214.7999"
+          <path d="M339.5 60L339.5 214.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M523.5 60L523.5 214.7999"
+          <path d="M530.5 60L530.5 214.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M716.5 60L716.5 214.7999"
+          <path d="M721.5 60L721.5 214.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M908.5 60L908.5 214.7999"
+          <path d="M912.5 60L912.5 214.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M1101.5 60L1101.5 214.7999"
+          <path d="M1103.5 60L1103.5 214.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M1294.5 60L1294.5 214.7999"
+          <path d="M1294.5 60L1294.5 214.7988"
                 fill="none"
                 stroke="#E0E6F1"
           >
           </path>
-          <path d="M137.5 214.7999L137.5 60"
+          <path d="M148.5 214.7988L148.5 60"
                 fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
-          <path d="M137.3249 215.5L132.3249 215.5"
+          <path d="M147.793 215.5L142.793 215.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M137.3249 163.5L132.3249 163.5"
+          <path d="M147.793 163.5L142.793 163.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M137.3249 111.5L132.3249 111.5"
+          <path d="M147.793 111.5L142.793 111.5"
                 fill="none"
                 stroke="#6E7079"
           >
           </path>
-          <path d="M137.3249 60.5L132.3249 60.5"
+          <path d="M147.793 60.5L142.793 60.5"
                 fill="none"
                 stroke="#6E7079"
           >
@@ -9135,7 +9023,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(129.3249 189)"
+                transform="translate(139.793 188.999)"
                 fill="#6E7079"
           >
             trip-san-francisco-2021
@@ -9143,7 +9031,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(129.3249 137.4)"
+                transform="translate(139.793 137.3994)"
                 fill="#6E7079"
           >
             trip-chicago-2021
@@ -9151,7 +9039,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="end"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(129.3249 85.8)"
+                transform="translate(139.793 85.7998)"
                 fill="#6E7079"
           >
             trip-san-francisco-2020
@@ -9159,8 +9047,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(137.3249 222.7999)"
+                y="3.6005859375"
+                transform="translate(147.793 222.7988)"
                 fill="#6E7079"
           >
             $0
@@ -9168,8 +9056,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(330.1374 222.7999)"
+                y="3.6005859375"
+                transform="translate(338.8608 222.7988)"
                 fill="#6E7079"
           >
             $200
@@ -9177,8 +9065,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(522.9499 222.7999)"
+                y="3.6005859375"
+                transform="translate(529.9286 222.7988)"
                 fill="#6E7079"
           >
             $400
@@ -9186,8 +9074,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(715.7625 222.7999)"
+                y="3.6005859375"
+                transform="translate(720.9965 222.7988)"
                 fill="#6E7079"
           >
             $600
@@ -9195,8 +9083,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(908.575 222.7999)"
+                y="3.6005859375"
+                transform="translate(912.0643 222.7988)"
                 fill="#6E7079"
           >
             $800
@@ -9204,8 +9092,8 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(1101.3875 222.7999)"
+                y="3.6005859375"
+                transform="translate(1103.1322 222.7988)"
                 fill="#6E7079"
           >
             $1,000
@@ -9213,28 +9101,28 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="middle"
                 style="font-size:12px;font-family:sans-serif;"
-                y="3.6000289916992188"
-                transform="translate(1294.2 222.7999)"
+                y="3.6005859375"
+                transform="translate(1294.2 222.7988)"
                 fill="#6E7079"
           >
             $1,200
           </text>
-          <path d="M137.3249 171.198l536.5008 0l0 35.604l-536.5008 0Z"
+          <path d="M147.793 171.1972l531.6463 0l0 35.6037l-531.6463 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M137.3249 119.598l1017.9922 0l0 35.604l-1017.9922 0Z"
+          <path d="M147.793 119.5975l1008.7809 0l0 35.6037l-1008.7809 0Z"
                 fill="#5470c6"
           >
           </path>
-          <path d="M137.3249 67.998l971.5341 0l0 35.604l-971.5341 0Z"
+          <path d="M147.793 67.9979l962.7431 0l0 35.6037l-962.7431 0Z"
                 fill="#5470c6"
           >
           </path>
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(678.8257 189)"
+                transform="translate(684.4392 188.999)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -9246,7 +9134,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(1160.3171 137.4)"
+                transform="translate(1161.5738 137.3994)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
@@ -9258,7 +9146,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           <text dominant-baseline="central"
                 text-anchor="start"
                 style="font-size:12px;font-family:sans-serif;"
-                transform="translate(1113.859 85.8)"
+                transform="translate(1115.536 85.7998)"
                 fill="#333"
                 stroke="rgb(255,255,255)"
                 stroke-width="2"
