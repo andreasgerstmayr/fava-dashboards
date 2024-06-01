@@ -161,7 +161,7 @@ dashboards:
     queries:
     - bql: |
         SELECT year, month,
-        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month - 1 day')) AS value
+        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
         WHERE account_sortkey(account) ~ '^[01]'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
@@ -209,8 +209,8 @@ dashboards:
     queries:
     - bql: &portfolio_bql |
         SELECT year, month,
-        CONVERT(LAST(balance),       '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month - 1 day')) AS market_value,
-        CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month - 1 day')) AS book_value
+        CONVERT(LAST(balance),       '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS market_value,
+        CONVERT(COST(LAST(balance)), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS book_value
         WHERE account ~ '^Assets:' AND currency != '{{ledger.ccy}}'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
@@ -1039,14 +1039,14 @@ dashboards:
     queries:
     - bql: |
         SELECT year, month,
-        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month - 1 day')) AS value
+        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
         WHERE account_sortkey(account) ~ '^[01]'
         GROUP BY year, month
       link: /beancount/balance_sheet/?time={time}
     # ignore onetime income and expenses, for example winning the lottery or wedding expenses
     - bql: |
         SELECT year, month,
-        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month - 1 day')) AS value
+        CONVERT(LAST(balance), '{{ledger.ccy}}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
         WHERE account_sortkey(account) ~ '^[01]' AND NOT 'wedding' IN tags AND NOT 'weddinggift' IN tags
         GROUP BY year, month
     type: echarts

@@ -15,7 +15,7 @@ babel==2.14.0
 beancount==2.3.6
     # via beanquery
     # via fava
-beanquery @ git+https://github.com/andreasgerstmayr/beanquery@add-last_day-function
+beanquery @ git+https://github.com/beancount/beanquery@6df80214d1c1f8aabdba0af732e5e1a36f631e43
     # via fava-dashboards
 beautifulsoup4==4.12.3
     # via beancount

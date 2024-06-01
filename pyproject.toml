@@ -8,7 +8,7 @@ authors = [
 dependencies = [
     "fava>=1.26.1",
     "pyyaml>=6.0.1",
-    "beanquery @ git+https://github.com/andreasgerstmayr/beanquery@add-last_day-function",
+    "beanquery @ git+https://github.com/beancount/beanquery",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
