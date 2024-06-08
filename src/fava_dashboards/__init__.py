@@ -119,10 +119,11 @@ class FavaDashboards(FavaExtensionBase):
         operating_currencies = self.ledger.options["operating_currency"]
 
         if len(operating_currencies) == 0:
-            raise FavaAPIError(f"no operating currency specified in the ledger")
+            raise FavaAPIError("no operating currency specified in the ledger")
+        # pylint: disable=protected-access
         if not g.filtered._date_first or not g.filtered._date_last:
             raise FavaAPIError(
-                f"cannot determine first/last day of ledger, is the ledger empty?"
+                "cannot determine first/last day of ledger, is the ledger empty?"
             )
 
         commodities = {c.currency: c for c in self.ledger.all_entries_by_type.Commodity}
