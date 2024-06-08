@@ -578,7 +578,7 @@ dashboards:
       const divisor = days / (365 / 12);
       const accountTree = utils.buildAccountTree(
         panel.queries[0].result,
-        (row) => -row.value[ledger.ccy] / divisor,
+        (row) => -(row.value[ledger.ccy] ?? 0) / divisor,
         (parts, i) => parts[i],
       );
       // use click event on desktop, dblclick on mobile
@@ -622,7 +622,7 @@ dashboards:
       const divisor = days / (365 / 12);
       const accountTree = utils.buildAccountTree(
         panel.queries[0].result,
-        (row) => row.value[ledger.ccy] / divisor,
+        (row) => (row.value[ledger.ccy] ?? 0) / divisor,
         (parts, i) => parts[i],
       );
       // use click event on desktop, dblclick on mobile
@@ -1005,7 +1005,7 @@ dashboards:
         }
       }
 
-      const accountTree = utils.buildAccountTree(panel.queries[0].result, (row) => row.value[ledger.ccy]);
+      const accountTree = utils.buildAccountTree(panel.queries[0].result, (row) => row.value[ledger.ccy] ?? 0);
       addNode(accountTree.children[0]);
       addNode(accountTree.children[1]);
 
