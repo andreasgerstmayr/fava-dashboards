@@ -20,6 +20,6 @@
     "dependencies": {
         "d3": "^7.8.5",
         "d3-sankey": "^0.12.3",
-        "echarts": "^5.4.3"
+        "echarts": "^5.5.0"
     }
 }
