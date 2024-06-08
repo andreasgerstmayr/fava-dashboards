@@ -10,8 +10,8 @@ dashboards:
     type: html
     script: |
       const currencyFormatter = utils.currencyFormatter(ledger.ccy);
-      const value = panel.queries[0].result[0]?.value[ledger.ccy];
-      const valueFmt = currencyFormatter(value ?? 0);
+      const value = panel.queries[0].result[0]?.value[ledger.ccy] ?? 0;
+      const valueFmt = currencyFormatter(value);
       return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${valueFmt}</div>`;
 
   - title: Liabilities 💳
@@ -23,8 +23,8 @@ dashboards:
     type: html
     script: |
       const currencyFormatter = utils.currencyFormatter(ledger.ccy);
-      const value = panel.queries[0].result[0]?.value[ledger.ccy];
-      const valueFmt = currencyFormatter(value ? -value : 0);
+      const value = panel.queries[0].result[0]?.value[ledger.ccy] ?? -0;
+      const valueFmt = currencyFormatter(-value);
       return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${valueFmt}</div>`;
 
   - title: Income/Expenses 💸
@@ -83,8 +83,8 @@ dashboards:
       for (let query of panel.queries) {
         amounts[query.name] = {};
         for (let row of query.result) {
-          amounts[query.name][`${row.month}/${row.year}`] =
-            query.stack == "income" ? -row.value[ledger.ccy] : row.value[ledger.ccy];
+          const value = row.value[ledger.ccy] ?? 0;
+          amounts[query.name][`${row.month}/${row.year}`] = query.stack == "income" ? -value : value;
         }
       }
 
@@ -522,8 +522,9 @@ dashboards:
       const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const months = days / (365 / 12);
-      const value = currencyFormatter(-panel.queries[0].result[0].value[ledger.ccy] / months);
-      return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
+      const value = panel.queries[0].result[0]?.value[ledger.ccy] ?? -0;
+      const valueFmt = currencyFormatter(-value / months);
+      return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${valueFmt}</div>`;
 
   - title: Avg. Expenses per Month 💸
     width: 33.3%
@@ -536,8 +537,9 @@ dashboards:
       const currencyFormatter = utils.currencyFormatter(ledger.ccy);
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const months = days / (365 / 12);
-      const value = currencyFormatter(panel.queries[0].result[0].value[ledger.ccy] / months);
-      return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${value}</div>`;
+      const value = panel.queries[0].result[0]?.value[ledger.ccy] ?? 0;
+      const valueFmt = currencyFormatter(value / months);
+      return `<div style="font-size: 40px; font-weight: bold; color: #af3d3d; text-align: center;">${valueFmt}</div>`;
 
   - title: Avg. Savings per Month ✨
     width: 33.3%
@@ -555,10 +557,10 @@ dashboards:
       });
       const days = (new Date(ledger.dateLast) - new Date(ledger.dateFirst)) / (1000 * 60 * 60 * 24) + 1;
       const months = days / (365 / 12);
-      const income = -panel.queries[0].result[0].value[ledger.ccy];
-      const expenses = panel.queries[1].result[0].value[ledger.ccy];
+      const income = -(panel.queries[0].result[0]?.value[ledger.ccy] ?? -0);
+      const expenses = panel.queries[1].result[0]?.value[ledger.ccy] ?? 0;
       const rate = (income - expenses) / months;
-      const ratePercent = 1 - expenses / income;
+      const ratePercent = income === 0 ? 0 : 1 - expenses / income;
       const value = `${currencyFormatter(rate)} (${percentFormat.format(ratePercent)})`;
       return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
 
@@ -596,7 +598,7 @@ dashboards:
               minAngle: 20,
             },
             nodeClick: false,
-            data: accountTree.children[0].children,
+            data: accountTree.children[0]?.children ?? [],
           },
         ],
         [clickEvt]: (event) => {
@@ -640,7 +642,7 @@ dashboards:
               minAngle: 20,
             },
             nodeClick: false,
-            data: accountTree.children[0].children,
+            data: accountTree.children[0]?.children ?? [],
           },
         ],
         [clickEvt]: (event) => {
@@ -1006,6 +1008,9 @@ dashboards:
       }
 
       const accountTree = utils.buildAccountTree(panel.queries[0].result, (row) => row.value[ledger.ccy] ?? 0);
+      if (accountTree.children.length !== 2) {
+        throw Error("No Income/Expense accounts found.");
+      }
       addNode(accountTree.children[0]);
       addNode(accountTree.children[1]);
 
@@ -1058,21 +1063,21 @@ dashboards:
       const amounts = {};
       const amountsEx = {};
       for (let row of panel.queries[0].result) {
-        amounts[`${row.month}/${row.year}`] = row.value[ledger.ccy];
+        amounts[`${row.month}/${row.year}`] = row.value[ledger.ccy] ?? 0;
       }
       for (let row of panel.queries[1].result) {
-        amountsEx[`${row.month}/${row.year}`] = row.value[ledger.ccy];
+        amountsEx[`${row.month}/${row.year}`] = row.value[ledger.ccy] ?? 0;
       }
 
       const results = panel.queries[0].result;
       const resultsEx = panel.queries[1].result;
       const resultsExLast = resultsEx[resultsEx.length - 1];
 
-      const finalAmount = results[results.length - 1].value[ledger.ccy];
+      const finalAmount = results[results.length - 1].value[ledger.ccy] ?? 0;
       const dateFirst = new Date(resultsEx[0].year, resultsEx[0].month - 1, 1);
       const dateLast = new Date(new Date(resultsExLast.year, resultsExLast.month, 1).getTime() - 1);
       const days = (dateLast - dateFirst) / (1000 * 60 * 60 * 24) + 1;
-      const totalDiff = resultsExLast.value[ledger.ccy] - resultsEx[0].value[ledger.ccy];
+      const totalDiff = (resultsExLast.value[ledger.ccy] ?? 0) - (resultsEx[0].value[ledger.ccy] ?? 0);
       const monthlyDiff = (totalDiff / days) * (365 / 12);
 
       const dateLastYear = dateLast.getFullYear();
@@ -1082,7 +1087,7 @@ dashboards:
       const months = utils.iterateMonths(dateFirstStr, dateProjectUntilStr).map((m) => `${m.month}/${m.year}`);
       const lastMonthIdx = months.findIndex((m) => m === `${dateLastMonth}/${dateLastYear}`);
 
-      const projection = [];
+      const projection = {};
       let sum = finalAmount;
       for (let i = lastMonthIdx; i < months.length; i++) {
         projection[months[i]] = sum;
