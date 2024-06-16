@@ -15,7 +15,7 @@ babel==2.14.0
 beancount==2.3.6
     # via beanquery
     # via fava
-beanquery @ git+https://github.com/beancount/beanquery@6df80214d1c1f8aabdba0af732e5e1a36f631e43
+beanquery @ git+https://github.com/beancount/beanquery@5625b83c36763c0429eb9d533b44e8747c3e9d52
     # via fava-dashboards
 beautifulsoup4==4.12.3
     # via beancount
