@@ -4,6 +4,10 @@ updates:
   directory: /
   schedule:
     interval: weekly
+  groups:
+    github-actions:
+      patterns:
+      - "*"
 
 - package-ecosystem: docker
   directory: /.devcontainer
@@ -14,8 +18,16 @@ updates:
   directory: /frontend
   schedule:
     interval: weekly
+  groups:
+    npm:
+      patterns:
+      - "*"
 
 - package-ecosystem: pip
   directory: /
   schedule:
     interval: weekly
+  groups:
+    pip:
+      patterns:
+      - "*"
