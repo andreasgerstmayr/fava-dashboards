@@ -14,7 +14,7 @@
         "jest-puppeteer": "^10.0.1",
         "jest-serializer-html": "^7.1.0",
         "prettier": "^3.3.2",
-        "puppeteer": "^22.11.0",
+        "puppeteer": "^22.11.1",
         "typescript": "^5.4.5"
     },
     "dependencies": {
