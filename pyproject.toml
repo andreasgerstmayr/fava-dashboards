@@ -8,7 +8,7 @@ authors = [
 dependencies = [
     "fava>=1.26.1",
     "pyyaml>=6.0.1",
-    "beanquery @ git+https://github.com/beancount/beanquery",
+    "beanquery>=0.1.dev0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
