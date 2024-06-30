@@ -56,8 +56,8 @@ The following variables and functions are available:
 * `ext`: the Fava [`ExtensionContext`](https://github.com/beancount/fava/blob/main/frontend/src/extensions.ts)
 * `ext.api.get("query", {bql: "SELECT ..."}`: executes the specified BQL query
 * `panel`: the current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`.
-* `ledger.dateFirst`: first date in the current date filter
-* `ledger.dateLast`: last date in the current date filter
+* `ledger.dateFirst`: start date of the current date filter, or first transaction date of the ledger
+* `ledger.dateLast`: end date of the current date filter, or last transaction date of the ledger
 * `ledger.operatingCurrencies`: configured operating currencies of the ledger
 * `ledger.ccy`: shortcut for the first configured operating currency of the ledger
 * `ledger.accounts`: declared accounts of the ledger

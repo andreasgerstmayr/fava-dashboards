@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any, Dict, List
 import datetime
 from dataclasses import dataclass
 from collections import namedtuple
@@ -7,6 +7,9 @@ from flask import request, Response, jsonify
 from beancount.core.inventory import Inventory  # type: ignore
 from beanquery.query import run_query  # type: ignore
 from fava.application import render_template_string
+from fava.beans.abc import Directive
+from fava.beans.abc import Price
+from fava.beans.abc import Transaction
 from fava.context import g
 from fava.core import FavaLedger
 from fava.core.conversion import simple_units
@@ -114,30 +117,58 @@ class FavaDashboards(FavaExtensionBase):
         self.process_jinja2(ctx)
         self.sanitize_panel(ctx)
 
-    def bootstrap(self, dashboard_id):
-        ext_config = self.read_ext_config()
-        operating_currencies = self.ledger.options["operating_currency"]
+    def get_ledger_duration(self, entries: List[Directive]):
+        date_first = None
+        date_last = None
+        for entry in entries:
+            if isinstance(entry, Transaction):
+                date_first = entry.date
+                break
+        for entry in reversed(entries):
+            if isinstance(entry, (Transaction, Price)):
+                date_last = entry.date
+                break
+        if not date_first or not date_last:
+            raise FavaAPIError("no transaction found")
+        return (date_first, date_last)
 
+    def get_ledger(self):
+        operating_currencies = self.ledger.options["operating_currency"]
         if len(operating_currencies) == 0:
             raise FavaAPIError("no operating currency specified in the ledger")
-        # pylint: disable=protected-access
-        if not g.filtered._date_first or not g.filtered._date_last:
-            raise FavaAPIError(
-                "cannot determine first/last day of ledger, is the ledger empty?"
+
+        if g.filtered.date_range:
+            date_first = g.filtered.date_range.begin
+            date_last = g.filtered.date_range.end - datetime.timedelta(days=1)
+
+            # Adjust the dates in case the date filter is set to e.g. 2023-2024,
+            # however the ledger only contains data up to summer 2024.
+            # Without this, all averages in the dashboard are off,
+            # because of a wrong number of days between dateFirst and dateLast.
+            ledger_date_first, ledger_date_last = self.get_ledger_duration(
+                self.ledger.all_entries
             )
+            if not (date_last < ledger_date_first or date_first > ledger_date_last):
+                date_first = max(date_first, ledger_date_first)
+                date_last = min(date_last, ledger_date_last)
+        else:
+            # Use filtered ledger here, as another filter (e.g. tag filter) could be applied.
+            date_first, date_last = self.get_ledger_duration(g.filtered.entries)
 
         commodities = {c.currency: c for c in self.ledger.all_entries_by_type.Commodity}
         accounts = self.ledger.accounts
-        ledger = {
-            # pylint: disable=protected-access
-            "dateFirst": g.filtered._date_first,
-            # pylint: disable=protected-access
-            "dateLast": g.filtered._date_last - datetime.timedelta(days=1),
+        return {
+            "dateFirst": date_first,
+            "dateLast": date_last,
             "operatingCurrencies": operating_currencies,
             "ccy": operating_currencies[0],
             "accounts": accounts,
             "commodities": commodities,
         }
+
+    def bootstrap(self, dashboard_id):
+        ext_config = self.read_ext_config()
+        ledger = self.get_ledger()
 
         dashboards_yaml = self.read_dashboards_yaml(ext_config.dashboards_path)
         dashboards = dashboards_yaml.get("dashboards", [])
@@ -145,7 +176,7 @@ class FavaDashboards(FavaExtensionBase):
             raise FavaAPIError(f"invalid dashboard ID: {dashboard_id}")
 
         for panel in dashboards[dashboard_id].get("panels", []):
-            ctx = PanelCtx(ledger, self.ledger, panel)
+            ctx = PanelCtx(ledger=ledger, favaledger=self.ledger, panel=panel)
             try:
                 self.process_panel(ctx)
             except Exception as ex:
