@@ -138,8 +138,8 @@ class FavaDashboards(FavaExtensionBase):
             raise FavaAPIError("no operating currency specified in the ledger")
 
         if g.filtered.date_range:
-            date_first = g.filtered.date_range.begin
-            date_last = g.filtered.date_range.end - datetime.timedelta(days=1)
+            filter_first = g.filtered.date_range.begin
+            filter_last = g.filtered.date_range.end - datetime.timedelta(days=1)
 
             # Adjust the dates in case the date filter is set to e.g. 2023-2024,
             # however the ledger only contains data up to summer 2024.
@@ -148,10 +148,17 @@ class FavaDashboards(FavaExtensionBase):
             ledger_date_first, ledger_date_last = self.get_ledger_duration(
                 self.ledger.all_entries
             )
-            if not (date_last < ledger_date_first or date_first > ledger_date_last):
-                date_first = max(date_first, ledger_date_first)
-                date_last = min(date_last, ledger_date_last)
+
+            if filter_last < ledger_date_first or filter_first > ledger_date_last:
+                date_first = filter_first
+                date_last = filter_last
+            else:
+                # use min/max only if there is some overlap between filter and ledger dates
+                date_first = max(filter_first, ledger_date_first)
+                date_last = min(filter_last, ledger_date_last)
         else:
+            # No time filter applied.
+            filter_first = filter_last = None
             # Use filtered ledger here, as another filter (e.g. tag filter) could be applied.
             date_first, date_last = self.get_ledger_duration(g.filtered.entries)
 
@@ -160,6 +167,8 @@ class FavaDashboards(FavaExtensionBase):
         return {
             "dateFirst": date_first,
             "dateLast": date_last,
+            "filterFirst": filter_first,
+            "filterLast": filter_last,
             "operatingCurrencies": operating_currencies,
             "ccy": operating_currencies[0],
             "accounts": accounts,
