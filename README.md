@@ -58,6 +58,8 @@ The following variables and functions are available:
 * `panel`: the current (augmented) panel definition. The results of the BQL queries can be accessed with `panel.queries[i].result`.
 * `ledger.dateFirst`: start date of the current date filter, or first transaction date of the ledger
 * `ledger.dateLast`: end date of the current date filter, or last transaction date of the ledger
+* `ledger.filterFirst`: start date of the current date filter, or null if no date filter is set
+* `ledger.filterLast`: end date of the current date filter, or null if no date filter is set
 * `ledger.operatingCurrencies`: configured operating currencies of the ledger
 * `ledger.ccy`: shortcut for the first configured operating currency of the ledger
 * `ledger.accounts`: declared accounts of the ledger
