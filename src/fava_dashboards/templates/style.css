@@ -20,3 +20,8 @@
         min-width: 100%;
     }
 }
+@media (prefers-color-scheme: dark) {
+    #dashboard a{
+        color: #ccc !important
+    }
+}
