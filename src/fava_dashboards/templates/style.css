@@ -11,7 +11,7 @@
     text-align: center;
 }
 #dashboard a {
-    color: #333;
+    color: #333; /* --heading-color from fava */
 }
 
 /* set panel min-width to 100% on screens < 802px (navbar + padding + 2*300px) */
@@ -20,8 +20,9 @@
         min-width: 100%;
     }
 }
+
 @media (prefers-color-scheme: dark) {
-    #dashboard a{
-        color: #ccc !important
+    #dashboard a {
+        color: #d7dce2; /* --heading-color from fava */
     }
 }

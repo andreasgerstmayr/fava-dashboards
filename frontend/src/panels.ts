@@ -38,7 +38,9 @@ export async function echarts(ctx: PanelCtx, elem: HTMLDivElement) {
     }
 
     const renderer = window.navigator.userAgent === "puppeteer" ? "svg" : undefined;
-    const chart = echartslib.init(elem, undefined, { renderer });
+    const isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = isDarkMode ? "dark" : undefined;
+    const chart = echartslib.init(elem, theme, { renderer });
     if (options.onClick) {
         chart.on("click", (options as any).onClick);
         delete options.onClick;
@@ -46,6 +48,9 @@ export async function echarts(ctx: PanelCtx, elem: HTMLDivElement) {
     if (options.onDblClick) {
         chart.on("dblclick", (options as any).onDblClick);
         delete options.onDblClick;
+    }
+    if (theme === "dark" && options.backgroundColor === undefined) {
+        options.backgroundColor = "transparent";
     }
     chart.setOption(options);
 }
