@@ -8,7 +8,7 @@ authors = [
 dependencies = [
     "fava>=1.26.1",
     "pyyaml>=6.0.1",
-    "beanquery>=0.1.dev0",
+    "beanquery>=0.1.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -21,9 +21,8 @@ Source = "https://github.com/andreasgerstmayr/fava-dashboards"
 requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
-[tool.rye]
-managed = true
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "black>=24.3.0",
     "mypy>=1.9.0",
     "pylint>=3.1.0",
