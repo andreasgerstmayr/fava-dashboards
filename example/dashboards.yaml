@@ -905,7 +905,7 @@ dashboards:
     link: /beancount/income_statement/?filter=#travel
     queries:
     - bql: |
-        SELECT tags, CONVERT(position, '{{ledger.ccy}}') AS value
+        SELECT tags, CONVERT(position, '{{ledger.ccy}}', date) AS value
         WHERE account ~ '^Expenses:' AND 'travel' IN tags
         ORDER BY date ASC
       link: /beancount/account/Expenses/?filter=#{travel}
