@@ -320,7 +320,7 @@ dashboards:
         years.map((year) =>
           ext.api.get("query", {
             bql: `SELECT currency,
-                  CONVERT(SUM(position), '${ledger.ccy}') as market_value
+                  CONVERT(SUM(position), '${ledger.ccy}', ${year}-12-31) as market_value
                   FROM CLOSE ON ${year + 1}-01-01
                   WHERE account_sortkey(account) ~ '^[01]'
                   GROUP BY currency`,
