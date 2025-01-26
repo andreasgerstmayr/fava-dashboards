@@ -11,6 +11,7 @@ deps-py:
 	uv sync
 
 deps-py-update:
+	uv pip list --outdated
 	uv lock --upgrade
 
 deps: deps-js deps-py
@@ -36,17 +37,18 @@ test: test-js
 run:
 	cd example; uv run fava example.beancount
 
-run-debug:
-	cd example; uv run fava --debug example.beancount
+dev:
+	npx concurrently --names fava,esbuild "cd example; PYTHONUNBUFFERED=1 uv run fava --debug example.beancount" "cd frontend; npm run watch"
 
 lint:
 	cd frontend; npx tsc --noEmit
-	uv run mypy src/fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
-	uv run pylint src/fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
+	uv run mypy src/fava_dashboards scripts/format_js_in_dashboard.py
+	uv run pylint src/fava_dashboards scripts/format_js_in_dashboard.py
 
 format:
 	cd frontend; npx prettier -w . ../src/fava_dashboards/templates/*.css
-	uv run black src/fava_dashboards/__init__.py scripts/format_js_in_dashboard.py
+	-uv run ruff check --fix
+	uv run ruff format .
 	find example -name '*.beancount' -exec uv run bean-format -c 59 -o "{}" "{}" \;
 	./scripts/format_js_in_dashboard.py example/dashboards.yaml
 
@@ -56,8 +58,4 @@ ci:
 	make run &
 	make test
 	make format
-
-	# https://github.com/astral-sh/uv/issues/7533
-	git restore uv.lock
-
 	git diff --exit-code
