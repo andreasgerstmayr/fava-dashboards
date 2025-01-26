@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "es2022",
-        "moduleResolution": "Node"
+        "moduleResolution": "node",
+        "skipLibCheck": true
     }
 }

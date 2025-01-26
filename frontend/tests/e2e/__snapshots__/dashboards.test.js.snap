@@ -28,37 +28,37 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
         </rect>
         <g>
           <path d="M358.5237 50.2717L359.426 35.2988L374.426 35.2988"
-                fill="transparent"
+                fill="none"
                 stroke="#5470c6"
           >
           </path>
           <path d="M385.9837 54.5045L400.9488 44.6L415.9488 44.6"
-                fill="transparent"
+                fill="none"
                 stroke="#91cc75"
           >
           </path>
           <path d="M423.5156 69.5328L426.4945 56.4861L441.4945 56.4861"
-                fill="transparent"
+                fill="none"
                 stroke="#fac858"
           >
           </path>
           <path d="M459.4791 97.997L465.7151 87.7967L480.7151 87.7967"
-                fill="transparent"
+                fill="none"
                 stroke="#ee6666"
           >
           </path>
           <path d="M490.8512 149.802L500.0312 144.7822L515.0312 144.7822"
-                fill="transparent"
+                fill="none"
                 stroke="#73c0de"
           >
           </path>
           <path d="M452.3795 309.1596L462.6674 320.0755L477.6674 320.0755"
-                fill="transparent"
+                fill="none"
                 stroke="#3ba272"
           >
           </path>
           <path d="M199.955 188.325L185.0006 187.1575L170.0006 187.1575"
-                fill="transparent"
+                fill="none"
                 stroke="#fc8452"
           >
           </path>
@@ -210,78 +210,78 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
         </rect>
         <g>
           <path d="M69.9 330.5L629.1 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 276.5L629.1 276.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 222.5L629.1 222.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 168.5L629.1 168.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 114.5L629.1 114.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 60.5L629.1 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 330.5L629.1 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M70.5 330L70.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M156.5 330L156.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M242.5 330L242.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M328.5 330L328.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M414.5 330L414.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M500.5 330L500.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M586.5 330L586.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M629.5 330L629.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -398,7 +398,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           </text>
           <g clip-path="url(#zr1-c0)">
             <path d="M80.6538 251.0662C80.6538 251.0662 91.4105 246.7584 102.1615 242.4367C112.9182 238.1128 112.8759 238.0053 123.6692 233.7751C134.3836 229.5758 134.4243 229.6797 145.1769 225.5778C155.932 221.475 155.8612 221.2793 166.6846 217.3657C177.3689 213.5023 178.405 215.4885 188.1923 210.0239C199.9127 203.4799 197.7388 197.1501 209.7 193.3484C219.2464 190.3142 220.6179 192.5966 231.2077 190.3142C242.1256 187.9611 241.914 187.0212 252.7154 184.0774C263.4216 181.1596 263.3502 180.7262 274.2231 178.591C284.8579 176.5025 285.9155 178.591 295.7308 175.63C307.4232 172.1027 309.9186 161.2669 317.2385 161.2669C331.4263 161.2669 324.1142 206.5468 338.7462 206.5468C345.6219 206.5468 349.2568 201.0974 360.2538 196.9396C370.7645 192.9657 371.275 194.311 381.7615 190.2834C392.7827 186.0505 392.4233 185.1393 403.2692 180.4187C413.9309 175.7783 414.4789 176.8803 424.7769 171.5615C435.9866 165.7718 436.4661 166.0718 446.2846 158.2018C457.9738 148.8323 455.998 146.2724 467.7923 137.0826C477.5057 129.514 477.8547 128.9069 489.3 124.6851C499.3624 120.9733 500.2552 123.633 510.8077 120.9733C521.7629 118.2121 521.3475 116.5274 532.3154 113.8432C542.8552 111.2639 544.4489 113.8432 553.8231 110.4464C565.9566 106.0496 563.3942 99.2117 575.3307 92.2325C584.9019 86.6363 586.9959 90.5352 596.8384 85.2957C608.5036 79.086 618.3461 69.334 618.3461 69.334"
-                  fill="transparent"
+                  fill="none"
                   stroke="#5470c6"
                   stroke-width="2"
                   stroke-linejoin="bevel"
@@ -603,78 +603,78 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
         </rect>
         <g>
           <path d="M69.9 330.5L629.1 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 276.5L629.1 276.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 222.5L629.1 222.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 168.5L629.1 168.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 114.5L629.1 114.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 60.5L629.1 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 330.5L629.1 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M70.5 330L70.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M156.5 330L156.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M242.5 330L242.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M328.5 330L328.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M414.5 330L414.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M500.5 330L500.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M586.5 330L586.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M629.5 330L629.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -791,7 +791,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           </text>
           <g clip-path="url(#zr2-c0)">
             <path d="M80.6538 320.2493C80.6538 320.2493 92.009 316.4186 102.1615 310.4992C113.5167 303.8787 112.3106 301.7823 123.6692 295.1696C133.8183 289.2612 134.4613 290.3963 145.1769 285.4571C155.969 280.4825 155.8681 280.2618 166.6846 275.342C177.3758 270.4792 177.6367 271.0254 188.1923 265.8919C199.1444 260.5656 198.2742 254.4224 209.7 254.4224C219.7819 254.4224 220.6546 254.4359 231.2077 254.4359C252.9162 254.4359 252.7748 249.4968 274.2231 244.0864C295.7902 238.6461 295.7213 238.374 317.2385 232.7346C327.9828 229.9186 328.5119 231.2749 338.7462 227.1754C350.0196 222.6597 349.9805 222.0942 360.2538 215.5043C371.4882 208.2979 370.337 206.4031 381.7615 199.5829C391.8447 193.5635 392.6439 194.9697 403.2692 189.825C414.1516 184.5559 414.487 185.0534 424.7769 178.7553C435.9947 171.8894 435.4479 171.0066 446.2846 163.4971C456.9556 156.1024 456.8866 155.9866 467.7923 148.9469C478.3943 142.1032 478.3365 141.9695 489.3 135.7301C499.8441 129.7295 500.145 130.2662 510.8077 124.4668C521.6527 118.5682 520.951 112.3341 532.3154 112.3341C542.4587 112.3341 544.776 117.1521 553.8231 117.1521C566.2837 117.1521 563.1692 104.3408 575.3307 95.7286C584.6769 89.1101 586.4148 91.8765 596.8384 86.6908C607.9225 81.1765 618.3461 74.3285 618.3461 74.3285"
-                  fill="transparent"
+                  fill="none"
                   stroke="#5470c6"
                   stroke-width="2"
                   stroke-linejoin="bevel"
@@ -800,7 +800,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           </g>
           <g clip-path="url(#zr2-c1)">
             <path d="M80.6538 320.28C80.6538 320.28 91.9242 316.343 102.1615 310.5598C113.4319 304.1931 112.3989 302.3468 123.6692 295.9801C133.9066 290.1969 134.4231 291.12 145.1769 286.26C155.9308 281.4 155.9308 281.4 166.6846 276.5399C177.4385 271.6799 177.4384 271.6798 188.1923 266.8198C198.9461 261.9598 198.4706 259.3123 209.7 257.1C219.9782 255.075 220.5482 256.7547 231.2077 255.075C252.8097 251.671 252.9186 251.8802 274.2231 246.9324C295.934 241.8903 295.6478 240.6825 317.2385 235.0952C327.9093 232.3338 328.3579 233.7563 338.7462 230.2352C349.8656 226.4662 350.0165 226.2983 360.2538 220.5151C371.5242 214.1483 370.3842 212.0466 381.7615 205.9352C391.8919 200.4937 392.6227 201.9254 403.2692 197.4093C414.1304 192.8022 414.0231 192.5491 424.7769 187.689C435.5308 182.8288 435.5307 182.8287 446.2846 177.9687C457.0384 173.1088 456.8012 172.492 467.7923 168.2492C478.3089 164.1896 479.1685 166.1492 489.3 161.3639C500.6761 155.9907 499.6992 153.9952 510.8077 147.9324C521.2069 142.2567 521.0766 137.8869 532.3154 137.8869C542.5843 137.8869 544.0842 140.6886 553.8231 140.6886C565.5919 140.6886 564.0138 132.2068 575.3307 125.7086C585.5215 119.8571 586.0847 120.849 596.8384 115.9891C607.5924 111.1291 618.3461 106.2687 618.3461 106.2687"
-                  fill="transparent"
+                  fill="none"
                   stroke="#91cc75"
                   stroke-width="2"
                   stroke-linejoin="bevel"
@@ -1134,7 +1134,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           </text>
           <path d="M-1 0.4l109.0176 0l0 13.2l-109.0176 0Z"
                 transform="translate(242.1748 381.4)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M0 7L25 7"
@@ -1168,7 +1168,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           </text>
           <path d="M-1 0.4l97.6328 0l0 13.2l-97.6328 0Z"
                 transform="translate(361.1924 381.4)"
-                fill="transparent"
+                fill="none"
           >
           </path>
         </g>
@@ -1219,83 +1219,83 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
         </rect>
         <g>
           <path d="M69.9 330.5L629.1 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 285.5L629.1 285.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 240.5L629.1 240.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 195.5L629.1 195.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 150.5L629.1 150.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 105.5L629.1 105.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 60.5L629.1 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 330.5L629.1 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M70.5 330L70.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M156.5 330L156.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M242.5 330L242.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M328.5 330L328.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M414.5 330L414.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M500.5 330L500.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M586.5 330L586.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M629.5 330L629.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -1420,7 +1420,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           </text>
           <g clip-path="url(#zr3-c0)">
             <path d="M80.6538 329.744C80.6538 329.744 91.6252 329.744 102.1615 329.4951C113.1329 329.236 112.6976 323.2463 123.6692 323.2463C134.2053 323.2463 134.4853 323.3091 145.1769 323.3091C155.993 323.3091 155.8978 320.017 166.6846 320.017C177.4055 320.017 178.4232 322.268 188.1923 322.268C199.9308 322.268 199.2327 307.6865 209.7 307.6865C220.7404 307.6865 219.2895 324.6742 231.2077 324.6742C251.551 324.6742 251.8605 306.283 274.2231 306.283C294.8759 306.283 295.9541 310.3278 317.2385 310.3278C328.2157 310.3278 329.0141 309.4987 338.7462 304.5022C350.5218 298.4564 348.9283 295.4675 360.2538 288.2433C370.4359 281.7485 370.9166 282.471 381.7615 277.0642C392.4243 271.7481 392.6131 272.1264 403.2692 266.7975C414.1208 261.3709 417.8343 264.8165 424.7769 255.553C439.342 236.119 434.9432 232.1843 446.2846 209.4027C456.4509 188.9816 458.2265 189.8329 467.7923 169.1477C479.7342 143.3243 474.8943 116.3855 489.3 116.3855C496.402 116.3855 499.9711 134.4536 510.8077 134.4536C521.4788 134.4536 521.4895 117.0597 532.3154 117.0597C542.9972 117.0597 546.9281 133.8624 553.8231 133.8624C568.4358 133.8624 559.797 80.1665 575.3307 80.1665C581.3047 80.1665 587.8151 85.8474 596.8384 85.8474C609.3228 85.8474 618.3461 63.8317 618.3461 63.8317"
-                  fill="transparent"
+                  fill="none"
                   stroke="#5470c6"
                   stroke-width="2"
                   stroke-linejoin="bevel"
@@ -1613,58 +1613,58 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
         </rect>
         <g>
           <path d="M143.8 330.5L1294.2 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 276.5L1294.2 276.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 222.5L1294.2 222.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 168.5L1294.2 168.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 114.5L1294.2 114.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 60.5L1294.2 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 330.5L1294.2 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M144.5 330L144.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M527.5 330L527.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M910.5 330L910.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1294.5 330L1294.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -1804,7 +1804,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           </text>
           <path d="M0 0l59.0742 0l0 14l-59.0742 0Z"
                 transform="translate(623.7607 381)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -1824,7 +1824,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           </text>
           <path d="M0 0l51.8145 0l0 14l-51.8145 0Z"
                 transform="translate(692.835 381)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -1844,7 +1844,7 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
           </text>
           <path d="M0 0l59.5898 0l0 14l-59.5898 0Z"
                 transform="translate(754.6494 381)"
-                fill="transparent"
+                fill="none"
           >
           </path>
         </g>
@@ -1965,6 +1965,14 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 style="font-size: 12px; font-family: sans-serif;"
           >
             Vanguard Total Bond Ma...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="matrix(0.715,0.699,-0.699,0.715,313.7268,165.0676)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            ETF
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -2125,6 +2133,14 @@ exports[`Dashboard: HTML Snapshot Tests Assets 1`] = `
                 style="font-size: 12px; font-family: sans-serif;"
           >
             Vanguard Total Bond Ma...
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="matrix(0.637,0.771,-0.771,0.637,317.6684,161.4416)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            ETF
           </text>
           <text dominant-baseline="central"
                 text-anchor="middle"
@@ -2977,178 +2993,178 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         </rect>
         <g>
           <path d="M70.5 60L70.5 330"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M163.5 60L163.5 330"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M256.5 60L256.5 330"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M349.5 60L349.5 330"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M442.5 60L442.5 330"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M536.5 60L536.5 330"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M629.5 60L629.5 330"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M70.5 330L70.5 60"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M69.9 330.5L64.9 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 319.5L64.9 319.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 309.5L64.9 309.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 299.5L64.9 299.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 288.5L64.9 288.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 278.5L64.9 278.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 267.5L64.9 267.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 257.5L64.9 257.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 247.5L64.9 247.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 236.5L64.9 236.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 226.5L64.9 226.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 216.5L64.9 216.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 205.5L64.9 205.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 195.5L64.9 195.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 184.5L64.9 184.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 174.5L64.9 174.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 164.5L64.9 164.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 153.5L64.9 153.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 143.5L64.9 143.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 132.5L64.9 132.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 122.5L64.9 122.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 112.5L64.9 112.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 101.5L64.9 101.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 91.5L64.9 91.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 81.5L64.9 81.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 70.5L64.9 70.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M69.9 60.5L64.9 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -3760,7 +3776,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <path d="M0 0l87.5977 0l0 14l-87.5977 0Z"
                 transform="translate(217.1094 381)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -3780,7 +3796,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <path d="M0 0l76.0254 0l0 14l-76.0254 0Z"
                 transform="translate(314.707 381)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -3800,7 +3816,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <path d="M0 0l81.1582 0l0 14l-81.1582 0Z"
                 transform="translate(400.7324 381)"
-                fill="transparent"
+                fill="none"
           >
           </path>
         </g>
@@ -3839,78 +3855,78 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         </rect>
         <g>
           <path d="M69.9 330.5L629.1 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 276.5L629.1 276.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 222.5L629.1 222.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 168.5L629.1 168.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 114.5L629.1 114.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 60.5L629.1 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.9 330.5L629.1 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M70.5 330L70.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M156.5 330L156.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M242.5 330L242.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M328.5 330L328.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M414.5 330L414.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M500.5 330L500.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M586.5 330L586.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M629.5 330L629.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -4027,7 +4043,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <g clip-path="url(#zr3-c0)">
             <path d="M80.6538 231.369C80.6538 231.369 91.3447 212.3278 102.1615 193.3584C112.8524 174.6101 111.9459 155.9337 123.6692 155.9337C133.4536 155.9337 132.0397 184.8345 145.1769 184.8345C153.5474 184.8345 162.2101 184.8345 166.6846 176.8155C183.7178 146.2895 171.1785 92.1246 188.1923 92.1246C192.6862 92.1246 205.3187 92.1246 209.7 100.4973C226.8264 133.226 214.3647 188.115 231.2077 188.115C235.8724 188.115 241.7826 181.432 252.7154 175.398C263.2903 169.5614 263.558 170.0527 274.2231 164.3739C285.0657 158.6006 284.3105 155.783 295.7308 152.4939C305.8182 149.5887 307.6837 149.5887 317.2385 149.5887C329.1914 149.5887 332.8336 166.1586 338.7462 166.1586C354.3413 166.1586 350.9893 97.8513 360.2538 97.8513C372.497 97.8513 364.2753 175.5139 381.7615 190.0131C385.783 193.3476 398.5856 193.3476 403.2692 193.3476C420.0933 193.3476 409.3546 118.1823 424.7769 118.1823C430.8623 118.1823 434.0977 131.2838 446.2846 140.298C455.6054 147.1922 462.9143 140.298 467.7923 149.9991C484.4219 183.0709 474.111 227.5053 489.3 227.5053C495.6187 227.5053 497.7803 207.1681 510.8077 201.8715C519.288 198.4236 521.8492 198.4236 532.3154 198.4236C543.3568 198.4236 550.713 206.5155 553.8231 206.5155C572.2207 206.5155 560.092 72.2904 575.3307 72.2904C581.5997 72.2904 589.8118 96.9838 596.8384 123.9117C611.3195 179.4067 618.3461 237.1362 618.3461 237.1362"
-                  fill="transparent"
+                  fill="none"
                   stroke="#5470c6"
                   stroke-width="2"
                   stroke-linejoin="bevel"
@@ -4232,53 +4248,53 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         </rect>
         <g>
           <path d="M69.5 60L69.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M181.5 60L181.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M293.5 60L293.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M405.5 60L405.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M517.5 60L517.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M629.5 60L629.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M69.5 614.7988L69.5 60"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M68.8789 615.5L63.8789 615.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M68.8789 337.5L63.8789 337.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M68.8789 60.5L63.8789 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -4473,7 +4489,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <path d="M0 0l60.5391 0l0 14l-60.5391 0Z"
                 transform="translate(248.6914 681)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -4493,7 +4509,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <path d="M0 0l60.5391 0l0 14l-60.5391 0Z"
                 transform="translate(319.2305 681)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -4513,7 +4529,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <path d="M0 0l60.5391 0l0 14l-60.5391 0Z"
                 transform="translate(389.7695 681)"
-                fill="transparent"
+                fill="none"
           >
           </path>
         </g>
@@ -4550,83 +4566,83 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
         </rect>
         <g>
           <path d="M64.5 60L64.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M158.5 60L158.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M252.5 60L252.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M346.5 60L346.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M441.5 60L441.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M535.5 60L535.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M629.5 60L629.5 614.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M64.5 614.7988L64.5 60"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M64.3555 615.5L59.3555 615.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M64.3555 535.5L59.3555 535.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M64.3555 456.5L59.3555 456.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M64.3555 377.5L59.3555 377.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M64.3555 298.5L59.3555 298.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M64.3555 218.5L59.3555 218.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M64.3555 139.5L59.3555 139.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M64.3555 60.5L59.3555 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -5110,7 +5126,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <path d="M0 0l60.5391 0l0 14l-60.5391 0Z"
                 transform="translate(248.6914 681)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -5130,7 +5146,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <path d="M0 0l60.5391 0l0 14l-60.5391 0Z"
                 transform="translate(319.2305 681)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -5150,7 +5166,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </text>
           <path d="M0 0l60.5391 0l0 14l-60.5391 0Z"
                 transform="translate(389.7695 681)"
-                fill="transparent"
+                fill="none"
           >
           </path>
         </g>
@@ -5437,113 +5453,113 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
         </rect>
         <g>
           <path d="M143.8 450.5L1294.2 450.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 385.5L1294.2 385.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 320.5L1294.2 320.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 255.5L1294.2 255.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 190.5L1294.2 190.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 125.5L1294.2 125.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 60.5L1294.2 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 450.5L1294.2 450.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M144.5 450L144.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M232.5 450L232.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M321.5 450L321.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M409.5 450L409.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M498.5 450L498.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M586.5 450L586.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M675.5 450L675.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M763.5 450L763.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M851.5 450L851.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M940.5 450L940.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1028.5 450L1028.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1117.5 450L1117.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1205.5 450L1205.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1294.5 450L1294.5 455"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -6369,7 +6385,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           </text>
           <path d="M0 0l74.1563 0l0 14l-74.1562 0Z"
                 transform="translate(480.0947 501)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -6389,7 +6405,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           </text>
           <path d="M0 0l78.7793 0l0 14l-78.7793 0Z"
                 transform="translate(564.251 501)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -6409,7 +6425,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           </text>
           <path d="M0 0l58.7754 0l0 14l-58.7754 0Z"
                 transform="translate(653.0303 501)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -6429,7 +6445,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           </text>
           <path d="M0 0l86.3555 0l0 14l-86.3555 0Z"
                 transform="translate(721.8057 501)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -6449,7 +6465,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           </text>
           <path d="M0 0l65.6719 0l0 14l-65.6719 0Z"
                 transform="translate(818.1611 501)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0"
@@ -6469,7 +6485,7 @@ exports[`Dashboard: HTML Snapshot Tests Overview 1`] = `
           </text>
           <path d="M0 0l64.0723 0l0 14l-64.0723 0Z"
                 transform="translate(893.833 501)"
-                fill="transparent"
+                fill="none"
           >
           </path>
         </g>
@@ -6511,133 +6527,133 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
         </rect>
         <g>
           <path d="M143.8 330.5L1294.2 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 285.5L1294.2 285.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 240.5L1294.2 240.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 195.5L1294.2 195.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 150.5L1294.2 150.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 105.5L1294.2 105.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 60.5L1294.2 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 330.5L1294.2 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M144.5 330L144.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M213.5 330L213.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M282.5 330L282.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M351.5 330L351.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M420.5 330L420.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M489.5 330L489.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M558.5 330L558.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M627.5 330L627.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M696.5 330L696.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M765.5 330L765.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M834.5 330L834.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M903.5 330L903.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M972.5 330L972.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1041.5 330L1041.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1110.5 330L1110.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1179.5 330L1179.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1248.5 330L1248.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1294.5 330L1294.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -6852,7 +6868,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           </text>
           <g clip-path="url(#zr0-c0)">
             <path d="M155.304 286.1479C155.304 286.1479 166.8089 283.7551 178.312 281.3537C189.8169 278.952 189.8034 278.8858 201.32 276.5417C212.8114 274.2028 212.8244 274.2667 224.328 271.9877C235.8324 269.7085 235.8101 269.5898 247.336 267.4254C258.8181 265.2692 259.183 266.5829 270.344 263.3466C282.191 259.9114 281.4314 255.8948 293.352 254.0825C304.4394 252.3968 304.9051 253.6789 316.36 252.3968C327.9131 251.1037 327.8495 250.5622 339.368 248.9319C350.8575 247.3057 350.8366 247.0607 362.376 245.8839C373.8446 244.7142 374.1919 245.8839 385.384 244.2389C397.1999 242.5022 398.8049 236.2594 408.392 236.2594C421.8129 236.2594 417.8085 261.4149 431.4 261.4149C440.8165 261.4149 442.8266 258.3516 454.408 256.0775C465.8346 253.8339 465.9974 254.6572 477.416 252.3797C489.0054 250.0681 488.8899 249.5064 500.424 246.8993C511.8979 244.3058 512.0841 245.0224 523.432 241.9786C535.0921 238.851 535.3159 239.1871 546.44 234.5565C558.3239 229.6096 557.5262 227.6478 569.448 222.8236C580.5342 218.3376 580.7282 218.08 592.456 215.9361C603.7362 213.8741 604.021 215.3719 615.464 213.8741C627.029 212.3603 626.9033 211.3832 638.472 209.9129C649.9113 208.4591 650.4649 209.9129 661.48 208.0258C673.4729 205.9711 672.5552 201.5303 684.488 197.9069C695.5632 194.544 696.3106 197.1454 707.496 194.0532C719.3187 190.7847 730.504 185.1856 730.504 185.1856"
-                  fill="transparent"
+                  fill="none"
                   stroke="#5470c6"
                   stroke-width="2"
                   stroke-linejoin="bevel"
@@ -6861,7 +6877,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           </g>
           <g clip-path="url(#zr0-c1)">
             <path d="M155.304 286.1479C155.304 286.1479 166.8089 283.7551 178.312 281.3537C189.8169 278.952 189.8034 278.8858 201.32 276.5417C212.8114 274.2028 212.8244 274.2667 224.328 271.9877C235.8324 269.7085 235.8101 269.5898 247.336 267.4254C258.8181 265.2692 259.183 266.5829 270.344 263.3466C282.191 259.9114 281.4314 255.8948 293.352 254.0825C304.4394 252.3968 304.9051 253.6789 316.36 252.3968C327.9131 251.1037 327.8495 250.5622 339.368 248.9319C350.8575 247.3057 350.8366 247.0607 362.376 245.8839C373.8446 244.7142 374.1919 245.8839 385.384 244.2389C397.1999 242.5022 396.6861 239.5216 408.392 236.2594C419.6941 233.1096 419.922 233.9546 431.4 231.4149C442.93 228.8637 442.8266 228.3516 454.408 226.0776C465.8346 223.8339 465.9974 224.6572 477.416 222.3797C489.0054 220.0681 488.8899 219.5064 500.424 216.8993C511.8979 214.3058 512.0841 215.0224 523.432 211.9786C535.0921 208.851 535.3159 209.1871 546.44 204.5565C558.3239 199.6096 557.5262 197.6478 569.448 192.8236C580.5342 188.3376 580.7282 188.08 592.456 185.9361C603.7362 183.8741 604.021 185.3719 615.464 183.8741C627.029 182.3603 626.9033 181.3832 638.472 179.9129C649.9113 178.4591 650.4649 179.9129 661.48 178.0258C673.4729 175.9711 672.5552 171.5303 684.488 167.9069C695.5632 164.544 696.3106 167.1454 707.496 164.0532C719.3187 160.7847 730.504 155.1856 730.504 155.1856"
-                  fill="transparent"
+                  fill="none"
                   stroke="#91cc75"
                   stroke-width="2"
                   stroke-linejoin="bevel"
@@ -6870,7 +6886,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           </g>
           <g clip-path="url(#zr0-c2)">
             <path d="M730.504 185.1856L753.512 180.1496L776.52 175.1137L799.528 170.0777L822.536 165.0417L845.544 160.0058L868.552 154.9698L891.56 149.9339L914.568 144.8979L937.576 139.862L960.584 134.826L983.592 129.7901L1006.6 124.7541L1029.608 119.7182L1052.616 114.6822L1075.624 109.6463L1098.632 104.6103L1121.64 99.5744L1144.6479 94.5384L1167.656 89.5025L1190.6639 84.4665L1213.672 79.4306L1236.6801 74.3946L1259.688 69.3587L1282.696 64.3227"
-                  fill="transparent"
+                  fill="none"
                   stroke="#fac858"
                   stroke-width="2"
                   stroke-dasharray="8,4"
@@ -6917,7 +6933,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           </text>
           <path d="M-1 0.4l91.627 0l0 13.2l-91.627 0Z"
                 transform="translate(533.0586 381.4)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M0 7L25 7"
@@ -6951,7 +6967,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           </text>
           <path d="M-1 0.4l171.918 0l0 13.2l-171.918 0Z"
                 transform="translate(634.6855 381.4)"
-                fill="transparent"
+                fill="none"
           >
           </path>
           <path d="M0 7L25 7"
@@ -6985,7 +7001,7 @@ exports[`Dashboard: HTML Snapshot Tests Projection 1`] = `
           </text>
           <path d="M-1 0.4l90.3379 0l0 13.2l-90.3379 0Z"
                 transform="translate(816.6035 381.4)"
-                fill="transparent"
+                fill="none"
           >
           </path>
         </g>
@@ -8855,58 +8871,58 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
         </rect>
         <g>
           <path d="M143.8 330.5L1294.2 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 276.5L1294.2 276.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 222.5L1294.2 222.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 168.5L1294.2 168.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 114.5L1294.2 114.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 60.5L1294.2 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M143.8 330.5L1294.2 330.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M144.5 330L144.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M527.5 330L527.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M910.5 330L910.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M1294.5 330L1294.5 335"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
@@ -8987,7 +9003,7 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
           </text>
           <g clip-path="url(#zr0-c0)">
             <path d="M335.5333 148.605C335.5333 148.605 541.4358 61.5102 719 61.5102C924.9024 61.5102 1102.4667 308.2506 1102.4667 308.2506"
-                  fill="transparent"
+                  fill="none"
                   stroke="#5470c6"
                   stroke-width="2"
                   stroke-linejoin="bevel"
@@ -9056,63 +9072,63 @@ exports[`Dashboard: HTML Snapshot Tests Travelling 1`] = `
         </rect>
         <g>
           <path d="M148.5 60L148.5 214.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M339.5 60L339.5 214.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M530.5 60L530.5 214.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M721.5 60L721.5 214.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M912.5 60L912.5 214.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M1103.5 60L1103.5 214.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M1294.5 60L1294.5 214.7988"
-                fill="transparent"
+                fill="none"
                 stroke="#E0E6F1"
           >
           </path>
           <path d="M148.5 214.7988L148.5 60"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
                 stroke-linecap="round"
           >
           </path>
           <path d="M147.793 215.5L142.793 215.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M147.793 163.5L142.793 163.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M147.793 111.5L142.793 111.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>
           <path d="M147.793 60.5L142.793 60.5"
-                fill="transparent"
+                fill="none"
                 stroke="#6E7079"
           >
           </path>

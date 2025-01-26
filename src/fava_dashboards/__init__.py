@@ -1,20 +1,19 @@
-from typing import Any, Dict, List
 import datetime
-from dataclasses import dataclass
 from collections import namedtuple
+from dataclasses import dataclass
+from typing import Any, Dict, List
+
 import yaml
-from flask import request, Response, jsonify
-from beancount.core.inventory import Inventory  # type: ignore
-from beanquery.query import run_query  # type: ignore
+from beancount.core.inventory import Inventory
+from beanquery.query import run_query
 from fava.application import render_template_string
-from fava.beans.abc import Directive
-from fava.beans.abc import Price
-from fava.beans.abc import Transaction
+from fava.beans.abc import Directive, Price, Transaction
 from fava.context import g
 from fava.core import FavaLedger
 from fava.core.conversion import simple_units
 from fava.ext import FavaExtensionBase, extension_endpoint
 from fava.helpers import FavaAPIError
+from flask import Response, jsonify, request
 
 ExtConfig = namedtuple("ExtConfig", ["dashboards_path"])
 
@@ -32,9 +31,7 @@ class FavaDashboards(FavaExtensionBase):
 
     def read_ext_config(self) -> ExtConfig:
         cfg = self.config if isinstance(self.config, dict) else {}
-        return ExtConfig(
-            dashboards_path=self.ledger.join_path(cfg.get("config", "dashboards.yaml"))
-        )
+        return ExtConfig(dashboards_path=self.ledger.join_path(cfg.get("config", "dashboards.yaml")))
 
     @staticmethod
     def read_dashboards_yaml(path: str):
@@ -145,9 +142,7 @@ class FavaDashboards(FavaExtensionBase):
             # however the ledger only contains data up to summer 2024.
             # Without this, all averages in the dashboard are off,
             # because of a wrong number of days between dateFirst and dateLast.
-            ledger_date_first, ledger_date_last = self.get_ledger_duration(
-                self.ledger.all_entries
-            )
+            ledger_date_first, ledger_date_last = self.get_ledger_duration(self.ledger.all_entries)
 
             if filter_last < ledger_date_first or filter_first > ledger_date_last:
                 date_first = filter_first
@@ -189,9 +184,7 @@ class FavaDashboards(FavaExtensionBase):
             try:
                 self.process_panel(ctx)
             except Exception as ex:
-                raise FavaAPIError(
-                    f"error processing panel \"{panel.get('title', '')}\": {ex}"
-                ) from ex
+                raise FavaAPIError(f'error processing panel "{panel.get("title", "")}": {ex}') from ex
 
         utils = self.read_dashboards_utils(dashboards_yaml)
         return {

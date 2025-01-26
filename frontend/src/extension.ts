@@ -7,7 +7,7 @@ function renderDashboard(ext: any, dashboard: Dashboard, ledger: Ledger, utils: 
     // add Fava filter parameters to panel links
     for (const elem of document.querySelectorAll(".panel a")) {
         const link = elem as HTMLAnchorElement;
-        if (!link.getAttribute("href").includes("://")) {
+        if (!(link.getAttribute("href") ?? "").includes("://")) {
             link.href = urlFor(link.href);
         }
     }

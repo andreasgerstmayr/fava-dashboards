@@ -23,7 +23,7 @@ function runScript(ctx: PanelCtx) {
 export async function html(ctx: PanelCtx, elem: HTMLDivElement) {
     try {
         elem.innerHTML = await runScript(ctx);
-    } catch (e) {
+    } catch (e: any) {
         elem.innerHTML = e;
     }
 }
@@ -32,12 +32,13 @@ export async function echarts(ctx: PanelCtx, elem: HTMLDivElement) {
     let options: echartslib.EChartsOption;
     try {
         options = await runScript(ctx);
-    } catch (e) {
+    } catch (e: any) {
         elem.innerHTML = e;
         return;
     }
 
-    const renderer = window.navigator.userAgent === "puppeteer" ? "svg" : undefined;
+    // use SVG renderer during HTML e2e tests, to compare snapshots
+    const renderer = window.navigator.userAgent === "puppeteer-html" ? "svg" : undefined;
     const isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
     const theme = isDarkMode ? "dark" : undefined;
     const chart = echartslib.init(elem, theme, { renderer });
@@ -52,6 +53,10 @@ export async function echarts(ctx: PanelCtx, elem: HTMLDivElement) {
     if (theme === "dark" && options.backgroundColor === undefined) {
         options.backgroundColor = "transparent";
     }
+    if (window.navigator.userAgent.includes("puppeteer")) {
+        // disable animations during e2e tests
+        options.animation = false;
+    }
     chart.setOption(options);
 }
 
@@ -59,7 +64,7 @@ export async function d3_sankey(ctx: PanelCtx, elem: HTMLDivElement) {
     let options: any;
     try {
         options = await runScript(ctx);
-    } catch (e) {
+    } catch (e: any) {
         elem.innerHTML = e;
         return;
     }

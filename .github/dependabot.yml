@@ -14,14 +14,14 @@ updates:
   schedule:
     interval: weekly
 
-- package-ecosystem: npm
-  directory: /frontend
-  schedule:
-    interval: weekly
-  groups:
-    npm:
-      patterns:
-      - "*"
+#- package-ecosystem: npm
+#  directory: /frontend
+#  schedule:
+#    interval: weekly
+#  groups:
+#    npm:
+#      patterns:
+#      - "*"
 
 - package-ecosystem: pip
   directory: /

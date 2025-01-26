@@ -23,10 +23,10 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
-    "black>=24.3.0",
     "mypy>=1.9.0",
     "pylint>=3.1.0",
-    "types-PyYAML>=6.0.12.20240311",
+    "ruff>=0.8.1",
+    "types-PyYAML>=6",
 ]
 
 [tool.hatch.metadata]
@@ -44,4 +44,14 @@ disable = [
     "missing-class-docstring",
     "missing-function-docstring",
     "no-else-return",
+    "line-too-long",
 ]
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+extend-select = ["I"]
