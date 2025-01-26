@@ -47,7 +47,8 @@ disable = [
     "line-too-long",
 ]
 
-[tool.mypy]
+[[tool.mypy.overrides]]
+module = "beanquery.query"
 ignore_missing_imports = true
 
 [tool.ruff]
