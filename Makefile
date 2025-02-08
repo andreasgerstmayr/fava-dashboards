@@ -59,3 +59,21 @@ ci:
 	make test
 	make format
 	git diff --exit-code
+
+## Container
+container-run: container-stop
+	docker build -t fava-dashboards-test -f Dockerfile.test .
+	docker run -d --name fava-dashboards-test fava-dashboards-test
+
+container-stop:
+	docker rm -f fava-dashboards-test
+
+container-test: container-run
+	docker exec fava-dashboards-test make test
+	make container-stop
+
+container-test-js-update: container-run
+	docker exec fava-dashboards-test make test-js-update
+	docker cp fava-dashboards-test:/usr/src/app/frontend/tests/e2e/__snapshots__ ./frontend/tests/e2e
+	docker cp fava-dashboards-test:/usr/src/app/frontend/tests/e2e/__image_snapshots__ ./frontend/tests/e2e
+	make container-stop
