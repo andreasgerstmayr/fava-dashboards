@@ -1,19 +1,26 @@
 import datetime
 from collections import namedtuple
 from dataclasses import dataclass
-from typing import Any, Dict, List
+from typing import Any
+from typing import Dict
+from typing import List
 
 import yaml
 from beancount.core.inventory import Inventory
 from beanquery.query import run_query
 from fava.application import render_template_string
-from fava.beans.abc import Directive, Price, Transaction
+from fava.beans.abc import Directive
+from fava.beans.abc import Price
+from fava.beans.abc import Transaction
 from fava.context import g
 from fava.core import FavaLedger
 from fava.core.conversion import simple_units
-from fava.ext import FavaExtensionBase, extension_endpoint
+from fava.ext import FavaExtensionBase
+from fava.ext import extension_endpoint
 from fava.helpers import FavaAPIError
-from flask import Response, jsonify, request
+from flask import Response
+from flask import jsonify
+from flask import request
 
 ExtConfig = namedtuple("ExtConfig", ["dashboards_path"])
 
