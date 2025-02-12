@@ -2579,14 +2579,1654 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
   </div>
 </div>
 <div class="panel"
+     style="width: 100%"
+>
+  <h2>
+    <a href="http://127.0.0.1:5000/beancount/income_statement/">
+      Savings Heatmap 💰
+    </a>
+  </h2>
+  <div id="panel3"
+       style="height: 400px; position: relative;"
+  >
+    <div style="position: relative; overflow: hidden; width: 1438px; height: 400px;">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           version="1.1"
+           baseprofile="full"
+           width="1438"
+           height="400"
+           style="position: absolute; left: 0px; top: 0px; user-select: none;"
+      >
+        <rect width="1438"
+              height="400"
+              x="0"
+              y="0"
+              fill="none"
+        >
+        </rect>
+        <g>
+          <path d="M144.5 180L144.5 30"
+                fill="none"
+                stroke="#6E7079"
+                stroke-linecap="round"
+          >
+          </path>
+          <path d="M143.8 180.5L1294.2 180.5"
+                fill="none"
+                stroke="#6E7079"
+                stroke-linecap="round"
+          >
+          </path>
+          <path d="M143.8 180.5L138.8 180.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M143.8 130.5L138.8 130.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M143.8 80.5L138.8 80.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M143.8 30.5L138.8 30.5"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M144.5 180L144.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M232.5 180L232.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M321.5 180L321.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M409.5 180L409.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M498.5 180L498.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M586.5 180L586.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M675.5 180L675.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M763.5 180L763.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M851.5 180L851.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M940.5 180L940.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M1028.5 180L1028.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M1117.5 180L1117.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M1205.5 180L1205.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <path d="M1294.5 180L1294.5 185"
+                fill="none"
+                stroke="#6E7079"
+          >
+          </path>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                transform="translate(135.8 155)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            2020
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                transform="translate(135.8 105)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            2021
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="end"
+                transform="translate(135.8 55)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            2022
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                xml:space="preserve"
+                y="3.6005859375"
+                transform="translate(188.0462 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Entire Year
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(276.5385 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Jan
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(365.0308 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Feb
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(453.5231 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Mar
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(542.0154 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Apr
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(630.5077 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            May
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(719 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Jun
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(807.4923 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Jul
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(895.9846 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Aug
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(984.4769 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Sep
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(1072.9692 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Oct
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(1161.4615 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Nov
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                y="3.6005859375"
+                transform="translate(1249.9538 188)"
+                fill="#6E7079"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            Dec
+          </text>
+          <path d="M143.55 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(61,175,70)"
+          >
+          </path>
+          <path d="M232.0423 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(183,225,186)"
+          >
+          </path>
+          <path d="M320.5346 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(219,240,220)"
+          >
+          </path>
+          <path d="M409.0269 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(222,241,223)"
+          >
+          </path>
+          <path d="M497.5192 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(220,241,222)"
+          >
+          </path>
+          <path d="M586.0115 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(222,241,224)"
+          >
+          </path>
+          <path d="M674.5038 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(223,242,224)"
+          >
+          </path>
+          <path d="M762.9962 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(192,229,195)"
+          >
+          </path>
+          <path d="M851.4885 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(234,246,235)"
+          >
+          </path>
+          <path d="M939.9808 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(235,247,235)"
+          >
+          </path>
+          <path d="M1028.4731 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(235,247,236)"
+          >
+          </path>
+          <path d="M1116.9654 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(235,247,236)"
+          >
+          </path>
+          <path d="M1205.4577 129.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(199,232,202)"
+          >
+          </path>
+          <path d="M143.55 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(80,183,88)"
+          >
+          </path>
+          <path d="M232.0423 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(175,61,61)"
+          >
+          </path>
+          <path d="M320.5346 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(223,242,224)"
+          >
+          </path>
+          <path d="M409.0269 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(233,246,234)"
+          >
+          </path>
+          <path d="M497.5192 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(219,240,220)"
+          >
+          </path>
+          <path d="M586.0115 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(223,242,225)"
+          >
+          </path>
+          <path d="M674.5038 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(222,241,224)"
+          >
+          </path>
+          <path d="M762.9962 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(186,227,189)"
+          >
+          </path>
+          <path d="M851.4885 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(229,244,231)"
+          >
+          </path>
+          <path d="M939.9808 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(230,245,231)"
+          >
+          </path>
+          <path d="M1028.4731 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(234,246,235)"
+          >
+          </path>
+          <path d="M1116.9654 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(232,246,233)"
+          >
+          </path>
+          <path d="M1205.4577 79.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(205,235,208)"
+          >
+          </path>
+          <path d="M143.55 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(167,219,171)"
+          >
+          </path>
+          <path d="M232.0423 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(223,242,224)"
+          >
+          </path>
+          <path d="M320.5346 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(199,232,201)"
+          >
+          </path>
+          <path d="M409.0269 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <path d="M497.5192 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <path d="M586.0115 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <path d="M674.5038 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <path d="M762.9962 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <path d="M851.4885 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <path d="M939.9808 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <path d="M1028.4731 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <path d="M1116.9654 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <path d="M1205.4577 29.75l88.9923 0l0 50.5l-88.9923 0Z"
+                fill="rgb(255,255,255)"
+          >
+          </path>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(188.0462 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $38,756
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(276.5385 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $6,360
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(365.0308 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $3,185
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(453.5231 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,930
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(542.0154 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $3,039
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(630.5077 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,895
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(719 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,819
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(807.4923 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $5,528
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(895.9846 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $1,879
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(984.4769 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $1,798
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(1072.9692 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $1,726
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(1161.4615 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $1,718
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(1249.9538 155)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $4,878
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(188.0462 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $15,339
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(276.5385 105)"
+                fill="#eee"
+                stroke="rgb(175,61,61)"
+                stroke-width="2"
+                paint-order="stroke"
+                stroke-miterlimit="2"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            -$17,029
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(365.0308 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,836
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(453.5231 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $1,968
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(542.0154 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $3,197
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(630.5077 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,781
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(719 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,897
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(807.4923 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $6,033
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(895.9846 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,247
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(984.4769 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,178
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(1072.9692 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $1,868
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(1161.4615 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,005
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(1249.9538 105)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $4,359
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(188.0462 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $7,755
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(276.5385 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $2,822
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(365.0308 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $4,933
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(453.5231 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(542.0154 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(630.5077 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(719 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(807.4923 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(895.9846 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(984.4769 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(1072.9692 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(1161.4615 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                transform="translate(1249.9538 55)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $0
+          </text>
+          <path d="M-31.9766 -42.6006l461.7881 0l0 50.6006l-461.7881 0Z"
+                transform="translate(520.0825 392)"
+                fill="rgb(0,0,0)"
+                fill-opacity="0"
+                stroke="#ccc"
+                stroke-width="0"
+          >
+          </path>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                x="2.0818995585505003e-15"
+                y="-34"
+                transform="translate(520.0825 392)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            -$17,029
+          </text>
+          <text dominant-baseline="central"
+                text-anchor="middle"
+                x="400"
+                y="-33.99999999999997"
+                transform="translate(520.0825 392)"
+                fill="#333"
+                style="font-size: 12px; font-family: sans-serif;"
+          >
+            $17,029
+          </text>
+          <g clip-path="url(#zr0-c0)">
+            <path d="M0 0L20 0L20 400L0 400Z"
+                  transform="matrix(0,-1,1,0,520.0825,392)"
+                  fill="url(#zr0-g0)"
+            >
+            </path>
+            <path d="M0 0L20 0L20 400L0 400Z"
+                  transform="matrix(0,-1,1,0,520.0825,392)"
+                  fill="url(#zr0-g1)"
+            >
+            </path>
+          </g>
+          <path d="M12 0A2.8966 2.8966 0 0 1 9.1034 2.8966L-9.1034 2.8966A2.8966 2.8966 0 0 1 -12 0L-12 0A2.8966 2.8966 0 0 1 -9.1034 -2.8966L9.1034 -2.8966A2.8966 2.8966 0 0 1 12 0Z"
+                transform="matrix(0,-1,1,0,520.0825,382)"
+                fill="rgb(175,61,61)"
+                stroke="#fff"
+                stroke-width="2"
+                paint-order="stroke"
+          >
+          </path>
+          <path d="M12 0A2.8966 2.8966 0 0 1 9.1034 2.8966L-9.1034 2.8966A2.8966 2.8966 0 0 1 -12 0L-12 0A2.8966 2.8966 0 0 1 -9.1034 -2.8966L9.1034 -2.8966A2.8966 2.8966 0 0 1 12 0Z"
+                transform="matrix(0,-1,1,0,920.0825,382)"
+                fill="rgb(61,175,70)"
+                stroke="#fff"
+                stroke-width="2"
+                paint-order="stroke"
+          >
+          </path>
+        </g>
+        <defs>
+          <clipPath id="zr0-c0">
+            <path d="M3 0L17 0A3 3 0 0 1 20 3L20 397A3 3 0 0 1 17 400L3 400A3 3 0 0 1 0 397L0 3A3 3 0 0 1 3 0"
+                  transform="matrix(0,-1,1,0,520.0825,392)"
+                  fill="#000"
+            >
+            </path>
+          </clipPath>
+          <linearGradient gradientunits="objectBoundingBox"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                          id="zr0-g0"
+          >
+            <stop offset="0%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="1%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="2%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="3%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="4%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="5%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="6%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="7.000000000000001%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="8%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="9%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="10%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="11%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="12%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="13%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="14.000000000000002%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="15%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="16%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="17%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="18%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="19%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="20%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="21%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="22%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="23%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="24%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="25%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="26%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="27%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="28.000000000000004%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="28.999999999999996%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="30%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="31%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="32%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="33%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="34%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="35%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="36%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="37%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="38%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="39%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="40%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="41%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="42%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="43%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="44%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="45%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="46%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="47%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="48%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="49%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="50%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="51%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="52%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="53%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="54%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="55.00000000000001%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="56.00000000000001%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="56.99999999999999%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="57.99999999999999%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="59%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="60%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="61%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="62%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="63%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="64%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="65%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="66%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="67%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="68%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="69%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="70%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="71%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="72%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="73%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="74%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="75%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="76%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="77%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="78%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="79%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="80%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="81%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="82%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="83%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="84%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="85%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="86%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="87%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="88%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="89%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="90%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="91%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="92%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="93%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="94%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="95%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="96%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="97%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="98%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="99%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="rgb(170,170,170)"
+            >
+            </stop>
+          </linearGradient>
+          <linearGradient gradientunits="objectBoundingBox"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                          id="zr0-g1"
+          >
+            <stop offset="0%"
+                  stop-color="rgb(175,61,61)"
+            >
+            </stop>
+            <stop offset="1%"
+                  stop-color="rgb(177,65,65)"
+            >
+            </stop>
+            <stop offset="2%"
+                  stop-color="rgb(178,69,69)"
+            >
+            </stop>
+            <stop offset="3%"
+                  stop-color="rgb(180,73,73)"
+            >
+            </stop>
+            <stop offset="4%"
+                  stop-color="rgb(181,77,77)"
+            >
+            </stop>
+            <stop offset="5%"
+                  stop-color="rgb(183,80,80)"
+            >
+            </stop>
+            <stop offset="6%"
+                  stop-color="rgb(185,84,84)"
+            >
+            </stop>
+            <stop offset="7.000000000000001%"
+                  stop-color="rgb(186,88,88)"
+            >
+            </stop>
+            <stop offset="8%"
+                  stop-color="rgb(188,92,92)"
+            >
+            </stop>
+            <stop offset="9%"
+                  stop-color="rgb(189,96,96)"
+            >
+            </stop>
+            <stop offset="10%"
+                  stop-color="rgb(191,100,100)"
+            >
+            </stop>
+            <stop offset="11%"
+                  stop-color="rgb(193,104,104)"
+            >
+            </stop>
+            <stop offset="12%"
+                  stop-color="rgb(194,108,108)"
+            >
+            </stop>
+            <stop offset="13%"
+                  stop-color="rgb(196,111,111)"
+            >
+            </stop>
+            <stop offset="14.000000000000002%"
+                  stop-color="rgb(197,115,115)"
+            >
+            </stop>
+            <stop offset="15%"
+                  stop-color="rgb(199,119,119)"
+            >
+            </stop>
+            <stop offset="16%"
+                  stop-color="rgb(201,123,123)"
+            >
+            </stop>
+            <stop offset="17%"
+                  stop-color="rgb(202,127,127)"
+            >
+            </stop>
+            <stop offset="18%"
+                  stop-color="rgb(204,131,131)"
+            >
+            </stop>
+            <stop offset="19%"
+                  stop-color="rgb(205,135,135)"
+            >
+            </stop>
+            <stop offset="20%"
+                  stop-color="rgb(207,139,139)"
+            >
+            </stop>
+            <stop offset="21%"
+                  stop-color="rgb(209,142,142)"
+            >
+            </stop>
+            <stop offset="22%"
+                  stop-color="rgb(210,146,146)"
+            >
+            </stop>
+            <stop offset="23%"
+                  stop-color="rgb(212,150,150)"
+            >
+            </stop>
+            <stop offset="24%"
+                  stop-color="rgb(213,154,154)"
+            >
+            </stop>
+            <stop offset="25%"
+                  stop-color="rgb(215,158,158)"
+            >
+            </stop>
+            <stop offset="26%"
+                  stop-color="rgb(217,162,162)"
+            >
+            </stop>
+            <stop offset="27%"
+                  stop-color="rgb(218,166,166)"
+            >
+            </stop>
+            <stop offset="28.000000000000004%"
+                  stop-color="rgb(220,170,170)"
+            >
+            </stop>
+            <stop offset="28.999999999999996%"
+                  stop-color="rgb(221,174,174)"
+            >
+            </stop>
+            <stop offset="30%"
+                  stop-color="rgb(223,177,177)"
+            >
+            </stop>
+            <stop offset="31%"
+                  stop-color="rgb(225,181,181)"
+            >
+            </stop>
+            <stop offset="32%"
+                  stop-color="rgb(226,185,185)"
+            >
+            </stop>
+            <stop offset="33%"
+                  stop-color="rgb(228,189,189)"
+            >
+            </stop>
+            <stop offset="34%"
+                  stop-color="rgb(229,193,193)"
+            >
+            </stop>
+            <stop offset="35%"
+                  stop-color="rgb(231,197,197)"
+            >
+            </stop>
+            <stop offset="36%"
+                  stop-color="rgb(233,201,201)"
+            >
+            </stop>
+            <stop offset="37%"
+                  stop-color="rgb(234,205,205)"
+            >
+            </stop>
+            <stop offset="38%"
+                  stop-color="rgb(236,208,208)"
+            >
+            </stop>
+            <stop offset="39%"
+                  stop-color="rgb(237,212,212)"
+            >
+            </stop>
+            <stop offset="40%"
+                  stop-color="rgb(239,216,216)"
+            >
+            </stop>
+            <stop offset="41%"
+                  stop-color="rgb(241,220,220)"
+            >
+            </stop>
+            <stop offset="42%"
+                  stop-color="rgb(242,224,224)"
+            >
+            </stop>
+            <stop offset="43%"
+                  stop-color="rgb(244,228,228)"
+            >
+            </stop>
+            <stop offset="44%"
+                  stop-color="rgb(245,232,232)"
+            >
+            </stop>
+            <stop offset="45%"
+                  stop-color="rgb(247,236,236)"
+            >
+            </stop>
+            <stop offset="46%"
+                  stop-color="rgb(249,239,239)"
+            >
+            </stop>
+            <stop offset="47%"
+                  stop-color="rgb(250,243,243)"
+            >
+            </stop>
+            <stop offset="48%"
+                  stop-color="rgb(252,247,247)"
+            >
+            </stop>
+            <stop offset="49%"
+                  stop-color="rgb(253,251,251)"
+            >
+            </stop>
+            <stop offset="50%"
+                  stop-color="rgb(255,255,255)"
+            >
+            </stop>
+            <stop offset="51%"
+                  stop-color="rgb(251,253,251)"
+            >
+            </stop>
+            <stop offset="52%"
+                  stop-color="rgb(247,252,248)"
+            >
+            </stop>
+            <stop offset="53%"
+                  stop-color="rgb(243,250,244)"
+            >
+            </stop>
+            <stop offset="54%"
+                  stop-color="rgb(239,249,240)"
+            >
+            </stop>
+            <stop offset="55.00000000000001%"
+                  stop-color="rgb(236,247,236)"
+            >
+            </stop>
+            <stop offset="56.00000000000001%"
+                  stop-color="rgb(232,245,233)"
+            >
+            </stop>
+            <stop offset="56.99999999999999%"
+                  stop-color="rgb(228,244,229)"
+            >
+            </stop>
+            <stop offset="57.99999999999999%"
+                  stop-color="rgb(224,242,225)"
+            >
+            </stop>
+            <stop offset="59%"
+                  stop-color="rgb(220,241,222)"
+            >
+            </stop>
+            <stop offset="60%"
+                  stop-color="rgb(216,239,218)"
+            >
+            </stop>
+            <stop offset="61%"
+                  stop-color="rgb(212,237,214)"
+            >
+            </stop>
+            <stop offset="62%"
+                  stop-color="rgb(208,236,211)"
+            >
+            </stop>
+            <stop offset="63%"
+                  stop-color="rgb(205,234,207)"
+            >
+            </stop>
+            <stop offset="64%"
+                  stop-color="rgb(201,233,203)"
+            >
+            </stop>
+            <stop offset="65%"
+                  stop-color="rgb(197,231,200)"
+            >
+            </stop>
+            <stop offset="66%"
+                  stop-color="rgb(193,229,196)"
+            >
+            </stop>
+            <stop offset="67%"
+                  stop-color="rgb(189,228,192)"
+            >
+            </stop>
+            <stop offset="68%"
+                  stop-color="rgb(185,226,188)"
+            >
+            </stop>
+            <stop offset="69%"
+                  stop-color="rgb(181,225,185)"
+            >
+            </stop>
+            <stop offset="70%"
+                  stop-color="rgb(177,223,181)"
+            >
+            </stop>
+            <stop offset="71%"
+                  stop-color="rgb(174,221,177)"
+            >
+            </stop>
+            <stop offset="72%"
+                  stop-color="rgb(170,220,174)"
+            >
+            </stop>
+            <stop offset="73%"
+                  stop-color="rgb(166,218,170)"
+            >
+            </stop>
+            <stop offset="74%"
+                  stop-color="rgb(162,217,166)"
+            >
+            </stop>
+            <stop offset="75%"
+                  stop-color="rgb(158,215,163)"
+            >
+            </stop>
+            <stop offset="76%"
+                  stop-color="rgb(154,213,159)"
+            >
+            </stop>
+            <stop offset="77%"
+                  stop-color="rgb(150,212,155)"
+            >
+            </stop>
+            <stop offset="78%"
+                  stop-color="rgb(146,210,151)"
+            >
+            </stop>
+            <stop offset="79%"
+                  stop-color="rgb(142,209,148)"
+            >
+            </stop>
+            <stop offset="80%"
+                  stop-color="rgb(139,207,144)"
+            >
+            </stop>
+            <stop offset="81%"
+                  stop-color="rgb(135,205,140)"
+            >
+            </stop>
+            <stop offset="82%"
+                  stop-color="rgb(131,204,137)"
+            >
+            </stop>
+            <stop offset="83%"
+                  stop-color="rgb(127,202,133)"
+            >
+            </stop>
+            <stop offset="84%"
+                  stop-color="rgb(123,201,129)"
+            >
+            </stop>
+            <stop offset="85%"
+                  stop-color="rgb(119,199,125)"
+            >
+            </stop>
+            <stop offset="86%"
+                  stop-color="rgb(115,197,122)"
+            >
+            </stop>
+            <stop offset="87%"
+                  stop-color="rgb(111,196,118)"
+            >
+            </stop>
+            <stop offset="88%"
+                  stop-color="rgb(108,194,114)"
+            >
+            </stop>
+            <stop offset="89%"
+                  stop-color="rgb(104,193,111)"
+            >
+            </stop>
+            <stop offset="90%"
+                  stop-color="rgb(100,191,107)"
+            >
+            </stop>
+            <stop offset="91%"
+                  stop-color="rgb(96,189,103)"
+            >
+            </stop>
+            <stop offset="92%"
+                  stop-color="rgb(92,188,100)"
+            >
+            </stop>
+            <stop offset="93%"
+                  stop-color="rgb(88,186,96)"
+            >
+            </stop>
+            <stop offset="94%"
+                  stop-color="rgb(84,185,92)"
+            >
+            </stop>
+            <stop offset="95%"
+                  stop-color="rgb(80,183,88)"
+            >
+            </stop>
+            <stop offset="96%"
+                  stop-color="rgb(77,181,85)"
+            >
+            </stop>
+            <stop offset="97%"
+                  stop-color="rgb(73,180,81)"
+            >
+            </stop>
+            <stop offset="98%"
+                  stop-color="rgb(69,178,77)"
+            >
+            </stop>
+            <stop offset="99%"
+                  stop-color="rgb(65,177,74)"
+            >
+            </stop>
+            <stop offset="100%"
+                  stop-color="rgb(61,175,70)"
+            >
+            </stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class>
+    </div>
+  </div>
+</div>
+<div class="panel"
      style="width: 50%"
 >
   <h2>
     <a href="http://127.0.0.1:5000/beancount/account/Income/?r=changes">
-      Income Categories (per month) 💸
+      Income Categories (per month) 💰
     </a>
   </h2>
-  <div id="panel3"
+  <div id="panel4"
        style="height: 400px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 400px;">
@@ -2719,7 +4359,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
       Expenses Categories (per month) 💸
     </a>
   </h2>
-  <div id="panel4"
+  <div id="panel5"
        style="height: 400px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 400px;">
@@ -2972,7 +4612,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
       Recurring, Regular and Irregular Expenses 🔁
     </a>
   </h2>
-  <div id="panel5"
+  <div id="panel6"
        style="height: 400px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 400px;">
@@ -3834,7 +5474,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
       Food Expenses 🥐
     </a>
   </h2>
-  <div id="panel6"
+  <div id="panel7"
        style="height: 400px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 400px;">
@@ -4041,7 +5681,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           >
             1/2022
           </text>
-          <g clip-path="url(#zr3-c0)">
+          <g clip-path="url(#zr4-c0)">
             <path d="M80.6538 231.369C80.6538 231.369 91.3447 212.3278 102.1615 193.3584C112.8524 174.6101 111.9459 155.9337 123.6692 155.9337C133.4536 155.9337 132.0397 184.8345 145.1769 184.8345C153.5474 184.8345 162.2101 184.8345 166.6846 176.8155C183.7178 146.2895 171.1785 92.1246 188.1923 92.1246C192.6862 92.1246 205.3187 92.1246 209.7 100.4973C226.8264 133.226 214.3647 188.115 231.2077 188.115C235.8724 188.115 241.7826 181.432 252.7154 175.398C263.2903 169.5614 263.558 170.0527 274.2231 164.3739C285.0657 158.6006 284.3105 155.783 295.7308 152.4939C305.8182 149.5887 307.6837 149.5887 317.2385 149.5887C329.1914 149.5887 332.8336 166.1586 338.7462 166.1586C354.3413 166.1586 350.9893 97.8513 360.2538 97.8513C372.497 97.8513 364.2753 175.5139 381.7615 190.0131C385.783 193.3476 398.5856 193.3476 403.2692 193.3476C420.0933 193.3476 409.3546 118.1823 424.7769 118.1823C430.8623 118.1823 434.0977 131.2838 446.2846 140.298C455.6054 147.1922 462.9143 140.298 467.7923 149.9991C484.4219 183.0709 474.111 227.5053 489.3 227.5053C495.6187 227.5053 497.7803 207.1681 510.8077 201.8715C519.288 198.4236 521.8492 198.4236 532.3154 198.4236C543.3568 198.4236 550.713 206.5155 553.8231 206.5155C572.2207 206.5155 560.092 72.2904 575.3307 72.2904C581.5997 72.2904 589.8118 96.9838 596.8384 123.9117C611.3195 179.4067 618.3461 237.1362 618.3461 237.1362"
                   fill="none"
                   stroke="#5470c6"
@@ -4208,7 +5848,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
           </path>
         </g>
         <defs>
-          <clipPath id="zr3-c0">
+          <clipPath id="zr4-c0">
             <path d="M68 59l563 0l0 272l-563 0Z"
                   fill="#000"
             >
@@ -4227,7 +5867,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
   <h2>
     Income Year-Over-Year 💰
   </h2>
-  <div id="panel7"
+  <div id="panel8"
        style="height: 700px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 700px;">
@@ -4545,7 +6185,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
   <h2>
     Expenses Year-Over-Year 💸
   </h2>
-  <div id="panel8"
+  <div id="panel9"
        style="height: 700px; position: relative;"
   >
     <div style="position: relative; overflow: hidden; width: 699px; height: 700px;">
@@ -5182,7 +6822,7 @@ exports[`Dashboard: HTML Snapshot Tests Income and Expenses 1`] = `
   <h2>
     Top 10 biggest expenses
   </h2>
-  <div id="panel9"
+  <div id="panel10"
        style="height: 400px"
   >
     <table is="sortable-table"
