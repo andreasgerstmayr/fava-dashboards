@@ -564,7 +564,104 @@ dashboards:
       const value = `${currencyFormatter(rate)} (${percentFormat.format(ratePercent)})`;
       return `<div style="font-size: 40px; font-weight: bold; color: #3daf46; text-align: center;">${value}</div>`;
 
-  - title: Income Categories (per month) 💸
+  - title: Savings Heatmap 💰
+    link: ../../income_statement/
+    queries:
+    - bql: |
+        SELECT year, month, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+        WHERE account ~ '^(Income|Expenses):'
+        GROUP BY year, month
+      link: ../../income_statement/?time={time}
+    type: echarts
+    script: |
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
+      const monthFormatter = new Intl.DateTimeFormat(undefined, { month: "short" }).format;
+      const years = utils.iterateYears(ledger.dateFirst, ledger.dateLast);
+
+      // the beancount query only returns months where there was at least one matching transaction, therefore we group by month
+      const monthly = {};
+      const yearly = {};
+      for (let row of panel.queries[0].result) {
+        const savings = -row.value[ledger.ccy];
+        monthly[`${row.year}-${row.month}`] = savings;
+        yearly[row.year] = (yearly[row.year] ?? 0) + savings;
+      }
+
+      const data = [];
+      for (const year of years) {
+        data.push([`${year}`, yearly[year] ?? 0]);
+        for (let month = 1; month <= 12; month++) {
+          data.push([`${year}-${month}`, monthly[`${year}-${month}`] ?? 0]);
+        }
+      }
+      const max = Math.max(...data.map(([label, val]) => (label.includes("-") ? Math.abs(val) : 0)));
+      const maxRounded = Math.round(max * 100) / 100;
+
+      return {
+        tooltip: {
+          position: "top",
+          valueFormatter: currencyFormatter,
+        },
+        grid: {
+          top: 30,
+          height: Math.min(50 * years.length, 280),
+          bottom: 100, // space for visualMap
+        },
+        xAxis: {
+          type: "category",
+        },
+        yAxis: {
+          type: "category",
+        },
+        visualMap: {
+          min: -maxRounded,
+          max: maxRounded,
+          calculable: true, // show handles
+          orient: "horizontal",
+          left: "center",
+          bottom: 0, // place visualMap at bottom of chart
+          itemHeight: 400, // width
+          inRange: {
+            color: ["#af3d3d", "#fff", "#3daf46"],
+          },
+          formatter: currencyFormatter,
+        },
+        series: [
+          {
+            type: "heatmap",
+            data: data.map(([label, value]) => {
+              if (!label.includes("-")) {
+                return ["Entire Year", label, value];
+              }
+
+              const [year, month] = label.split("-");
+              const monthLocale = monthFormatter(new Date(parseInt(year), parseInt(month) - 1, 1));
+              return [monthLocale, year, value];
+            }),
+            label: {
+              show: true,
+              formatter: (params) => currencyFormatter(params.data[2]),
+            },
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowColor: "rgba(0, 0, 0, 0.5)",
+              },
+            },
+          },
+        ],
+        onClick: (event) => {
+          let time = data[event.dataIndex][0];
+          if (time.includes("-")) {
+            const [year, month] = time.split("-");
+            time = `${year}-${month.padStart(2, "0")}`;
+          }
+          const link = panel.queries[0].link.replace("{time}", time);
+          window.open(helpers.urlFor(link));
+        },
+      };
+
+  - title: Income Categories (per month) 💰
     width: 50%
     link: ../../account/Income/?r=changes
     queries:
