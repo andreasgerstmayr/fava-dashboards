@@ -1,6 +1,7 @@
 import datetime
 from collections import namedtuple
 from dataclasses import dataclass
+from dataclasses import field
 from typing import Any
 from typing import Dict
 from typing import List
@@ -30,6 +31,17 @@ class PanelCtx:
     ledger: Dict[str, Any]
     favaledger: FavaLedger
     panel: Dict[str, Any]
+
+
+@dataclass(frozen=True)
+class NamedQuery:
+    key: str
+    args: Dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
+class GlobalCtx:
+    named_queries: Dict[str, NamedQuery] = field(default_factory=dict)
 
 
 class FavaDashboards(FavaExtensionBase):
@@ -87,11 +99,38 @@ class FavaDashboards(FavaExtensionBase):
 
         return rtypes, rrows
 
-    def process_queries(self, ctx: PanelCtx):
+    def process_queries(self, ctx: PanelCtx, panel_queries: dict[str, str]):
         for query in ctx.panel.get("queries", []):
-            if "bql" in query:
+            if "namedQuery" in query:
+                named_query_data = query["namedQuery"]
+                named_query = NamedQuery(key=named_query_data["key"], args=named_query_data.get("args", {}))
+                final_query = self.process_named_query(named_query, panel_queries)
+                bql = self.render_template(ctx, final_query)
+                query["result_types"], query["result"] = self.exec_query(bql)
+            elif "bql" in query:
                 bql = self.render_template(ctx, query["bql"])
                 query["result_types"], query["result"] = self.exec_query(bql)
+
+    def process_named_query(self, namedQuery: NamedQuery, panel_queries) -> str:
+        """Returns the beancount query whose key matches the one defined in panel_queries with all arg keys replaced by
+        their values
+
+        Example:
+            Inputs:
+                panel_queries = {
+                    "myQuery": "SELECT * WHERE account ~ "{{account}}"
+                    "myCountQuery": SELECT COUNT(*) WHERE account ~ "{{account}}"
+                }
+                namedQuery = NamedQuery(key="myQuery", args={"account": "Expenses:Food"})
+            Output:
+                SELECT * WHERE account ~ "Expenses:Food"
+        """
+        query = panel_queries[namedQuery.key]
+        for arg_key, arg_value in namedQuery.args.items():
+            # 5 pairs of brackets because we replace two pairs of escaped brackets (2 x 2 = 4) and then need one pair to
+            #   replace arg
+            query = query.replace(f"{{{{{arg_key}}}}}", arg_value)
+        return query
 
     def process_jinja2(self, ctx: PanelCtx):
         if ctx.panel.get("type") != "jinja2":
@@ -116,8 +155,8 @@ class FavaDashboards(FavaExtensionBase):
             if "result_types" in query:
                 del query["result_types"]
 
-    def process_panel(self, ctx: PanelCtx):
-        self.process_queries(ctx)
+    def process_panel(self, ctx: PanelCtx, global_ctx: GlobalCtx):
+        self.process_queries(ctx, global_ctx.named_queries)
         self.process_jinja2(ctx)
         self.sanitize_panel(ctx)
 
@@ -186,10 +225,15 @@ class FavaDashboards(FavaExtensionBase):
         if not 0 <= dashboard_id < len(dashboards):
             raise FavaAPIError(f"invalid dashboard ID: {dashboard_id}")
 
+        # Create global context with namedQueries
+        global_ctx = GlobalCtx(
+            named_queries=dashboards_yaml.get("namedQueries", {}),
+        )
+
         for panel in dashboards[dashboard_id].get("panels", []):
             ctx = PanelCtx(ledger=ledger, favaledger=self.ledger, panel=panel)
             try:
-                self.process_panel(ctx)
+                self.process_panel(ctx, global_ctx)
             except Exception as ex:
                 raise FavaAPIError(f'error processing panel "{panel.get("title", "")}": {ex}') from ex
 

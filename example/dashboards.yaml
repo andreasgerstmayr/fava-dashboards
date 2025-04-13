@@ -6,7 +6,10 @@ dashboards:
     height: 80px
     link: ../../balance_sheet/
     queries:
-    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Assets:'
+    - namedQuery:
+        key: baseQuery
+        args:
+            account: "Assets"
     type: html
     script: |
       const currencyFormatter = utils.currencyFormatter(ledger.ccy);
@@ -19,7 +22,10 @@ dashboards:
     height: 80px
     link: ../../balance_sheet/
     queries:
-    - bql: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^Liabilities:'
+    - namedQuery:
+        key: baseQuery
+        args:
+            account: "Liabilities"
     type: html
     script: |
       const currencyFormatter = utils.currencyFormatter(ledger.ccy);
@@ -1309,3 +1315,8 @@ utils:
       buildAccountTree,
       currencyFormatter,
     };
+
+namedQueries:
+  baseQuery: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^{{account}}'
+
+
