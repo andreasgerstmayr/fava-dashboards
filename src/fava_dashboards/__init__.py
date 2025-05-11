@@ -75,8 +75,12 @@ class FavaDashboards(FavaExtensionBase):
             raise FavaAPIError(f"failed to render template {source}: {ex}") from ex
 
     def exec_query(self, query):
+        # property added in https://github.com/beancount/fava/commit/0f43df25f0c2cab491f9b74a4ef1efe6dfcb7930
+        entries = (
+            g.filtered.entries_with_all_prices if hasattr(g.filtered, "entries_with_all_prices") else g.filtered.entries
+        )
         try:
-            rtypes, rrows = run_query(g.filtered.entries_with_all_prices, self.ledger.options, query)
+            rtypes, rrows = run_query(entries, self.ledger.options, query)
         except Exception as ex:
             raise FavaAPIError(f"failed to execute query {query}: {ex}") from ex
 
