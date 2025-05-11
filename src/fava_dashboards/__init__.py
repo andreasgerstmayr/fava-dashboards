@@ -76,7 +76,7 @@ class FavaDashboards(FavaExtensionBase):
 
     def exec_query(self, query):
         try:
-            rtypes, rrows = run_query(g.filtered.entries, self.ledger.options, query)
+            rtypes, rrows = run_query(g.filtered.entries_with_all_prices, self.ledger.options, query)
         except Exception as ex:
             raise FavaAPIError(f"failed to execute query {query}: {ex}") from ex
 
