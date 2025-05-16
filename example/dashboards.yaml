@@ -6,7 +6,7 @@ dashboards:
     height: 80px
     link: ../../balance_sheet/
     queries:
-    - namedQuery:
+    - templateQuery:
         key: baseQuery
         args:
             account: "Assets"
@@ -22,7 +22,7 @@ dashboards:
     height: 80px
     link: ../../balance_sheet/
     queries:
-    - namedQuery:
+    - templateQuery:
         key: baseQuery
         args:
             account: "Liabilities"
@@ -1316,7 +1316,7 @@ utils:
       currencyFormatter,
     };
 
-namedQueries:
+templateQueries:
   baseQuery: SELECT CONVERT(SUM(position), '{{ledger.ccy}}') AS value WHERE account ~ '^{{account}}'
 
 
