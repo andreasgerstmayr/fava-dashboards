@@ -1,5 +1,4 @@
-import { toMatchImageSnapshot } from "jest-image-snapshot";
-import "jest-puppeteer";
+import { expect, test } from "@playwright/test";
 
 const BASE_URL = "http://127.0.0.1:5000/beancount/extension/FavaDashboards/";
 const dashboards = [
@@ -11,42 +10,32 @@ const dashboards = [
   { name: "Projection", url: "?dashboard=5" },
 ];
 
-function customSnapshotIdentifier(p: { currentTestName: string }) {
-  return p.currentTestName.replace(": PNG Snapshot Tests", "").replaceAll(" ", "_").toLowerCase();
-}
-
-expect.extend({ toMatchImageSnapshot });
-
-describe("Dashboard: PNG Snapshot Tests", () => {
-  beforeAll(async () => {
-    await page.setUserAgent("puppeteer-png");
+test.describe("PNG Snapshot Tests", () => {
+  test.describe("Light Theme", () => {
+    dashboards.forEach(({ name, url }) => {
+      test(name, async ({ page }) => {
+        await page.goto(`${BASE_URL}${url}`);
+        await expect(page).toHaveScreenshot();
+      });
+    });
   });
 
-  it.each(dashboards)("$name", async ({ url }) => {
-    await page.goto(`${BASE_URL}${url}`);
-    await page.evaluate(() => {
-      // full page screenshot doesn't work due to sticky sidebar
-      document.body.style.height = "inherit";
+  test.describe("Dark Theme", () => {
+    test.use({ colorScheme: "dark" });
+    dashboards.forEach(({ name, url }) => {
+      test(name, async ({ page }) => {
+        await page.goto(`${BASE_URL}${url}`);
+        await expect(page).toHaveScreenshot();
+      });
     });
-    await page.waitForNetworkIdle();
-
-    const screenshot = await page.screenshot({ fullPage: true });
-    expect(Buffer.from(screenshot)).toMatchImageSnapshot({ customSnapshotIdentifier });
   });
 });
 
-describe("Dashboard: HTML Snapshot Tests", () => {
-  beforeAll(async () => {
-    await page.setUserAgent("puppeteer-html");
-  });
-
-  it.each(dashboards)("$name", async ({ url }) => {
-    await page.goto(`${BASE_URL}${url}`);
-    await page.waitForNetworkIdle();
-
-    let html = await page.$eval("#dashboard", (element) => element.innerHTML);
-    // remove nondeterministic rendering
-    html = html.replaceAll(/_echarts_instance_="ec_[0-9]+"/g, "");
-    expect(html).toMatchSnapshot();
+test.describe("HTML Snapshot Tests", () => {
+  dashboards.forEach(({ name, url }) => {
+    test(name, async ({ page }) => {
+      await page.goto(`${BASE_URL}${url}`);
+      await expect(page.locator("body")).toMatchAriaSnapshot();
+    });
   });
 });

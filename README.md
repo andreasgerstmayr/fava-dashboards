@@ -1,16 +1,15 @@
 # Fava Dashboards
 [![Continuous Integration](https://github.com/andreasgerstmayr/fava-dashboards/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/andreasgerstmayr/fava-dashboards/actions/workflows/continuous-integration.yaml)
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/andreasgerstmayr/fava-dashboards)
 
 fava-dashboards allows creating custom dashboards in [Fava](https://github.com/beancount/fava).
 
 Example dashboards with random data:
-[![Overview](frontend/tests/e2e/__image_snapshots__/dashboard_overview.png)](frontend/tests/e2e/__image_snapshots__/dashboard_overview.png)
-[![Assets](frontend/tests/e2e/__image_snapshots__/dashboard_assets.png)](frontend/tests/e2e/__image_snapshots__/dashboard_assets.png)
-[![Income and Expenses](frontend/tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)](frontend/tests/e2e/__image_snapshots__/dashboard_income_and_expenses.png)
-[![Travelling](frontend/tests/e2e/__image_snapshots__/dashboard_travelling.png)](frontend/tests/e2e/__image_snapshots__/dashboard_travelling.png)
-[![Sankey](frontend/tests/e2e/__image_snapshots__/dashboard_sankey.png)](frontend/tests/e2e/__image_snapshots__/dashboard_sankey.png)
-[![Projection](frontend/tests/e2e/__image_snapshots__/dashboard_projection.png)](frontend/tests/e2e/__image_snapshots__/dashboard_projection.png)
+[![Overview](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png)
+[![Assets](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png)
+[![Income and Expenses](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png)
+[![Travelling](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png)
+[![Sankey](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png)
+[![Projection](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png)
 
 ## Installation
 ```

@@ -37,11 +37,9 @@ export async function echarts(ctx: PanelCtx, elem: HTMLDivElement) {
     return;
   }
 
-  // use SVG renderer during HTML e2e tests, to compare snapshots
-  const renderer = window.navigator.userAgent === "puppeteer-html" ? "svg" : undefined;
   const isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   const theme = isDarkMode ? "dark" : undefined;
-  const chart = echartslib.init(elem, theme, { renderer });
+  const chart = echartslib.init(elem, theme);
   if (options.onClick) {
     chart.on("click", (options as any).onClick);
     delete options.onClick;
@@ -52,10 +50,6 @@ export async function echarts(ctx: PanelCtx, elem: HTMLDivElement) {
   }
   if (theme === "dark" && options.backgroundColor === undefined) {
     options.backgroundColor = "transparent";
-  }
-  if (window.navigator.userAgent.includes("puppeteer")) {
-    // disable animations during e2e tests
-    options.animation = false;
   }
   chart.setOption(options);
 }

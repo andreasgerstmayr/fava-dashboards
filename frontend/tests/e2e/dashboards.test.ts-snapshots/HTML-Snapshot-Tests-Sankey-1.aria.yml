@@ -1,0 +1,84 @@
+- banner:
+  - img
+  - heading "Beancount›Dashboards" [level=1]:
+    - strong: ›Dashboards
+  - combobox "Time"
+  - combobox "Account"
+  - combobox "Filter by tag, payee, ..."
+- complementary:
+  - list:
+    - listitem:
+      - link "Income Statement":
+        - /url: /beancount/income_statement/
+    - listitem:
+      - link "Balance Sheet":
+        - /url: /beancount/balance_sheet/
+    - listitem:
+      - link "Trial Balance":
+        - /url: /beancount/trial_balance/
+    - listitem:
+      - link "Journal":
+        - /url: /beancount/journal/
+    - listitem:
+      - link "Query":
+        - /url: /beancount/query/
+    - listitem:
+      - combobox "Go to account"
+  - list:
+    - listitem:
+      - link "Holdings":
+        - /url: /beancount/holdings/
+    - listitem:
+      - link "Commodities":
+        - /url: /beancount/commodities/
+    - listitem:
+      - link "Documents":
+        - /url: /beancount/documents/
+    - listitem:
+      - link "Events":
+        - /url: /beancount/events/
+    - listitem:
+      - link "Statistics":
+        - /url: /beancount/statistics/
+  - list:
+    - listitem:
+      - link "Editor":
+        - /url: /beancount/editor/
+      - link "+":
+        - /url: "#add-transaction"
+    - listitem:
+      - link "Import":
+        - /url: /beancount/import/
+      - link "⬇":
+        - /url: "#export"
+    - listitem:
+      - link "Options":
+        - /url: /beancount/options/
+    - listitem:
+      - link "Help":
+        - /url: /beancount/help/
+  - list:
+    - listitem:
+      - link "Dashboards":
+        - /url: /beancount/extension/FavaDashboards/
+- article:
+  - heading "Overview" [level=3]:
+    - link "Overview":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=0
+  - heading "Assets" [level=3]:
+    - link "Assets":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=1
+  - heading "Income and Expenses" [level=3]:
+    - link "Income and Expenses":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=2
+  - heading "Travelling" [level=3]:
+    - link "Travelling":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=3
+  - heading "Sankey" [level=3]
+  - heading "Projection" [level=3]:
+    - link "Projection":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=5
+  - heading "Sankey (per month) 💸" [level=2]:
+    - link "Sankey (per month) 💸":
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - img: /Income \$\d+,\d+ US \$\d+,\d+ Hooli \$\d+,\d+ Salary \$\d+,\d+ GroupTermLife \$\d+ Match401k \$\d+ ETrade \$\d+ PnL \$\d+ Health \$\d+ Life:GroupTermLife \$\d+ Medical:Insurance \$\d+ Vision:Insurance \$\d+ Taxes \$\d+,\d+ Y2020:US \$\d+,\d+ Medicare \$\d+ Federal \$\d+,\d+ State \$\d+ CityNYC \$\d+ SocSec \$\d+ Y2021:US \$\d+,\d+ Medicare \$\d+ Federal \$\d+,\d+ State \$\d+ CityNYC \$\d+ SocSec \$\d+ Y2022:US \$\d+ Medicare \$\d+ Federal \$\d+ State \$\d+ CityNYC \$\d+ SocSec \$\d+ Food \$\d+ Restaurant \$\d+ Groceries \$\d+ Financial \$\d+ Housing \$\d+,\d+ Rent \$\d+,\d+ Electricity \$\d+ Phone \$\d+ Internet \$\d+ Transport:Tram \$\d+ Wedding \$\d+ Shopping:Electronics \$\d+ Savings \$\d+,\d+/
