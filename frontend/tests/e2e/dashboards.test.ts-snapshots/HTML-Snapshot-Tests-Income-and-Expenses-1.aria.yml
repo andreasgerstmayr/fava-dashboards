@@ -1,0 +1,168 @@
+- banner:
+  - img
+  - heading "Beancount›Dashboards" [level=1]:
+    - strong: ›Dashboards
+  - combobox "Time"
+  - combobox "Account"
+  - combobox "Filter by tag, payee, ..."
+- complementary:
+  - list:
+    - listitem:
+      - link "Income Statement":
+        - /url: /beancount/income_statement/
+    - listitem:
+      - link "Balance Sheet":
+        - /url: /beancount/balance_sheet/
+    - listitem:
+      - link "Trial Balance":
+        - /url: /beancount/trial_balance/
+    - listitem:
+      - link "Journal":
+        - /url: /beancount/journal/
+    - listitem:
+      - link "Query":
+        - /url: /beancount/query/
+    - listitem:
+      - combobox "Go to account"
+  - list:
+    - listitem:
+      - link "Holdings":
+        - /url: /beancount/holdings/
+    - listitem:
+      - link "Commodities":
+        - /url: /beancount/commodities/
+    - listitem:
+      - link "Documents":
+        - /url: /beancount/documents/
+    - listitem:
+      - link "Events":
+        - /url: /beancount/events/
+    - listitem:
+      - link "Statistics":
+        - /url: /beancount/statistics/
+  - list:
+    - listitem:
+      - link "Editor":
+        - /url: /beancount/editor/
+      - link "+":
+        - /url: "#add-transaction"
+    - listitem:
+      - link "Import":
+        - /url: /beancount/import/
+      - link "⬇":
+        - /url: "#export"
+    - listitem:
+      - link "Options":
+        - /url: /beancount/options/
+    - listitem:
+      - link "Help":
+        - /url: /beancount/help/
+  - list:
+    - listitem:
+      - link "Dashboards":
+        - /url: /beancount/extension/FavaDashboards/
+- article:
+  - heading "Overview" [level=3]:
+    - link "Overview":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=0
+  - heading "Assets" [level=3]:
+    - link "Assets":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=1
+  - heading "Income and Expenses" [level=3]
+  - heading "Travelling" [level=3]:
+    - link "Travelling":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=3
+  - heading "Sankey" [level=3]:
+    - link "Sankey":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=4
+  - heading "Projection" [level=3]:
+    - link "Projection":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=5
+  - heading "Avg. Income per Month 💰" [level=2]:
+    - link "Avg. Income per Month 💰":
+      - /url: http://127.0.0.1:5000/beancount/account/Income/?r=changes
+  - text: /\$\d+,\d+/
+  - heading "Avg. Expenses per Month 💸" [level=2]:
+    - link "Avg. Expenses per Month 💸":
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses/?r=changes
+  - text: /\$\d+,\d+/
+  - heading "Avg. Savings per Month ✨" [level=2]:
+    - link "Avg. Savings per Month ✨":
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - text: /\$\d+,\d+ \(\d+%\)/
+  - heading "Savings Heatmap 💰" [level=2]:
+    - link "Savings Heatmap 💰":
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - heading "Income Categories (per month) 💰" [level=2]:
+    - link "Income Categories (per month) 💰":
+      - /url: http://127.0.0.1:5000/beancount/account/Income/?r=changes
+  - heading "Expenses Categories (per month) 💸" [level=2]:
+    - link "Expenses Categories (per month) 💸":
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses/?r=changes
+  - heading "Recurring, Regular and Irregular Expenses 🔁" [level=2]:
+    - link "Recurring, Regular and Irregular Expenses 🔁":
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - heading "Food Expenses 🥐" [level=2]:
+    - link "Food Expenses 🥐":
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses:Food/
+  - heading "Income Year-Over-Year 💰" [level=2]
+  - heading "Expenses Year-Over-Year 💸" [level=2]
+  - heading /Top \d+ biggest expenses/ [level=2]
+  - table:
+    - rowgroup:
+      - row "date payee narration position":
+        - cell "date"
+        - cell "payee"
+        - cell "narration"
+        - cell "position"
+    - rowgroup:
+      - row /\d+-\d+-\d+ None Wedding \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "None"
+        - cell "Wedding"
+        - cell /\d+\.\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "RiverBank Properties"
+        - cell "Paying the rent"
+        - cell /\d+\.\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "RiverBank Properties"
+        - cell "Paying the rent"
+        - cell /\d+\.\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "RiverBank Properties"
+        - cell "Paying the rent"
+        - cell /\d+\.\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "RiverBank Properties"
+        - cell "Paying the rent"
+        - cell /\d+\.\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "RiverBank Properties"
+        - cell "Paying the rent"
+        - cell /\d+\.\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "RiverBank Properties"
+        - cell "Paying the rent"
+        - cell /\d+\.\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "RiverBank Properties"
+        - cell "Paying the rent"
+        - cell /\d+\.\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "RiverBank Properties"
+        - cell "Paying the rent"
+        - cell /\d+\.\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
+        - cell /\d+-\d+-\d+/
+        - cell "RiverBank Properties"
+        - cell "Paying the rent"
+        - cell /\d+\.\d+ USD/

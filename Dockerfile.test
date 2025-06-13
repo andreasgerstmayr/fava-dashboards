@@ -1,29 +1,23 @@
-FROM ubuntu:24.04
+FROM mcr.microsoft.com/playwright:v1.53.0
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-RUN apt-get update && apt-get install -y \
-      git make npm
+RUN apt-get update && apt-get install -y make
 
-# Chromium dependencies
-RUN apt-get install -y fonts-noto-color-emoji libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libxkbcommon0 libxdamage1 libpango-1.0-0 libcairo2 libasound2t64
-
-ENV LC_ALL="en_US.UTF-8"
-USER ubuntu
-
+ENV CI=true
 WORKDIR /usr/src/app
 RUN mkdir frontend
 
 # Python dependencies
 RUN --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     --mount=type=bind,source=uv.lock,target=uv.lock \
-    --mount=type=cache,target=/home/ubuntu/.cache/uv,uid=1000 \
+    --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project
 
 # Node.js dependencies
 RUN --mount=type=bind,source=frontend/package.json,target=frontend/package.json \
     --mount=type=bind,source=frontend/package-lock.json,target=frontend/package-lock.json \
-    --mount=type=cache,target=/home/ubuntu/.npm,uid=1000 \
-    cd frontend && npm ci && npx puppeteer browsers install chrome
+    --mount=type=cache,target=/root/.npm \
+    cd frontend && npm ci
 
-COPY --chown=ubuntu:ubuntu . .
+COPY . .
 RUN make build
 CMD ["make", "run"]

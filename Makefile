@@ -2,7 +2,7 @@ default: run
 
 ## Dependencies
 deps-js:
-	cd frontend; npm install && npx puppeteer browsers install chrome
+	cd frontend; npm install
 
 deps-js-update:
 	cd frontend; npx npm-check-updates -i
@@ -21,9 +21,6 @@ build-js:
 	cd frontend; npm run build
 
 build: build-js
-
-watch-js:
-	cd frontend; npm run watch
 
 test-js:
 	cd frontend; LANG=en npm run test
@@ -46,24 +43,17 @@ lint:
 	uv run pylint src/fava_dashboards scripts/format_js_in_dashboard.py
 
 format:
-	cd frontend; npx prettier -w . ../src/fava_dashboards/templates/*.css
+	cd frontend; npx prettier -w src tests/e2e/*.ts ../src/fava_dashboards/templates/*.css
 	-uv run ruff check --fix
 	uv run ruff format .
 	find example -name '*.beancount' -exec uv run bean-format -c 59 -o "{}" "{}" \;
 	./scripts/format_js_in_dashboard.py example/dashboards.yaml
 
-ci:
-	make lint
-	make build
-	make run &
-	make test
-	make format
-	git diff --exit-code
-
 ## Container
 container-run: container-stop
 	docker build -t fava-dashboards-test -f Dockerfile.test .
 	docker run -d --name fava-dashboards-test fava-dashboards-test
+	docker exec fava-dashboards-test curl --retry 10 --retry-connrefused --silent --output /dev/null http://127.0.0.1:5000
 
 container-stop:
 	docker rm -f fava-dashboards-test
@@ -74,6 +64,5 @@ container-test: container-run
 
 container-test-js-update: container-run
 	docker exec fava-dashboards-test make test-js-update
-	docker cp fava-dashboards-test:/usr/src/app/frontend/tests/e2e/__snapshots__ ./frontend/tests/e2e
-	docker cp fava-dashboards-test:/usr/src/app/frontend/tests/e2e/__image_snapshots__ ./frontend/tests/e2e
+	docker cp fava-dashboards-test:/usr/src/app/frontend/tests/e2e/dashboards.test.ts-snapshots ./frontend/tests/e2e
 	make container-stop

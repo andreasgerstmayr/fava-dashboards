@@ -12,9 +12,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Build and run dev container task
-        uses: devcontainers/ci@v0.3
-        with:
-          runCmd: make ci
+    - name: Install uv
+      uses: astral-sh/setup-uv@v6
+
+    - name: Install dependencies
+      run: make deps
+
+    - name: Run linters
+      run: |
+        make lint
+        make build
+        make format
+        git diff --exit-code
+
+    - name: Run tests
+      run: make container-test

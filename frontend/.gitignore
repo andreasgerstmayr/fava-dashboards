@@ -1,2 +1,7 @@
 node_modules
-__diff_output__
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

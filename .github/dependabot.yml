@@ -9,11 +9,6 @@ updates:
       patterns:
       - "*"
 
-- package-ecosystem: docker
-  directory: /.devcontainer
-  schedule:
-    interval: weekly
-
 #- package-ecosystem: npm
 #  directory: /frontend
 #  schedule:
