@@ -148,23 +148,29 @@ class FavaDashboards(FavaExtensionBase):
         if g.filtered.date_range:
             filter_first = g.filtered.date_range.begin
             filter_last = g.filtered.date_range.end - datetime.timedelta(days=1)
+            # Use filtered ledger here, as another filter (e.g. tag filter) could be applied.
+            ledger_date_first, ledger_date_last = self.get_ledger_duration(g.filtered.entries)
 
             # Adjust the dates in case the date filter is set to e.g. 2023-2024,
             # however the ledger only contains data up to summer 2024.
             # Without this, all averages in the dashboard are off,
-            # because of a wrong number of days between dateFirst and dateLast.
-            ledger_date_first, ledger_date_last = self.get_ledger_duration(self.ledger.all_entries)
+            # because a wrong number of days between dateFirst and dateLast is calculated.
 
+            # First, check if there is an overlap between ledger and filter dates
             if filter_last < ledger_date_first or filter_first > ledger_date_last:
+                # If there is no overlap of ledger and filter dates, leave them as-is.
+                # For example filter: 2020-2021, but ledger data goes from 2022-2023.
+                # Using min/max here would give from max(2020,2022) until min(2021,2023) = from 2022 until 2021, which is invalid.
                 date_first = filter_first
                 date_last = filter_last
             else:
-                # use min/max only if there is some overlap between filter and ledger dates
+                # If there is overlap between ledger and filter dates, use min/max
                 date_first = max(filter_first, ledger_date_first)
                 date_last = min(filter_last, ledger_date_last)
         else:
             # No time filter applied.
-            filter_first = filter_last = None
+            filter_first = None
+            filter_last = None
             # Use filtered ledger here, as another filter (e.g. tag filter) could be applied.
             date_first, date_last = self.get_ledger_duration(g.filtered.entries)
 
