@@ -59,7 +59,7 @@ container-stop:
 	docker rm -f fava-dashboards-test
 
 container-test: container-run
-	docker exec fava-dashboards-test make test
+	docker exec fava-dashboards-test make test || (rm -rf ./frontend/test-results && docker cp fava-dashboards-test:/usr/src/app/frontend/test-results ./frontend && exit 1)
 	make container-stop
 
 container-test-js-update: container-run
