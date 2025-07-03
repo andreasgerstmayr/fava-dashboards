@@ -9,20 +9,37 @@
  */
 import * as d3Base from "d3";
 import * as d3Sankey from "d3-sankey";
-import { SankeyExtraProperties } from "d3-sankey";
+import { SankeyExtraProperties, SankeyNode } from "d3-sankey";
 const d3 = Object.assign(d3Base, d3Sankey);
 
-interface SankeyNodeProperties extends SankeyExtraProperties {
+interface SankeyNodeProperties {
   name: string;
 }
+interface SankeyLinkProperties {
+  uid?: string;
+}
 
-export function render_d3sankey(elem, options) {
-  const data = options.data;
-  const align = options.align ?? "left";
-  const valueFormat = options.valueFormatter ?? ((x) => x);
+interface SankeyOptions {
+  align?: "left" | "right" | "center" | "justify";
+  fontSize?: number;
+  edgeColor?: "none" | "path" | "input";
+  valueFormatter?: (value: number) => string;
+  onClick?: (event: Event, d: SankeyNode<SankeyNodeProperties, SankeyLinkProperties>) => void;
+  data: {
+    nodes: SankeyNode<SankeyNodeProperties, SankeyLinkProperties>[];
+    links: SankeyNode<SankeyNodeProperties, SankeyLinkProperties>[];
+  };
+}
+
+export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
   const width = elem.clientWidth;
   const height = elem.clientHeight;
-  const edgeColor: string = "path";
+
+  const data = options.data;
+  const align = options.align ?? "left";
+  const fontSize = options.fontSize ?? 12;
+  const edgeColor = options.edgeColor ?? "path";
+  const valueFormat = options.valueFormatter ?? ((x) => x);
 
   const color = (() => {
     const color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -31,7 +48,7 @@ export function render_d3sankey(elem, options) {
 
   const sankey = (() => {
     const sankey = d3
-      .sankey<SankeyNodeProperties, SankeyExtraProperties>()
+      .sankey<SankeyNodeProperties, SankeyLinkProperties>()
       .nodeId((d) => d.name)
       .nodeAlign(d3[`sankey${align[0].toUpperCase()}${align.slice(1)}`])
       .nodeWidth(15)
@@ -122,7 +139,7 @@ export function render_d3sankey(elem, options) {
     const node = svg
       .append("g")
       .attr("font-family", "sans-serif")
-      .attr("font-size", 10)
+      .attr("font-size", fontSize)
       .selectAll("text")
       .data(nodes)
       .join("text")
@@ -130,7 +147,7 @@ export function render_d3sankey(elem, options) {
       .attr("y", (d) => (d.y1! + d.y0!) / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", (d) => (d.x0! < width / 2 ? "start" : "end"))
-      .text((d) => `${d.label ?? d.name} ${valueFormat(d.value)}`);
+      .text((d) => `${d.name} ${valueFormat(d.value)}`);
     if (options.onClick) {
       node.on("click", options.onClick);
     }
