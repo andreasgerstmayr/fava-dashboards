@@ -14,6 +14,7 @@ const d3 = Object.assign(d3Base, d3Sankey);
 
 interface SankeyNodeProperties {
   name: string;
+  label?: string;
 }
 interface SankeyLinkProperties {
   uid?: string;
@@ -147,7 +148,7 @@ export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
       .attr("y", (d) => (d.y1! + d.y0!) / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", (d) => (d.x0! < width / 2 ? "start" : "end"))
-      .text((d) => `${d.name} ${valueFormat(d.value)}`);
+      .text((d) => `${d.label ?? d.name} ${valueFormat(d.value)}`);
     if (options.onClick) {
       node.on("click", options.onClick);
     }
