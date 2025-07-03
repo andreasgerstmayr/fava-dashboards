@@ -16,6 +16,7 @@ interface SankeyNodeProperties {
   name: string;
   label?: string;
 }
+
 interface SankeyLinkProperties {
   uid?: string;
 }
