@@ -122,7 +122,7 @@ export function render_d3sankey(elem, options) {
     const node = svg
       .append("g")
       .attr("font-family", "sans-serif")
-      .attr("font-size", 10)
+      .attr("font-size", 12)
       .selectAll("text")
       .data(nodes)
       .join("text")
