@@ -10,6 +10,9 @@
 #dashboard .panel h2 {
   text-align: center;
 }
+#dashboard .panel svg text {
+  fill: inherit; /* override Fava's stylesheet */
+}
 #dashboard a {
   color: #333; /* --heading-color from fava */
 }

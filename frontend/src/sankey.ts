@@ -24,6 +24,7 @@ interface SankeyLinkProperties {
 interface SankeyOptions {
   align?: "left" | "right" | "center" | "justify";
   fontSize?: number;
+  fontColor?: string;
   edgeColor?: "none" | "path" | "input";
   valueFormatter?: (value: number) => string;
   onClick?: (event: Event, d: SankeyNode<SankeyNodeProperties, SankeyLinkProperties>) => void;
@@ -36,10 +37,12 @@ interface SankeyOptions {
 export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
   const width = elem.clientWidth;
   const height = elem.clientHeight;
+  const isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const data = options.data;
   const align = options.align ?? "left";
   const fontSize = options.fontSize ?? 12;
+  const fontColor = options.fontColor ?? (isDarkMode ? "#ffffff" : "#000000");
   const edgeColor = options.edgeColor ?? "path";
   const valueFormat = options.valueFormatter ?? ((x) => x);
 
@@ -142,6 +145,7 @@ export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
       .append("g")
       .attr("font-family", "sans-serif")
       .attr("font-size", fontSize)
+      .attr("fill", fontColor)
       .selectAll("text")
       .data(nodes)
       .join("text")
