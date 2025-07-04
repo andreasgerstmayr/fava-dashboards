@@ -37,11 +37,12 @@ interface SankeyOptions {
 export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
   const width = elem.clientWidth;
   const height = elem.clientHeight;
+  const isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const data = options.data;
   const align = options.align ?? "left";
   const fontSize = options.fontSize ?? 12;
-  const fontColor = options.fontColor ?? "#000000";
+  const fontColor = options.fontColor ?? (isDarkMode ? "#ffffff" : "#000000");
   const edgeColor = options.edgeColor ?? "path";
   const valueFormat = options.valueFormatter ?? ((x) => x);
 
