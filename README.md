@@ -100,6 +100,13 @@ The rendered template will be shown in the panel.
 ## View Example Ledger
 `cd example; fava example.beancount`
 
+## Contributing
+This plugin consists of a Python backend and a TypeScript frontend.
+
+Install [uv](https://docs.astral.sh/uv/) and Node.js 22, run `make deps` to install the dependencies, and `make dev` to run the Fava dev server with auto-rebuild.
+
+Before submitting a PR, please run `make build` to build the frontend in production mode, and add the compiled frontend to the PR.
+
 ## Why no React/Svelte/X?
 The main reason is simplicity.
 This project is small enough to use plain HTML/CSS/JS and Jinja2 templates only, and doesn't warrant using a modern and ever-changing web development toolchain.
