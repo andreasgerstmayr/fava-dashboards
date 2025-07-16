@@ -15,6 +15,9 @@ from fava.beans.abc import Transaction
 from fava.context import g
 from fava.core import FavaLedger
 from fava.core.conversion import simple_units
+from fava.core.query import COLUMNS
+from fava.core.query import ObjectColumn
+from fava.core.query import QueryResultTable
 from fava.ext import FavaExtensionBase
 from fava.ext import extension_endpoint
 from fava.helpers import FavaAPIError
@@ -84,18 +87,20 @@ class FavaDashboards(FavaExtensionBase):
         except Exception as ex:
             raise FavaAPIError(f"failed to execute query {query}: {ex}") from ex
 
+        querytable = _serialise(rtypes, rrows)
+
         # convert to legacy beancount.query format for backwards compat
         result_row = namedtuple("ResultRow", [col.name for col in rtypes])
         rtypes = [(t.name, t.datatype) for t in rtypes]
         rrows = [result_row(*row) for row in rrows]
 
-        return rtypes, rrows
+        return rtypes, rrows, querytable
 
     def process_queries(self, ctx: PanelCtx):
         for query in ctx.panel.get("queries", []):
             if "bql" in query:
                 bql = self.render_template(ctx, query["bql"])
-                query["result_types"], query["result"] = self.exec_query(bql)
+                query["result_types"], query["result"], query["querytable"] = self.exec_query(bql)
 
     def process_jinja2(self, ctx: PanelCtx):
         if ctx.panel.get("type") != "jinja2":
@@ -215,9 +220,19 @@ class FavaDashboards(FavaExtensionBase):
         bql = request.args.get("bql")
 
         try:
-            _, result = self.exec_query(bql)
+            _, result, _ = self.exec_query(bql)
         except Exception as ex:  # pylint: disable=broad-exception-caught
             return jsonify({"success": False, "error": str(ex)})
 
         self.sanitize_query_result(result)
         return jsonify({"success": True, "data": {"result": result}})
+
+
+# Copied from https://github.com/beancount/fava/blob/72d7504e6a86e72654d3974d2ca3ee3f3982f6ba/src/fava/core/query_shell.py#L242-L253
+# Licensed under MIT License
+def _serialise(rtypes, rrows) -> QueryResultTable:
+    """Serialise the query result."""
+    dtypes = [COLUMNS.get(c.datatype, ObjectColumn)(c.name) for c in rtypes]
+    mappers = [d.serialise for d in dtypes]
+    mapped_rows = [tuple(mapper(row[i]) for i, mapper in enumerate(mappers)) for row in rrows]
+    return QueryResultTable(dtypes, mapped_rows)
