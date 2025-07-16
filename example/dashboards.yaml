@@ -947,7 +947,7 @@ dashboards:
     - bql: SELECT date, payee, narration, position WHERE account ~ "^Expenses:" ORDER BY position DESC LIMIT 10
     type: jinja2
     template: |
-      <svelte-component type="query-table"><script type="application/json">{{panel.queries[0].querytable|tojson}}</script></svelte-component>
+      <svelte-component type="query-table"><script type="application/json">{{ panel.queries[0].querytable|tojson }}</script></svelte-component>
 
 - name: Travelling
   panels:
