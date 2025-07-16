@@ -116,9 +116,9 @@
         - cell "narration"
         - cell "position"
     - rowgroup:
-      - row /\d+-\d+-\d+ None Wedding \d+\.\d+ USD/:
+      - row /\d+-\d+-\d+ Wedding \d+\.\d+ USD/:
         - cell /\d+-\d+-\d+/
-        - cell "None"
+        - cell
         - cell "Wedding"
         - cell /\d+\.\d+ USD/
       - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+\.\d+ USD/:
