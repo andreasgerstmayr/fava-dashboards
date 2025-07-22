@@ -14,18 +14,12 @@
   fill: inherit; /* override Fava's stylesheet */
 }
 #dashboard a {
-  color: #333; /* --heading-color from fava */
+  color: light-dark(#333, #d7dce2); /* --heading-color from fava */
 }
 
 /* set panel min-width to 100% on screens < 802px (navbar + padding + 2*300px) */
 @media (max-width: 802px) {
   #dashboard .panel {
     min-width: 100%;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  #dashboard a {
-    color: #d7dce2; /* --heading-color from fava */
   }
 }
