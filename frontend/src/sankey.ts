@@ -37,7 +37,10 @@ interface SankeyOptions {
 export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
   const width = elem.clientWidth;
   const height = elem.clientHeight;
-  const isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const storedThemeSetting = document.documentElement.style.colorScheme;
+  const isDarkMode =
+    storedThemeSetting == "dark" ||
+    (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && storedThemeSetting != "light");
 
   const data = options.data;
   const align = options.align ?? "left";

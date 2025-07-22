@@ -37,7 +37,10 @@ export async function echarts(ctx: PanelCtx, elem: HTMLDivElement) {
     return;
   }
 
-  const isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const storedThemeSetting = document.documentElement.style.colorScheme;
+  const isDarkMode =
+    storedThemeSetting == "dark" ||
+    (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && storedThemeSetting != "light");
   const theme = isDarkMode ? "dark" : undefined;
   const chart = echartslib.init(elem, theme);
   if (options.onClick) {
