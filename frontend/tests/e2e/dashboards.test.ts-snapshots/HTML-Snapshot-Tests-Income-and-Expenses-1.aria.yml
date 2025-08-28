@@ -93,6 +93,7 @@
   - heading "Savings Heatmap 💰" [level=2]:
     - link "Savings Heatmap 💰":
       - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - heading "Expenses Calendar Heatmap 📅" [level=2]
   - heading "Income Categories (per month) 💰" [level=2]:
     - link "Income Categories (per month) 💰":
       - /url: http://127.0.0.1:5000/beancount/account/Income/?r=changes
