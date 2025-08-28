@@ -661,6 +661,121 @@ dashboards:
         },
       };
 
+  - title: Expenses Calendar Heatmap 📅
+    height: 450px
+    queries:
+      - bql: |
+          SELECT date, root(account, 2) AS account, CONVERT(SUM(position), '{{ledger.ccy}}', LAST(date)) AS value
+          WHERE account ~ "^Expenses:"
+          GROUP BY account, date
+        link: ../../journal/?time={time}
+    type: echarts
+    script: |
+      // dirty hack for dark mode fix for the calendar heatmap
+      const storedThemeSetting = document.documentElement.style.colorScheme;
+      const isDarkMode =
+        storedThemeSetting == "dark" ||
+        (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && storedThemeSetting != "light");
+      const outerLineStyleColor = isDarkMode ? "lightgray" : "black";
+
+      const currencyFormatter = utils.currencyFormatter(ledger.ccy);
+      const months = utils.iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.month}/${m.year}`);
+      const monthsByYear = Object.groupBy(utils.iterateMonths(ledger.dateFirst, ledger.dateLast), (m) => m.year);
+
+      const query = panel.queries[0];
+      const amounts = {};
+      const counts = {};
+
+      let maxAmount = 0;
+      for (let row of query.result) {
+        if (isNaN(row.value[ledger.ccy])) {
+          continue;
+        }
+        if (!amounts[row.date]) {
+          amounts[row.date] = row.value[ledger.ccy];
+        } else {
+          amounts[row.date] += row.value[ledger.ccy];
+        }
+        maxAmount = Math.max(maxAmount, amounts[row.date]);
+
+        const year = row.date.substring(0, 4);
+        if (!counts[year]) {
+          counts[year] = 1;
+        } else {
+          counts[year] += 1;
+        }
+      }
+      const allValues = Object.values(amounts).sort((a, b) => a - b);
+      const percentileValue = allValues[Math.floor(allValues.length * 0.95)];
+
+      const maxScaleValue = percentileValue;
+
+      let mostMentionedYear = null;
+      let mostMentionedYearCounts = -1;
+      for (let [year, count] of Object.entries(counts)) {
+        if (count > mostMentionedYearCounts) {
+          mostMentionedYear = year;
+          mostMentionedYearCounts = count;
+        }
+      }
+
+      var allYears = Object.keys(counts);
+      allYears = allYears.slice(0, 3);
+      const calendars = allYears.map((year, ind) => ({
+        left: 80,
+        right: 100,
+        top: ind * 150,
+        cellSize: [10, 15],
+        range: year,
+        splitLine: {
+          lineStyle: {
+            color: outerLineStyleColor,
+          },
+        },
+        itemStyle: {
+          borderWidth: 0.5,
+        },
+        dayLabel: {
+          firstDay: 1,
+        },
+        yearLabel: {
+          show: true,
+          margin: 40,
+        },
+      }));
+      const seriesData = allYears.map((year, ind) => ({
+        type: "heatmap",
+        coordinateSystem: "calendar",
+        calendarIndex: ind,
+        data: Object.entries(amounts),
+      }));
+
+      return {
+        tooltip: {
+          position: "top",
+          formatter: function (p) {
+            return p.data[0] + ":<br/>" + "<b style='font-weight: 700'>" + p.data[1] + ` ${ledger.ccy}` + "</b>";
+          },
+        },
+        visualMap: [
+          {
+            min: 0,
+            max: maxScaleValue,
+            calculable: true,
+            orient: "vertical",
+            top: "middle",
+            right: 10,
+            itemHeight: 300,
+          },
+        ],
+        calendar: calendars,
+        series: seriesData,
+        onClick: (event) => {
+          const link = query.link.replace("{time}", event.data[0]).replace("{account}", "");
+          window.open(helpers.urlFor(link));
+        },
+      };
+
   - title: Income Categories (per month) 💰
     width: 50%
     link: ../../account/Income/?r=changes
