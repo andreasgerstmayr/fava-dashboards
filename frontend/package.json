@@ -6,7 +6,7 @@
         "test": "playwright test"
     },
     "devDependencies": {
-        "@playwright/test": "^1.53.0",
+        "@playwright/test": "^1.55.0",
         "@types/d3": "^7.4.3",
         "@types/d3-sankey": "^0.12.4",
         "@types/node": "^24.0.1",
