@@ -88,6 +88,8 @@ dashboards:
         }
       }
 
+      await new Promise((r) => setTimeout(r, 2000));
+
       return {
         tooltip: {
           valueFormatter: currencyFormatter,
@@ -107,7 +109,7 @@ dashboards:
           type: "bar",
           name: query.name,
           stack: query.stack,
-          data: months.map((month) => amounts[query.name][month] ?? 0),
+          data: monthsx.map((month) => amounts[query.name][month] ?? 0),
         })),
         onClick: (event) => {
           const query = panel.queries.find((q) => q.name === event.seriesName);
