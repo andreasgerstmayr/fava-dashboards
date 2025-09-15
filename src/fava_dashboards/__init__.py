@@ -1,4 +1,6 @@
 import datetime
+import functools
+import traceback
 from collections import namedtuple
 from dataclasses import dataclass
 from typing import Any
@@ -35,19 +37,44 @@ class PanelCtx:
     panel: Dict[str, Any]
 
 
+def api_response(func):
+    """return {success: true, data: ...} or {success: false, error: ...}"""
+
+    @functools.wraps(func)
+    def decorator(*args, **kwargs):
+        try:
+            data = func(*args, **kwargs)
+            return {"success": True, "data": data}
+        except FavaAPIError as e:
+            return {"success": False, "error": e.message}, 500
+        except Exception as e:  # pylint: disable=broad-exception-caught
+            traceback.print_exception(e)
+            return {"success": False, "error": str(e)}, 500
+
+    return decorator
+
+
 class FavaDashboards(FavaExtensionBase):
     report_title = "Dashboards"
     has_js_module = True
 
     def read_ext_config(self) -> ExtConfig:
         cfg = self.config if isinstance(self.config, dict) else {}
-        return ExtConfig(dashboards_path=self.ledger.join_path(cfg.get("config", "dashboards.yaml")))
+        return ExtConfig(dashboards_path=self.ledger.join_path(cfg.get("config", "dashboards.js")))
 
     @staticmethod
     def read_dashboards_yaml(path: str):
         try:
             with open(path, encoding="utf-8") as f:
                 return yaml.safe_load(f)
+        except Exception as ex:
+            raise FavaAPIError(f"cannot read configuration file {path}: {ex}") from ex
+
+    @staticmethod
+    def read_dashboards_js(path: str):
+        try:
+            with open(path, encoding="utf-8") as f:
+                return f.read()
         except Exception as ex:
             raise FavaAPIError(f"cannot read configuration file {path}: {ex}") from ex
 
@@ -215,17 +242,23 @@ class FavaDashboards(FavaExtensionBase):
             "utils": utils,
         }
 
-    @extension_endpoint("query")  # type: ignore
-    def api_query(self) -> Response:
+    @extension_endpoint("config")
+    @api_response
+    def api_config(self):
+        ext_config = self.read_ext_config()
+        dashboards_js = self.read_dashboards_js(ext_config.dashboards_path)
+        ledger = self.get_ledger()
+        return {"dashboardsJs": dashboards_js, "ledger": ledger}
+
+    @extension_endpoint("query")
+    @api_response
+    def api_query(self):
         bql = request.args.get("bql")
 
-        try:
-            _, result, _ = self.exec_query(bql)
-        except Exception as ex:  # pylint: disable=broad-exception-caught
-            return jsonify({"success": False, "error": str(ex)})
+        _, result, _ = self.exec_query(bql)
 
         self.sanitize_query_result(result)
-        return jsonify({"success": True, "data": {"result": result}})
+        return {"result": result}
 
 
 # Copied from https://github.com/beancount/fava/blob/72d7504e6a86e72654d3974d2ca3ee3f3982f6ba/src/fava/core/query_shell.py#L242-L253
