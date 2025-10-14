@@ -19,6 +19,6 @@
     "dependencies": {
         "d3": "^7.9.0",
         "d3-sankey": "^0.12.3",
-        "echarts": "^5.6.0"
+        "echarts": "^6.0.0"
     }
 }
