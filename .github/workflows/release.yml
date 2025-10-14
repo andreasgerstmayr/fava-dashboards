@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+    - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v6
+
+    - name: Build release distributions
+      run: uv build
+
+    - name: Upload release dists
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-dists
+        path: dist/
+
+  publish:
+    runs-on: ubuntu-latest
+    needs:
+    - build
+    permissions:
+      # required to create a short-lived OIDC token used for PyPI auth
+      id-token: write
+    steps:
+    - name: Fetch release distributions
+      uses: actions/download-artifact@v5
+      with:
+        name: release-dists
+        path: dist/
+
+    - name: Publish release distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
+
+  announce:
+    runs-on: ubuntu-latest
+    needs:
+    - publish
+    permissions:
+      # required to create the release on GitHub
+      contents: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+
+    - name: Create Release on GitHub
+      run: |
+        RELEASE_NOTES=$(awk -v ver="${VERSION}" '/^## / {cur=$2; next} cur == ver {print}' CHANGELOG.md)
+        PRERELEASE_ARG=""
+        if [[ "${VERSION}" == *beta* ]]; then
+          PRERELEASE_ARG="--prerelease"
+        fi
+
+        gh release create "${VERSION}" --title "${VERSION}" --notes "${RELEASE_NOTES}" ${PRERELEASE_ARG}
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VERSION: ${{ github.ref_name }}

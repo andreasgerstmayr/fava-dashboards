@@ -1,19 +1,20 @@
 # Fava Dashboards
-[![Continuous Integration](https://github.com/andreasgerstmayr/fava-dashboards/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/andreasgerstmayr/fava-dashboards/actions/workflows/continuous-integration.yaml)
+[![Continuous Integration](https://github.com/andreasgerstmayr/fava-dashboards/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/andreasgerstmayr/fava-dashboards/actions/workflows/continuous-integration.yml)
+[![PyPI](https://img.shields.io/pypi/v/fava-dashboards)](https://pypi.org/project/fava-dashboards/)
 
 fava-dashboards allows creating custom dashboards in [Fava](https://github.com/beancount/fava).
 
 Example dashboards with random data:
-[![Overview](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png)
-[![Assets](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png)
-[![Income and Expenses](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png)
-[![Travelling](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png)
-[![Sankey](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png)
-[![Projection](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png)](frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png)
+[![Overview](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png)
+[![Assets](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png)
+[![Income and Expenses](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png)
+[![Travelling](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png)
+[![Sankey](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png)
+[![Projection](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png)
 
 ## Installation
 ```
-pip install git+https://github.com/andreasgerstmayr/fava-dashboards.git
+pip install fava-dashboards
 ```
 
 Enable this plugin in Fava by adding the following lines to your ledger:
