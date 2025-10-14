@@ -2,20 +2,32 @@
 name = "fava-dashboards"
 dynamic = ["version"]
 description = "Custom Dashboards for Beancount in Fava"
+readme = "README.md"
+license = {text = "MIT License"}
+license-files = [
+  "LICENSE.md",
+]
 authors = [
     { name = "Andreas Gerstmayr", email = "andreas@gerstmayr.me" }
 ]
+keywords = ["fava", "beancount", "portfolio", "investment", "returns"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Topic :: Office/Business :: Financial :: Accounting",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+requires-python = ">= 3.8"
 dependencies = [
     "fava>=1.26.1",
     "pyyaml>=6.0.1",
     "beanquery>=0.1.0",
 ]
-readme = "README.md"
-requires-python = ">= 3.8"
-license = {text = "MIT License"}
 
 [project.urls]
 Source = "https://github.com/andreasgerstmayr/fava-dashboards"
+Issues = "https://github.com/andreasgerstmayr/fava-dashboards/issues"
+Changelog = "https://github.com/andreasgerstmayr/fava-dashboards/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
