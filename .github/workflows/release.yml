@@ -19,7 +19,7 @@ jobs:
       run: uv build
 
     - name: Upload release dists
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: release-dists
         path: dist/
@@ -33,7 +33,7 @@ jobs:
       id-token: write
     steps:
     - name: Fetch release distributions
-      uses: actions/download-artifact@v5
+      uses: actions/download-artifact@v6
       with:
         name: release-dists
         path: dist/
