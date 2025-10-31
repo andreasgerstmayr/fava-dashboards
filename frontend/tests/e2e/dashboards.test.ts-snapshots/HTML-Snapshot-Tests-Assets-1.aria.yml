@@ -64,28 +64,30 @@
 - article:
   - heading "Overview" [level=3]:
     - link "Overview":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=0
-  - heading "Assets" [level=3]
+      - /url: "#/dashboards/overview"
+  - heading "Assets" [level=3]:
+    - link "Assets":
+      - /url: "#/dashboards/assets"
   - heading "Income and Expenses" [level=3]:
     - link "Income and Expenses":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=2
+      - /url: "#/dashboards/income-and-expenses"
   - heading "Travelling" [level=3]:
     - link "Travelling":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=3
+      - /url: "#/dashboards/travelling"
   - heading "Sankey" [level=3]:
     - link "Sankey":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=4
+      - /url: "#/dashboards/sankey"
   - heading "Projection" [level=3]:
     - link "Projection":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=5
-  - heading "Assets 🏦" [level=2]
-  - heading "Net Worth 💰" [level=2]:
+      - /url: "#/dashboards/projection"
+  - heading "Assets 🏦" [level=3]
+  - heading "Net Worth 💰" [level=3]:
     - link "Net Worth 💰":
-      - /url: http://127.0.0.1:5000/beancount/income_statement/
-  - heading "Portfolio 📈" [level=2]
-  - heading "Portfolio Gains ✨" [level=2]
-  - heading "Asset Classes Year-over-Year 🏦" [level=2]
-  - heading "Asset Classes 🏦" [level=2]
-  - heading "Investment Classes 🏦" [level=2]
-  - heading "Assets Allocation 🏦" [level=2]
-  - heading "Investments Allocation 🏦" [level=2]
+      - /url: "#/income_statement/"
+  - heading "Portfolio 📈" [level=3]
+  - heading "Portfolio Gains ✨" [level=3]
+  - heading "Asset Classes Year-over-Year 🏦" [level=3]
+  - heading "Asset Classes 🏦" [level=3]
+  - heading "Investment Classes 🏦" [level=3]
+  - heading "Assets Allocation 🏦" [level=3]
+  - heading "Investments Allocation 🏦" [level=3]

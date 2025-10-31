@@ -19,8 +19,12 @@ deps: deps-js deps-py
 ## Build and Test
 build-js:
 	cd frontend; npm run build
+	cd frontend; npm run build:dts
 
 build: build-js
+
+test-py:
+	uv run pytest
 
 test-js:
 	cd frontend; LANG=en npm run test
@@ -28,22 +32,25 @@ test-js:
 test-js-update:
 	cd frontend; LANG=en npm run test -- -u
 
-test: test-js
+test: test-py test-js
 
 ## Utils
 run:
 	cd example; uv run fava example.beancount
 
 dev:
-	npx concurrently --names fava,esbuild "cd example; PYTHONUNBUFFERED=1 uv run fava --debug example.beancount" "cd frontend; npm run watch"
+	npx concurrently --names fava,esbuild \
+	  "cd example; PYTHONUNBUFFERED=1 uv run fava --debug example.beancount" \
+	  "cd frontend; npm install && npm run watch"
 
 lint:
-	cd frontend; npx tsc --noEmit
+	cd frontend; npm run type-check
+	cd frontend; npm run lint
 	uv run mypy src/fava_dashboards scripts/format_js_in_dashboard.py
 	uv run pylint src/fava_dashboards scripts/format_js_in_dashboard.py
 
 format:
-	cd frontend; npx prettier -w src tests/e2e/*.ts ../src/fava_dashboards/templates/*.css
+	-cd frontend; npm run lint:fix
 	-uv run ruff check --fix
 	uv run ruff format .
 	find example -name '*.beancount' -exec uv run bean-format -c 59 -o "{}" "{}" \;

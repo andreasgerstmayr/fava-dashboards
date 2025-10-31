@@ -64,23 +64,25 @@
 - article:
   - heading "Overview" [level=3]:
     - link "Overview":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=0
+      - /url: "#/dashboards/overview"
   - heading "Assets" [level=3]:
     - link "Assets":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=1
+      - /url: "#/dashboards/assets"
   - heading "Income and Expenses" [level=3]:
     - link "Income and Expenses":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=2
-  - heading "Travelling" [level=3]
+      - /url: "#/dashboards/income-and-expenses"
+  - heading "Travelling" [level=3]:
+    - link "Travelling":
+      - /url: "#/dashboards/travelling"
   - heading "Sankey" [level=3]:
     - link "Sankey":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=4
+      - /url: "#/dashboards/sankey"
   - heading "Projection" [level=3]:
     - link "Projection":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=5
-  - heading "Travel Costs per Year 📅" [level=2]:
+      - /url: "#/dashboards/projection"
+  - heading "Travel Costs per Year 📅" [level=3]:
     - link "Travel Costs per Year 📅":
-      - /url: http://127.0.0.1:5000/beancount/income_statement/?filter=%23travel
-  - heading "Destinations ✈️" [level=2]:
+      - /url: "#/income_statement/?filter=#travel"
+  - heading "Destinations ✈️" [level=3]:
     - link "Destinations ✈️":
-      - /url: http://127.0.0.1:5000/beancount/income_statement/?filter=%23travel
+      - /url: "#/income_statement/?filter=#travel"

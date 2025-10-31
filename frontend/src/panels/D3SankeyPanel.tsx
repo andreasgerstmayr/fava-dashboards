@@ -7,9 +7,12 @@
  * https://observablehq.com/@d3/sankey
  * https://gist.github.com/mootari/8d3eeb938fafbdf43cda77fe23642d00
  */
+import { Box } from "@mui/material";
 import * as d3Base from "d3";
 import * as d3Sankey from "d3-sankey";
-import { SankeyExtraProperties, SankeyNode } from "d3-sankey";
+import { SankeyExtraProperties, SankeyLink, SankeyNode } from "d3-sankey";
+import { useEffect, useRef } from "react";
+import { PanelProps } from "./registry";
 const d3 = Object.assign(d3Base, d3Sankey);
 
 interface SankeyNodeProperties {
@@ -21,7 +24,10 @@ interface SankeyLinkProperties {
   uid?: string;
 }
 
-interface SankeyOptions {
+export type D3SankeyNode = SankeyNode<SankeyNodeProperties, SankeyLinkProperties>;
+export type D3SankeyLink = SankeyLink<SankeyNodeProperties, SankeyLinkProperties>;
+
+export interface SankeySpec {
   align?: "left" | "right" | "center" | "justify";
   fontSize?: number;
   fontColor?: string;
@@ -29,12 +35,12 @@ interface SankeyOptions {
   valueFormatter?: (value: number) => string;
   onClick?: (event: Event, d: SankeyNode<SankeyNodeProperties, SankeyLinkProperties>) => void;
   data: {
-    nodes: SankeyNode<SankeyNodeProperties, SankeyLinkProperties>[];
-    links: SankeyNode<SankeyNodeProperties, SankeyLinkProperties>[];
+    nodes: D3SankeyNode[];
+    links: D3SankeyLink[];
   };
 }
 
-export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
+export function render_d3sankey(elem: HTMLElement, options: SankeySpec) {
   const width = elem.clientWidth;
   const height = elem.clientHeight;
   const storedThemeSetting = document.documentElement.style.colorScheme;
@@ -51,21 +57,23 @@ export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
 
   const color = (() => {
     const color = d3.scaleOrdinal(d3.schemeCategory10);
-    return (d) => color(d.category === undefined ? d.name : d.category);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return (d: any) => color(d.category === undefined ? d.name : d.category);
   })();
 
   const sankey = (() => {
     const sankey = d3
       .sankey<SankeyNodeProperties, SankeyLinkProperties>()
       .nodeId((d) => d.name)
-      .nodeAlign(d3[`sankey${align[0].toUpperCase()}${align.slice(1)}`])
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .nodeAlign((d3 as any)[`sankey${align[0].toUpperCase()}${align.slice(1)}`])
       .nodeWidth(15)
       .nodePadding(10)
       .extent([
         [1, 5],
         [width - 1, height - 5],
       ]);
-    return ({ nodes, links }) =>
+    return ({ nodes, links }: SankeySpec["data"]) =>
       sankey({
         nodes: nodes.map((d) => Object.assign({}, d)),
         links: links.map((d) => Object.assign({}, d)),
@@ -90,7 +98,7 @@ export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
       .attr("width", (d) => d.x1! - d.x0!)
       .attr("fill", color)
       .append("title")
-      .text((d) => `${d.name}: ${valueFormat(d.value)}`);
+      .text((d) => `${d.name}: ${valueFormat(d.value ?? 0)}`);
 
     const link = svg
       .append("g")
@@ -156,7 +164,7 @@ export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
       .attr("y", (d) => (d.y1! + d.y0!) / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", (d) => (d.x0! < width / 2 ? "start" : "end"))
-      .text((d) => `${d.label ?? d.name} ${valueFormat(d.value)}`);
+      .text((d) => `${d.label ?? d.name} ${valueFormat(d.value ?? 0)}`);
     if (options.onClick) {
       node.on("click", options.onClick);
     }
@@ -164,5 +172,18 @@ export function render_d3sankey(elem: HTMLElement, options: SankeyOptions) {
     return svg.node();
   })();
 
-  elem.replaceChildren(chart);
+  elem.replaceChildren(chart!);
+}
+
+export function D3SankeyPanel({ spec }: PanelProps<SankeySpec>) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) {
+      return;
+    }
+    render_d3sankey(ref.current, spec);
+  }, [spec]);
+
+  return <Box ref={ref} sx={{ height: "100%", "svg text": { fill: "inherit" } }}></Box>;
 }
