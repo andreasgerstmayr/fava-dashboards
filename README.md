@@ -44,6 +44,7 @@ A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column 
 * `link`: optional link target of the panel header.
 * `kind`: panel kind. Must be one of `html`, `echarts`, `d3_sankey`, `table` or `react`.
 * `spec`: a JavaScript function which generates a valid spec depending on the panel `kind`.
+
 The following variables and functions are available:
 * `panel`: the current panel definition
 * `ledger.dateFirst`: start date of the current date filter, or first transaction date of the ledger
@@ -67,14 +68,14 @@ Please take a look at the [ECharts examples](https://echarts.apache.org/examples
 
 ### d3-sankey panel
 The `spec` code of d3-sankey panels must return valid d3-sankey chart options.
-Please take a look at the example dashboard configuration [dashboards.yaml](example/dashboards.tsx).
+Please take a look at the example dashboard configuration [dashboards.tsx](example/dashboards.tsx).
 
-### table panel
+### Table panel
 The `spec` code of table panels must return valid [MUI X Data Grid](https://mui.com/x/react-data-grid/) props.
 
 ### React panel
 The `spec` code of React panels must return a valid JSX element.
-Please note that the code must return a JSX element and no `Promise` (i.e. `async/await` is not supported).
+Please note that the code must not return a `Promise` (i.e. `async/await` is not supported).
 
 ## View Example Ledger
 `cd example; fava example.beancount`
