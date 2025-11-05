@@ -42,7 +42,7 @@ export function EChartsPanel({ spec }: PanelProps<EChartsSpec>) {
   }, [ref, spec, echartsTheme]);
 
   useEffect(() => {
-    if (chartRef.current) {
+    if (chartRef.current && width != 0) {
       chartRef.current.resize();
     }
   }, [width]);

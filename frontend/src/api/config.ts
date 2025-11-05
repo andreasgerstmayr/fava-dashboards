@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { LedgerData } from "../schemas/v2";
+import { LedgerData } from "../schemas/v2/ledger";
 import { fetchJSON } from "./api";
 
 export interface ConfigResponse {

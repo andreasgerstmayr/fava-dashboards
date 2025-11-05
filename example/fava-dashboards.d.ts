@@ -23,6 +23,14 @@ declare module "fava-dashboards" {
       width?: string;
       height?: string;
       link?: string;
+      variables?: VariableDefinition[];
+  }
+  
+  interface BaseVariableDefinition<T> {
+      name: string;
+      label?: string;
+      display?: "select" | "toggle";
+      options: (params: VariablesParams) => MaybePromise<T[]>;
   }
   
   interface Commodity {
@@ -48,6 +56,7 @@ declare module "fava-dashboards" {
   
   export interface Dashboard {
       name: string;
+      variables?: VariableDefinition[];
       panels: Panel[];
   }
   
@@ -95,7 +104,7 @@ declare module "fava-dashboards" {
   export type Panel = BasePanel & {
       [T in PanelKind]: {
           kind: T;
-          spec: (ctx: RenderContext) => MaybePromise<PanelSpecOf<T>>;
+          spec: (params: SpecParams) => MaybePromise<PanelSpecOf<T>>;
       };
   }[PanelKind];
   
@@ -126,11 +135,6 @@ declare module "fava-dashboards" {
   
   function ReactPanel(_props: PanelProps<ReactElement>): JSX.Element;
   
-  type RenderContext = {
-      panel: Panel;
-      ledger: Ledger;
-  };
-  
   interface SankeyLinkProperties {
       uid?: string;
   }
@@ -153,9 +157,32 @@ declare module "fava-dashboards" {
       };
   }
   
+  type SpecParams = {
+      panel: Panel;
+      ledger: Ledger;
+      variables: VariablesContents;
+  };
+  
   function TablePanel({ spec }: PanelProps<TableSpec>): JSX.Element;
   
   export type TableSpec<R extends GridValidRowModel = any> = DataGridProps<R>;
+  
+  export type VariableDefinition<T = VariableType> = BaseVariableDefinition<T> & ({
+      multiple?: false;
+      default?: T;
+  } | {
+      multiple: true;
+      default?: T[];
+  });
+  
+  export type VariablesContents = Record<string, any>;
+  
+  export type VariablesParams = {
+      ledger: Ledger;
+      variables: VariablesContents;
+  };
+  
+  type VariableType = string | number;
   
   export { }
   

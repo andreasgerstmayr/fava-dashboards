@@ -6,14 +6,16 @@ import { useConfig } from "../api/config";
 import { FavaExtenstionContext } from "../extension";
 import * as api from "../index";
 import { migrateV1ToV2 } from "../schemas/migrations";
-import * as v1 from "../schemas/v1";
-import * as v2 from "../schemas/v2";
+import * as v1 from "../schemas/v1/v1";
+import * as dashboardv2 from "../schemas/v2/dashboard";
+import * as ledgerv2 from "../schemas/v2/ledger";
+import * as zodv2 from "../schemas/v2/validation";
 import { ErrorAlert } from "./ErrorAlert";
 import { loadTSX, runAsyncFunction } from "./utils";
 
 export interface ConfigContextType {
-  ledgerData: v2.LedgerData;
-  config: v2.Config;
+  ledgerData: ledgerv2.LedgerData;
+  config: dashboardv2.Config;
 }
 
 const ConfigContext = createContext<ConfigContextType | undefined>(undefined);
@@ -52,7 +54,7 @@ export function ConfigProvider({ extensionContext, children }: ConfigProviderPro
       }
 
       // by default, load schema v2
-      const result = v2.ZConfig.safeParse(dynamicConfig);
+      const result = zodv2.ZConfig.safeParse(dynamicConfig);
       if (!result.success) {
         throw new Error("Error validating configuration:\n\n" + z.prettifyError(result.error));
       }

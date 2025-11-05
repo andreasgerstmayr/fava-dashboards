@@ -19,9 +19,11 @@ deps: deps-js deps-py
 ## Build and Test
 build-js:
 	cd frontend; npm run build
+
+build-dts:
 	cd frontend; npm run build:dts
 
-build: build-js
+build: build-js build-dts
 
 test-py:
 	uv run pytest
@@ -54,7 +56,7 @@ format:
 	-uv run ruff check --fix
 	uv run ruff format .
 	find example -name '*.beancount' -exec uv run bean-format -c 59 -o "{}" "{}" \;
-	./scripts/format_js_in_dashboard.py example/dashboards.yaml
+	#./scripts/format_js_in_dashboard.py example/dashboards.yaml
 
 ## Container
 container-run: container-stop

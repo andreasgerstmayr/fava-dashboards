@@ -1,5 +1,5 @@
 import { createHashRouter, Navigate } from "react-router";
-import { Dashboard } from "./pages/Dashboard";
+import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { Layout } from "./pages/Layout";
 
 export const router = createHashRouter([

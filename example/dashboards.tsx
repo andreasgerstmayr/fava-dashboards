@@ -1,7 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /// <reference types="./fava-dashboards.d.ts" />
 import { ECElementEvent } from "echarts";
-import { D3SankeyLink, D3SankeyNode, defineConfig, EChartsSpec, Ledger, Position, TableSpec } from "fava-dashboards";
+import {
+  D3SankeyLink,
+  D3SankeyNode,
+  defineConfig,
+  EChartsSpec,
+  Ledger,
+  Position,
+  TableSpec,
+  VariableDefinition,
+} from "fava-dashboards";
 
 // Base colors from fava
 const COLOR_PROFIT = "#3daf46";
@@ -128,10 +137,7 @@ function StatChart(
         type: "line",
         smooth: true,
         showSymbol: false,
-        lineStyle: {
-          color: lineColor(),
-          width: 2,
-        },
+        color: lineColor(),
         areaStyle: {
           origin: "start",
           color: {
@@ -165,19 +171,19 @@ function StatChart(
   };
 }
 
-async function AssetClasses(ledger: Ledger, query: string): Promise<EChartsSpec> {
-  const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+async function AssetClasses(ledger: Ledger, currency: string, query: string): Promise<EChartsSpec> {
+  const currencyFormatter = getCurrencyFormatter(currency);
   const result = await ledger.query(query);
 
   let totalValue = 0;
   const assetClasses: Record<string, { name: string; children: { name: string; value: number }[] }> = {};
   for (const row of result) {
-    if (!row.market_value[ledger.ccy]) {
+    if (!row.market_value[currency]) {
       continue;
     }
 
     const ccy = row.currency;
-    const value = row.market_value[ledger.ccy];
+    const value = row.market_value[currency];
     const assetName = (ledger.commodities[ccy]?.meta.name ?? ccy) as string;
     const assetClass = (ledger.commodities[ccy]?.meta.asset_class ?? "unknown") as string;
     if (!(assetClass in assetClasses)) {
@@ -212,14 +218,14 @@ async function AssetClasses(ledger: Ledger, query: string): Promise<EChartsSpec>
   };
 }
 
-async function AssetAllocation(ledger: Ledger, query: string): Promise<EChartsSpec> {
-  const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+async function AssetAllocation(ledger: Ledger, currency: string, query: string): Promise<EChartsSpec> {
+  const currencyFormatter = getCurrencyFormatter(currency);
   const result = await ledger.query(query);
 
   let totalValue = 0;
   const root: SunburstNode = { children: [] };
   for (const row of result) {
-    if (!row.market_value[ledger.ccy]) {
+    if (!row.market_value[currency]) {
       continue;
     }
 
@@ -242,7 +248,7 @@ async function AssetAllocation(ledger: Ledger, query: string): Promise<EChartsSp
         node = child;
       }
 
-      const value = (percentage / 100) * row.market_value[ledger.ccy];
+      const value = (percentage / 100) * row.market_value[currency];
       node.value = (node.value ?? 0) + value;
       totalValue += value;
     }
@@ -272,8 +278,8 @@ async function AssetAllocation(ledger: Ledger, query: string): Promise<EChartsSp
   };
 }
 
-async function YearOverYear(ledger: Ledger, query: string): Promise<EChartsSpec> {
-  const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+async function YearOverYear(ledger: Ledger, currency: string, query: string): Promise<EChartsSpec> {
+  const currencyFormatter = getCurrencyFormatter(currency);
   const result = await ledger.query(query);
   const years = iterateYears(ledger.dateFirst, ledger.dateLast);
   const maxAccounts = 7; // number of accounts to show, sorted by sum
@@ -284,7 +290,7 @@ async function YearOverYear(ledger: Ledger, query: string): Promise<EChartsSpec>
     if (!(row.account in accountSums)) {
       accountSums[row.account] = 0;
     }
-    const value = row.account.startsWith("Income:") ? -row.value[ledger.ccy] : row.value[ledger.ccy];
+    const value = row.account.startsWith("Income:") ? -row.value[currency] : row.value[currency];
     amounts[`${row.year}/${row.account}`] = value;
     accountSums[row.account] += value;
   }
@@ -332,10 +338,19 @@ async function YearOverYear(ledger: Ledger, query: string): Promise<EChartsSpec>
   };
 }
 
+const currencyVariable: VariableDefinition = {
+  name: "currency",
+  label: "Currency",
+  options: async ({ ledger }) => {
+    return ledger.operatingCurrencies;
+  },
+};
+
 export default defineConfig({
   dashboards: [
     {
       name: "Overview",
+      variables: [currencyVariable],
       panels: [
         {
           title: "Assets 💰",
@@ -343,17 +358,17 @@ export default defineConfig({
           height: "80px",
           link: "../../balance_sheet/",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}') AS value
+              `SELECT year, month, CONVERT(SUM(position), '${variables.currency}') AS value
                WHERE account ~ '^Assets:'
                GROUP BY year, month`,
             );
             let cumValue = 0;
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: (cumValue += row.value[ledger.ccy]),
+              value: (cumValue += row.value[variables.currency]),
             }));
             const lastValue = dataset.length > 0 ? dataset[dataset.length - 1].value : 0;
             return StatChart(dataset, TREND_POSITIVE, currencyFormatter(lastValue), COLOR_PROFIT);
@@ -365,17 +380,17 @@ export default defineConfig({
           height: "80px",
           link: "../../balance_sheet/",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}') AS value
+              `SELECT year, month, CONVERT(SUM(position), '${variables.currency}') AS value
                WHERE account ~ '^Liabilities:'
                GROUP BY year, month`,
             );
             let cumValue = 0;
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: (cumValue += -row.value[ledger.ccy]),
+              value: (cumValue += -row.value[variables.currency]),
             }));
             const lastValue = dataset.length > 0 ? dataset[dataset.length - 1].value : 0;
             return StatChart(dataset, TREND_NEGATIVE, currencyFormatter(lastValue), COLOR_LOSS);
@@ -387,11 +402,11 @@ export default defineConfig({
           height: "520px",
           link: "../../income_statement/",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const queries = [
               {
-                bql: `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+                bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                       WHERE account ~ '^Income:'
                       GROUP BY year, month`,
                 name: "Income",
@@ -399,7 +414,7 @@ export default defineConfig({
                 link: "../../account/Income/?time={time}",
               },
               {
-                bql: `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+                bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                       WHERE account ~ '^Expenses:Housing:' AND NOT 'travel' IN tags
                       GROUP BY year, month`,
                 name: "Housing",
@@ -407,7 +422,7 @@ export default defineConfig({
                 link: "../../account/Expenses:Housing/?filter=-#travel&time={time}",
               },
               {
-                bql: `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+                bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                       WHERE account ~ '^Expenses:Food:' AND NOT 'travel' IN tags
                       GROUP BY year, month`,
                 name: "Food",
@@ -415,7 +430,7 @@ export default defineConfig({
                 link: "../../account/Expenses:Food/?filter=-#travel&time={time}",
               },
               {
-                bql: `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+                bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                       WHERE account ~ '^Expenses:Shopping:' AND NOT 'travel' IN tags
                       GROUP BY year, month`,
                 name: "Shopping",
@@ -423,7 +438,7 @@ export default defineConfig({
                 link: "../../account/Expenses:Shopping/?filter=-#travel&time={time}",
               },
               {
-                bql: `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+                bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                       WHERE account ~ '^Expenses:' AND 'travel' IN tags
                       GROUP BY year, month`,
                 name: "Travel",
@@ -431,7 +446,7 @@ export default defineConfig({
                 link: "../../account/Expenses/?filter=#travel&time={time}",
               },
               {
-                bql: `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+                bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                       WHERE account ~ '^Expenses:' AND NOT account ~ '^Expenses:(Housing|Food|Shopping):' AND NOT 'travel' IN tags
                       GROUP BY year, month`,
                 name: "Other",
@@ -448,7 +463,7 @@ export default defineConfig({
                 dataset: fillMonthlyDataset(
                   (await ledger.query(query.bql)).map((row) => ({
                     date: `${row.year}-${row.month}`,
-                    value: query.stack === "income" ? -row.value[ledger.ccy] : row.value[ledger.ccy],
+                    value: query.stack === "income" ? -row.value[variables.currency] : row.value[variables.currency],
                   })),
                   "date",
                   iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.year}-${m.month}`),
@@ -505,24 +520,25 @@ export default defineConfig({
     },
     {
       name: "Assets",
+      variables: [currencyVariable],
       panels: [
         {
           title: "Assets 🏦",
           width: "50%",
           height: "400px",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT currency, CONVERT(SUM(position), '${ledger.ccy}') as market_value
+              `SELECT currency, CONVERT(SUM(position), '${variables.currency}') as market_value
                WHERE account_sortkey(account) ~ '^[01]'
                GROUP BY currency
                ORDER BY market_value`,
             );
 
             const data = result
-              .filter((row) => row.market_value[ledger.ccy])
-              .map((row) => ({ name: row.currency, value: row.market_value[ledger.ccy] }));
+              .filter((row) => row.market_value[variables.currency])
+              .map((row) => ({ name: row.currency, value: row.market_value[variables.currency] }));
 
             return {
               tooltip: {
@@ -548,19 +564,20 @@ export default defineConfig({
           height: "400px",
           link: "../../income_statement/",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
               `SELECT year, month,
-               CONVERT(LAST(balance), '${ledger.ccy}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
+               CONVERT(LAST(balance), '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
                WHERE account_sortkey(account) ~ '^[01]'
                GROUP BY year, month`,
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[ledger.ccy],
+              value: row.value[variables.currency],
             }));
             return {
+              magic: 1,
               tooltip: {
                 trigger: "axis",
                 valueFormatter: anyFormatter(currencyFormatter),
@@ -580,6 +597,21 @@ export default defineConfig({
                 {
                   type: "line",
                   smooth: true,
+                  color: TREND_POSITIVE(),
+                  areaStyle: {
+                    origin: "start",
+                    color: {
+                      type: "linear",
+                      x: 0,
+                      y: 0,
+                      x2: 0,
+                      y2: 1,
+                      colorStops: [
+                        { offset: 0, color: TREND_POSITIVE(0.4) },
+                        { offset: 1, color: TREND_POSITIVE(0) },
+                      ],
+                    },
+                  },
                   encode: { x: "date", y: "value" },
                 },
               ],
@@ -596,19 +628,19 @@ export default defineConfig({
           width: "50%",
           height: "400px",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
               `SELECT year, month,
-               CONVERT(LAST(balance),       '${ledger.ccy}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS market_value,
-               CONVERT(COST(LAST(balance)), '${ledger.ccy}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS book_value
-               WHERE account ~ '^Assets:' AND currency != '${ledger.ccy}'
+               CONVERT(LAST(balance),       '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS market_value,
+               CONVERT(COST(LAST(balance)), '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS book_value
+               WHERE account ~ '^Assets:' AND currency != '${variables.currency}'
                GROUP BY year, month`,
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              market_value: row.market_value[ledger.ccy],
-              book_value: row.book_value[ledger.ccy],
+              market_value: row.market_value[variables.currency],
+              book_value: row.book_value[variables.currency],
             }));
             return {
               tooltip: {
@@ -656,18 +688,18 @@ export default defineConfig({
           width: "50%",
           height: "400px",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
               `SELECT year, month,
-               CONVERT(LAST(balance),       '${ledger.ccy}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS market_value,
-               CONVERT(COST(LAST(balance)), '${ledger.ccy}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS book_value
-               WHERE account ~ '^Assets:' AND currency != '${ledger.ccy}'
+               CONVERT(LAST(balance),       '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS market_value,
+               CONVERT(COST(LAST(balance)), '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS book_value
+               WHERE account ~ '^Assets:' AND currency != '${variables.currency}'
                GROUP BY year, month`,
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.market_value[ledger.ccy] - row.book_value[ledger.ccy],
+              value: row.market_value[variables.currency] - row.book_value[variables.currency],
             }));
 
             return {
@@ -700,8 +732,8 @@ export default defineConfig({
           width: "100%",
           height: "400px",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const years = iterateYears(ledger.dateFirst, ledger.dateLast);
 
             // This chart requires the balances grouped by year and currency.
@@ -711,7 +743,7 @@ export default defineConfig({
             const queries = await Promise.all(
               years.map((year) =>
                 ledger.query(`SELECT currency,
-                              CONVERT(SUM(position), '${ledger.ccy}', ${year}-12-31) as market_value
+                              CONVERT(SUM(position), '${variables.currency}', ${year}-12-31) as market_value
                               FROM CLOSE ON ${year + 1}-01-01
                               WHERE account_sortkey(account) ~ '^[01]'
                               GROUP BY currency`),
@@ -726,11 +758,11 @@ export default defineConfig({
 
               amounts[year] = {};
               for (const row of query) {
-                if (!row.market_value[ledger.ccy]) {
+                if (!row.market_value[variables.currency]) {
                   continue;
                 }
 
-                const value = row.market_value[ledger.ccy];
+                const value = row.market_value[variables.currency];
                 const assetClass = ledger.commodities[row.currency]?.meta.asset_class ?? "unknown";
                 amounts[year][assetClass] = (amounts[year][assetClass] ?? 0) + value;
                 balances[assetClass] = (balances[assetClass] ?? 0) + value;
@@ -776,10 +808,11 @@ export default defineConfig({
           height: "400px",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
+          spec: async ({ ledger, variables }) => {
             return AssetClasses(
               ledger,
-              `SELECT currency, CONVERT(SUM(position), '${ledger.ccy}') as market_value
+              variables.currency,
+              `SELECT currency, CONVERT(SUM(position), '${variables.currency}') as market_value
                WHERE account_sortkey(account) ~ '^[01]'
                GROUP BY currency
                ORDER BY market_value`,
@@ -792,11 +825,12 @@ export default defineConfig({
           height: "400px",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
+          spec: async ({ ledger, variables }) => {
             return AssetClasses(
               ledger,
-              `SELECT currency, CONVERT(SUM(position), '${ledger.ccy}') as market_value
-               WHERE account_sortkey(account) ~ '^[01]' AND currency != '${ledger.ccy}'
+              variables.currency,
+              `SELECT currency, CONVERT(SUM(position), '${variables.currency}') as market_value
+               WHERE account_sortkey(account) ~ '^[01]' AND currency != '${variables.currency}'
                GROUP BY currency
                ORDER BY market_value`,
             );
@@ -808,10 +842,11 @@ export default defineConfig({
           height: "400px",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
+          spec: async ({ ledger, variables }) => {
             return AssetAllocation(
               ledger,
-              `SELECT currency, CONVERT(SUM(position), '${ledger.ccy}') as market_value
+              variables.currency,
+              `SELECT currency, CONVERT(SUM(position), '${variables.currency}') as market_value
                WHERE account_sortkey(account) ~ '^[01]'
                GROUP BY currency
                ORDER BY market_value`,
@@ -824,11 +859,12 @@ export default defineConfig({
           height: "400px",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
+          spec: async ({ ledger, variables }) => {
             return AssetAllocation(
               ledger,
-              `SELECT currency, CONVERT(SUM(position), '${ledger.ccy}') as market_value
-               WHERE account_sortkey(account) ~ '^[01]' AND currency != '${ledger.ccy}'
+              variables.currency,
+              `SELECT currency, CONVERT(SUM(position), '${variables.currency}') as market_value
+               WHERE account_sortkey(account) ~ '^[01]' AND currency != '${variables.currency}'
                GROUP BY currency
                ORDER BY market_value`,
             );
@@ -838,6 +874,7 @@ export default defineConfig({
     },
     {
       name: "Income and Expenses",
+      variables: [currencyVariable],
       panels: [
         {
           title: "Avg. Income per Month 💰",
@@ -845,16 +882,16 @@ export default defineConfig({
           height: "100px",
           link: "../../account/Income/?r=changes",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}') AS value
+              `SELECT year, month, CONVERT(SUM(position), '${variables.currency}') AS value
                WHERE account ~ '^Income:'
                GROUP BY year, month`,
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: -row.value[ledger.ccy],
+              value: -row.value[variables.currency],
             }));
             const avg = sumValue(dataset) / countMonths(ledger);
             return StatChart(dataset, TREND_POSITIVE, currencyFormatter(avg), COLOR_PROFIT);
@@ -866,16 +903,16 @@ export default defineConfig({
           height: "100px",
           link: "../../account/Expenses/?r=changes",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}') AS value
+              `SELECT year, month, CONVERT(SUM(position), '${variables.currency}') AS value
                WHERE account ~ '^Expenses:'
                GROUP BY year, month`,
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[ledger.ccy],
+              value: row.value[variables.currency],
             }));
             const avg = sumValue(dataset) / countMonths(ledger);
             return StatChart(dataset, TREND_NEGATIVE, currencyFormatter(avg), COLOR_LOSS);
@@ -887,32 +924,32 @@ export default defineConfig({
           height: "100px",
           link: "../../income_statement/",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const percentFormatter = new Intl.NumberFormat(undefined, {
               style: "percent",
               maximumFractionDigits: 0,
             }).format;
 
             const income = await ledger.query(
-              `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}') AS value
+              `SELECT year, month, CONVERT(SUM(position), '${variables.currency}') AS value
                WHERE account ~ '^Income:'
                GROUP BY year, month`,
             );
             const incomeDataset = income.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: -row.value[ledger.ccy],
+              value: -row.value[variables.currency],
             }));
             const avgIncome = sumValue(incomeDataset) / countMonths(ledger);
 
             const expenses = await ledger.query(
-              `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}') AS value
+              `SELECT year, month, CONVERT(SUM(position), '${variables.currency}') AS value
                WHERE account ~ '^Expenses:'
                GROUP BY year, month`,
             );
             const expensesDataset = expenses.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[ledger.ccy],
+              value: row.value[variables.currency],
             }));
             const avgExpenses = sumValue(expensesDataset) / countMonths(ledger);
 
@@ -940,13 +977,13 @@ export default defineConfig({
           link: "../../income_statement/",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const monthFormatter = new Intl.DateTimeFormat(undefined, { month: "short" }).format;
             const years = iterateYears(ledger.dateFirst, ledger.dateLast);
 
             const result = await ledger.query(
-              `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+              `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                WHERE account ~ '^(Income|Expenses):'
                GROUP BY year, month`,
             );
@@ -955,7 +992,7 @@ export default defineConfig({
             const monthly: Record<string, number> = {};
             const yearly: Record<number, number> = {};
             for (const row of result) {
-              const savings = -row.value[ledger.ccy];
+              const savings = -row.value[variables.currency];
               monthly[`${row.year}-${row.month}`] = savings;
               yearly[row.year] = (yearly[row.year] ?? 0) + savings;
             }
@@ -1041,9 +1078,9 @@ export default defineConfig({
           height: "450px",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
+          spec: async ({ ledger, variables }) => {
             const result = await ledger.query(
-              `SELECT date, root(account, 2) AS account, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+              `SELECT date, root(account, 2) AS account, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
               WHERE account ~ '^Expenses:'
               GROUP BY account, date`,
             );
@@ -1062,13 +1099,13 @@ export default defineConfig({
 
             let maxAmount = 0;
             for (const row of result) {
-              if (isNaN(row.value[ledger.ccy])) {
+              if (isNaN(row.value[variables.currency])) {
                 continue;
               }
               if (!amounts[row.date]) {
-                amounts[row.date] = row.value[ledger.ccy];
+                amounts[row.date] = row.value[variables.currency];
               } else {
-                amounts[row.date] += row.value[ledger.ccy];
+                amounts[row.date] += row.value[variables.currency];
               }
               maxAmount = Math.max(maxAmount, amounts[row.date]);
 
@@ -1131,7 +1168,7 @@ export default defineConfig({
                     ":<br/>" +
                     "<b style='font-weight: 700'>" +
                     params.data[1] +
-                    ` ${ledger.ccy}` +
+                    ` ${variables.currency}` +
                     "</b>"
                   );
                 },
@@ -1164,10 +1201,10 @@ export default defineConfig({
           height: "400px",
           link: "../../account/Income/?r=changes",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT root(account, 4) AS account, CONVERT(SUM(position), '${ledger.ccy}') AS value
+              `SELECT root(account, 4) AS account, CONVERT(SUM(position), '${variables.currency}') AS value
                WHERE account ~ '^Income:'
                GROUP BY account`,
             );
@@ -1175,7 +1212,7 @@ export default defineConfig({
             const months = countMonths(ledger);
             const accountTree = buildAccountTree(
               result,
-              (row) => -(row.value[ledger.ccy] ?? 0) / months,
+              (row) => -(row.value[variables.currency] ?? 0) / months,
               (parts, i) => parts[i],
             );
             // use click event on desktop, dblclick on mobile
@@ -1210,18 +1247,18 @@ export default defineConfig({
           height: "400px",
           link: "../../account/Expenses/?r=changes",
           kind: "echarts",
-          spec: async ({ ledger }) => {
+          spec: async ({ ledger, variables }) => {
             const result = await ledger.query(
-              `SELECT root(account, 3) AS account, CONVERT(SUM(position), '${ledger.ccy}') AS value
+              `SELECT root(account, 3) AS account, CONVERT(SUM(position), '${variables.currency}') AS value
                WHERE account ~ '^Expenses:'
                GROUP BY account`,
             );
 
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const months = countMonths(ledger);
             const accountTree = buildAccountTree(
               result,
-              (row) => (row.value[ledger.ccy] ?? 0) / months,
+              (row) => (row.value[variables.currency] ?? 0) / months,
               (parts, i) => parts[i],
             );
             // use click event on desktop, dblclick on mobile
@@ -1257,25 +1294,25 @@ export default defineConfig({
           link: "../../income_statement/",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const queries = [
               {
-                bql: `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+                bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
 WHERE account ~ '^Expenses:' AND 'recurring' IN tags
 GROUP BY year, month`,
                 name: "Recurring",
                 link: "../../account/Expenses/?filter=#recurring&time={time}",
               },
               {
-                bql: `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+                bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
 WHERE account ~ '^Expenses:' AND NOT 'recurring' IN tags AND NOT 'irregular' IN tags
 GROUP BY year, month`,
                 name: "Regular",
                 link: "../../account/Expenses/?filter=-#recurring -#irregular&time={time}",
               },
               {
-                bql: `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+                bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
 WHERE account ~ '^Expenses:' AND 'irregular' IN tags
 GROUP BY year, month`,
                 name: "Irregular",
@@ -1289,7 +1326,7 @@ GROUP BY year, month`,
                 dataset: fillMonthlyDataset(
                   (await ledger.query(query.bql)).map((row) => ({
                     date: `${row.year}-${row.month}`,
-                    value: row.value[ledger.ccy],
+                    value: row.value[variables.currency],
                   })),
                   "date",
                   iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.year}-${m.month}`),
@@ -1339,16 +1376,16 @@ GROUP BY year, month`,
           link: "../../account/Expenses:Food/",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT year, month, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+              `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                WHERE account ~ '^Expenses:Food:'
                GROUP BY year, month`,
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[ledger.ccy],
+              value: row.value[variables.currency],
             }));
 
             return {
@@ -1391,10 +1428,11 @@ GROUP BY year, month`,
           height: "700px",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
+          spec: async ({ ledger, variables }) => {
             return YearOverYear(
               ledger,
-              `SELECT year, root(account, 3) AS account, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+              variables.currency,
+              `SELECT year, root(account, 3) AS account, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                WHERE account ~ '^Income:'
                GROUP BY account, year`,
             );
@@ -1406,10 +1444,11 @@ GROUP BY year, month`,
           height: "700px",
 
           kind: "echarts",
-          spec: async ({ ledger }) => {
+          spec: async ({ ledger, variables }) => {
             return YearOverYear(
               ledger,
-              `SELECT year, root(account, 2) AS account, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+              variables.currency,
+              `SELECT year, root(account, 2) AS account, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                WHERE account ~ '^Expenses:'
                GROUP BY account, year`,
             );
@@ -1433,17 +1472,17 @@ GROUP BY year, month`,
 
             const table: TableSpec<Row> = {
               columns: [
-                { field: "date" },
-                { field: "payee" },
-                { field: "narration" },
+                { field: "date", minWidth: 100 },
+                { field: "payee", flex: 0.5 },
+                { field: "narration", flex: 1 },
                 {
                   field: "position",
+                  minWidth: 200,
                   valueGetter: (_value, row) => row.position.units.number,
                   valueFormatter: (_value, row) => `${row.position.units.number} ${row.position.units.currency}`,
                 },
               ],
               rows: rows.map((row, i) => ({ ...row, id: i })),
-              autosizeOnMount: true,
             };
             return table;
           },
@@ -1452,6 +1491,7 @@ GROUP BY year, month`,
     },
     {
       name: "Travelling",
+      variables: [currencyVariable],
       panels: [
         {
           title: "Travel Costs per Year 📅",
@@ -1459,16 +1499,16 @@ GROUP BY year, month`,
           height: "400px",
           link: "../../income_statement/?filter=#travel",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT year, CONVERT(SUM(position), '${ledger.ccy}', LAST(date)) AS value
+              `SELECT year, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                WHERE account ~ '^Expenses:' AND 'travel' IN tags
                GROUP BY year`,
             );
             const dataset = result.map((row) => ({
               year: row.year,
-              value: row.value[ledger.ccy],
+              value: row.value[variables.currency],
             }));
 
             return {
@@ -1506,10 +1546,10 @@ GROUP BY year, month`,
           height: "300px",
           link: "../../income_statement/?filter=#travel",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT tags, CONVERT(position, '${ledger.ccy}', date) AS value
+              `SELECT tags, CONVERT(position, '${variables.currency}', date) AS value
                WHERE account ~ '^Expenses:' AND 'travel' IN tags
                ORDER BY date ASC`,
             );
@@ -1567,6 +1607,7 @@ GROUP BY year, month`,
     },
     {
       name: "Sankey",
+      variables: [currencyVariable],
       panels: [
         {
           title: "Sankey (per month) 💸",
@@ -1574,10 +1615,10 @@ GROUP BY year, month`,
           height: "800px",
           link: "../../income_statement/",
           kind: "d3_sankey",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
-              `SELECT account, CONVERT(SUM(position), '${ledger.ccy}') AS value
+              `SELECT account, CONVERT(SUM(position), '${variables.currency}') AS value
                WHERE account ~ '^(Income|Expenses):'
                GROUP BY account`,
             );
@@ -1616,7 +1657,7 @@ GROUP BY year, month`,
               }
             }
 
-            const accountTree = buildAccountTree(result, (row) => row.value[ledger.ccy] ?? 0);
+            const accountTree = buildAccountTree(result, (row) => row.value[variables.currency] ?? 0);
             if (accountTree.children.length !== 2) {
               throw Error("No Income/Expense accounts found.");
             }
@@ -1653,6 +1694,7 @@ GROUP BY year, month`,
     },
     {
       name: "Projection",
+      variables: [currencyVariable],
       panels: [
         {
           title: "Net Worth 💰",
@@ -1660,40 +1702,41 @@ GROUP BY year, month`,
           height: "400px",
           link: "../../income_statement/",
           kind: "echarts",
-          spec: async ({ ledger }) => {
-            const currencyFormatter = getCurrencyFormatter(ledger.ccy);
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
             const projectYears = 2; // number of years to project
 
             const result = await ledger.query(
               `SELECT year, month,
-               CONVERT(LAST(balance), '${ledger.ccy}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
+               CONVERT(LAST(balance), '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
                WHERE account_sortkey(account) ~ '^[01]'
                GROUP BY year, month`,
             );
             const resultDataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[ledger.ccy],
+              value: row.value[variables.currency],
             }));
 
             // ignore onetime income and expenses, for example winning the lottery or wedding expenses
             const resultEx = await ledger.query(
               `SELECT year, month,
-               CONVERT(LAST(balance), '${ledger.ccy}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
+               CONVERT(LAST(balance), '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
                WHERE account_sortkey(account) ~ '^[01]' AND NOT 'wedding' IN tags AND NOT 'weddinggift' IN tags
                GROUP BY year, month`,
             );
             const resultExDataset = resultEx.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[ledger.ccy],
+              value: row.value[variables.currency],
             }));
 
             const resultExLast = resultEx[resultEx.length - 1];
 
-            const finalAmount = result.length > 0 ? result.at(-1)!.value[ledger.ccy] : 0;
+            const finalAmount = result.length > 0 ? result.at(-1)!.value[variables.currency] : 0;
             const dateFirst = new Date(resultEx[0].year, resultEx[0].month - 1, 1);
             const dateLast = new Date(new Date(resultExLast.year, resultExLast.month, 1).getTime() - 1);
             const days = (dateLast.getTime() - dateFirst.getTime()) / (1000 * 60 * 60 * 24) + 1;
-            const totalDiff = (resultExLast.value[ledger.ccy] ?? 0) - (resultEx[0].value[ledger.ccy] ?? 0);
+            const totalDiff =
+              (resultExLast.value[variables.currency] ?? 0) - (resultEx[0].value[variables.currency] ?? 0);
             const monthlyDiff = (totalDiff / days) * (365 / 12);
 
             const dateLastYear = dateLast.getFullYear();

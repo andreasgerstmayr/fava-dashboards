@@ -1,4 +1,4 @@
-import * as v1 from "../schemas/v1";
+import * as v1 from "../schemas/v1/v1";
 import { fetchJSON } from "./api";
 
 export interface RenderPanelResponse {
