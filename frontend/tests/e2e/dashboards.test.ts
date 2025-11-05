@@ -19,6 +19,7 @@ test.describe("PNG Snapshot Tests", () => {
           // full page screenshot doesn't work due to sticky sidebar
           document.body.style.height = "inherit";
         });
+        await page.waitForLoadState("networkidle");
         await expect(page).toHaveScreenshot({ fullPage: true });
       });
     });
@@ -33,6 +34,7 @@ test.describe("PNG Snapshot Tests", () => {
           // full page screenshot doesn't work due to sticky sidebar
           document.body.style.height = "inherit";
         });
+        await page.waitForLoadState("networkidle");
         await expect(page).toHaveScreenshot({ fullPage: true });
       });
     });

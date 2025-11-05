@@ -3,9 +3,9 @@
 ## v2.0.0 (unreleased)
 ### Added
 * support dynamic, typed dashboards written in TypeScript (`dashboards.tsx`) or JavaScript (`dashboards.jsx`)
+* variables per dashboard and per panel
 * concurrent loading of panels
 * new `react` panel kind
-* variables per dashboard and per panel
 
 ### Changed
 * updated design using Material UI
