@@ -80,6 +80,9 @@
   - heading "Projection" [level=3]:
     - link "Projection":
       - /url: "#/dashboards/projection"
+  - text: Currency
+  - combobox "Currency"
+  - button "Open"
   - heading "Assets 🏦" [level=3]
   - heading "Net Worth 💰" [level=3]:
     - link "Net Worth 💰":
@@ -88,6 +91,10 @@
   - heading "Portfolio Gains ✨" [level=3]
   - heading "Asset Classes Year-over-Year 🏦" [level=3]
   - heading "Asset Classes 🏦" [level=3]
-  - heading "Investment Classes 🏦" [level=3]
+  - group:
+    - button "All assets" [pressed]
+    - button "Only investments"
   - heading "Assets Allocation 🏦" [level=3]
-  - heading "Investments Allocation 🏦" [level=3]
+  - group:
+    - button "All assets" [pressed]
+    - button "Only investments"

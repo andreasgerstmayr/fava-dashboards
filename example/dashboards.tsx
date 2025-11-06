@@ -171,113 +171,6 @@ function StatChart(
   };
 }
 
-async function AssetClasses(ledger: Ledger, currency: string, query: string): Promise<EChartsSpec> {
-  const currencyFormatter = getCurrencyFormatter(currency);
-  const result = await ledger.query(query);
-
-  let totalValue = 0;
-  const assetClasses: Record<string, { name: string; children: { name: string; value: number }[] }> = {};
-  for (const row of result) {
-    if (!row.market_value[currency]) {
-      continue;
-    }
-
-    const ccy = row.currency;
-    const value = row.market_value[currency];
-    const assetName = (ledger.commodities[ccy]?.meta.name ?? ccy) as string;
-    const assetClass = (ledger.commodities[ccy]?.meta.asset_class ?? "unknown") as string;
-    if (!(assetClass in assetClasses)) {
-      assetClasses[assetClass] = { name: assetClass, children: [] };
-    }
-    assetClasses[assetClass].children.push({ name: assetName, value });
-    totalValue += value;
-  }
-
-  return {
-    tooltip: {
-      formatter: (params: any) =>
-        `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormatter(
-          params.value,
-        )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
-    },
-    series: [
-      {
-        type: "sunburst",
-        radius: "100%",
-        label: {
-          minAngle: 3,
-          width: 170,
-          overflow: "truncate",
-        },
-        labelLayout: {
-          hideOverlap: true,
-        },
-        data: Object.values(assetClasses),
-      },
-    ],
-  };
-}
-
-async function AssetAllocation(ledger: Ledger, currency: string, query: string): Promise<EChartsSpec> {
-  const currencyFormatter = getCurrencyFormatter(currency);
-  const result = await ledger.query(query);
-
-  let totalValue = 0;
-  const root: SunburstNode = { children: [] };
-  for (const row of result) {
-    if (!row.market_value[currency]) {
-      continue;
-    }
-
-    const allocations = Object.entries(ledger.commodities[row.currency]?.meta ?? {}).filter(([k, _v]) =>
-      k.startsWith("asset_allocation_"),
-    ) as [string, number][];
-    if (allocations.length === 0) {
-      allocations.push(["asset_allocation_Unknown", 100]);
-    }
-
-    for (const [allocation, percentage] of allocations) {
-      const parts = allocation.substr("asset_allocation_".length).split("_");
-      let node = root;
-      for (const part of parts) {
-        let child = node.children.find((c) => c.name == part);
-        if (!child) {
-          child = { name: part, children: [] };
-          node.children.push(child);
-        }
-        node = child;
-      }
-
-      const value = (percentage / 100) * row.market_value[currency];
-      node.value = (node.value ?? 0) + value;
-      totalValue += value;
-    }
-  }
-
-  return {
-    tooltip: {
-      formatter: (params: any) =>
-        `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormatter(
-          params.value,
-        )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
-    },
-    series: [
-      {
-        type: "sunburst",
-        radius: "100%",
-        label: {
-          rotate: "tangential",
-          minAngle: 20,
-        },
-        labelLayout: {
-          hideOverlap: true,
-        },
-        data: root.children,
-      },
-    ],
-  };
-}
-
 async function YearOverYear(ledger: Ledger, currency: string, query: string): Promise<EChartsSpec> {
   const currencyFormatter = getCurrencyFormatter(currency);
   const result = await ledger.query(query);
@@ -806,68 +699,143 @@ export default defineConfig({
           title: "Asset Classes 🏦",
           width: "50%",
           height: "400px",
-
           kind: "echarts",
+          variables: [
+            {
+              name: "categories",
+              display: "toggle",
+              options: () => ["All assets", "Only investments"],
+            },
+          ],
           spec: async ({ ledger, variables }) => {
-            return AssetClasses(
-              ledger,
-              variables.currency,
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
+            const filter = variables.categories == "Only investments" ? `AND currency != '${variables.currency}'` : "";
+            const result = await ledger.query(
               `SELECT currency, CONVERT(SUM(position), '${variables.currency}') as market_value
-               WHERE account_sortkey(account) ~ '^[01]'
+               WHERE account_sortkey(account) ~ '^[01]' ${filter}
                GROUP BY currency
                ORDER BY market_value`,
             );
-          },
-        },
-        {
-          title: "Investment Classes 🏦",
-          width: "50%",
-          height: "400px",
 
-          kind: "echarts",
-          spec: async ({ ledger, variables }) => {
-            return AssetClasses(
-              ledger,
-              variables.currency,
-              `SELECT currency, CONVERT(SUM(position), '${variables.currency}') as market_value
-               WHERE account_sortkey(account) ~ '^[01]' AND currency != '${variables.currency}'
-               GROUP BY currency
-               ORDER BY market_value`,
-            );
+            let totalValue = 0;
+            const assetClasses: Record<string, { name: string; children: { name: string; value: number }[] }> = {};
+            for (const row of result) {
+              if (!row.market_value[variables.currency]) {
+                continue;
+              }
+
+              const ccy = row.currency;
+              const value = row.market_value[variables.currency];
+              const assetName = (ledger.commodities[ccy]?.meta.name ?? ccy) as string;
+              const assetClass = (ledger.commodities[ccy]?.meta.asset_class ?? "unknown") as string;
+              if (!(assetClass in assetClasses)) {
+                assetClasses[assetClass] = { name: assetClass, children: [] };
+              }
+              assetClasses[assetClass].children.push({ name: assetName, value });
+              totalValue += value;
+            }
+
+            return {
+              tooltip: {
+                formatter: (params: any) =>
+                  `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormatter(
+                    params.value,
+                  )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
+              },
+              series: [
+                {
+                  type: "sunburst",
+                  radius: "100%",
+                  label: {
+                    minAngle: 3,
+                    width: 170,
+                    overflow: "truncate",
+                  },
+                  labelLayout: {
+                    hideOverlap: true,
+                  },
+                  data: Object.values(assetClasses),
+                },
+              ],
+            };
           },
         },
         {
           title: "Assets Allocation 🏦",
           width: "50%",
           height: "400px",
-
           kind: "echarts",
+          variables: [
+            {
+              name: "categories",
+              display: "toggle",
+              options: () => ["All assets", "Only investments"],
+            },
+          ],
           spec: async ({ ledger, variables }) => {
-            return AssetAllocation(
-              ledger,
-              variables.currency,
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
+            const filter = variables.categories == "Only investments" ? `AND currency != '${variables.currency}'` : "";
+            const result = await ledger.query(
               `SELECT currency, CONVERT(SUM(position), '${variables.currency}') as market_value
-               WHERE account_sortkey(account) ~ '^[01]'
+               WHERE account_sortkey(account) ~ '^[01]' ${filter}
                GROUP BY currency
                ORDER BY market_value`,
             );
-          },
-        },
-        {
-          title: "Investments Allocation 🏦",
-          width: "50%",
-          height: "400px",
 
-          kind: "echarts",
-          spec: async ({ ledger, variables }) => {
-            return AssetAllocation(
-              ledger,
-              variables.currency,
-              `SELECT currency, CONVERT(SUM(position), '${variables.currency}') as market_value
-               WHERE account_sortkey(account) ~ '^[01]' AND currency != '${variables.currency}'
-               GROUP BY currency
-               ORDER BY market_value`,
-            );
+            let totalValue = 0;
+            const root: SunburstNode = { children: [] };
+            for (const row of result) {
+              if (!row.market_value[variables.currency]) {
+                continue;
+              }
+
+              const allocations = Object.entries(ledger.commodities[row.currency]?.meta ?? {}).filter(([k, _v]) =>
+                k.startsWith("asset_allocation_"),
+              ) as [string, number][];
+              if (allocations.length === 0) {
+                allocations.push(["asset_allocation_Unknown", 100]);
+              }
+
+              for (const [allocation, percentage] of allocations) {
+                const parts = allocation.substring("asset_allocation_".length).split("_");
+                let node = root;
+                for (const part of parts) {
+                  let child = node.children.find((c) => c.name == part);
+                  if (!child) {
+                    child = { name: part, children: [] };
+                    node.children.push(child);
+                  }
+                  node = child;
+                }
+
+                const value = (percentage / 100) * row.market_value[variables.currency];
+                node.value = (node.value ?? 0) + value;
+                totalValue += value;
+              }
+            }
+
+            return {
+              tooltip: {
+                formatter: (params: any) =>
+                  `${params.marker} ${params.name} <span style="padding-left: 15px; font-weight: bold;">${currencyFormatter(
+                    params.value,
+                  )}</span> (${((params.value / totalValue) * 100).toFixed(0)}%)`,
+              },
+              series: [
+                {
+                  type: "sunburst",
+                  radius: "100%",
+                  label: {
+                    rotate: "tangential",
+                    minAngle: 20,
+                  },
+                  labelLayout: {
+                    hideOverlap: true,
+                  },
+                  data: root.children,
+                },
+              ],
+            };
           },
         },
       ],
