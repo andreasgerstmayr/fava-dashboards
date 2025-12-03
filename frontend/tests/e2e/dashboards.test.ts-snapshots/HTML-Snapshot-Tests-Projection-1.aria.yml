@@ -64,20 +64,22 @@
 - article:
   - heading "Overview" [level=3]:
     - link "Overview":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=0
+      - /url: "#/dashboards/overview"
   - heading "Assets" [level=3]:
     - link "Assets":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=1
+      - /url: "#/dashboards/assets"
   - heading "Income and Expenses" [level=3]:
     - link "Income and Expenses":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=2
+      - /url: "#/dashboards/income-and-expenses"
   - heading "Travelling" [level=3]:
     - link "Travelling":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=3
+      - /url: "#/dashboards/travelling"
   - heading "Sankey" [level=3]:
     - link "Sankey":
-      - /url: /beancount/extension/FavaDashboards/?dashboard=4
-  - heading "Projection" [level=3]
-  - heading "Net Worth 💰" [level=2]:
+      - /url: "#/dashboards/sankey"
+  - heading "Projection" [level=3]:
+    - link "Projection":
+      - /url: "#/dashboards/projection"
+  - heading "Net Worth 💰" [level=3]:
     - link "Net Worth 💰":
-      - /url: http://127.0.0.1:5000/beancount/income_statement/
+      - /url: "#/income_statement/"

@@ -3,11 +3,11 @@ import { expect, test } from "@playwright/test";
 const BASE_URL = "http://127.0.0.1:5000/beancount/extension/FavaDashboards/";
 const dashboards = [
   { name: "Overview", url: "" },
-  { name: "Assets", url: "?dashboard=1" },
-  { name: "Income and Expenses", url: "?dashboard=2" },
-  { name: "Travelling", url: "?dashboard=3" },
-  { name: "Sankey", url: "?dashboard=4" },
-  { name: "Projection", url: "?dashboard=5" },
+  { name: "Assets", url: "#/dashboards/assets" },
+  { name: "Income and Expenses", url: "#/dashboards/income-and-expenses" },
+  { name: "Travelling", url: "#/dashboards/travelling" },
+  { name: "Sankey", url: "#/dashboards/sankey" },
+  { name: "Projection", url: "#/dashboards/projection" },
 ];
 
 test.describe("PNG Snapshot Tests", () => {
@@ -19,6 +19,7 @@ test.describe("PNG Snapshot Tests", () => {
           // full page screenshot doesn't work due to sticky sidebar
           document.body.style.height = "inherit";
         });
+        await page.waitForLoadState("networkidle");
         await expect(page).toHaveScreenshot({ fullPage: true });
       });
     });
@@ -33,6 +34,7 @@ test.describe("PNG Snapshot Tests", () => {
           // full page screenshot doesn't work due to sticky sidebar
           document.body.style.height = "inherit";
         });
+        await page.waitForLoadState("networkidle");
         await expect(page).toHaveScreenshot({ fullPage: true });
       });
     });

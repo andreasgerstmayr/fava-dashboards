@@ -56,7 +56,7 @@ jobs:
       run: |
         RELEASE_NOTES=$(awk -v ver="${VERSION}" '/^## / {cur=$2; next} cur == ver {print}' CHANGELOG.md)
         PRERELEASE_ARG=""
-        if [[ "${VERSION}" == *beta* ]]; then
+        if [[ "${VERSION}" == *b* ]]; then
           PRERELEASE_ARG="--prerelease"
         fi
 
