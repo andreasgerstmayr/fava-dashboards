@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0.0 (unreleased)
+## v2.0.0b1 (2025-12-03)
 ### Added
 * support dynamic, typed dashboards written in TypeScript (`dashboards.tsx`) or JavaScript (`dashboards.jsx`)
 * variables per dashboard and per panel
