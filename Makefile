@@ -48,8 +48,8 @@ dev:
 lint:
 	cd frontend; npm run type-check
 	cd frontend; npm run lint
-	uv run mypy src/fava_dashboards scripts/format_js_in_dashboard.py
-	uv run pylint src/fava_dashboards scripts/format_js_in_dashboard.py
+	uv run mypy src/fava_dashboards
+	uv run pylint src/fava_dashboards
 
 format:
 	-cd frontend; npm run lint:fix
