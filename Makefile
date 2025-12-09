@@ -56,7 +56,6 @@ format:
 	-uv run ruff check --fix
 	uv run ruff format .
 	find example -name '*.beancount' -exec uv run bean-format -c 59 -o "{}" "{}" \;
-	#./scripts/format_js_in_dashboard.py example/dashboards.yaml
 
 ## Container
 container-run: container-stop
