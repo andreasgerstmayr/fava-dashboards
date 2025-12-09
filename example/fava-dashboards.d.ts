@@ -1,3 +1,5 @@
+// This file is auto-generated and contains type declarations for fava-dashboards and its dependencies.
+// It is only required when using TypeScript (dashboards.tsx) and enables type checking and auto completion in the code editor.
 
 declare module "fava-dashboards" {
   import { DataGridProps } from '@mui/x-data-grid';
