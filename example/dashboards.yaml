@@ -1,1 +1,1 @@
-# Since v2 of fava-dashboards, dashboards should be configured in dashboards.tsx.
+# The example dashboard configuration was moved to dashboards.tsx in fava-dashboards v2.
