@@ -169,6 +169,8 @@ class FavaDashboards(FavaExtensionBase):
             return {"ledgerData": ledger_data, "configJs": config_js}
         elif dashboard_format == ".yaml":
             dashboards_yaml = read_dashboards_yaml(ext_config.dashboards_path)
+            if dashboards_yaml is None:
+                dashboards_yaml = {}
             config_js = "export default " + json.dumps(dashboards_yaml)
             utils = self.read_dashboards_utils(dashboards_yaml)
             return {"ledgerData": ledger_data, "configJs": config_js, "utilsJs": utils}

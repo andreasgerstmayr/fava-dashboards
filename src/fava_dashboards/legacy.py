@@ -8,7 +8,7 @@ from beanquery.query import run_query
 from fava.application import render_template_string
 from fava.context import g
 from fava.core import FavaLedger
-from fava.core.conversion import simple_units
+from fava.core.conversion import UNITS
 from fava.core.query import COLUMNS
 from fava.core.query import ObjectColumn
 from fava.core.query import QueryResultTable
@@ -70,7 +70,7 @@ def sanitize_query_result(result):
     for i, row in enumerate(result):
         for k, v in row._asdict().items():
             if isinstance(v, Inventory):
-                result[i] = result[i]._replace(**{k: simple_units(v)})
+                result[i] = result[i]._replace(**{k: UNITS.apply_inventory(v)})
 
 
 def sanitize_panel(ctx):

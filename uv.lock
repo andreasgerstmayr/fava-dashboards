@@ -200,7 +200,7 @@ wheels = [
 
 [[package]]
 name = "fava"
-version = "1.30.5"
+version = "1.30.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "babel" },
@@ -218,9 +218,9 @@ dependencies = [
     { name = "watchfiles" },
     { name = "werkzeug" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4f/e5/c3dd51471c46559e9c2e86a1d51152bf72b79cd36d230f1910402ec5daeb/fava-1.30.5.tar.gz", hash = "sha256:a5f9d136101ccae6051ea3c1174a82acaef0d4f26230e7585c21a3fb15e2eae4", size = 1707929, upload-time = "2025-07-16T15:40:00.181Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4a/5c/a1b32fc2ce4ffa4380c067be9c071e2866f2e8403e257d8cbd2e33991925/fava-1.30.8.tar.gz", hash = "sha256:82a3268b175c007cdba0eab7c59c30e6b28f8fa3a7d652a85619395d9bf2970a", size = 2609912, upload-time = "2025-12-13T13:44:02.721Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/93/f4/296f5286776b9adacf58be199bc5f0a7f669dfff28afc63190929ee7c2cf/fava-1.30.5-py3-none-any.whl", hash = "sha256:59bc774c98d028b9e5c44f0f89216a6c2e5f40bac1ee9e4a3b2a8bf11fd2c0af", size = 1261962, upload-time = "2025-07-16T15:39:58.886Z" },
+    { url = "https://files.pythonhosted.org/packages/a3/2e/16d2fd290daf621eedc4009017a80e0dde0d6b50e302862d8f9cb0f4e3dc/fava-1.30.8-py3-none-any.whl", hash = "sha256:fb845a42ab607583be74d80d019308f05643257a7fc65964759faae8a95dd768", size = 2155370, upload-time = "2025-12-13T13:44:01.143Z" },
 ]
 
 [[package]]
@@ -244,7 +244,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "beanquery", specifier = ">=0.1.0" },
-    { name = "fava", specifier = ">=1.30.3" },
+    { name = "fava", specifier = ">=1.30.8" },
     { name = "pyyaml", specifier = ">=6.0.1" },
 ]
 
