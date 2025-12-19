@@ -80,12 +80,15 @@
   - heading "Projection" [level=3]:
     - link "Projection":
       - /url: "#/dashboards/projection"
+  - text: Currency
+  - combobox "Currency"
+  - button "Open"
   - heading "Assets 💰" [level=3]:
     - link "Assets 💰":
-      - /url: "#/balance_sheet/"
+      - /url: ../../balance_sheet/
   - heading "Liabilities 💳" [level=3]:
     - link "Liabilities 💳":
-      - /url: "#/balance_sheet/"
+      - /url: ../../balance_sheet/
   - heading "Income/Expenses 💸" [level=3]:
     - link "Income/Expenses 💸":
-      - /url: "#/income_statement/"
+      - /url: ../../income_statement/

@@ -1,5 +1,8 @@
 # Changelog
 
+## next
+* fix panel link href
+
 ## v2.0.0b2 (2025-12-14)
 * support Fava 1.30.8
 

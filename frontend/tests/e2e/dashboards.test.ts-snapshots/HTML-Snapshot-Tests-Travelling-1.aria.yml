@@ -80,9 +80,12 @@
   - heading "Projection" [level=3]:
     - link "Projection":
       - /url: "#/dashboards/projection"
+  - text: Currency
+  - combobox "Currency"
+  - button "Open"
   - heading "Travel Costs per Year 📅" [level=3]:
     - link "Travel Costs per Year 📅":
-      - /url: "#/income_statement/?filter=#travel"
+      - /url: ../../income_statement/?filter=#travel
   - heading "Destinations ✈️" [level=3]:
     - link "Destinations ✈️":
-      - /url: "#/income_statement/?filter=#travel"
+      - /url: ../../income_statement/?filter=#travel
