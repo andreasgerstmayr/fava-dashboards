@@ -1,7 +1,6 @@
 import { Box, Card, Skeleton, Stack } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { ReactElement } from "react";
-import { Link } from "react-router";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { PanelProps, panelRegistry, PanelSpecOf } from "../../panels/registry";
 import { Dashboard, Panel } from "../../schemas/v2/dashboard";
@@ -45,9 +44,9 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
         <Stack sx={{ height: 40, flexDirection: "row", justifyContent: "space-between", marginBottom: 2 }}>
           <h3 style={{ marginBottom: 0 }}>
             {panel.link ? (
-              <Link to={panel.link} style={{ color: "light-dark(hsl(0deg 0% 25%), hsl(0deg 0% 80%))" }}>
+              <a href={panel.link} style={{ color: "light-dark(hsl(0deg 0% 25%), hsl(0deg 0% 80%))" }}>
                 {panel.title}
-              </Link>
+              </a>
             ) : (
               panel.title
             )}

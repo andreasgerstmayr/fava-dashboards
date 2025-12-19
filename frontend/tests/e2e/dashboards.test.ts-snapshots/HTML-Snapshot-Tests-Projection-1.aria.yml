@@ -80,6 +80,9 @@
   - heading "Projection" [level=3]:
     - link "Projection":
       - /url: "#/dashboards/projection"
+  - text: Currency
+  - combobox "Currency"
+  - button "Open"
   - heading "Net Worth 💰" [level=3]:
     - link "Net Worth 💰":
-      - /url: "#/income_statement/"
+      - /url: ../../income_statement/
