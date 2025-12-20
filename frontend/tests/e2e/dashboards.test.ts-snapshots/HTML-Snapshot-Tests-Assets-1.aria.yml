@@ -83,6 +83,9 @@
   - text: Currency
   - combobox "Currency"
   - button "Open"
+  - text: Theme
+  - combobox "Theme"
+  - button "Open"
   - heading "Assets 🏦" [level=3]
   - heading "Net Worth 💰" [level=3]:
     - link "Net Worth 💰":

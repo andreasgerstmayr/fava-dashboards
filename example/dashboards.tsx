@@ -6,10 +6,12 @@ import {
   D3SankeyNode,
   defineConfig,
   EChartsSpec,
+  echartsThemes,
   Ledger,
   Position,
   TableSpec,
   VariableDefinition,
+  type EChartsThemeName,
 } from "fava-dashboards";
 
 // Base colors from fava
@@ -239,11 +241,19 @@ const currencyVariable: VariableDefinition = {
   },
 };
 
+const echartsThemeVariable: VariableDefinition = {
+  name: "echartsTheme",
+  label: "Theme",
+  options: async () => {
+    return Object.keys(echartsThemes);
+  },
+};
+
 export default defineConfig({
   dashboards: [
     {
       name: "Overview",
-      variables: [currencyVariable],
+      variables: [currencyVariable, echartsThemeVariable],
       panels: [
         {
           title: "Assets 💰",
@@ -366,6 +376,7 @@ export default defineConfig({
             );
 
             return {
+              echartsTheme: echartsThemes[variables.echartsTheme as EChartsThemeName],
               tooltip: {
                 valueFormatter: anyFormatter(currencyFormatter),
               },
@@ -413,7 +424,7 @@ export default defineConfig({
     },
     {
       name: "Assets",
-      variables: [currencyVariable],
+      variables: [currencyVariable, echartsThemeVariable],
       panels: [
         {
           title: "Assets 🏦",
@@ -434,6 +445,7 @@ export default defineConfig({
               .map((row) => ({ name: row.currency, value: row.market_value[variables.currency] }));
 
             return {
+              echartsTheme: echartsThemes[variables.echartsTheme as EChartsThemeName],
               tooltip: {
                 formatter: (params: any) =>
                   `${params.marker} ${
@@ -470,6 +482,7 @@ export default defineConfig({
               value: row.value[variables.currency],
             }));
             return {
+              echartsTheme: echartsThemes.chalk,
               magic: 1,
               tooltip: {
                 trigger: "axis",
@@ -536,6 +549,7 @@ export default defineConfig({
               book_value: row.book_value[variables.currency],
             }));
             return {
+              echartsTheme: echartsThemes.chalk,
               tooltip: {
                 trigger: "axis",
                 valueFormatter: anyFormatter(currencyFormatter),
