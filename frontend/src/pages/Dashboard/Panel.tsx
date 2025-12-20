@@ -1,7 +1,9 @@
 import { Box, Card, Skeleton, Stack } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { ReactElement } from "react";
+import { useConfigContext } from "../../components/ConfigProvider";
 import { ErrorAlert } from "../../components/ErrorAlert";
+import type { EChartsTheme } from "../../echartsThemes";
 import { PanelProps, panelRegistry, PanelSpecOf } from "../../panels/registry";
 import { Dashboard, Panel } from "../../schemas/v2/dashboard";
 import { Ledger } from "../../schemas/v2/ledger";
@@ -15,6 +17,7 @@ interface PanelCardProps {
 }
 
 export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
+  const { config } = useConfigContext();
   const variableDefinitions = [...(dashboard.variables ?? []), ...(panel.variables ?? [])];
   const {
     isPending: isPendingVariables,
@@ -29,6 +32,10 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
   const isPending = isPendingVariables || isPendingPanel;
   const error = errorVariables ?? errorPanel;
 
+  const echartsTheme = config.theme?.echarts as EChartsTheme | undefined;
+  const panelBackgroundColor = panel.kind === "echarts" && (echartsTheme?.backgroundColor as string | undefined);
+  const titleLinkColor = ((echartsTheme as EChartsTheme)?.title?.textStyle?.color as string | undefined) ?? undefined;
+
   return (
     <Box
       sx={{
@@ -40,15 +47,21 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
       }}
       style={{ width: panel.width }}
     >
-      <Card variant="outlined" sx={{ padding: 2 }}>
+      <Card
+        variant="outlined"
+        sx={{ padding: 2, ...(panelBackgroundColor && { backgroundColor: panelBackgroundColor }) }}
+      >
         <Stack sx={{ height: 40, flexDirection: "row", justifyContent: "space-between", marginBottom: 2 }}>
           <h3 style={{ marginBottom: 0 }}>
             {panel.link ? (
-              <a href={panel.link} style={{ color: "light-dark(hsl(0deg 0% 25%), hsl(0deg 0% 80%))" }}>
+              <a
+                href={panel.link}
+                style={{ color: titleLinkColor ?? "light-dark(hsl(0deg 0% 25%), hsl(0deg 0% 80%))" }}
+              >
                 {panel.title}
               </a>
             ) : (
-              panel.title
+              <span style={titleLinkColor ? { color: titleLinkColor as string } : undefined}>{panel.title}</span>
             )}
           </h3>
           {panel.variables && panel.variables.length > 0 && (
