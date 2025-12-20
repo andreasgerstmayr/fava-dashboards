@@ -2,6 +2,7 @@ import { Box, Card, Skeleton, Stack } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { ReactElement } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import { useConfigContext } from "../../components/ConfigProvider";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { PanelProps, panelRegistry, PanelSpecOf } from "../../panels/registry";
 import { Dashboard, Panel } from "../../schemas/v2/dashboard";
@@ -16,6 +17,7 @@ interface PanelCardProps {
 }
 
 export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
+  const { config } = useConfigContext();
   const variableDefinitions = [...(dashboard.variables ?? []), ...(panel.variables ?? [])];
   const resolvedVariables = useVariables(ledger, variableDefinitions);
   const renderedPanel = useRenderPanel(ledger, panel, resolvedVariables.data?.values);
@@ -33,15 +35,21 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
       }}
       style={{ width: panel.width }}
     >
-      <Card variant="outlined" sx={{ padding: 2 }}>
+      <Card variant="outlined" sx={{ padding: 2, ...config.theme?.additionalCardStyle }}>
         <Stack sx={{ height: 40, flexDirection: "row", justifyContent: "space-between", marginBottom: 2 }}>
           <h3 style={{ marginBottom: 0 }}>
             {panel.link ? (
-              <a href={panel.link} style={{ color: "light-dark(hsl(0deg 0% 25%), hsl(0deg 0% 80%))" }}>
+              <a
+                href={panel.link}
+                style={{
+                  color: "light-dark(hsl(0deg 0% 25%), hsl(0deg 0% 80%))",
+                  ...config.theme?.additionalTitleStyle,
+                }}
+              >
                 {panel.title}
               </a>
             ) : (
-              panel.title
+              <span style={{ ...config.theme?.additionalTitleStyle }}>{panel.title}</span>
             )}
           </h3>
           {panel.variables && panel.variables.length > 0 && (
