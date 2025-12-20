@@ -1,6 +1,7 @@
 import { Box, Card, Skeleton, Stack } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { ReactElement } from "react";
+import { useConfigContext } from "../../components/ConfigProvider";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { PanelProps, panelRegistry, PanelSpecOf } from "../../panels/registry";
 import { Dashboard, Panel } from "../../schemas/v2/dashboard";
@@ -15,6 +16,7 @@ interface PanelCardProps {
 }
 
 export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
+  const { config } = useConfigContext();
   const variableDefinitions = [...(dashboard.variables ?? []), ...(panel.variables ?? [])];
   const {
     isPending: isPendingVariables,
@@ -29,6 +31,9 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
   const isPending = isPendingVariables || isPendingPanel;
   const error = errorVariables ?? errorPanel;
 
+  const panelBackgroundColor =
+    panel.kind === "echarts" && (config.theme?.echarts?.backgroundColor as string | undefined);
+
   return (
     <Box
       sx={{
@@ -40,7 +45,7 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
       }}
       style={{ width: panel.width }}
     >
-      <Card variant="outlined" sx={{ padding: 2 }}>
+      <Card variant="outlined" sx={{ padding: 2, ...(panelBackgroundColor && { bgcolor: panelBackgroundColor }) }}>
         <Stack sx={{ height: 40, flexDirection: "row", justifyContent: "space-between", marginBottom: 2 }}>
           <h3 style={{ marginBottom: 0 }}>
             {panel.link ? (
