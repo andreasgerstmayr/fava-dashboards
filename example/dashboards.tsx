@@ -28,7 +28,7 @@ function getCurrencyFormatter(currency: string) {
 }
 
 function anyFormatter(formatter: (value: number) => string) {
-  return (value: any) => (typeof value === "number" ? formatter(value) : "");
+  return (value: any) => (typeof value === "number" ? formatter(value) : String(value));
 }
 
 function iterateMonths(dateFirst: string, dateLast: string) {
@@ -198,7 +198,11 @@ async function YearOverYear(ledger: Ledger, currency: string, query: string): Pr
       top: "bottom",
     },
     tooltip: {
-      formatter: "{a}",
+      trigger: "axis",
+      axisPointer: {
+        type: "shadow",
+      },
+      valueFormatter: anyFormatter(currencyFormatter),
     },
     xAxis: {
       axisLabel: {
@@ -220,6 +224,9 @@ async function YearOverYear(ledger: Ledger, currency: string, query: string): Pr
         show: true,
         position: "right",
         formatter: (params: any) => currencyFormatter(params.value),
+      },
+      emphasis: {
+        focus: "series",
       },
     })),
     onClick: (event) => {
