@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /// <reference types="./fava-dashboards.d.ts" />
-import { ECElementEvent } from "echarts";
+import { BarSeriesOption, ECElementEvent } from "echarts";
 import {
   D3SankeyLink,
   D3SankeyNode,
   defineConfig,
   EChartsSpec,
+  Inventory,
   Ledger,
   Position,
   TableSpec,
@@ -173,26 +174,24 @@ function StatChart(
 
 async function YearOverYear(ledger: Ledger, currency: string, query: string): Promise<EChartsSpec> {
   const currencyFormatter = getCurrencyFormatter(currency);
-  const result = await ledger.query(query);
+  const result = await ledger.query<{ year: number; prefix: string; value: Inventory }>(query);
   const years = iterateYears(ledger.dateFirst, ledger.dateLast);
   const maxAccounts = 7; // number of accounts to show, sorted by sum
 
   const accountSums: Record<string, number> = {};
   const amounts: Record<string, number> = {};
   for (const row of result) {
-    if (!(row.account in accountSums)) {
-      accountSums[row.account] = 0;
-    }
-    const value = row.account.startsWith("Income:") ? -row.value[currency] : row.value[currency];
-    amounts[`${row.year}/${row.account}`] = value;
-    accountSums[row.account] += value;
+    const value = row.prefix.startsWith("Income:") ? -row.value[currency] : row.value[currency];
+    accountSums[row.prefix] = (accountSums[row.prefix] ?? 0) + value;
+    amounts[`${row.year}/${row.prefix}`] = value;
   }
 
-  const accounts = Object.entries(accountSums)
+  const topAccounts = Object.entries(accountSums)
     .sort(([, a], [, b]) => b - a)
     .map(([name]) => name)
     .slice(0, maxAccounts)
     .reverse();
+
   return {
     legend: {
       top: "bottom",
@@ -210,7 +209,7 @@ async function YearOverYear(ledger: Ledger, currency: string, query: string): Pr
       },
     },
     yAxis: {
-      data: accounts.map((account) => account.split(":").slice(1).join(":")),
+      data: topAccounts.map((account) => account.split(":").slice(1).join(":")),
     },
     grid: {
       containLabel: true,
@@ -219,7 +218,7 @@ async function YearOverYear(ledger: Ledger, currency: string, query: string): Pr
     series: years.map((year) => ({
       type: "bar",
       name: year,
-      data: accounts.map((account) => amounts[`${year}/${account}`] ?? 0),
+      data: topAccounts.map((account) => amounts[`${year}/${account}`] ?? 0),
       label: {
         show: true,
         position: "right",
@@ -231,8 +230,73 @@ async function YearOverYear(ledger: Ledger, currency: string, query: string): Pr
     })),
     onClick: (event) => {
       const link = "../../account/{account}/?time={time}"
-        .replace("{account}", accounts[event.dataIndex])
+        .replace("{account}", topAccounts[event.dataIndex])
         .replace("{time}", event.seriesName ?? "");
+      window.open(ledger.urlFor(link));
+    },
+  };
+}
+
+async function StackedYearOverYear(ledger: Ledger, currency: string, query: string): Promise<EChartsSpec> {
+  const currencyFormatter = getCurrencyFormatter(currency);
+  const result = await ledger.query<{ year: number; account: string; prefix: string; value: Inventory }>(query);
+  const years = iterateYears(ledger.dateFirst, ledger.dateLast);
+  const maxAccounts = 7; // number of accounts to show, sorted by sum
+
+  const accountSums: Record<string, number> = {};
+  const amounts: Record<string, number> = {};
+  for (const row of result) {
+    const value = row.account.startsWith("Income:") ? -row.value[currency] : row.value[currency];
+    accountSums[row.prefix] = (accountSums[row.prefix] ?? 0) + value;
+    amounts[`${row.year}/${row.account}`] = value;
+  }
+
+  const topAccounts = Object.entries(accountSums)
+    .sort(([, a], [, b]) => b - a)
+    .map(([name]) => name)
+    .slice(0, maxAccounts)
+    .reverse();
+  const accounts = Array.from(new Set(result.map((row) => row.account))).toSorted();
+  const series = years.flatMap((year) =>
+    accounts.map((account) => ({
+      type: "bar",
+      name: `${account}`,
+      stack: String(year),
+      data: topAccounts.map((topAccount) =>
+        account.startsWith(topAccount) ? (amounts[`${year}/${account}`] ?? 0) : 0,
+      ),
+      emphasis: {
+        focus: "series",
+      },
+    })),
+  );
+
+  return {
+    tooltip: {
+      valueFormatter: anyFormatter(currencyFormatter),
+    },
+    xAxis: {
+      axisLabel: {
+        formatter: currencyFormatter,
+      },
+    },
+    yAxis: {
+      data: topAccounts.map((account) => account.split(":").slice(1).join(":")),
+    },
+    grid: {
+      containLabel: true,
+      left: 0,
+    },
+    series: series as BarSeriesOption[],
+    onClick: (event) => {
+      if (event.seriesIndex === undefined) {
+        return;
+      }
+
+      const serie = series[event.seriesIndex];
+      const link = "../../account/{account}/?time={time}"
+        .replace("{account}", serie.name)
+        .replace("{time}", serie.stack);
       window.open(ledger.urlFor(link));
     },
   };
@@ -950,7 +1014,6 @@ export default defineConfig({
           width: "100%",
           height: "400px",
           link: "../../income_statement/",
-
           kind: "echarts",
           spec: async ({ ledger, variables }) => {
             const currencyFormatter = getCurrencyFormatter(variables.currency);
@@ -1051,7 +1114,6 @@ export default defineConfig({
           title: "Expenses Calendar Heatmap 📅",
           width: "100%",
           height: "450px",
-
           kind: "echarts",
           spec: async ({ ledger, variables }) => {
             const result = await ledger.query(
@@ -1267,7 +1329,6 @@ export default defineConfig({
           width: "50%",
           height: "400px",
           link: "../../income_statement/",
-
           kind: "echarts",
           spec: async ({ ledger, variables }) => {
             const currencyFormatter = getCurrencyFormatter(variables.currency);
@@ -1349,7 +1410,6 @@ GROUP BY year, month`,
           width: "50%",
           height: "400px",
           link: "../../account/Expenses:Food/",
-
           kind: "echarts",
           spec: async ({ ledger, variables }) => {
             const currencyFormatter = getCurrencyFormatter(variables.currency);
@@ -1401,15 +1461,32 @@ GROUP BY year, month`,
           title: "Income Year-Over-Year 💰",
           width: "50%",
           height: "700px",
-
+          variables: [
+            {
+              name: "display",
+              label: "Display",
+              display: "toggle",
+              options: () => ["single", "stacked"],
+            },
+          ],
           kind: "echarts",
           spec: async ({ ledger, variables }) => {
+            if (variables.display == "stacked") {
+              return StackedYearOverYear(
+                ledger,
+                variables.currency,
+                `SELECT year, root(account, 3) AS prefix, account, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
+               WHERE account ~ '^Income:'
+               GROUP BY account, prefix, year`,
+              );
+            }
+
             return YearOverYear(
               ledger,
               variables.currency,
-              `SELECT year, root(account, 3) AS account, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
+              `SELECT year, root(account, 3) AS prefix, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                WHERE account ~ '^Income:'
-               GROUP BY account, year`,
+               GROUP BY prefix, year`,
             );
           },
         },
@@ -1417,15 +1494,32 @@ GROUP BY year, month`,
           title: "Expenses Year-Over-Year 💸",
           width: "50%",
           height: "700px",
-
+          variables: [
+            {
+              name: "display",
+              label: "Display",
+              display: "toggle",
+              options: () => ["single", "stacked"],
+            },
+          ],
           kind: "echarts",
           spec: async ({ ledger, variables }) => {
+            if (variables.display == "stacked") {
+              return StackedYearOverYear(
+                ledger,
+                variables.currency,
+                `SELECT year, root(account, 2) AS prefix, account, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
+               WHERE account ~ '^Expenses:'
+               GROUP BY account, prefix, year`,
+              );
+            }
+
             return YearOverYear(
               ledger,
               variables.currency,
-              `SELECT year, root(account, 2) AS account, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
+              `SELECT year, root(account, 2) AS prefix, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
                WHERE account ~ '^Expenses:'
-               GROUP BY account, year`,
+               GROUP BY prefix, year`,
             );
           },
         },
@@ -1526,10 +1620,10 @@ GROUP BY year, month`,
             const result = await ledger.query(
               `SELECT tags, CONVERT(position, '${variables.currency}', date) AS value
                WHERE account ~ '^Expenses:' AND 'travel' IN tags
-               ORDER BY date ASC`,
+               ORDER BY date DESC`,
             );
 
-            let travels: string[] = [];
+            const travels: string[] = [];
             const amounts: Record<string, number> = {};
 
             for (const row of result) {
@@ -1541,7 +1635,6 @@ GROUP BY year, month`,
               amounts[tag] += row.value.number;
             }
 
-            travels = travels.reverse();
             return {
               tooltip: {
                 valueFormatter: anyFormatter(currencyFormatter),
