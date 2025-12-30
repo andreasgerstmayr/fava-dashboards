@@ -1,10 +1,16 @@
+import { EChartsTheme } from "../../echartsThemes";
 import { PanelKind, PanelSpecOf } from "../../panels/registry";
 import { Ledger } from "./ledger";
 import { MaybePromise } from "./utils";
 import { VariableDefinition, VariablesContents } from "./variables";
 
+export const CUSTOM_ECHARTS_THEME_NAME = "customTheme" as const;
+
 export interface Config {
   dashboards: Dashboard[];
+  theme?: {
+    echarts?: EChartsTheme;
+  };
 }
 
 export interface Dashboard {
