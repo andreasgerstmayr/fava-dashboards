@@ -1611,10 +1611,10 @@ GROUP BY year, month`,
         {
           title: "Destinations ✈️",
           width: "100%",
-          height: "300px",
+          height: "150px",
           link: "../../income_statement/?filter=#travel",
           kind: "echarts",
-          spec: async ({ ledger, variables }) => {
+          spec: async ({ panel, ledger, variables }) => {
             const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
               `SELECT tags, CONVERT(position, '${variables.currency}', date) AS value
@@ -1634,6 +1634,7 @@ GROUP BY year, month`,
               amounts[tag] += row.value.number;
             }
 
+            panel.height = `${20 + travels.length * 30}px`;
             return {
               tooltip: {
                 valueFormatter: anyFormatter(currencyFormatter),
@@ -1641,6 +1642,8 @@ GROUP BY year, month`,
               grid: {
                 containLabel: true,
                 left: 0,
+                top: 10,
+                bottom: 10,
               },
               xAxis: {
                 type: "value",
