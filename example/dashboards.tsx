@@ -2,6 +2,7 @@
 /// <reference types="./fava-dashboards.d.ts" />
 import { BarSeriesOption, ECElementEvent } from "echarts";
 import {
+  Amount,
   D3SankeyLink,
   D3SankeyNode,
   defineConfig,
@@ -1569,15 +1570,58 @@ GROUP BY year, month`,
           kind: "echarts",
           spec: async ({ ledger, variables }) => {
             const currencyFormatter = getCurrencyFormatter(variables.currency);
-            const result = await ledger.query(
-              `SELECT year, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
+            const result = await ledger.query<{ tags: string[]; value: Amount }>(
+              `SELECT tags, CONVERT(position, '${variables.currency}', date) AS value
                WHERE account ~ '^Expenses:' AND 'travel' IN tags
-               GROUP BY year`,
+               ORDER BY date DESC`,
             );
-            const dataset = result.map((row) => ({
-              year: row.year,
-              value: row.value[variables.currency],
+
+            const dataset: Record<number, Record<string, number>> = {}; // ex. {2025: {"date": 2025, "_sum": 8, "trip-chicago-2025": 5, "trip-paris-2025": 3}}
+            const tags: string[] = []; // sorted by date
+            for (const row of result) {
+              let tag = "unknown";
+              let year = 0;
+              for (const t of row.tags) {
+                const m = t.match(/-(\d{4})/);
+                if (m) {
+                  tag = t;
+                  year = parseInt(m[1]);
+                  break;
+                }
+              }
+
+              if (!(year in dataset)) {
+                dataset[year] = { date: year };
+              }
+              if (!(tag in dataset[year])) {
+                tags.push(tag);
+              }
+              dataset[year]["_sum"] = (dataset[year]["_sum"] ?? 0) + row.value.number;
+              dataset[year][tag] = (dataset[year][tag] ?? 0) + row.value.number;
+            }
+
+            const series: BarSeriesOption[] = [...tags].reverse().map((tag) => ({
+              type: "bar",
+              name: tag,
+              stack: "total",
+              encode: { x: "date", y: tag },
+              barMaxWidth: 100,
             }));
+            // totals labels
+            series.push({
+              type: "bar",
+              name: "total",
+              stack: "total",
+              data: Object.keys(dataset).map((year) => [parseInt(year), 0]),
+              label: {
+                show: true,
+                position: "top",
+                formatter: (x: any) => currencyFormatter(dataset[x.name]["_sum"]),
+              },
+              tooltip: {
+                show: false,
+              },
+            });
 
             return {
               tooltip: {
@@ -1592,17 +1636,13 @@ GROUP BY year, month`,
                 },
               },
               dataset: {
-                source: dataset,
+                source: Object.values(dataset),
+                // required because not every row contains all tags
+                dimensions: ["date", ...tags],
               },
-              series: [
-                {
-                  type: "line",
-                  smooth: true,
-                  encode: { x: "year", y: "value" },
-                },
-              ],
+              series,
               onClick: (event) => {
-                const link = "../../account/Expenses/?filter=#travel&time={time}".replace("{time}", event.name);
+                const link = "../../account/Expenses/?filter=#{tag}".replace("{tag}", event.seriesName as string);
                 window.open(ledger.urlFor(link));
               },
             };
@@ -1616,26 +1656,30 @@ GROUP BY year, month`,
           kind: "echarts",
           spec: async ({ panel, ledger, variables }) => {
             const currencyFormatter = getCurrencyFormatter(variables.currency);
-            const result = await ledger.query(
+            const result = await ledger.query<{ tags: string[]; value: Amount }>(
               `SELECT tags, CONVERT(position, '${variables.currency}', date) AS value
                WHERE account ~ '^Expenses:' AND 'travel' IN tags
                ORDER BY date DESC`,
             );
 
-            const travels: string[] = [];
+            const tags: string[] = [];
             const amounts: Record<string, number> = {};
-
             for (const row of result) {
-              const tag = (row.tags as string[]).find((tag) => tag.match(/-\d{4}/)) ?? "unknown";
+              const tag = row.tags.find((tag) => tag.match(/-\d{4}/)) ?? "unknown";
               if (!(tag in amounts)) {
-                travels.push(tag);
+                tags.push(tag);
                 amounts[tag] = 0;
               }
               amounts[tag] += row.value.number;
             }
 
-            panel.height = `${20 + travels.length * 30}px`;
+            const dataset = tags.map((tag) => ({ tag, value: amounts[tag] }));
+
+            panel.height = `${20 + dataset.length * 30}px`;
             return {
+              dataset: {
+                source: dataset,
+              },
               tooltip: {
                 valueFormatter: anyFormatter(currencyFormatter),
               },
@@ -1653,21 +1697,20 @@ GROUP BY year, month`,
               },
               yAxis: {
                 type: "category",
-                data: travels,
               },
               series: [
                 {
                   type: "bar",
-                  data: travels.map((travel) => amounts[travel]),
+                  encode: { x: "value", y: "tag" },
                   label: {
                     show: true,
                     position: "right",
-                    formatter: (params: any) => currencyFormatter(params.value),
+                    formatter: (params: any) => currencyFormatter(params.value.value),
                   },
                 },
               ],
               onClick: (event) => {
-                const link = "../../account/Expenses/?filter=#{travel}".replace("{travel}", event.name);
+                const link = "../../account/Expenses/?filter=#{tag}".replace("{tag}", event.name);
                 window.open(ledger.urlFor(link));
               },
             };
