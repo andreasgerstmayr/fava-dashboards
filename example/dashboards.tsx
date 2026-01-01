@@ -1616,7 +1616,7 @@ GROUP BY year, month`,
               label: {
                 show: true,
                 position: "top",
-                formatter: (x: any) => currencyFormatter(dataset[x.name]["_sum"]),
+                formatter: ({ value }) => currencyFormatter(dataset[(value as [number, number])[0]]["_sum"]),
               },
               tooltip: {
                 show: false,
