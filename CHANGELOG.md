@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.1 (2026-01-01)
+* show error when using the new dashboard format (`.ts[x]`, `.js[x]`) in v1 (this format is only supported in v2+)
+
 ## v1.2.0 (2025-10-15)
 * upgrade echarts to v6.0.0
 

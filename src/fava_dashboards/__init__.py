@@ -41,7 +41,12 @@ class FavaDashboards(FavaExtensionBase):
 
     def read_ext_config(self) -> ExtConfig:
         cfg = self.config if isinstance(self.config, dict) else {}
-        return ExtConfig(dashboards_path=self.ledger.join_path(cfg.get("config", "dashboards.yaml")))
+        dashboards_path = self.ledger.join_path(cfg.get("config", "dashboards.yaml"))
+        if dashboards_path.suffix in [".tsx", ".ts", ".jsx", ".js"]:
+            raise FavaAPIError(
+                f"{dashboards_path.name} is supported in fava-dashboards version 2.0.0 and later. You are currently running fava-dashboards version 1."
+            )
+        return ExtConfig(dashboards_path=dashboards_path)
 
     @staticmethod
     def read_dashboards_yaml(path: str):
@@ -49,7 +54,9 @@ class FavaDashboards(FavaExtensionBase):
             with open(path, encoding="utf-8") as f:
                 return yaml.safe_load(f)
         except Exception as ex:
-            raise FavaAPIError(f"cannot read configuration file {path}: {ex}") from ex
+            raise FavaAPIError(
+                f"cannot read configuration file {path}: {ex}. To get started, use this template: https://github.com/andreasgerstmayr/fava-dashboards/blob/v1/example/dashboards.yaml"
+            ) from ex
 
     def read_dashboards_utils(self, dashboards_yaml):
         utils = dashboards_yaml.get("utils", {})
