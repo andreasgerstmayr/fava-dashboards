@@ -21,6 +21,9 @@
 
 Legacy `dashboards.yaml` configurations will be migrated transparently and are expected to work.
 
+## v1.2.2 (2026-01-01)
+* show error when using the new dashboard format (`.ts[x]`, `.js[x]`) in v1 (this format is only supported in v2+)
+
 ## v1.2.1 (2025-12-14)
 * support Fava 1.30.8
 

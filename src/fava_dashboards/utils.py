@@ -13,7 +13,9 @@ def read_dashboards_yaml(path: str):
         with open(path, "r", encoding="utf-8") as f:
             return yaml.safe_load(f)
     except Exception as ex:
-        raise FavaAPIError(f"cannot read configuration file {path}: {ex}") from ex
+        raise FavaAPIError(
+            f"cannot read configuration file {path}: {ex}. To get started, use this template: https://github.com/andreasgerstmayr/fava-dashboards/blob/main/example/dashboards.tsx"
+        ) from ex
 
 
 def read_dashboards_tsx(path: str):
@@ -21,7 +23,9 @@ def read_dashboards_tsx(path: str):
         with open(path, "r", encoding="utf-8") as f:
             return f.read()
     except Exception as ex:
-        raise FavaAPIError(f"cannot read configuration file {path}: {ex}") from ex
+        raise FavaAPIError(
+            f"cannot read configuration file {path}: {ex}. To get started, use this template: https://github.com/andreasgerstmayr/fava-dashboards/blob/main/example/dashboards.tsx"
+        ) from ex
 
 
 def get_ledger_duration(entries: List[Directive]):

@@ -168,6 +168,7 @@ class FavaDashboards(FavaExtensionBase):
             config_js = read_dashboards_tsx(ext_config.dashboards_path)
             return {"ledgerData": ledger_data, "configJs": config_js}
         elif dashboard_format == ".yaml":
+            # backwards compat
             dashboards_yaml = read_dashboards_yaml(ext_config.dashboards_path)
             if dashboards_yaml is None:
                 dashboards_yaml = {}
