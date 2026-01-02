@@ -1576,20 +1576,20 @@ GROUP BY year, month`,
                ORDER BY date DESC`,
             );
 
+            function parseTag(tags: string[]) {
+              for (const tag of tags) {
+                const m = tag.match(/-(\d{4})/);
+                if (m) {
+                  return { tag, year: parseInt(m[1]) };
+                }
+              }
+              return { tag: "unknown", year: 0 };
+            }
+
             const dataset: Record<number, Record<string, number>> = {}; // ex. {2025: {"date": 2025, "_sum": 8, "trip-chicago-2025": 5, "trip-paris-2025": 3}}
             const tags: string[] = []; // sorted by date
             for (const row of result) {
-              let tag = "unknown";
-              let year = 0;
-              for (const t of row.tags) {
-                const m = t.match(/-(\d{4})/);
-                if (m) {
-                  tag = t;
-                  year = parseInt(m[1]);
-                  break;
-                }
-              }
-
+              const { tag, year } = parseTag(row.tags);
               if (!(year in dataset)) {
                 dataset[year] = { date: year };
               }
