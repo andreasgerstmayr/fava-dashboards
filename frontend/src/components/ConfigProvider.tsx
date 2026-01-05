@@ -1,5 +1,6 @@
 import { Box, CircularProgress } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
+import { registerTheme } from "echarts";
 import React, { createContext, ReactNode, useContext } from "react";
 import * as z from "zod";
 import { useConfig } from "../api/config";
@@ -77,6 +78,10 @@ export function ConfigProvider({ extensionContext, children }: ConfigProviderPro
         <CircularProgress />
       </Box>
     );
+  }
+
+  if (dynamicConfig.theme?.echarts) {
+    registerTheme(dashboardv2.CUSTOM_ECHARTS_THEME_NAME, dynamicConfig.theme.echarts as Record<string, unknown>);
   }
 
   return (

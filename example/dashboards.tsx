@@ -318,6 +318,12 @@ const currencyVariable: VariableDefinition = {
 };
 
 export default defineConfig({
+  theme: {
+    // optionally: set echarts theme here in echarts object configuration format
+    // echartsThemes.ts contains a set of examples:
+    // echartsThemes.dark, echartsThemes.chalk, echartsThemes.v5, echartsThemes.vintage, etc
+    //echarts: echartsThemes.v5, // theme that was used in echarts v5
+  },
   dashboards: [
     {
       name: "Overview",
