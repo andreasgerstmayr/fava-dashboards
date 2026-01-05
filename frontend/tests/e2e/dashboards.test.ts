@@ -20,6 +20,8 @@ test.describe("PNG Snapshot Tests", () => {
           document.body.style.height = "inherit";
         });
         await page.waitForLoadState("networkidle");
+        // reduce flakiness by waiting for React to update with the fetched data
+        await page.waitForTimeout(200);
         await expect(page).toHaveScreenshot({ fullPage: true });
       });
     });
@@ -35,6 +37,8 @@ test.describe("PNG Snapshot Tests", () => {
           document.body.style.height = "inherit";
         });
         await page.waitForLoadState("networkidle");
+        // reduce flakiness by waiting for React to update with the fetched data
+        await page.waitForTimeout(200);
         await expect(page).toHaveScreenshot({ fullPage: true });
       });
     });
