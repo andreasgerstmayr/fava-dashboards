@@ -4,11 +4,11 @@ const BASE_URL = "http://127.0.0.1:5000";
 const EXAMPLE_URL = `${BASE_URL}/beancount/extension/FavaDashboards/`;
 const dashboards = [
   { name: "Overview", url: "" },
-  { name: "Assets", url: "#/dashboards/assets" },
-  { name: "Income and Expenses", url: "#/dashboards/income-and-expenses" },
-  { name: "Travelling", url: "#/dashboards/travelling" },
-  { name: "Sankey", url: "#/dashboards/sankey" },
-  { name: "Projection", url: "#/dashboards/projection" },
+  { name: "Assets", url: "?dashboard=assets" },
+  { name: "Income and Expenses", url: "?dashboard=income-and-expenses" },
+  { name: "Travelling", url: "?dashboard=travelling" },
+  { name: "Sankey", url: "?dashboard=sankey" },
+  { name: "Projection", url: "?dashboard=projection" },
 ];
 
 async function expectScreenshot(page: Page) {
@@ -53,16 +53,16 @@ test.describe("HTML Snapshot Tests", () => {
 });
 
 test("Variable Chain", async ({ page }) => {
-  await page.goto(`${BASE_URL}/test-features/extension/FavaDashboards/#/dashboards/variable-chain`);
+  await page.goto(`${BASE_URL}/test-features/extension/FavaDashboards/?dashboard=variable-chain`);
   await expectScreenshot(page);
 });
 
 test("Custom Theme", async ({ page }) => {
-  await page.goto(`${BASE_URL}/test-themes/extension/FavaDashboards/#/dashboards/custom-theme`);
+  await page.goto(`${BASE_URL}/test-themes/extension/FavaDashboards/?dashboard=custom-theme`);
   await expectScreenshot(page);
 });
 
 test("Migrate v1", async ({ page }) => {
-  await page.goto(`${BASE_URL}/test-migrate-v1/extension/FavaDashboards/#/dashboards/income-and-expenses`);
+  await page.goto(`${BASE_URL}/test-migrate-v1/extension/FavaDashboards/?dashboard=income-and-expenses`);
   await expectScreenshot(page);
 });

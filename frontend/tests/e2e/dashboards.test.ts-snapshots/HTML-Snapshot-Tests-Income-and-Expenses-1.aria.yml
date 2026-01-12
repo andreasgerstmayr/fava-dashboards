@@ -64,22 +64,22 @@
 - article:
   - heading "Overview" [level=3]:
     - link "Overview":
-      - /url: "#/dashboards/overview"
+      - /url: /beancount/extension/FavaDashboards/?dashboard=overview
   - heading "Assets" [level=3]:
     - link "Assets":
-      - /url: "#/dashboards/assets"
+      - /url: /beancount/extension/FavaDashboards/?dashboard=assets
   - heading "Income and Expenses" [level=3]:
     - link "Income and Expenses":
-      - /url: "#/dashboards/income-and-expenses"
+      - /url: /beancount/extension/FavaDashboards/?dashboard=income-and-expenses
   - heading "Travelling" [level=3]:
     - link "Travelling":
-      - /url: "#/dashboards/travelling"
+      - /url: /beancount/extension/FavaDashboards/?dashboard=travelling
   - heading "Sankey" [level=3]:
     - link "Sankey":
-      - /url: "#/dashboards/sankey"
+      - /url: /beancount/extension/FavaDashboards/?dashboard=sankey
   - heading "Projection" [level=3]:
     - link "Projection":
-      - /url: "#/dashboards/projection"
+      - /url: /beancount/extension/FavaDashboards/?dashboard=projection
   - text: Currency
   - combobox "Currency"
   - button "Open"
