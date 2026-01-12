@@ -12,21 +12,22 @@ import {
 } from "use-query-params";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { Ledger } from "../../schemas/v2/ledger";
-import { VariableDefinition, VariablesContents, VariableType } from "../../schemas/v2/variables";
+import { StrictResolvedVariables, Variable, VariableType } from "../../schemas/v2/variables";
 
 interface VariablesToolbarProps {
   ledger: Ledger;
-  definitions: VariableDefinition[];
-  fromIdx?: number;
+  variables: Variable[];
+  startIndex?: number;
 }
 
-export function VariablesToolbar({ ledger, definitions, fromIdx }: VariablesToolbarProps) {
+export function VariablesToolbar({ ledger, variables, startIndex = 0 }: VariablesToolbarProps) {
   return (
     <Stack sx={{ height: 40, flexDirection: "row", gap: 2 }}>
-      {definitions.map((definition, i) =>
-        i >= (fromIdx ?? 0) ? (
-          <VariableToolbar key={definition.name} ledger={ledger} definitions={definitions.slice(0, i + 1)} />
-        ) : null,
+      {variables.map(
+        (definition, i) =>
+          i >= startIndex && (
+            <VariableToolbar key={definition.name} ledger={ledger} variables={variables.slice(0, i + 1)} />
+          ),
       )}
     </Stack>
   );
@@ -34,12 +35,12 @@ export function VariablesToolbar({ ledger, definitions, fromIdx }: VariablesTool
 
 interface VariableToolbarProps {
   ledger: Ledger;
-  definitions: VariableDefinition[];
+  variables: Variable[];
 }
 
-function VariableToolbar({ ledger, definitions }: VariableToolbarProps) {
-  const definition = definitions[definitions.length - 1];
-  const { isPending, error, data } = useVariableDefinition(ledger, definitions);
+function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
+  const definition = variables[variables.length - 1];
+  const { isPending, error, data } = useVariables(ledger, variables);
 
   const [value, setValue] = useQueryParam<VariableType | VariableType[]>(
     searchParamName(definition.name),
@@ -112,7 +113,7 @@ function VariableToolbar({ ledger, definitions }: VariableToolbarProps) {
   );
 }
 
-function getQueryParamType(definition: VariableDefinition, options: VariableType[]) {
+function getQueryParamType(definition: Variable, options: VariableType[]) {
   if (definition.multiple) {
     switch (typeof options[0]) {
       case "string":
@@ -134,44 +135,50 @@ function getQueryParamType(definition: VariableDefinition, options: VariableType
   }
 }
 
-export function useVariableDefinition(ledger: Ledger, definitions: VariableDefinition[]) {
+export function useVariables(ledger: Ledger, variables: Variable[]) {
   const queryClient = useQueryClient();
   const [searchParams] = useSearchParams();
 
   return useQuery({
     // include only search params which are part of the definition chain
-    queryKey: ["useVariableDefinition", definitions, definitions.map((d) => searchParams.get(searchParamName(d.name)))],
-    queryFn: () => evaluateVariables(queryClient, ledger, definitions, searchParams),
+    queryKey: ["useVariables", variables, variables.map((d) => searchParams.get(searchParamName(d.name)))],
+    queryFn: () => resolveVariables(queryClient, ledger, variables, searchParams),
     staleTime: Infinity,
   });
 }
 
-async function evaluateVariables(
+async function resolveVariables(
   queryClient: QueryClient,
   ledger: Ledger,
-  definitions: VariableDefinition[],
+  variables: Variable[],
   searchParams: URLSearchParams,
 ) {
-  const variables: VariablesContents = {};
+  const values: StrictResolvedVariables = {};
   let options: VariableType[] = [];
 
-  // Every variable callback depends on the result of the previous variable.
+  // Iteratively call the options callback of every variable (starting with dashboard variables, then panel variables),
+  // because every variable options callback depends on the resolved variable values of the previous variable.
   // All results are cached, mitigating the performance impact.
-  for (const definition of definitions) {
+  for (const variable of variables) {
     options = await queryClient.fetchQuery({
-      queryKey: ["evaluateVariables", ledger, definition, JSON.stringify(variables)],
+      queryKey: ["resolveVariables", ledger, variable, JSON.stringify(values)],
       queryFn: async () => {
-        return await Promise.resolve(definition.options({ ledger, variables }));
+        return await Promise.resolve(variable.options({ ledger, variables: values }));
       },
       staleTime: Infinity,
     });
 
-    const paramType = getQueryParamType(definition, options);
-    const value = paramType.decode(searchParams.get(searchParamName(definition.name))) as VariableType | VariableType[];
-    variables[definition.name] = value;
+    const paramType = getQueryParamType(variable, options);
+    const value = paramType.decode(searchParams.get(searchParamName(variable.name))) as VariableType | VariableType[];
+    values[variable.name] = value;
   }
 
-  return { options, variables };
+  if (variables.length === 0) {
+    return { values, options, value: undefined };
+  }
+
+  const lastVariable = variables[variables.length - 1];
+  return { values, options, value: values[lastVariable.name] };
 }
 
 function searchParamName(name: string) {

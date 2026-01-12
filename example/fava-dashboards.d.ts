@@ -25,14 +25,7 @@ declare module "fava-dashboards" {
       width?: string;
       height?: string;
       link?: string;
-      variables?: VariableDefinition[];
-  }
-  
-  interface BaseVariableDefinition<T> {
-      name: string;
-      label?: string;
-      display?: "select" | "toggle";
-      options: (params: VariablesParams) => MaybePromise<T[]>;
+      variables?: Variable[];
   }
   
   interface Commodity {
@@ -58,7 +51,7 @@ declare module "fava-dashboards" {
   
   export interface Dashboard {
       name: string;
-      variables?: VariableDefinition[];
+      variables?: Variable[];
       panels: Panel[];
   }
   
@@ -137,6 +130,8 @@ declare module "fava-dashboards" {
   
   function ReactPanel(_props: PanelProps<ReactElement>): JSX.Element;
   
+  export type ResolvedVariables = Record<string, any>;
+  
   interface SankeyLinkProperties {
       uid?: string;
   }
@@ -159,17 +154,17 @@ declare module "fava-dashboards" {
       };
   }
   
-  type SpecParams = {
+  export type SpecParams = {
       panel: Panel;
       ledger: Ledger;
-      variables: VariablesContents;
+      variables: ResolvedVariables;
   };
   
   function TablePanel({ spec }: PanelProps<TableSpec>): JSX.Element;
   
   export type TableSpec<R extends GridValidRowModel = any> = DataGridProps<R>;
   
-  export type VariableDefinition<T = VariableType> = BaseVariableDefinition<T> & ({
+  export type Variable<T = VariableType> = VariableBase<T> & ({
       multiple?: false;
       default?: T;
   } | {
@@ -177,14 +172,19 @@ declare module "fava-dashboards" {
       default?: T[];
   });
   
-  export type VariablesContents = Record<string, any>;
+  interface VariableBase<T> {
+      name: string;
+      label?: string;
+      display?: "select" | "toggle";
+      options: (params: VariableOptionsParams) => MaybePromise<T[]>;
+  }
   
-  export type VariablesParams = {
+  export type VariableOptionsParams = {
       ledger: Ledger;
-      variables: VariablesContents;
+      variables: ResolvedVariables;
   };
   
-  type VariableType = string | number;
+  type VariableType = string;
   
   export { }
   

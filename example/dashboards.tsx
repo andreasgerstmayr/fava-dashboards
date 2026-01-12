@@ -11,7 +11,7 @@ import {
   Ledger,
   Position,
   TableSpec,
-  VariableDefinition,
+  Variable,
 } from "fava-dashboards";
 
 // Base colors from fava
@@ -309,7 +309,7 @@ async function StackedYearOverYear(
   };
 }
 
-const currencyVariable: VariableDefinition = {
+const currencyVariable: Variable = {
   name: "currency",
   label: "Currency",
   options: async ({ ledger }) => {
