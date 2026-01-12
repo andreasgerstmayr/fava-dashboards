@@ -50,7 +50,7 @@ function DashboardGrid({ dashboard }: DashboardGridProps) {
   return (
     <>
       {dashboard.variables && dashboard.variables.length > 0 && (
-        <VariablesToolbar ledger={ledger} definitions={dashboard.variables} />
+        <VariablesToolbar ledger={ledger} variables={dashboard.variables} />
       )}
       <Stack
         sx={{

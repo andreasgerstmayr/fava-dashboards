@@ -15,7 +15,7 @@ const ZBasePanel = z.object({
   width: z.string().default("100%"),
   height: z.string().default("400px"),
   link: z.string().optional(),
-  variables: z.array(ZVariableDefinition).optional(),
+  variables: z.array(ZVariableDefinition).default([]),
 });
 
 const ZPanel = ZBasePanel.extend({
@@ -25,7 +25,7 @@ const ZPanel = ZBasePanel.extend({
 
 const ZDashboard = z.object({
   name: z.string(),
-  variables: z.array(ZVariableDefinition).optional(),
+  variables: z.array(ZVariableDefinition).default([]),
   panels: z.array(ZPanel),
 });
 

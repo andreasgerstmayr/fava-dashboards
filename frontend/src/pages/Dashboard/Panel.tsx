@@ -1,12 +1,13 @@
 import { Box, Card, Skeleton, Stack } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { ReactElement } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { PanelProps, panelRegistry, PanelSpecOf } from "../../panels/registry";
 import { Dashboard, Panel } from "../../schemas/v2/dashboard";
 import { Ledger } from "../../schemas/v2/ledger";
-import { VariablesContents } from "../../schemas/v2/variables";
-import { useVariableDefinition, VariablesToolbar } from "./Variables";
+import { ResolvedVariables } from "../../schemas/v2/variables";
+import { useVariables, VariablesToolbar } from "./Variables";
 
 interface PanelCardProps {
   ledger: Ledger;
@@ -16,18 +17,10 @@ interface PanelCardProps {
 
 export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
   const variableDefinitions = [...(dashboard.variables ?? []), ...(panel.variables ?? [])];
-  const {
-    isPending: isPendingVariables,
-    error: errorVariables,
-    data: dataVariables,
-  } = useVariableDefinition(ledger, variableDefinitions);
-  const {
-    isPending: isPendingPanel,
-    error: errorPanel,
-    data: panelContent,
-  } = useRenderPanel(ledger, panel, dataVariables?.variables);
-  const isPending = isPendingVariables || isPendingPanel;
-  const error = errorVariables ?? errorPanel;
+  const resolvedVariables = useVariables(ledger, variableDefinitions);
+  const renderedPanel = useRenderPanel(ledger, panel, resolvedVariables.data?.values);
+  const isPending = resolvedVariables.isPending || renderedPanel.isPending;
+  const error = resolvedVariables.error ?? renderedPanel.error;
 
   return (
     <Box
@@ -52,7 +45,11 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
             )}
           </h3>
           {panel.variables && panel.variables.length > 0 && (
-            <VariablesToolbar ledger={ledger} definitions={variableDefinitions} fromIdx={dashboard.variables?.length} />
+            <VariablesToolbar
+              ledger={ledger}
+              variables={variableDefinitions}
+              startIndex={dashboard.variables?.length}
+            />
           )}
         </Stack>
         <Box style={{ height: panel.height }}>
@@ -61,7 +58,7 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
           ) : error ? (
             <ErrorAlert error={error} />
           ) : (
-            panelContent
+            <ErrorBoundary FallbackComponent={ErrorAlert}>{renderedPanel.data}</ErrorBoundary>
           )}
         </Box>
       </Card>
@@ -69,7 +66,7 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
   );
 }
 
-function useRenderPanel(ledger: Ledger, panel: Panel, variables: VariablesContents | undefined) {
+function useRenderPanel(ledger: Ledger, panel: Panel, variables: ResolvedVariables | undefined) {
   return useQuery({
     enabled: !!variables,
     queryKey: ["useRenderPanel", ledger, panel, variables],

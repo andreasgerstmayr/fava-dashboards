@@ -42,7 +42,7 @@ run:
 
 dev:
 	npx concurrently --names fava,esbuild \
-	  "cd example; PYTHONUNBUFFERED=1 uv run fava --debug example.beancount" \
+	  "PYTHONUNBUFFERED=1 uv run fava --debug example/example.beancount frontend/tests/dashboards/*.beancount" \
 	  "cd frontend; npm install && npm run watch"
 
 lint:
@@ -55,7 +55,7 @@ format:
 	-cd frontend; npm run lint:fix
 	-uv run ruff check --fix
 	uv run ruff format .
-	find example -name '*.beancount' -exec uv run bean-format -c 59 -o "{}" "{}" \;
+	find example frontend/tests/dashboards -name '*.beancount' -exec uv run bean-format -c 59 -o "{}" "{}" \;
 
 ## Container
 container-run: container-stop

@@ -1,7 +1,7 @@
 import { PanelKind, PanelSpecOf } from "../../panels/registry";
 import { Ledger } from "./ledger";
 import { MaybePromise } from "./utils";
-import { VariableDefinition, VariablesContents } from "./variables";
+import { ResolvedVariables, Variable } from "./variables";
 
 export interface Config {
   dashboards: Dashboard[];
@@ -9,7 +9,7 @@ export interface Config {
 
 export interface Dashboard {
   name: string;
-  variables?: VariableDefinition[];
+  variables?: Variable[];
   panels: Panel[];
 }
 
@@ -18,7 +18,7 @@ interface BasePanel {
   width?: string;
   height?: string;
   link?: string;
-  variables?: VariableDefinition[];
+  variables?: Variable[];
 }
 
 export type Panel = BasePanel &
@@ -32,5 +32,9 @@ export type Panel = BasePanel &
 export type SpecParams = {
   panel: Panel;
   ledger: Ledger;
-  variables: VariablesContents;
+  variables: ResolvedVariables;
 };
+
+export function defineConfig(config: Config): Config {
+  return config;
+}

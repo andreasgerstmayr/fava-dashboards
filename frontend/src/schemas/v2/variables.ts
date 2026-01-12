@@ -1,22 +1,23 @@
 import { Ledger } from "./ledger";
 import { MaybePromise } from "./utils";
 
-export type VariableType = string | number;
+export type VariableType = string;
 
-interface BaseVariableDefinition<T> {
+interface VariableBase<T> {
   name: string;
   label?: string;
   display?: "select" | "toggle";
-  options: (params: VariablesParams) => MaybePromise<T[]>;
+  options: (params: VariableOptionsParams) => MaybePromise<T[]>;
 }
 
-export type VariableDefinition<T = VariableType> = BaseVariableDefinition<T> &
+export type Variable<T = VariableType> = VariableBase<T> &
   ({ multiple?: false; default?: T } | { multiple: true; default?: T[] });
 
-export type VariablesParams = {
+export type VariableOptionsParams = {
   ledger: Ledger;
-  variables: VariablesContents;
+  variables: ResolvedVariables;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type VariablesContents = Record<string, any>;
+export type ResolvedVariables = Record<string, any>;
+export type StrictResolvedVariables = Record<string, VariableType | VariableType[] | undefined>;
