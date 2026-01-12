@@ -20,6 +20,8 @@ test.describe("PNG Snapshot Tests", () => {
           document.body.style.height = "inherit";
         });
         await page.waitForLoadState("networkidle");
+        await expect(page.locator(".MuiCircularProgress-root")).toHaveCount(0);
+        await expect(page.locator(".MuiSkeleton-root")).toHaveCount(0);
         await expect(page).toHaveScreenshot({ fullPage: true });
       });
     });
@@ -35,6 +37,8 @@ test.describe("PNG Snapshot Tests", () => {
           document.body.style.height = "inherit";
         });
         await page.waitForLoadState("networkidle");
+        await expect(page.locator(".MuiCircularProgress-root")).toHaveCount(0);
+        await expect(page.locator(".MuiSkeleton-root")).toHaveCount(0);
         await expect(page).toHaveScreenshot({ fullPage: true });
       });
     });
