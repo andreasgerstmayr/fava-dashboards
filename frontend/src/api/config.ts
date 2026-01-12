@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { LedgerData } from "../schemas/v2/ledger";
-import { fetchJSON } from "./api";
+import { createURLSearchParamsWithFavaFilters, fetchJSON } from "./api";
 
 export interface ConfigResponse {
   ledgerData: LedgerData;
@@ -10,7 +10,7 @@ export interface ConfigResponse {
 }
 
 export function useConfig() {
-  const params = new URLSearchParams(location.search);
+  const params = createURLSearchParamsWithFavaFilters();
   const url = `v2_config?${params}`;
 
   return useQuery({

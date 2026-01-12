@@ -1,4 +1,4 @@
-import { fetchJSON } from "./api";
+import { createURLSearchParamsWithFavaFilters, fetchJSON } from "./api";
 
 export interface QueryResponse<T> {
   result: QueryResult<T>;
@@ -21,7 +21,7 @@ export interface Amount {
 }
 
 export async function query<T>(bql: string): Promise<QueryResult<T>> {
-  const params = new URLSearchParams(location.search);
+  const params = createURLSearchParamsWithFavaFilters();
   params.set("bql", bql);
   const url = `query?${params}`;
 
