@@ -1,3 +1,4 @@
+import { SxProps } from "@mui/material";
 import { Ledger } from "./ledger";
 import { MaybePromise } from "./utils";
 
@@ -7,6 +8,7 @@ interface VariableBase<T> {
   name: string;
   label?: string;
   display?: "select" | "toggle";
+  style?: SxProps;
   options: (params: VariableOptionsParams) => MaybePromise<T[]>;
 }
 

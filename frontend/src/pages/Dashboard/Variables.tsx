@@ -49,7 +49,7 @@ function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
 
   if (isPending) {
     // same dimensions as <Autocomplete>
-    return <Skeleton variant="rounded" sx={{ width: 120, height: 37 }} />;
+    return <Skeleton variant="rounded" sx={{ width: 120, height: 37, ...variable.style }} />;
   }
 
   if (error) {
@@ -60,7 +60,12 @@ function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
 
   if (variable.display == "toggle") {
     return (
-      <ToggleButtonGroup exclusive={!variable.multiple} value={value} onChange={(_event, value) => setValue(value)}>
+      <ToggleButtonGroup
+        exclusive={!variable.multiple}
+        value={value}
+        onChange={(_event, value) => setValue(value)}
+        sx={{ ...variable.style }}
+      >
         {options.map((option) => (
           <ToggleButton key={option} value={option}>
             {option}
@@ -93,7 +98,7 @@ function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
           );
         }}
         renderInput={(params) => <TextField {...params} label={variable.label ?? variable.name} />}
-        sx={{ width: 120 }}
+        sx={{ width: 120, ...variable.style }}
       />
     );
   }
@@ -108,7 +113,7 @@ function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
         setValue(newValue ?? variable.default ?? options[0]);
       }}
       renderInput={(params) => <TextField {...params} label={variable.label ?? variable.name} />}
-      sx={{ width: 120 }}
+      sx={{ width: 120, ...variable.style }}
     />
   );
 }

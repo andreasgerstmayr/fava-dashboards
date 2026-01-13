@@ -10,6 +10,7 @@ declare module "fava-dashboards" {
   import { ReactElement } from 'react';
   import { SankeyLink } from 'd3-sankey';
   import { SankeyNode } from 'd3-sankey';
+  import { SxProps } from '@mui/material';
   
   interface Account {
       meta: Record<string, string | number>;
@@ -176,6 +177,7 @@ declare module "fava-dashboards" {
       name: string;
       label?: string;
       display?: "select" | "toggle";
+      style?: SxProps;
       options: (params: VariableOptionsParams) => MaybePromise<T[]>;
   }
   

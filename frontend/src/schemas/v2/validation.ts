@@ -5,6 +5,7 @@ const ZVariableDefinition = z.object({
   name: z.string(),
   label: z.string().optional(),
   display: z.enum(["select", "toggle"] as const).default("select"),
+  style: z.looseObject({}).optional(),
   multiple: z.boolean().default(false),
   options: z.any(),
   default: z.any().optional(),
