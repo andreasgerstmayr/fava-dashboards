@@ -1,6 +1,16 @@
 import * as z from "zod";
 import { panelKinds } from "../../panels/registry";
 
+const ZEChartsTheme = z.union([z.record(z.string(), z.any()), z.string()]).optional();
+
+const ZTheme = z
+  .object({
+    echarts: ZEChartsTheme,
+    additionalCardStyle: z.any().optional(),
+    additionalTitleStyle: z.record(z.string(), z.any()).optional(),
+  })
+  .default({});
+
 const ZVariableDefinition = z.object({
   name: z.string(),
   label: z.string().optional(),
@@ -32,4 +42,5 @@ const ZDashboard = z.object({
 
 export const ZConfig = z.object({
   dashboards: z.array(ZDashboard),
+  theme: ZTheme.optional().default({}),
 });

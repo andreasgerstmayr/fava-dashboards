@@ -1,3 +1,6 @@
+import type { SxProps, Theme } from "@mui/material/styles";
+import type { CSSProperties } from "react";
+import { EChartsTheme } from "../../echartsThemes";
 import { PanelKind, PanelSpecOf } from "../../panels/registry";
 import { Ledger } from "./ledger";
 import { MaybePromise } from "./utils";
@@ -5,6 +8,11 @@ import { ResolvedVariables, Variable } from "./variables";
 
 export interface Config {
   dashboards: Dashboard[];
+  theme?: {
+    echarts?: EChartsTheme | string;
+    additionalCardStyle?: SxProps<Theme>;
+    additionalTitleStyle?: CSSProperties;
+  };
 }
 
 export interface Dashboard {

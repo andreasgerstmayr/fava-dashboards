@@ -7,6 +7,7 @@ import {
   D3SankeyNode,
   defineConfig,
   EChartsSpec,
+  echartsThemes,
   Inventory,
   Ledger,
   Position,
@@ -318,6 +319,18 @@ const currencyVariable: Variable = {
 };
 
 export default defineConfig({
+  theme: {
+    // optionally: set echarts theme here in echarts object configuration format
+    // echartsThemes.ts contains a set of examples:
+    // echartsThemes.dark, echartsThemes.chalk, echartsThemes.v5, echartsThemes.vintage, etc
+    echarts: echartsThemes.vintage, // theme that was used in echarts v5
+    additionalCardStyle: {
+      backgroundColor: echartsThemes.vintage.backgroundColor,
+    },
+    additionalTitleStyle: {
+      color: echartsThemes.vintage.title.textStyle.color,
+    },
+  },
   dashboards: [
     {
       name: "Overview",
