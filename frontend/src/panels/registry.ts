@@ -1,5 +1,5 @@
 import { D3SankeyPanel } from "./D3SankeyPanel";
-import { EChartsPanel } from "./EChartsPanel";
+import { EChartsPanel } from "./echarts/EChartsPanel";
 import { HtmlPanel } from "./HtmlPanel";
 import { ReactPanel } from "./ReactPanel";
 import { TablePanel } from "./TablePanel";

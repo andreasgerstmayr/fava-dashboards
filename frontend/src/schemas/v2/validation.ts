@@ -1,15 +1,18 @@
 import * as z from "zod";
 import { panelKinds } from "../../panels/registry";
 
-const ZEChartsTheme = z.union([z.record(z.string(), z.any()), z.string()]).optional();
+const ZThemePanel = z.object({
+  style: z.looseObject({}).optional(),
+});
 
-const ZTheme = z
-  .object({
-    echarts: ZEChartsTheme,
-    additionalCardStyle: z.any().optional(),
-    additionalTitleStyle: z.record(z.string(), z.any()).optional(),
-  })
-  .default({});
+const ZThemeDashboard = z.object({
+  panel: ZThemePanel.optional(),
+});
+
+const ZTheme = z.object({
+  echarts: z.union([z.string(), z.looseObject({})]).optional(),
+  dashboard: ZThemeDashboard.optional(),
+});
 
 const ZVariableDefinition = z.object({
   name: z.string(),
@@ -41,6 +44,6 @@ const ZDashboard = z.object({
 });
 
 export const ZConfig = z.object({
+  theme: ZTheme.optional(),
   dashboards: z.array(ZDashboard),
-  theme: ZTheme.optional().default({}),
 });
