@@ -323,13 +323,13 @@ export default defineConfig({
     // optionally: set echarts theme here in echarts object configuration format
     // echartsThemes.ts contains a set of examples:
     // echartsThemes.dark, echartsThemes.chalk, echartsThemes.v5, echartsThemes.vintage, etc
-    echarts: echartsThemes.vintage, // theme that was used in echarts v5
-    additionalCardStyle: {
-      backgroundColor: echartsThemes.vintage.backgroundColor,
-    },
-    additionalTitleStyle: {
-      color: echartsThemes.vintage.title.textStyle.color,
-    },
+    //echarts: echartsThemes.vintage, // theme that was used in echarts v5
+    //additionalCardStyle: {
+    //  backgroundColor: echartsThemes.vintage.backgroundColor,
+    //},
+    //additionalTitleStyle: {
+    //  color: echartsThemes.vintage.title.textStyle.color,
+    //},
   },
   dashboards: [
     {
