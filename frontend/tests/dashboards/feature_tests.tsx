@@ -15,6 +15,9 @@ export default defineConfig({
         },
         {
           name: "var2",
+          style: {
+            width: 200,
+          },
           options: async ({ variables }) => {
             console.log("options() of var2", variables);
             await new Promise((r) => setTimeout(r, 1000));
