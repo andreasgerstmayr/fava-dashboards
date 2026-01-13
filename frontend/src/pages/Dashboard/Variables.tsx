@@ -39,12 +39,12 @@ interface VariableToolbarProps {
 }
 
 function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
-  const definition = variables[variables.length - 1];
   const { isPending, error, data } = useVariables(ledger, variables);
+  const variable = variables[variables.length - 1];
 
   const [value, setValue] = useQueryParam<VariableType | VariableType[]>(
-    searchParamName(definition.name),
-    data ? (getQueryParamType(definition, data.options) as QueryParamConfig<VariableType | VariableType[]>) : undefined,
+    searchParamName(variable.name),
+    data ? (getQueryParamType(variable, data.options) as QueryParamConfig<VariableType | VariableType[]>) : undefined,
   );
 
   if (isPending) {
@@ -58,9 +58,9 @@ function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
 
   const { options } = data;
 
-  if (definition.display == "toggle") {
+  if (variable.display == "toggle") {
     return (
-      <ToggleButtonGroup exclusive={!definition.multiple} value={value} onChange={(_event, value) => setValue(value)}>
+      <ToggleButtonGroup exclusive={!variable.multiple} value={value} onChange={(_event, value) => setValue(value)}>
         {options.map((option) => (
           <ToggleButton key={option} value={option}>
             {option}
@@ -70,7 +70,7 @@ function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
     );
   }
 
-  if (definition.multiple) {
+  if (variable.multiple) {
     return (
       <Autocomplete
         size="small"
@@ -92,7 +92,7 @@ function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
             </li>
           );
         }}
-        renderInput={(params) => <TextField {...params} label={definition.label ?? definition.name} />}
+        renderInput={(params) => <TextField {...params} label={variable.label ?? variable.name} />}
         sx={{ width: 120 }}
       />
     );
@@ -105,9 +105,9 @@ function VariableToolbar({ ledger, variables }: VariableToolbarProps) {
       options={options}
       value={value as VariableType}
       onChange={(_event, newValue: VariableType | null) => {
-        setValue(newValue ?? definition.default ?? options[0]);
+        setValue(newValue ?? variable.default ?? options[0]);
       }}
-      renderInput={(params) => <TextField {...params} label={definition.label ?? definition.name} />}
+      renderInput={(params) => <TextField {...params} label={variable.label ?? variable.name} />}
       sx={{ width: 120 }}
     />
   );

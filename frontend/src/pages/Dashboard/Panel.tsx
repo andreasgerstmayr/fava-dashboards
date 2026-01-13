@@ -20,7 +20,7 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
   const resolvedVariables = useVariables(ledger, variableDefinitions);
   const renderedPanel = useRenderPanel(ledger, panel, resolvedVariables.data?.values);
   const isPending = resolvedVariables.isPending || renderedPanel.isPending;
-  const error = resolvedVariables.error ?? renderedPanel.error;
+  const error = resolvedVariables.error || renderedPanel.error;
 
   return (
     <Box
