@@ -26,20 +26,16 @@ interface ConfigProviderProps {
 }
 
 export function ConfigProvider({ extensionContext, children }: ConfigProviderProps) {
-  const { isPending: isPendingConfig, error: errorConfig, data: config } = useConfig();
-  const {
-    isPending: isPendingEval,
-    error: errorEval,
-    data: dynamicConfig,
-  } = useQuery({
-    queryKey: [config?.configJs, config?.utilsJs],
-    enabled: !!config?.configJs,
+  const config = useConfig();
+  const dynamicConfig = useQuery({
+    queryKey: [config.data?.configJs, config.data?.utilsJs],
+    enabled: !!config.data?.configJs,
     queryFn: async () => {
-      if (!config?.configJs) {
+      if (!config.data?.configJs) {
         throw new Error("Config not loaded");
       }
 
-      const dynamicConfig = loadTSX(config.configJs, dependencies);
+      const dynamicConfig = loadTSX(config.data.configJs, dependencies);
 
       // load schema v1
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -49,7 +45,7 @@ export function ConfigProvider({ extensionContext, children }: ConfigProviderPro
           throw new Error("Error validating configuration:\n\n" + z.prettifyError(result.error));
         }
 
-        const utils = config.utilsJs ? ((await runAsyncFunction(config.utilsJs)) as v1.Utils) : {};
+        const utils = config.data.utilsJs ? ((await runAsyncFunction(config.data.utilsJs)) as v1.Utils) : {};
         return migrateV1ToV2(result.data, utils, extensionContext);
       }
 
@@ -63,15 +59,10 @@ export function ConfigProvider({ extensionContext, children }: ConfigProviderPro
     // this query returns a new object every time, which would trigger a re-render
     refetchOnWindowFocus: false,
   });
+  const isPending = config.isPending || dynamicConfig.isPending;
+  const error = config.error || dynamicConfig.error;
 
-  if (errorConfig) {
-    return <ErrorAlert error={errorConfig} />;
-  }
-  if (errorEval) {
-    return <ErrorAlert error={errorEval} />;
-  }
-
-  if (isPendingConfig || isPendingEval) {
+  if (isPending) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", py: 5 }}>
         <CircularProgress />
@@ -79,8 +70,12 @@ export function ConfigProvider({ extensionContext, children }: ConfigProviderPro
     );
   }
 
+  if (error) {
+    return <ErrorAlert error={error} />;
+  }
+
   return (
-    <ConfigContext.Provider value={{ ledgerData: config.ledgerData, config: dynamicConfig }}>
+    <ConfigContext.Provider value={{ ledgerData: config.data.ledgerData, config: dynamicConfig.data }}>
       {children}
     </ConfigContext.Provider>
   );
