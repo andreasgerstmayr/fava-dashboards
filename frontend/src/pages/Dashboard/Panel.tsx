@@ -35,21 +35,20 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
       }}
       style={{ width: panel.width }}
     >
-      <Card variant="outlined" sx={{ padding: 2, ...config.theme?.additionalCardStyle }}>
+      <Card variant="outlined" sx={{ padding: 2, ...config.theme?.dashboard?.panel?.style }}>
         <Stack sx={{ height: 40, flexDirection: "row", justifyContent: "space-between", marginBottom: 2 }}>
-          <h3 style={{ marginBottom: 0 }}>
+          <h3 className="title" style={{ marginBottom: 0 }}>
             {panel.link ? (
               <a
                 href={panel.link}
                 style={{
                   color: "light-dark(hsl(0deg 0% 25%), hsl(0deg 0% 80%))",
-                  ...config.theme?.additionalTitleStyle,
                 }}
               >
                 {panel.title}
               </a>
             ) : (
-              <span style={{ ...config.theme?.additionalTitleStyle }}>{panel.title}</span>
+              panel.title
             )}
           </h3>
           {panel.variables && panel.variables.length > 0 && (

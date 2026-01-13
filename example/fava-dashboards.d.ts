@@ -2,7 +2,6 @@
 // It is only required when using TypeScript (dashboards.tsx) and enables type checking and auto completion in the code editor.
 
 declare module "fava-dashboards" {
-  import type { CSSProperties } from 'react';
   import { DataGridProps } from '@mui/x-data-grid';
   import { ECElementEvent } from 'echarts';
   import { EChartsOption } from 'echarts';
@@ -13,7 +12,6 @@ declare module "fava-dashboards" {
   import { SankeyNode } from 'd3-sankey';
   import { SxProps } from '@mui/material';
   import type { SxProps as SxProps_2 } from '@mui/material/styles';
-  import type { Theme } from '@mui/material/styles';
   
   interface Account {
       meta: Record<string, string | number>;
@@ -40,9 +38,12 @@ declare module "fava-dashboards" {
   export interface Config {
       dashboards: Dashboard[];
       theme?: {
-          echarts?: EChartsTheme | string;
-          additionalCardStyle?: SxProps_2<Theme>;
-          additionalTitleStyle?: CSSProperties;
+          echarts?: object | string;
+          dashboard?: {
+              panel?: {
+                  style?: SxProps_2;
+              };
+          };
       };
   }
   
@@ -72,22 +73,6 @@ declare module "fava-dashboards" {
       onClick?: (params: ECElementEvent) => void;
       onDblClick?: (params: ECElementEvent) => void;
   }
-  
-  export type EChartsTheme = {
-      backgroundColor?: unknown;
-      title?: {
-          textStyle?: {
-              color?: unknown;
-              [key: string]: unknown;
-          };
-          [key: string]: unknown;
-      };
-      [key: string]: unknown;
-  };
-  
-  export type EChartsThemeName = keyof typeof echartsThemes;
-  
-  export type EChartsThemes = Record<string, EChartsTheme>;
   
   export const echartsThemes: {
       alternativeDark: {

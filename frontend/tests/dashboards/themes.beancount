@@ -1,0 +1,7 @@
+option "title" "Test: Themes"
+option "operating_currency" "USD"
+2020-01-01 custom "fava-extension" "fava_dashboards" "{
+    'config': 'themes.tsx'
+}"
+
+include "common/_testdata.beancount"
