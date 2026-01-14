@@ -64,7 +64,8 @@ The location of the `dashboards.tsx` configuration file can be customized:
 To get TypeScript type support, download [fava-dashboards.d.ts](example/fava-dashboards.d.ts) and place it next to `dashboards.tsx`.
 Please take a look at the example dashboards configuration [dashboards.tsx](example/dashboards.tsx), which uses most of the functionality described below.
 
-To convert a legacy `dashboards.yaml` file from version 1 to the new `dashboards.tsx` format, you can run `make deps && uv run scripts/convert_dashboards_yaml_to_tsx.py path/to/dashboards.yaml --output path/to/dashboards.tsx`. Please note that this script is best effort, it handles most but not all cases, and does not infer TypeScript types.
+To convert a legacy `dashboards.yaml` file from version 1 to the new `dashboards.tsx` format, you can run `make deps && uv run scripts/convert_dashboards_yaml_to_tsx.py path/to/dashboards.yaml --output path/to/dashboards.tsx`.
+This script covers most common cases, and does not perform TypeScript type inference.
 
 The configuration file can contain multiple dashboards, and a dashboard contains one or more panels.
 A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column layouts) and a absolute height.
