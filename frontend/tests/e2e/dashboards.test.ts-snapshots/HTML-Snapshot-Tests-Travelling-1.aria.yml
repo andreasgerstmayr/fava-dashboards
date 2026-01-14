@@ -1,6 +1,6 @@
 - banner:
   - img
-  - heading "Beancount›Dashboards" [level=1]:
+  - heading "Beancount ▾›Dashboards" [level=1]:
     - strong: ›Dashboards
   - combobox "Time"
   - combobox "Account"

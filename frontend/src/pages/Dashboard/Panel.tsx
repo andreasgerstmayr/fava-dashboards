@@ -42,7 +42,7 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
               <a
                 href={panel.link}
                 style={{
-                  color: "light-dark(hsl(0deg 0% 25%), hsl(0deg 0% 80%))",
+                  color: "inherit", // do no apply link styling
                 }}
               >
                 {panel.title}
