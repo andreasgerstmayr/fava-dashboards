@@ -15,11 +15,8 @@ def read_dashboards_utils(config_path: Path, config: dict):
         return utils["inline"]
     elif "path" in utils:
         path = config_path.parent.joinpath(utils["path"])
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                return f.read()
-        except Exception as ex:
-            raise Exception(f"cannot read utils file {path}: {ex}") from ex
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
     else:
         return ""
 
@@ -46,6 +43,7 @@ def convert(in_path: Path, out_path: Path):
                     print(f'WARN: Skipping panel "{title}" with unsupported type "{panel_type}"')
                     del dashboard["panels"][i]
                     continue
+
                 panel["kind"] = panel_type
                 del panel["type"]
 
@@ -55,14 +53,14 @@ def convert(in_path: Path, out_path: Path):
                     queries = json.dumps(panel["queries"])
                     queries = queries.replace("{{ledger.ccy}}", '"+ledger.ccy+"')
 
-                    script = script.replace("panel.queries", "panelQueries")
                     script = (
                         "const panelQueries = await Promise.all("
                         + queries
                         + ".map(async (query) => ({...query, result: await ledger.query(query.bql)})));\n"
-                        + script
+                        + script.replace("panel.queries", "panelQueries")
                     )
                     del panel["queries"]
+
                 panel["spec"] = "async ({ ledger, variables }) => {\n" + script + "}"
                 del panel["script"]
 
@@ -76,8 +74,7 @@ def convert(in_path: Path, out_path: Path):
         return init + value
 
     config_tsx = re.sub(r'( *"spec": )(.+)$', add_fn, config_json, flags=re.MULTILINE)
-
-    tsx = f"""/// <reference types="./fava-dashboards.d.ts" />
+    config_tsx = f"""/// <reference types="./fava-dashboards.d.ts" />
 import {{ defineConfig }} from "fava-dashboards";
 
 {utils}
@@ -86,7 +83,7 @@ export default defineConfig({config_tsx});
 """
 
     with open(out_path, "w", encoding="utf8") as f:
-        f.write(tsx)
+        f.write(config_tsx)
 
     print("Formatting...")
     subprocess.run(
