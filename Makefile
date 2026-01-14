@@ -40,6 +40,9 @@ test: test-py test-js
 run:
 	cd example; uv run fava example.beancount
 
+convert-echarts-themes:
+	cd frontend; node scripts/convert-echarts-themes.js
+
 dev:
 	npx concurrently --names fava,esbuild \
 	  "PYTHONUNBUFFERED=1 uv run fava --debug example/example.beancount frontend/tests/dashboards/*.beancount" \

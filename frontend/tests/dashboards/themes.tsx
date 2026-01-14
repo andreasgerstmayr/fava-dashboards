@@ -17,13 +17,13 @@ function anyFormatter(formatter: (value: number) => string) {
 
 export default defineConfig({
   theme: {
-    echarts: echartsThemes.vintage, // theme that was used in echarts v5
+    echarts: echartsThemes["vintage"],
     dashboard: {
       panel: {
         style: {
-          backgroundColor: echartsThemes.vintage.backgroundColor,
+          backgroundColor: echartsThemes["vintage"]?.backgroundColor,
           ".title": {
-            color: echartsThemes.vintage.title.textStyle.color,
+            color: "black",
           },
         },
       },
