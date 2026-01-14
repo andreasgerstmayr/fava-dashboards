@@ -47,3 +47,11 @@ for (const themeName of themes) {
   const themeJson = JSON.stringify(theme, null, 2);
   writeFileSync(`src/panels/echarts/themes/${themeName}.ts`, `export default ${themeJson};`);
 }
+
+function toCamelCase(str: string) {
+  return str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+}
+writeFileSync(
+  `src/panels/echarts/themes/index.ts`,
+  themes.map((theme) => `export { default as ${toCamelCase(theme)} } from "./${theme}";`).join("\n"),
+);
