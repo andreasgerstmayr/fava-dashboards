@@ -5,5 +5,5 @@ export { ResolvedVariables, Variable, VariableOptionsParams } from "./schemas/v2
 export { Amount, Cost, Inventory, Position, QueryResult } from "./api/query";
 export { D3SankeyLink, D3SankeyNode } from "./panels/D3SankeyPanel";
 export { EChartsSpec } from "./panels/echarts/EChartsPanel";
-export { echartsThemes } from "./panels/echarts/themes/echartsThemes";
+export * as EChartsThemes from "./panels/echarts/themes";
 export { TableSpec } from "./panels/TablePanel";

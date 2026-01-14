@@ -4,6 +4,9 @@ import { useEffect, useRef } from "react";
 import { useConfigContext } from "../../components/ConfigProvider";
 import { useComponentWidthOf } from "../../components/hooks";
 import { PanelProps } from "../registry";
+import * as themes from "./themes";
+
+export type EChartsThemeName = keyof typeof themes;
 
 export interface EChartsSpec extends EChartsOption {
   onClick?: (params: ECElementEvent) => void;
@@ -16,7 +19,7 @@ export function EChartsPanel({ spec }: PanelProps<EChartsSpec>) {
   const chartRef = useRef<ECharts>(null);
   const width = useComponentWidthOf(ref);
   const { config } = useConfigContext();
-  const echartsTheme = config.theme?.echarts ?? (theme.palette.mode === "dark" ? "dark" : undefined);
+  const echartsTheme = loadTheme(config.theme?.echarts) ?? (theme.palette.mode === "dark" ? "dark" : undefined);
 
   useEffect(() => {
     if (chartRef.current) {
@@ -50,4 +53,15 @@ export function EChartsPanel({ spec }: PanelProps<EChartsSpec>) {
   }, [width]);
 
   return <div ref={ref} style={{ height: "100%" }}></div>;
+}
+
+function loadTheme(theme: object | EChartsThemeName | undefined) {
+  if (typeof theme === "string") {
+    const resolved = themes[theme];
+    if (!resolved) {
+      throw Error(`Cannot find theme "${theme}". Available themes: ${Object.keys(themes).join(", ")}`);
+    }
+    return resolved;
+  }
+  return theme;
 }

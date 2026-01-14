@@ -38,7 +38,7 @@ declare module "fava-dashboards" {
   export interface Config {
       dashboards: Dashboard[];
       theme?: {
-          echarts?: object | string;
+          echarts?: object | EChartsThemeName;
           dashboard?: {
               panel?: {
                   style?: SxProps_2;
@@ -65,6 +65,4541 @@ declare module "fava-dashboards" {
       panels: Panel[];
   }
   
+  const _default: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_10: {
+      color: string[];
+      backgroundColor: string;
+      tooltip: {
+          axisPointer: {
+              lineStyle: {
+                  color: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+          };
+      };
+      legend: {
+          textStyle: {
+              color: string;
+          };
+      };
+      title: {
+          textStyle: {
+              color: string;
+          };
+      };
+      toolbox: {
+          iconStyle: {
+              borderColor: string;
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          itemStyle: {
+              color: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      timeAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      logAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+              show: boolean;
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      line: {
+          symbol: string;
+      };
+      graph: {
+          color: string[];
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_11: {
+      color: string[];
+      backgroundColor: string;
+      tooltip: {
+          axisPointer: {
+              lineStyle: {
+                  color: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+          };
+      };
+      legend: {
+          textStyle: {
+              color: string;
+          };
+      };
+      title: {
+          textStyle: {
+              color: string;
+          };
+      };
+      toolbox: {
+          iconStyle: {
+              borderColor: string;
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          itemStyle: {
+              color: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      timeAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      logAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+              show: boolean;
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      line: {
+          symbol: string;
+      };
+      graph: {
+          color: string[];
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_12: {
+      color: string[];
+      backgroundColor: string;
+      tooltip: {
+          axisPointer: {
+              lineStyle: {
+                  color: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+          };
+      };
+      legend: {
+          textStyle: {
+              color: string;
+          };
+      };
+      title: {
+          textStyle: {
+              color: string;
+          };
+      };
+      toolbox: {
+          iconStyle: {
+              borderColor: string;
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          itemStyle: {
+              color: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      timeAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      logAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+              show: boolean;
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      line: {
+          symbol: string;
+      };
+      graph: {
+          color: string[];
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_13: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_14: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_15: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_16: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_17: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      dataRange: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      grid: {
+          borderWidth: number;
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitArea: {
+              show: boolean;
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+      visualMap: {
+          color: string[];
+      };
+  };
+  
+  const _default_18: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      grid: {
+          borderWidth: number;
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitArea: {
+              show: boolean;
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_19: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      dataRange: {
+          x: string;
+          y: string;
+          itemWidth: number;
+          itemHeight: number;
+          color: string[];
+          text: string[];
+          textStyle: {
+              color: string;
+          };
+          left: string;
+          top: string;
+      };
+      toolbox: {
+          color: string[];
+          effectiveColor: string;
+          itemGap: number;
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      grid: {
+          borderWidth: number;
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              show: boolean;
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              show: boolean;
+          };
+          splitArea: {
+              show: boolean;
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+                  type: string;
+              };
+          };
+      };
+      polar: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitArea: {
+              show: boolean;
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      line: {
+          smooth: boolean;
+          symbol: string;
+          symbolSize: number;
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+      visualMap: {
+          x: string;
+          y: string;
+          itemWidth: number;
+          itemHeight: number;
+          color: string[];
+          text: string[];
+          textStyle: {
+              color: string;
+          };
+          left: string;
+          top: string;
+      };
+  };
+  
+  const _default_2: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_20: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          iconStyle: {
+              borderColor: string;
+          };
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              show: boolean;
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              show: boolean;
+          };
+          splitArea: {
+              show: boolean;
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+                  type: string;
+              };
+          };
+      };
+      timeline: {
+          itemStyle: {
+              color: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+          symbol: string;
+          symbolSize: number;
+      };
+      line: {
+          itemStyle: {
+              borderWidth: number;
+              borderColor: string;
+              lineStyle: {
+                  width: number;
+              };
+          };
+          emphasis: {
+              itemStyle: {
+                  borderWidth: number;
+              };
+          };
+          symbol: string;
+          symbolSize: number;
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+              areaColor: string;
+              borderColor: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+              };
+          };
+          axisTick: {
+              splitNumber: number;
+              length: number;
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              length: string;
+              lineStyle: {
+                  color: string;
+              };
+          };
+          title: {
+              offsetCenter: number[];
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_21: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_22: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_23: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_24: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          itemWidth: number;
+          color: string[];
+      };
+      toolbox: {
+          iconStyle: {
+              borderColor: string;
+          };
+      };
+      tooltip: {
+          borderWidth: number;
+          backgroundColor: string;
+          textStyle: {
+              color: string;
+          };
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      grid: {
+          borderColor: string;
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitArea: {
+              show: boolean;
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+          symbol: string;
+          symbolSize: number;
+      };
+      line: {
+          smooth: boolean;
+          symbol: string;
+          symbolSize: number;
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      scatter: {
+          symbol: string;
+          symbolSize: number;
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+          axisTick: {
+              splitNumber: number;
+              length: number;
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              length: number;
+              lineStyle: {
+                  color: string;
+              };
+          };
+          pointer: {
+              width: number;
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_25: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      dataRange: {
+          color: string[];
+          textStyle: {
+              color: string;
+          };
+      };
+      bar: {
+          barMinHeight: number;
+          barGap: string;
+          barCategoryGap: string;
+          label: {
+              show: boolean;
+          };
+          itemStyle: {
+              barBorderColor: string;
+              barBorderRadius: number;
+              barBorderWidth: number;
+          };
+          emphasis: {
+              itemStyle: {
+                  barBorderColor: string;
+                  barBorderRadius: number;
+                  barBorderWidth: number;
+              };
+              label: {
+                  show: boolean;
+              };
+          };
+      };
+      line: {
+          label: {
+              show: boolean;
+          };
+          itemStyle: {};
+          emphasis: {
+              label: {
+                  show: boolean;
+              };
+          };
+          lineStyle: {
+              width: number;
+              type: string;
+              shadowColor: string;
+              shadowBlur: number;
+              shadowOffsetX: number;
+              shadowOffsetY: number;
+          };
+          symbolSize: number;
+          showAllSymbol: boolean;
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      pie: {
+          center: string[];
+          radius: (string | number)[];
+          clockWise: boolean;
+          startAngle: number;
+          minAngle: number;
+          selectedOffset: number;
+          label: {
+              show: boolean;
+              position: string;
+              color: string;
+              lineStyle: {
+                  color: string;
+              };
+          };
+          itemStyle: {
+              borderColor: string;
+              borderWidth: number;
+          };
+          labelLine: {
+              show: boolean;
+              length: number;
+              lineStyle: {
+                  width: number;
+                  type: string;
+              };
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+              borderColor: string;
+              borderWidth: number;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              show: boolean;
+              color: string;
+          };
+          showLegendSymbol: boolean;
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              strokeColor: string;
+          };
+          nodeStyle: {
+              brushType: string;
+              strokeColor: string;
+          };
+          label: {
+              show: boolean;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+      visualMap: {
+          color: string[];
+          textStyle: {
+              color: string;
+          };
+      };
+  };
+  
+  const _default_26: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      dataRange: {
+          color: string[];
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+      visualMap: {
+          color: string[];
+      };
+  };
+  
+  const _default_27: {
+      color: string[];
+      colorLayer: string[][];
+      series: never[];
+  };
+  
+  const _default_28: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      dataRange: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      grid: {
+          borderWidth: number;
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitArea: {
+              show: boolean;
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_29: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_3: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_30: {
+      color: string[];
+      visualMap: {
+          color: string[];
+          textStyle: {
+              color: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_31: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_32: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      dataRange: {
+          color: string[];
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+              borderColor: string;
+              borderWidth: number;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+              show: boolean;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          nodeStyle: {
+              brushType: string;
+              strokeColor: string;
+          };
+          linkStyle: {
+              color: string;
+              strokeColor: string;
+          };
+          label: {
+              color: string;
+              show: boolean;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_33: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          iconStyle: {
+              borderColor: string;
+          };
+      };
+      tooltip: {
+          backgroundColor: string;
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+              borderColor: string;
+              areaColor: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              show: boolean;
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+          axisTick: {
+              splitNumber: number;
+              length: number;
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              length: number;
+              lineStyle: {
+                  color: string;
+              };
+          };
+          pointer: {
+              length: string;
+              width: number;
+              color: string;
+          };
+          title: {
+              color: string;
+          };
+          detail: {
+              color: string;
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_34: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+          };
+          emphasis: {
+              controlStyle: {
+                  color: string;
+              };
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_35: {
+      color: string[];
+      gradientColor: string[];
+      loading: {
+          textColor: string;
+      };
+      bar: {
+          defaultBarGap: string;
+          select: {
+              itemStyle: {
+                  borderColor: string;
+                  borderWidth: number;
+              };
+          };
+      };
+      boxplot: {
+          emphasis: {
+              itemStyle: {
+                  shadowColor: string;
+              };
+          };
+      };
+      funnel: {
+          bottom: number;
+          select: {
+              itemStyle: {
+                  borderColor: string;
+                  borderWidth: number;
+              };
+          };
+          label: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          anchor: {
+              itemStyle: {
+                  color: string;
+                  borderColor: string;
+              };
+          };
+          title: {
+              color: string;
+          };
+          detail: {
+              backgroundColor: string;
+              borderColor: string;
+              color: string;
+          };
+      };
+      graph: {
+          lineStyle: {
+              color: string;
+          };
+          select: {
+              itemStyle: {
+                  borderColor: string;
+              };
+          };
+      };
+      heatmap: {
+          select: {
+              itemStyle: {
+                  borderColor: string;
+              };
+          };
+      };
+      line: {
+          symbolSize: number;
+      };
+      pictorialBar: {
+          select: {
+              itemStyle: {
+                  borderColor: string;
+                  borderWidth: number;
+              };
+          };
+      };
+      pie: {
+          radius: (string | number)[];
+          labelLine: {
+              length2: number;
+          };
+      };
+      map: {
+          defaultItemStyleColor: string;
+          label: {
+              color: string;
+          };
+          itemStyle: {
+              borderColor: string;
+              areaColor: string;
+          };
+          emphasis: {
+              label: {
+                  color: string;
+              };
+              itemStyle: {
+                  areaColor: string;
+              };
+          };
+          select: {
+              label: {
+                  color: string;
+              };
+              itemStyle: {
+                  color: string;
+              };
+          };
+      };
+      sankey: {
+          lineStyle: {
+              color: string;
+          };
+          select: {
+              itemStyle: {
+                  borderColor: string;
+              };
+          };
+      };
+      scatter: {
+          select: {
+              itemStyle: {
+                  borderColor: string;
+              };
+          };
+      };
+      tree: {
+          lineStyle: {
+              color: string;
+          };
+      };
+      treemap: {
+          left: string;
+          top: string;
+          width: string;
+          height: string;
+          scaleLimit: {
+              max: null;
+              min: null;
+          };
+          breadcrumb: {
+              top: string;
+              bottom: null;
+              itemStyle: {
+                  color: string;
+                  textStyle: {
+                      color: string;
+                  };
+              };
+              emphasis: {
+                  itemStyle: {
+                      color: string;
+                  };
+              };
+          };
+      };
+      timeAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: null;
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          minorSplitLine: {
+              color: string;
+          };
+      };
+      logAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: null;
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          minorSplitLine: {
+              color: string;
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: null;
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          minorSplitLine: {
+              color: string;
+          };
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: null;
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          minorSplitLine: {
+              color: string;
+          };
+          axisTick: {
+              show: boolean;
+          };
+      };
+      axisPointer: {
+          lineStyle: {
+              color: string;
+          };
+          shadowStyle: {
+              color: string;
+          };
+          label: {
+              backgroundColor: string;
+              color: string;
+          };
+          handle: {
+              color: string;
+              shadowBlur: number;
+              shadowColor: string;
+              shadowOffsetX: number;
+              shadowOffsetY: number;
+          };
+      };
+      brush: {
+          brushStyle: {
+              color: string;
+              borderColor: string;
+          };
+          defaultOutOfBrushColor: string;
+      };
+      calendar: {
+          splitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          itemStyle: {
+              borderColor: string;
+          };
+          dayLabel: {
+              margin: string;
+              color: string;
+          };
+          monthLabel: {
+              margin: number;
+              color: string;
+          };
+          yearLabel: {
+              margin: number;
+              color: string;
+          };
+      };
+      dataZoom: {
+          borderColor: string;
+          borderRadius: number;
+          backgroundColor: string;
+          dataBackground: {
+              lineStyle: {
+                  color: string;
+                  width: number;
+              };
+              areaStyle: {
+                  color: string;
+                  opacity: number;
+              };
+          };
+          selectedDataBackground: {
+              lineStyle: {
+                  color: string;
+                  width: number;
+              };
+              areaStyle: {
+                  color: string;
+                  opacity: number;
+              };
+          };
+          handleStyle: {
+              color: string;
+              borderColor: string;
+          };
+          moveHandleStyle: {
+              color: string;
+              opacity: number;
+          };
+          textStyle: {
+              color: string;
+          };
+          brushStyle: {
+              color: string;
+          };
+          emphasis: {
+              handleStyle: {
+                  borderColor: string;
+              };
+              moveHandleStyle: {
+                  color: string;
+                  opacity: number;
+              };
+          };
+          defaultLocationEdgeGap: number;
+      };
+      geo: {
+          defaultItemStyleColor: string;
+          label: {
+              color: string;
+          };
+          itemStyle: {
+              borderColor: string;
+          };
+          emphasis: {
+              label: {
+                  color: string;
+              };
+              itemStyle: {
+                  color: string;
+              };
+          };
+          select: {
+              label: {
+                  color: string;
+              };
+              itemStyle: {
+                  color: string;
+              };
+          };
+      };
+      grid: {
+          left: string;
+          top: number;
+          bottom: number;
+          borderColor: string;
+      };
+      legend: {
+          top: number;
+          bottom: null;
+          backgroundColor: string;
+          borderColor: string;
+          itemGap: number;
+          inactiveColor: string;
+          inactiveBorderColor: string;
+          lineStyle: {
+              inactiveColor: string;
+          };
+          textStyle: {
+              color: string;
+          };
+          selectorLabel: {
+              color: string;
+              borderColor: string;
+          };
+          emphasis: {
+              selectorLabel: {
+                  color: string;
+                  backgroundColor: string;
+              };
+          };
+          pageIconColor: string;
+          pageIconInactiveColor: string;
+          pageTextStyle: {
+              color: string;
+          };
+      };
+      radar: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: null;
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string[];
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          minorSplitLine: {
+              color: string;
+          };
+          radius: string;
+          axisName: {
+              color: string;
+          };
+      };
+      timeline: {
+          padding: number;
+          borderColor: string;
+          lineStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+          };
+          checkpointStyle: {
+              color: string;
+              borderColor: string;
+              borderWidth: number;
+              shadowBlur: number;
+              shadowOffsetX: number;
+              shadowOffsetY: number;
+              shadowColor: string;
+          };
+          controlStyle: {
+              playIcon: string;
+              stopIcon: string;
+              nextIcon: string;
+              prevIcon: string;
+              color: string;
+              borderColor: string;
+              borderWidth: number;
+          };
+          emphasis: {
+              label: {
+                  color: string;
+              };
+              itemStyle: {
+                  color: string;
+              };
+              controlStyle: {
+                  color: string;
+                  borderColor: string;
+                  borderWidth: number;
+              };
+          };
+          progress: {
+              lineStyle: {
+                  color: string;
+              };
+              itemStyle: {
+                  color: string;
+              };
+              label: {
+                  color: string;
+              };
+          };
+      };
+      title: {
+          left: number;
+          top: number;
+          backgroundColor: string;
+          borderColor: string;
+          textStyle: {
+              color: string;
+          };
+          subtextStyle: {
+              color: string;
+          };
+      };
+      toolbox: {
+          borderColor: string;
+          padding: number;
+          itemGap: number;
+          iconStyle: {
+              borderColor: string;
+          };
+          emphasis: {
+              iconStyle: {
+                  borderColor: string;
+              };
+          };
+      };
+      tooltip: {
+          axisPointer: {
+              crossStyle: {
+                  color: string;
+              };
+          };
+          textStyle: {
+              color: string;
+          };
+          backgroundColor: string;
+          borderWidth: number;
+          defaultBorderColor: string;
+      };
+      visualMap: {
+          color: string[];
+          inactive: string[];
+          indicatorStyle: {
+              shadowColor: string;
+          };
+          backgroundColor: string;
+          borderColor: string;
+          contentColor: string;
+          inactiveColor: string;
+          padding: number;
+          textStyle: {
+              color: string;
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_36: {
+      color: string[];
+      backgroundColor: string;
+      graph: {
+          color: string[];
+      };
+      series: never[];
+  };
+  
+  const _default_4: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_5: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_6: {
+      color: string[];
+      title: {
+          textStyle: {
+              fontWeight: string;
+              color: string;
+          };
+      };
+      visualMap: {
+          color: string[];
+      };
+      toolbox: {
+          color: string[];
+      };
+      tooltip: {
+          backgroundColor: string;
+          axisPointer: {
+              type: string;
+              lineStyle: {
+                  color: string;
+                  type: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+              shadowStyle: {
+                  color: string;
+              };
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+          };
+          lineStyle: {
+              width: number;
+              color: string;
+              color0: string;
+          };
+          areaStyle: {
+              color: string;
+              color0: string;
+          };
+      };
+      chord: {
+          padding: number;
+          itemStyle: {
+              color: string;
+              borderWidth: number;
+              borderColor: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+      };
+      graph: {
+          itemStyle: {
+              color: string;
+          };
+          linkStyle: {
+              color: string;
+          };
+      };
+      map: {
+          itemStyle: {
+              color: string;
+          };
+          areaStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_7: {
+      darkMode: boolean;
+      color: string[];
+      backgroundColor: string;
+      axisPointer: {
+          lineStyle: {
+              color: string;
+          };
+          crossStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      legend: {
+          textStyle: {
+              color: string;
+          };
+      };
+      textStyle: {
+          color: string;
+      };
+      title: {
+          textStyle: {
+              color: string;
+          };
+          subtextStyle: {
+              color: string;
+          };
+      };
+      toolbox: {
+          iconStyle: {
+              borderColor: string;
+          };
+      };
+      dataZoom: {
+          borderColor: string;
+          textStyle: {
+              color: string;
+          };
+          brushStyle: {
+              color: string;
+          };
+          handleStyle: {
+              color: string;
+              borderColor: string;
+          };
+          moveHandleStyle: {
+              color: string;
+              opacity: number;
+          };
+          fillerColor: string;
+          emphasis: {
+              handleStyle: {
+                  borderColor: string;
+                  color: string;
+              };
+              moveHandleStyle: {
+                  color: string;
+                  opacity: number;
+              };
+          };
+          dataBackground: {
+              lineStyle: {
+                  color: string;
+                  width: number;
+              };
+              areaStyle: {
+                  color: string;
+              };
+          };
+          selectedDataBackground: {
+              lineStyle: {
+                  color: string;
+              };
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      visualMap: {
+          textStyle: {
+              color: string;
+          };
+      };
+      timeline: {
+          lineStyle: {
+              color: string;
+          };
+          label: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+      };
+      calendar: {
+          itemStyle: {
+              color: string;
+          };
+          dayLabel: {
+              color: string;
+          };
+          monthLabel: {
+              color: string;
+          };
+          yearLabel: {
+              color: string;
+          };
+      };
+      timeAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          minorSplitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+      };
+      logAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          minorSplitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          minorSplitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          splitLine: {
+              lineStyle: {
+                  color: string;
+              };
+              show: boolean;
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string[];
+              };
+          };
+          minorSplitLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+      };
+      line: {
+          symbol: string;
+      };
+      graph: {
+          color: string[];
+      };
+      gauge: {
+          title: {
+              color: string;
+          };
+      };
+      candlestick: {
+          itemStyle: {
+              color: string;
+              color0: string;
+              borderColor: string;
+              borderColor0: string;
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_8: {
+      color: string[];
+      backgroundColor: string;
+      tooltip: {
+          axisPointer: {
+              lineStyle: {
+                  color: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+          };
+      };
+      legend: {
+          textStyle: {
+              color: string;
+          };
+      };
+      title: {
+          textStyle: {
+              color: string;
+          };
+      };
+      toolbox: {
+          iconStyle: {
+              borderColor: string;
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          itemStyle: {
+              color: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      timeAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      logAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+              show: boolean;
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      line: {
+          symbol: string;
+      };
+      graph: {
+          color: string[];
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
+  const _default_9: {
+      color: string[];
+      backgroundColor: string;
+      tooltip: {
+          axisPointer: {
+              lineStyle: {
+                  color: string;
+              };
+              crossStyle: {
+                  color: string;
+              };
+          };
+      };
+      legend: {
+          textStyle: {
+              color: string;
+          };
+      };
+      title: {
+          textStyle: {
+              color: string;
+          };
+      };
+      toolbox: {
+          iconStyle: {
+              borderColor: string;
+          };
+      };
+      dataZoom: {
+          dataBackgroundColor: string;
+          fillerColor: string;
+          handleColor: string;
+      };
+      timeline: {
+          itemStyle: {
+              color: string;
+          };
+          lineStyle: {
+              color: string;
+          };
+          controlStyle: {
+              color: string;
+              borderColor: string;
+          };
+          label: {
+              color: string;
+          };
+      };
+      timeAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      logAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      valueAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      categoryAxis: {
+          axisLine: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisTick: {
+              lineStyle: {
+                  color: string;
+              };
+          };
+          axisLabel: {
+              color: string;
+          };
+          splitLine: {
+              lineStyle: {
+                  type: string;
+                  color: string;
+              };
+              show: boolean;
+          };
+          splitArea: {
+              areaStyle: {
+                  color: string;
+              };
+          };
+      };
+      line: {
+          symbol: string;
+      };
+      graph: {
+          color: string[];
+      };
+      gauge: {
+          axisLine: {
+              lineStyle: {
+                  color: (string | number)[][];
+                  width: number;
+              };
+          };
+      };
+      series: never[];
+  };
+  
   export function defineConfig(config: Config): Config;
   
   function EChartsPanel({ spec }: PanelProps<EChartsSpec>): JSX.Element;
@@ -74,2708 +4609,48 @@ declare module "fava-dashboards" {
       onDblClick?: (params: ECElementEvent) => void;
   }
   
-  export const echartsThemes: {
-      alternativeDark: {
-          color: string[];
-          backgroundColor: string;
-          textStyle: {};
-          title: {
-              textStyle: {
-                  color: string;
-              };
-              subtextStyle: {
-                  color: string;
-              };
-          };
-          line: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          radar: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          bar: {
-              itemStyle: {
-                  barBorderWidth: number;
-                  barBorderColor: string;
-              };
-          };
-          pie: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          scatter: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          boxplot: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          parallel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          sankey: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          funnel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          gauge: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          candlestick: {
-              itemStyle: {
-                  color: string;
-                  color0: string;
-                  borderColor: string;
-                  borderColor0: string;
-                  borderWidth: number;
-              };
-          };
-          graph: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-              lineStyle: {
-                  width: number;
-                  color: string;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-              color: string[];
-              label: {
-                  color: string;
-              };
-          };
-          map: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          geo: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          categoryAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          valueAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          logAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          timeAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          toolbox: {
-              iconStyle: {
-                  borderColor: string;
-              };
-              emphasis: {
-                  iconStyle: {
-                      borderColor: string;
-                  };
-              };
-          };
-          legend: {
-              textStyle: {
-                  color: string;
-              };
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-          tooltip: {
-              axisPointer: {
-                  lineStyle: {
-                      color: string;
-                      width: string;
-                  };
-                  crossStyle: {
-                      color: string;
-                      width: string;
-                  };
-              };
-          };
-          timeline: {
-              lineStyle: {
-                  color: string;
-                  width: number;
-              };
-              itemStyle: {
-                  color: string;
-                  borderWidth: number;
-              };
-              controlStyle: {
-                  color: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              checkpointStyle: {
-                  color: string;
-                  borderColor: string;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      color: string;
-                  };
-                  controlStyle: {
-                      color: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          visualMap: {
-              color: string[];
-          };
-          markPoint: {
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          grid: {
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-      };
-      v5Light: {
-          color: string[];
-          backgroundColor: string;
-          textStyle: {};
-          title: {
-              textStyle: {
-                  color: string;
-              };
-              subtextStyle: {
-                  color: string;
-              };
-          };
-          line: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          radar: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          bar: {
-              itemStyle: {
-                  barBorderWidth: number;
-                  barBorderColor: string;
-              };
-          };
-          pie: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          scatter: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          boxplot: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          parallel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          sankey: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          funnel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          gauge: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          candlestick: {
-              itemStyle: {
-                  color: string;
-                  color0: string;
-                  borderColor: string;
-                  borderColor0: string;
-                  borderWidth: number;
-              };
-          };
-          graph: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-              lineStyle: {
-                  width: number;
-                  color: string;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-              color: string[];
-              label: {
-                  color: string;
-              };
-          };
-          map: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          geo: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          categoryAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          valueAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          logAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          timeAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          toolbox: {
-              iconStyle: {
-                  borderColor: string;
-              };
-              emphasis: {
-                  iconStyle: {
-                      borderColor: string;
-                  };
-              };
-          };
-          legend: {
-              textStyle: {
-                  color: string;
-              };
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-          tooltip: {
-              axisPointer: {
-                  lineStyle: {
-                      color: string;
-                      width: number;
-                  };
-                  crossStyle: {
-                      color: string;
-                      width: number;
-                  };
-              };
-          };
-          timeline: {
-              lineStyle: {
-                  color: string;
-                  width: number;
-              };
-              itemStyle: {
-                  color: string;
-                  borderWidth: number;
-              };
-              controlStyle: {
-                  color: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              checkpointStyle: {
-                  color: string;
-                  borderColor: string;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      color: string;
-                  };
-                  controlStyle: {
-                      color: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          visualMap: {
-              color: string[];
-          };
-          markPoint: {
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          grid: {
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-      };
-      vintage: {
-          color: string[];
-          backgroundColor: string;
-          textStyle: {};
-          title: {
-              textStyle: {
-                  color: string;
-              };
-              subtextStyle: {
-                  color: string;
-              };
-          };
-          line: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          radar: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          bar: {
-              itemStyle: {
-                  barBorderWidth: number;
-                  barBorderColor: string;
-              };
-          };
-          pie: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          scatter: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          boxplot: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          parallel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          sankey: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          funnel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          gauge: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          candlestick: {
-              itemStyle: {
-                  color: string;
-                  color0: string;
-                  borderColor: string;
-                  borderColor0: string;
-                  borderWidth: number;
-              };
-          };
-          graph: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-              lineStyle: {
-                  width: number;
-                  color: string;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-              color: string[];
-              label: {
-                  color: string;
-              };
-          };
-          map: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          geo: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          categoryAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          valueAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          logAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          timeAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          toolbox: {
-              iconStyle: {
-                  borderColor: string;
-              };
-              emphasis: {
-                  iconStyle: {
-                      borderColor: string;
-                  };
-              };
-          };
-          legend: {
-              textStyle: {
-                  color: string;
-              };
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-          tooltip: {
-              axisPointer: {
-                  lineStyle: {
-                      color: string;
-                      width: number;
-                  };
-                  crossStyle: {
-                      color: string;
-                      width: number;
-                  };
-              };
-          };
-          timeline: {
-              lineStyle: {
-                  color: string;
-                  width: number;
-              };
-              itemStyle: {
-                  color: string;
-                  borderWidth: number;
-              };
-              controlStyle: {
-                  color: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              checkpointStyle: {
-                  color: string;
-                  borderColor: string;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      color: string;
-                  };
-                  controlStyle: {
-                      color: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          visualMap: {
-              color: string[];
-          };
-          markPoint: {
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          grid: {
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-      };
-      chalkDark: {
-          color: string[];
-          backgroundColor: string;
-          textStyle: {};
-          title: {
-              textStyle: {
-                  color: string;
-              };
-              subtextStyle: {
-                  color: string;
-              };
-          };
-          line: {
-              itemStyle: {
-                  borderWidth: string;
-              };
-              lineStyle: {
-                  width: string;
-              };
-              symbolSize: string;
-              symbol: string;
-              smooth: boolean;
-          };
-          radar: {
-              itemStyle: {
-                  borderWidth: string;
-              };
-              lineStyle: {
-                  width: string;
-              };
-              symbolSize: string;
-              symbol: string;
-              smooth: boolean;
-          };
-          bar: {
-              itemStyle: {
-                  barBorderWidth: number;
-                  barBorderColor: string;
-              };
-          };
-          pie: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          scatter: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          boxplot: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          parallel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          sankey: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          funnel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          gauge: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          candlestick: {
-              itemStyle: {
-                  color: string;
-                  color0: string;
-                  borderColor: string;
-                  borderColor0: string;
-                  borderWidth: string;
-              };
-          };
-          graph: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-              lineStyle: {
-                  width: string;
-                  color: string;
-              };
-              symbolSize: string;
-              symbol: string;
-              smooth: boolean;
-              color: string[];
-              label: {
-                  color: string;
-              };
-          };
-          map: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          geo: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          categoryAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          valueAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          logAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          timeAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          toolbox: {
-              iconStyle: {
-                  borderColor: string;
-              };
-              emphasis: {
-                  iconStyle: {
-                      borderColor: string;
-                  };
-              };
-          };
-          legend: {
-              textStyle: {
-                  color: string;
-              };
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-          tooltip: {
-              axisPointer: {
-                  lineStyle: {
-                      color: string;
-                      width: number;
-                  };
-                  crossStyle: {
-                      color: string;
-                      width: number;
-                  };
-              };
-          };
-          timeline: {
-              lineStyle: {
-                  color: string;
-                  width: number;
-              };
-              itemStyle: {
-                  color: string;
-                  borderWidth: number;
-              };
-              controlStyle: {
-                  color: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              checkpointStyle: {
-                  color: string;
-                  borderColor: string;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      color: string;
-                  };
-                  controlStyle: {
-                      color: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          visualMap: {
-              color: string[];
-          };
-          markPoint: {
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          grid: {
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-      };
-      infographicLight: {
-          color: string[];
-          backgroundColor: string;
-          textStyle: {};
-          title: {
-              textStyle: {
-                  color: string;
-              };
-              subtextStyle: {
-                  color: string;
-              };
-          };
-          line: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: string;
-              };
-              symbolSize: string;
-              symbol: string;
-              smooth: boolean;
-          };
-          radar: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: string;
-              };
-              symbolSize: string;
-              symbol: string;
-              smooth: boolean;
-          };
-          bar: {
-              itemStyle: {
-                  barBorderWidth: number;
-                  barBorderColor: string;
-              };
-          };
-          pie: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          scatter: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          boxplot: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          parallel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          sankey: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          funnel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          gauge: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          candlestick: {
-              itemStyle: {
-                  color: string;
-                  color0: string;
-                  borderColor: string;
-                  borderColor0: string;
-                  borderWidth: number;
-              };
-          };
-          graph: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-              lineStyle: {
-                  width: number;
-                  color: string;
-              };
-              symbolSize: string;
-              symbol: string;
-              smooth: boolean;
-              color: string[];
-              label: {
-                  color: string;
-              };
-          };
-          map: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          geo: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          categoryAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          valueAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          logAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          timeAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          toolbox: {
-              iconStyle: {
-                  borderColor: string;
-              };
-              emphasis: {
-                  iconStyle: {
-                      borderColor: string;
-                  };
-              };
-          };
-          legend: {
-              textStyle: {
-                  color: string;
-              };
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-          tooltip: {
-              axisPointer: {
-                  lineStyle: {
-                      color: string;
-                      width: number;
-                  };
-                  crossStyle: {
-                      color: string;
-                      width: number;
-                  };
-              };
-          };
-          timeline: {
-              lineStyle: {
-                  color: string;
-                  width: number;
-              };
-              itemStyle: {
-                  color: string;
-                  borderWidth: number;
-              };
-              controlStyle: {
-                  color: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              checkpointStyle: {
-                  color: string;
-                  borderColor: string;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      color: string;
-                  };
-                  controlStyle: {
-                      color: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          visualMap: {
-              color: string[];
-          };
-          markPoint: {
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          grid: {
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-      };
-      romaLight: {
-          color: string[];
-          backgroundColor: string;
-          textStyle: {};
-          title: {
-              textStyle: {
-                  color: string;
-              };
-              subtextStyle: {
-                  color: string;
-              };
-          };
-          line: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          radar: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          bar: {
-              itemStyle: {
-                  barBorderWidth: number;
-                  barBorderColor: string;
-              };
-          };
-          pie: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          scatter: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          boxplot: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          parallel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          sankey: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          funnel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          gauge: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          candlestick: {
-              itemStyle: {
-                  color: string;
-                  color0: string;
-                  borderColor: string;
-                  borderColor0: string;
-                  borderWidth: number;
-              };
-          };
-          graph: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-              lineStyle: {
-                  width: number;
-                  color: string;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-              color: string[];
-              label: {
-                  color: string;
-              };
-          };
-          map: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          geo: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          categoryAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          valueAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          logAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          timeAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          toolbox: {
-              iconStyle: {
-                  borderColor: string;
-              };
-              emphasis: {
-                  iconStyle: {
-                      borderColor: string;
-                  };
-              };
-          };
-          legend: {
-              textStyle: {
-                  color: string;
-              };
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-          tooltip: {
-              axisPointer: {
-                  lineStyle: {
-                      color: string;
-                      width: number;
-                  };
-                  crossStyle: {
-                      color: string;
-                      width: number;
-                  };
-              };
-          };
-          timeline: {
-              lineStyle: {
-                  color: string;
-                  width: number;
-              };
-              itemStyle: {
-                  color: string;
-                  borderWidth: number;
-              };
-              controlStyle: {
-                  color: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              checkpointStyle: {
-                  color: string;
-                  borderColor: string;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      color: string;
-                  };
-                  controlStyle: {
-                      color: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          visualMap: {
-              color: string[];
-          };
-          markPoint: {
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          grid: {
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-      };
-      macaronsLight: {
-          color: string[];
-          backgroundColor: string;
-          textStyle: {};
-          title: {
-              textStyle: {
-                  color: string;
-              };
-              subtextStyle: {
-                  color: string;
-              };
-          };
-          line: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          radar: {
-              itemStyle: {
-                  borderWidth: number;
-              };
-              lineStyle: {
-                  width: number;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-          };
-          bar: {
-              itemStyle: {
-                  barBorderWidth: number;
-                  barBorderColor: string;
-              };
-          };
-          pie: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          scatter: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          boxplot: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          parallel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          sankey: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          funnel: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          gauge: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-          };
-          candlestick: {
-              itemStyle: {
-                  color: string;
-                  color0: string;
-                  borderColor: string;
-                  borderColor0: string;
-                  borderWidth: number;
-              };
-          };
-          graph: {
-              itemStyle: {
-                  borderWidth: number;
-                  borderColor: string;
-              };
-              lineStyle: {
-                  width: number;
-                  color: string;
-              };
-              symbolSize: number;
-              symbol: string;
-              smooth: boolean;
-              color: string[];
-              label: {
-                  color: string;
-              };
-          };
-          map: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          geo: {
-              itemStyle: {
-                  areaColor: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      areaColor: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          categoryAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          valueAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          logAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          timeAxis: {
-              axisLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisTick: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              axisLabel: {
-                  show: boolean;
-                  color: string;
-              };
-              splitLine: {
-                  show: boolean;
-                  lineStyle: {
-                      color: string[];
-                  };
-              };
-              splitArea: {
-                  show: boolean;
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-          };
-          toolbox: {
-              iconStyle: {
-                  borderColor: string;
-              };
-              emphasis: {
-                  iconStyle: {
-                      borderColor: string;
-                  };
-              };
-          };
-          legend: {
-              textStyle: {
-                  color: string;
-              };
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-          tooltip: {
-              axisPointer: {
-                  lineStyle: {
-                      color: string;
-                      width: string;
-                  };
-                  crossStyle: {
-                      color: string;
-                      width: string;
-                  };
-              };
-          };
-          timeline: {
-              lineStyle: {
-                  color: string;
-                  width: number;
-              };
-              itemStyle: {
-                  color: string;
-                  borderWidth: number;
-              };
-              controlStyle: {
-                  color: string;
-                  borderColor: string;
-                  borderWidth: number;
-              };
-              checkpointStyle: {
-                  color: string;
-                  borderColor: string;
-              };
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  itemStyle: {
-                      color: string;
-                  };
-                  controlStyle: {
-                      color: string;
-                      borderColor: string;
-                      borderWidth: number;
-                  };
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          visualMap: {
-              color: string[];
-          };
-          markPoint: {
-              label: {
-                  color: string;
-              };
-              emphasis: {
-                  label: {
-                      color: string;
-                  };
-              };
-          };
-          grid: {
-              left: string;
-              right: string;
-              top: number;
-              bottom: number;
-          };
-      };
-      v5ishDark: {
-          color: string[];
-          backgroundColor: string;
-          graph: {
-              label: {
-                  color: string;
-              };
-          };
-          axisPointer: {
-              lineStyle: {
-                  color: string;
-              };
-              crossStyle: {
-                  color: string;
-              };
-              label: {
-                  color: string;
-              };
-          };
-          legend: {
-              textStyle: {
-                  color: string;
-              };
-          };
-          textStyle: {
-              color: string;
-          };
-          title: {
-              textStyle: {
-                  color: string;
-              };
-              subtextStyle: {
-                  color: string;
-              };
-          };
-          toolbox: {
-              iconStyle: {
-                  borderColor: string;
-              };
-          };
-          dataZoom: {
-              borderColor: string;
-              textStyle: {
-                  color: string;
-              };
-              brushStyle: {
-                  color: string;
-              };
-              handleStyle: {
-                  color: string;
-                  borderColor: string;
-              };
-              moveHandleStyle: {
-                  color: string;
-                  opacity: number;
-              };
-              fillerColor: string;
-              emphasis: {
-                  handleStyle: {
-                      borderColor: string;
-                      color: string;
-                  };
-                  moveHandleStyle: {
-                      color: string;
-                      opacity: number;
-                  };
-              };
-              dataBackground: {
-                  lineStyle: {
-                      color: string;
-                      width: number;
-                  };
-                  areaStyle: {
-                      color: string;
-                  };
-              };
-              selectedDataBackground: {
-                  lineStyle: {
-                      color: string;
-                  };
-                  areaStyle: {
-                      color: string;
-                  };
-              };
-          };
-          visualMap: {
-              textStyle: {
-                  color: string;
-              };
-          };
-          timeline: {
-              lineStyle: {
-                  color: string;
-              };
-              label: {
-                  color: string;
-              };
-              controlStyle: {
-                  color: string;
-                  borderColor: string;
-              };
-          };
-          calendar: {
-              itemStyle: {
-                  color: string;
-              };
-              dayLabel: {
-                  color: string;
-              };
-              monthLabel: {
-                  color: string;
-              };
-              yearLabel: {
-                  color: string;
-              };
-          };
-          timeAxis: {
-              axisLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              splitLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              splitArea: {
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-              minorSplitLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-          };
-          logAxis: {
-              axisLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              splitLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              splitArea: {
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-              minorSplitLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-          };
-          valueAxis: {
-              axisLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              splitLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              splitArea: {
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-              minorSplitLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-          };
-          categoryAxis: {
-              axisLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-              splitLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-                  show: boolean;
-              };
-              splitArea: {
-                  areaStyle: {
-                      color: string[];
-                  };
-              };
-              minorSplitLine: {
-                  lineStyle: {
-                      color: string;
-                  };
-              };
-          };
-          line: {
-              symbol: string;
-          };
-          gauge: {
-              title: {
-                  color: string;
-              };
-          };
-          candlestick: {
-              itemStyle: {
-                  color: string;
-                  color0: string;
-                  borderColor: string;
-                  borderColor0: string;
-              };
-          };
-      };
-  };
+  type EChartsThemeName = keyof typeof themes;
+  
+  export namespace EChartsThemes {
+      export {
+          _default as azul,
+          _default_2 as beeInspired,
+          _default_3 as blue,
+          _default_4 as caravan,
+          _default_5 as carp,
+          _default_6 as cool,
+          _default_7 as dark,
+          _default_8 as darkBlue,
+          _default_9 as darkBold,
+          _default_10 as darkDigerati,
+          _default_11 as darkFreshCut,
+          _default_12 as darkMushroom,
+          _default_13 as eduardo,
+          _default_14 as forest,
+          _default_15 as freshCut,
+          _default_16 as fruit,
+          _default_17 as gray,
+          _default_18 as green,
+          _default_19 as helianthus,
+          _default_20 as infographic,
+          _default_21 as inspired,
+          _default_22 as jazz,
+          _default_23 as london,
+          _default_24 as macarons,
+          _default_25 as macarons2,
+          _default_26 as mint,
+          _default_27 as rainbow,
+          _default_28 as red,
+          _default_29 as redVelvet,
+          _default_30 as roma,
+          _default_31 as royal,
+          _default_32 as sakura,
+          _default_33 as shine,
+          _default_34 as techBlue,
+          _default_35 as v5,
+          _default_36 as vintage
+      }
+  }
   
   function HtmlPanel({ spec }: PanelProps<string>): JSX.Element;
   
@@ -2876,6 +4751,47 @@ declare module "fava-dashboards" {
   function TablePanel({ spec }: PanelProps<TableSpec>): JSX.Element;
   
   export type TableSpec<R extends GridValidRowModel = any> = DataGridProps<R>;
+  
+  namespace themes {
+      export {
+          _default as azul,
+          _default_2 as beeInspired,
+          _default_3 as blue,
+          _default_4 as caravan,
+          _default_5 as carp,
+          _default_6 as cool,
+          _default_7 as dark,
+          _default_8 as darkBlue,
+          _default_9 as darkBold,
+          _default_10 as darkDigerati,
+          _default_11 as darkFreshCut,
+          _default_12 as darkMushroom,
+          _default_13 as eduardo,
+          _default_14 as forest,
+          _default_15 as freshCut,
+          _default_16 as fruit,
+          _default_17 as gray,
+          _default_18 as green,
+          _default_19 as helianthus,
+          _default_20 as infographic,
+          _default_21 as inspired,
+          _default_22 as jazz,
+          _default_23 as london,
+          _default_24 as macarons,
+          _default_25 as macarons2,
+          _default_26 as mint,
+          _default_27 as rainbow,
+          _default_28 as red,
+          _default_29 as redVelvet,
+          _default_30 as roma,
+          _default_31 as royal,
+          _default_32 as sakura,
+          _default_33 as shine,
+          _default_34 as techBlue,
+          _default_35 as v5,
+          _default_36 as vintage
+      }
+  }
   
   export type Variable<T = VariableType> = VariableBase<T> & ({
       multiple?: false;

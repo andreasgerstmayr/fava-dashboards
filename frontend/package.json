@@ -4,6 +4,7 @@
     "scripts": {
         "build": "esbuild src/extension.ts --bundle --format=esm --loader:.css=file --outfile=../src/fava_dashboards/FavaDashboards.js --minify",
         "build:dts": "rm -r dist; tsc; node dist/scripts/build-dts.js",
+        "build:echarts-themes": "tsc; node dist/scripts/build-echarts-themes.js; npm run lint:fix",
         "watch": "esbuild src/extension.ts --bundle --format=esm --loader:.css=file --outfile=../src/fava_dashboards/FavaDashboards.js --watch",
         "test": "playwright test",
         "type-check": "tsc --noEmit",
