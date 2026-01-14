@@ -1,6 +1,6 @@
 - banner:
   - img
-  - heading "Beancount›Dashboards" [level=1]:
+  - heading "Beancount ▾›Dashboards" [level=1]:
     - strong: ›Dashboards
   - combobox "Time"
   - combobox "Account"
@@ -109,7 +109,13 @@
     - link "Food Expenses 🥐":
       - /url: ../../account/Expenses:Food/
   - heading "Income Year-Over-Year 💰" [level=3]
+  - group:
+    - button "single" [pressed]
+    - button "stacked"
   - heading "Expenses Year-Over-Year 💸" [level=3]
+  - group:
+    - button "single" [pressed]
+    - button "stacked"
   - heading /Top \d+ biggest expenses/ [level=3]
   - grid:
     - row "date payee narration position":
