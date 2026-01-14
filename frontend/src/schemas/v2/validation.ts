@@ -10,7 +10,7 @@ const ZThemeDashboard = z.object({
 });
 
 const ZTheme = z.object({
-  echarts: z.union([z.string(), z.looseObject({})]).optional(),
+  echarts: z.any().optional(), // TODO: fixme
   dashboard: ZThemeDashboard.optional(),
 });
 

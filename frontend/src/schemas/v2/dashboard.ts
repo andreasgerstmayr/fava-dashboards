@@ -1,4 +1,5 @@
 import type { SxProps } from "@mui/material/styles";
+import { EChartsThemeName } from "../../panels/echarts/EChartsPanel";
 import { PanelKind, PanelSpecOf } from "../../panels/registry";
 import { Ledger } from "./ledger";
 import { MaybePromise } from "./utils";
@@ -7,7 +8,7 @@ import { ResolvedVariables, Variable } from "./variables";
 export interface Config {
   dashboards: Dashboard[];
   theme?: {
-    echarts?: object | string;
+    echarts?: object | EChartsThemeName;
     dashboard?: {
       panel?: {
         style?: SxProps;

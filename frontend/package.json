@@ -8,7 +8,8 @@
         "test": "playwright test",
         "type-check": "tsc --noEmit",
         "lint": "eslint .",
-        "lint:fix": "eslint --fix ."
+        "lint:fix": "eslint --fix .",
+        "generate-echarts-themes": "tsc; node dist/scripts/generate-echarts-themes.js"
     },
     "devDependencies": {
         "@eslint/js": "^9.35.0",

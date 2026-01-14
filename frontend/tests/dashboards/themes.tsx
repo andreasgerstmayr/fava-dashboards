@@ -1,5 +1,5 @@
 /// <reference types="./fava-dashboards.d.ts" />
-import { defineConfig, echartsThemes } from "fava-dashboards";
+import { defineConfig, EChartsThemes } from "fava-dashboards";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -17,13 +17,13 @@ function anyFormatter(formatter: (value: number) => string) {
 
 export default defineConfig({
   theme: {
-    echarts: echartsThemes.vintage, // theme that was used in echarts v5
+    echarts: "vintage",
     dashboard: {
       panel: {
         style: {
-          backgroundColor: echartsThemes.vintage.backgroundColor,
+          backgroundColor: EChartsThemes.vintage.backgroundColor,
           ".title": {
-            color: echartsThemes.vintage.title.textStyle.color,
+            color: "#333333",
           },
         },
       },
