@@ -12,7 +12,8 @@ import {
 } from "use-query-params";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { Ledger } from "../../schemas/v2/ledger";
-import { StrictResolvedVariables, Variable, VariableType } from "../../schemas/v2/variables";
+import { Variable } from "../../schemas/v2/schema";
+import { StrictResolvedVariables, VariableType } from "../../schemas/v2/variables";
 
 interface VariablesToolbarProps {
   ledger: Ledger;

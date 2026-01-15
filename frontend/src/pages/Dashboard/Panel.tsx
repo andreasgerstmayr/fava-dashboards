@@ -5,8 +5,8 @@ import { ErrorBoundary } from "react-error-boundary";
 import { useConfigContext } from "../../components/ConfigProvider";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { PanelProps, panelRegistry, PanelSpecOf } from "../../panels/registry";
-import { Dashboard, Panel } from "../../schemas/v2/dashboard";
 import { Ledger } from "../../schemas/v2/ledger";
+import { Dashboard, Panel } from "../../schemas/v2/schema";
 import { ResolvedVariables } from "../../schemas/v2/variables";
 import { useVariables, VariablesToolbar } from "./Variables";
 

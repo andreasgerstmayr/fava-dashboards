@@ -1,5 +1,5 @@
 import { createHashRouter, Navigate } from "react-router";
-import { Dashboard } from "./pages/Dashboard/Dashboard";
+import { DashboardPage } from "./pages/Dashboard/Dashboard";
 import { Layout } from "./pages/Layout";
 
 export const router = createHashRouter([
@@ -11,8 +11,8 @@ export const router = createHashRouter([
       {
         path: "dashboards",
         children: [
-          { index: true, element: <Dashboard /> },
-          { path: ":name", element: <Dashboard /> },
+          { index: true, element: <DashboardPage /> },
+          { path: ":name", element: <DashboardPage /> },
         ],
       },
     ],

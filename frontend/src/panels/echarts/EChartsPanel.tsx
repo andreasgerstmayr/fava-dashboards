@@ -7,6 +7,7 @@ import { PanelProps } from "../registry";
 import * as themes from "./themes";
 
 export type EChartsThemeName = keyof typeof themes;
+export const EChartsThemeNames = Object.keys(themes) as ReadonlyArray<EChartsThemeName>;
 
 export interface EChartsSpec extends EChartsOption {
   onClick?: (params: ECElementEvent) => void;
@@ -55,7 +56,7 @@ export function EChartsPanel({ spec }: PanelProps<EChartsSpec>) {
   return <div ref={ref} style={{ height: "100%" }}></div>;
 }
 
-function loadTheme(theme: object | EChartsThemeName | undefined) {
+function loadTheme(theme: EChartsThemeName | object | undefined) {
   if (typeof theme === "string") {
     const resolved = themes[theme];
     if (!resolved) {
