@@ -5,12 +5,12 @@ import { query } from "../../api/query";
 import { urlFor } from "../../api/url";
 import { useConfigContext } from "../../components/ConfigProvider";
 import { slugify } from "../../router";
-import { Dashboard } from "../../schemas/v2/dashboard";
 import { Ledger } from "../../schemas/v2/ledger";
+import { Dashboard } from "../../schemas/v2/schema";
 import { PanelCard } from "./Panel";
 import { VariablesToolbar } from "./Variables";
 
-export function Dashboard() {
+export function DashboardPage() {
   const { name } = useParams();
   const navigate = useNavigate();
   const {

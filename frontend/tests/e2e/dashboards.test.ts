@@ -61,3 +61,8 @@ test("Custom Theme", async ({ page }) => {
   await page.goto(`${BASE_URL}/test-themes/extension/FavaDashboards/#/dashboards/custom-theme`);
   await expectScreenshot(page);
 });
+
+test("Migrate v1", async ({ page }) => {
+  await page.goto(`${BASE_URL}/test-migrate-v1/extension/FavaDashboards/#/dashboards/income-and-expenses`);
+  await expectScreenshot(page);
+});

@@ -22,7 +22,7 @@ declare module "fava-dashboards" {
       currency: string;
   }
   
-  interface BasePanel {
+  interface BasePanelInput {
       title?: string;
       width?: string;
       height?: string;
@@ -37,14 +37,7 @@ declare module "fava-dashboards" {
   
   export interface Config {
       dashboards: Dashboard[];
-      theme?: {
-          echarts?: object | EChartsThemeName;
-          dashboard?: {
-              panel?: {
-                  style?: SxProps_2;
-              };
-          };
-      };
+      theme?: ThemeInput;
   }
   
   export interface Cost {
@@ -4684,7 +4677,7 @@ declare module "fava-dashboards" {
   
   type MaybePromise<T> = T | Promise<T>;
   
-  export type Panel = BasePanel & {
+  export type Panel = BasePanelInput & {
       [T in PanelKind]: {
           kind: T;
           spec: (params: SpecParams) => MaybePromise<PanelSpecOf<T>>;
@@ -4752,6 +4745,15 @@ declare module "fava-dashboards" {
   
   export type TableSpec<R extends GridValidRowModel = any> = DataGridProps<R>;
   
+  interface ThemeInput {
+      echarts?: EChartsThemeName | object;
+      dashboard?: {
+          panel?: {
+              style?: SxProps_2;
+          };
+      };
+  }
+  
   namespace themes {
       export {
           _default as azul,
@@ -4793,7 +4795,7 @@ declare module "fava-dashboards" {
       }
   }
   
-  export type Variable<T = VariableType> = VariableBase<T> & ({
+  export type Variable<T = VariableType> = VariableBaseInput<T> & ({
       multiple?: false;
       default?: T;
   } | {
@@ -4801,7 +4803,7 @@ declare module "fava-dashboards" {
       default?: T[];
   });
   
-  interface VariableBase<T> {
+  interface VariableBaseInput<T> {
       name: string;
       label?: string;
       display?: "select" | "toggle";

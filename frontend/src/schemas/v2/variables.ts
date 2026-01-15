@@ -4,7 +4,7 @@ import { MaybePromise } from "./utils";
 
 export type VariableType = string;
 
-interface VariableBase<T> {
+interface VariableBaseInput<T> {
   name: string;
   label?: string;
   display?: "select" | "toggle";
@@ -12,7 +12,7 @@ interface VariableBase<T> {
   options: (params: VariableOptionsParams) => MaybePromise<T[]>;
 }
 
-export type Variable<T = VariableType> = VariableBase<T> &
+export type VariableInput<T = VariableType> = VariableBaseInput<T> &
   ({ multiple?: false; default?: T } | { multiple: true; default?: T[] });
 
 export type VariableOptionsParams = {

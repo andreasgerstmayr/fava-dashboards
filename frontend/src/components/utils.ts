@@ -19,7 +19,8 @@ export function runAsyncFunction<T>(src: string, args: Record<string, any> = {})
   return fn(...paramValues);
 }
 
-export function loadTSX(code: string, dependencies: Record<string, unknown>): Record<string, unknown> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function loadTSX(code: string, dependencies: Record<string, unknown>): any {
   // Transform TSX into CommonJS using @babel/standalone
   const transformedCode = transform(code, {
     sourceType: "module",

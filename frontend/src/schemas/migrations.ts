@@ -8,7 +8,7 @@ export function migrateV1ToV2(
   config: v1.Config,
   utils: v1.Utils,
   extensionContext: FavaExtenstionContext,
-): dashboardv2.Config {
+): dashboardv2.ConfigInput {
   return {
     ...config,
     dashboards: config.dashboards.map((dashboard) => ({
@@ -22,7 +22,7 @@ function migratePanelToV2(
   v1Panel: v1.Panel,
   utils: v1.Utils,
   extensionContext: FavaExtenstionContext,
-): dashboardv2.Panel {
+): dashboardv2.PanelInput {
   return {
     ...v1Panel,
     kind: v1Panel.type === "jinja2" ? "html" : v1Panel.type,
