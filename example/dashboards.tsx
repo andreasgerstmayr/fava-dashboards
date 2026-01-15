@@ -1346,22 +1346,22 @@ export default defineConfig({
             const queries = [
               {
                 bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
-WHERE account ~ '^Expenses:' AND 'recurring' IN tags
-GROUP BY year, month`,
+                      WHERE account ~ '^Expenses:' AND 'recurring' IN tags
+                      GROUP BY year, month`,
                 name: "Recurring",
                 link: "../../account/Expenses/?filter=#recurring&time={time}",
               },
               {
                 bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
-WHERE account ~ '^Expenses:' AND NOT 'recurring' IN tags AND NOT 'irregular' IN tags
-GROUP BY year, month`,
+                      WHERE account ~ '^Expenses:' AND NOT 'recurring' IN tags AND NOT 'irregular' IN tags
+                      GROUP BY year, month`,
                 name: "Regular",
                 link: "../../account/Expenses/?filter=-#recurring -#irregular&time={time}",
               },
               {
                 bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
-WHERE account ~ '^Expenses:' AND 'irregular' IN tags
-GROUP BY year, month`,
+                      WHERE account ~ '^Expenses:' AND 'irregular' IN tags
+                      GROUP BY year, month`,
                 name: "Irregular",
                 link: "../../account/Expenses/?filter=#irregular&time={time}",
               },

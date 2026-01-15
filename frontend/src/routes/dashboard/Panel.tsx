@@ -2,6 +2,7 @@ import { Box, Card, Skeleton, Stack } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { ReactElement } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import { urlFor } from "../../api/url";
 import { useConfigContext } from "../../components/ConfigProvider";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { PanelProps, panelRegistry, PanelSpecOf } from "../../panels/registry";
@@ -40,7 +41,7 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
           <h3 className="title" style={{ marginBottom: 0 }}>
             {panel.link ? (
               <a
-                href={panel.link}
+                href={urlFor(panel.link)}
                 style={{
                   color: "inherit", // do no apply link styling
                 }}

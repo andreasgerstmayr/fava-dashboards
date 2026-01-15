@@ -31,12 +31,10 @@ export function EChartsPanel({ spec }: PanelProps<EChartsSpec>) {
 
     if (spec.onClick) {
       chart.on("click", spec.onClick);
-      delete spec.onClick;
     }
 
     if (spec.onDblClick) {
       chart.on("dblclick", spec.onDblClick);
-      delete spec.onDblClick;
     }
 
     if (echartsTheme == "dark" && spec.backgroundColor === undefined) {
