@@ -85,4 +85,4 @@
   - button "Open"
   - heading "Net Worth 💰" [level=3]:
     - link "Net Worth 💰":
-      - /url: ../../income_statement/
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
