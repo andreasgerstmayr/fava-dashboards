@@ -2,6 +2,8 @@
 
 ## next
 * fix panel link href
+* migrate to `@tanstack/router` and URLs from `/beancount/extension/FavaDashboards/#/dashboards/income-and-expenses` to `/beancount/extension/FavaDashboards/?dashboard=income-and-expenses`.
+  This resolves a bug when using [custom links with `/jump`](https://fava.pythonanywhere.com/example-beancount-file/help/features#custom-links-in-the-sidebar) in Fava.
 
 ## v2.0.0b2 (2025-12-14)
 * support Fava 1.30.8
