@@ -85,7 +85,7 @@
   - button "Open"
   - heading "Travel Costs per Year 📅" [level=3]:
     - link "Travel Costs per Year 📅":
-      - /url: ../../income_statement/?filter=#travel
+      - /url: http://127.0.0.1:5000/beancount/income_statement/?filter=%23travel
   - heading "Destinations ✈️" [level=3]:
     - link "Destinations ✈️":
-      - /url: ../../income_statement/?filter=#travel
+      - /url: http://127.0.0.1:5000/beancount/income_statement/?filter=%23travel

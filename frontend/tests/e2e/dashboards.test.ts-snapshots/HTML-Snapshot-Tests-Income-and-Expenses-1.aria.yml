@@ -85,29 +85,29 @@
   - button "Open"
   - heading "Avg. Income per Month 💰" [level=3]:
     - link "Avg. Income per Month 💰":
-      - /url: ../../account/Income/?r=changes
+      - /url: http://127.0.0.1:5000/beancount/account/Income/?r=changes
   - heading "Avg. Expenses per Month 💸" [level=3]:
     - link "Avg. Expenses per Month 💸":
-      - /url: ../../account/Expenses/?r=changes
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses/?r=changes
   - heading "Avg. Savings per Month ✨" [level=3]:
     - link "Avg. Savings per Month ✨":
-      - /url: ../../income_statement/
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
   - heading "Savings Heatmap 💰" [level=3]:
     - link "Savings Heatmap 💰":
-      - /url: ../../income_statement/
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
   - heading "Expenses Calendar Heatmap 📅" [level=3]
   - heading "Income Categories (per month) 💰" [level=3]:
     - link "Income Categories (per month) 💰":
-      - /url: ../../account/Income/?r=changes
+      - /url: http://127.0.0.1:5000/beancount/account/Income/?r=changes
   - heading "Expenses Categories (per month) 💸" [level=3]:
     - link "Expenses Categories (per month) 💸":
-      - /url: ../../account/Expenses/?r=changes
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses/?r=changes
   - heading "Recurring, Regular and Irregular Expenses 🔁" [level=3]:
     - link "Recurring, Regular and Irregular Expenses 🔁":
-      - /url: ../../income_statement/
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
   - heading "Food Expenses 🥐" [level=3]:
     - link "Food Expenses 🥐":
-      - /url: ../../account/Expenses:Food/
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses:Food/
   - heading "Income Year-Over-Year 💰" [level=3]
   - group:
     - button "single" [pressed]

@@ -86,7 +86,7 @@
   - heading "Assets 🏦" [level=3]
   - heading "Net Worth 💰" [level=3]:
     - link "Net Worth 💰":
-      - /url: ../../income_statement/
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
   - heading "Portfolio 📈" [level=3]
   - heading "Portfolio Gains ✨" [level=3]
   - heading "Asset Classes Year-over-Year 🏦" [level=3]
