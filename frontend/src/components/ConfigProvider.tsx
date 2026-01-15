@@ -5,7 +5,7 @@ import * as z from "zod";
 import { ConfigResponse, useConfig } from "../api/config";
 import { FavaExtenstionContext } from "../extension";
 import * as api from "../index";
-import { migrateV1ToV2 } from "../schemas/migrations";
+import { migrateV1ToV2 } from "../schemas/v1/migrate";
 import * as v1 from "../schemas/v1/v1";
 import { LedgerData } from "../schemas/v2/ledger";
 import { Config, ConfigSchema } from "../schemas/v2/schema";

@@ -30,7 +30,7 @@ def prs_since(tag: str):
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("version")
+    parser.add_argument("version", help="New version, for example v2.0.1")
     args = parser.parse_args()
 
     tag = run(["git", "describe", "--tags", "--abbrev=0"])
@@ -38,7 +38,7 @@ def main() -> None:
     date = datetime.today().strftime("%Y-%m-%d")
 
     entries = []
-    for commit in reversed(commits):
+    for commit in commits:
         m = re.search(r"\(#(\d+)\)$", commit)
         if not m:
             continue

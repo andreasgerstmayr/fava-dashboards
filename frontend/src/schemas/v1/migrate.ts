@@ -1,8 +1,8 @@
-import { renderPanel } from "../api/renderPanel";
-import { runAsyncFunction } from "../components/utils";
-import { FavaExtenstionContext } from "../extension";
-import * as v1 from "./v1/v1";
-import * as dashboardv2 from "./v2/dashboard";
+import { renderPanel } from "../../api/renderPanel";
+import { runAsyncFunction } from "../../components/utils";
+import { FavaExtenstionContext } from "../../extension";
+import * as dashboardv2 from "../v2/dashboard";
+import * as v1 from "./v1";
 
 export function migrateV1ToV2(
   config: v1.Config,
