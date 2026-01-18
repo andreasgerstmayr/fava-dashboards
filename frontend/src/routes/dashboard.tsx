@@ -1,12 +1,13 @@
-import { Stack, useTheme } from "@mui/material";
+import { Skeleton, Stack, useTheme } from "@mui/material";
 import { createRoute, Navigate } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { z } from "zod";
+import { useLedgerData } from "../api/ledger";
 import { query } from "../api/query";
 import { urlFor } from "../api/url";
 import { useConfigContext } from "../components/ConfigProvider";
+import { ErrorAlert } from "../components/ErrorAlert";
 import { slugify } from "../router";
-import { Ledger } from "../schemas/v2/ledger";
 import { Dashboard } from "../schemas/v2/schema";
 import { RootRoute } from "./__root";
 import { PanelCard } from "./dashboard/Panel";
@@ -47,18 +48,25 @@ interface DashboardGridProps {
 
 function DashboardGrid({ dashboard }: DashboardGridProps) {
   const theme = useTheme();
-  const { ledgerData } = useConfigContext();
-  const ledger: Ledger = useMemo(() => {
+  const { isPending, error, data: ledgerData } = useLedgerData();
+  const ledger = useMemo(() => {
+    if (!ledgerData) {
+      return;
+    }
     return {
-      ...ledgerData,
+      ...ledgerData.ledgerData,
       query,
       urlFor,
     };
   }, [ledgerData]);
 
+  if (error) {
+    return <ErrorAlert error={error} />;
+  }
+
   return (
     <>
-      {dashboard.variables && dashboard.variables.length > 0 && (
+      {dashboard.variables && dashboard.variables.length > 0 && ledger && (
         <VariablesToolbar ledger={ledger} variables={dashboard.variables} />
       )}
       <Stack
@@ -75,9 +83,11 @@ function DashboardGrid({ dashboard }: DashboardGridProps) {
           backgroundColor: theme.palette.mode === "dark" ? undefined : "#FAFBFB",
         }}
       >
-        {dashboard.panels.map((panel, i) => (
-          <PanelCard key={i} ledger={ledger} dashboard={dashboard} panel={panel} />
-        ))}
+        {isPending || !ledger ? (
+          <Skeleton width="100%" height={600} sx={{ margin: 1 }} />
+        ) : (
+          dashboard.panels.map((panel, i) => <PanelCard key={i} ledger={ledger} dashboard={dashboard} panel={panel} />)
+        )}
       </Stack>
     </>
   );

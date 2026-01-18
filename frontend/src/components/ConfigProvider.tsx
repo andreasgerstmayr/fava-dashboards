@@ -7,13 +7,11 @@ import { FavaExtenstionContext } from "../extension";
 import * as api from "../index";
 import { migrateV1ToV2 } from "../schemas/v1/migrate";
 import * as v1 from "../schemas/v1/v1";
-import { LedgerData } from "../schemas/v2/ledger";
 import { Config, ConfigSchema } from "../schemas/v2/schema";
 import { ErrorAlert } from "./ErrorAlert";
 import { loadTSX, runAsyncFunction } from "./utils";
 
 export interface ConfigContextType {
-  ledgerData: LedgerData;
   config: Config;
 }
 
@@ -42,11 +40,7 @@ export function ConfigProvider({ extensionContext, children }: ConfigProviderPro
     return <ErrorAlert error={error} />;
   }
 
-  return (
-    <ConfigContext.Provider value={{ ledgerData: config.data.ledgerData, config: dynamicConfig.data }}>
-      {children}
-    </ConfigContext.Provider>
-  );
+  return <ConfigContext.Provider value={{ config: dynamicConfig.data }}>{children}</ConfigContext.Provider>;
 }
 
 function useDynamicConfig(extensionContext: FavaExtenstionContext, config: ConfigResponse | undefined) {

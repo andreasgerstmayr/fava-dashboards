@@ -161,12 +161,11 @@ class FavaDashboards(FavaExtensionBase):
     @api_response
     def api_v2_config(self):
         ext_config = self.read_ext_config()
-        ledger_data = self.get_ledger_data()
 
         dashboard_format = ext_config.dashboards_path.suffix
         if dashboard_format == ".tsx":
             config_js = read_dashboards_tsx(ext_config.dashboards_path)
-            return {"ledgerData": ledger_data, "configJs": config_js}
+            return {"configJs": config_js}
         elif dashboard_format == ".yaml":
             # backwards compat
             dashboards_yaml = read_dashboards_yaml(ext_config.dashboards_path)
@@ -174,6 +173,12 @@ class FavaDashboards(FavaExtensionBase):
                 dashboards_yaml = {}
             config_js = "export default " + json.dumps(dashboards_yaml)
             utils = self.read_dashboards_utils(dashboards_yaml)
-            return {"ledgerData": ledger_data, "configJs": config_js, "utilsJs": utils}
+            return {"configJs": config_js, "utilsJs": utils}
         else:
             raise FavaAPIError(f'invalid dashboard file "{ext_config.dashboards_path}"')
+
+    @extension_endpoint("v2_ledger")
+    @api_response
+    def api_v2_ledger(self):
+        ledger_data = self.get_ledger_data()
+        return {"ledgerData": ledger_data}

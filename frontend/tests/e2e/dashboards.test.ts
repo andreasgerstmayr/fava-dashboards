@@ -57,6 +57,11 @@ test("Variable Chain", async ({ page }) => {
   await expectScreenshot(page);
 });
 
+test("React panel", async ({ page }) => {
+  await page.goto(`${BASE_URL}/test-features/extension/FavaDashboards/?dashboard=react-panels`);
+  await expectScreenshot(page);
+});
+
 test("Custom Theme", async ({ page }) => {
   await page.goto(`${BASE_URL}/test-themes/extension/FavaDashboards/?dashboard=custom-theme`);
   await expectScreenshot(page);
