@@ -2,7 +2,7 @@ import { useTheme } from "@mui/material/styles";
 import { dispose, ECElementEvent, ECharts, EChartsOption, init } from "echarts";
 import { useEffect, useRef } from "react";
 import { useConfigContext } from "../../components/ConfigProvider";
-import { useComponentWidthOf } from "../../components/hooks";
+import { useResizeObserver } from "../../components/hooks";
 import { PanelProps } from "../registry";
 import * as themes from "./themes";
 
@@ -18,38 +18,52 @@ export function EChartsPanel({ spec }: PanelProps<EChartsSpec>) {
   const theme = useTheme();
   const ref = useRef<HTMLDivElement>(null);
   const chartRef = useRef<ECharts>(null);
-  const width = useComponentWidthOf(ref);
+  const rect = useResizeObserver(ref);
   const { config } = useConfigContext();
   const echartsTheme = loadTheme(config.theme?.echarts) ?? (theme.palette.mode === "dark" ? "dark" : undefined);
 
-  useEffect(() => {
+  function cleanup() {
     if (chartRef.current) {
       dispose(chartRef.current);
+      chartRef.current = null;
     }
-
-    const chart = init(ref.current, echartsTheme);
-
-    if (spec.onClick) {
-      chart.on("click", spec.onClick);
-    }
-
-    if (spec.onDblClick) {
-      chart.on("dblclick", spec.onDblClick);
-    }
-
-    if (echartsTheme == "dark" && spec.backgroundColor === undefined) {
-      spec.backgroundColor = "transparent";
-    }
-
-    chart.setOption(spec);
-    chartRef.current = chart;
-  }, [ref, spec, echartsTheme]);
+  }
 
   useEffect(() => {
-    if (chartRef.current && width != 0) {
-      chartRef.current.resize();
+    if (!rect) {
+      return;
     }
-  }, [width]);
+
+    cleanup();
+    const chart = init(ref.current, echartsTheme, {
+      width: rect.width,
+      height: rect.height,
+    });
+    const { onClick, onDblClick, ...option } = spec;
+
+    if (onClick) {
+      chart.on("click", onClick);
+    }
+
+    if (onDblClick) {
+      chart.on("dblclick", onDblClick);
+    }
+
+    if (echartsTheme == "dark" && option.backgroundColor === undefined) {
+      option.backgroundColor = "transparent";
+    }
+
+    chart.setOption(option);
+    chartRef.current = chart;
+
+    return cleanup;
+  }, [spec, echartsTheme, rect]);
+
+  useEffect(() => {
+    if (chartRef.current && rect) {
+      chartRef.current.resize({ width: rect.width, height: rect.height });
+    }
+  }, [rect]);
 
   return <div ref={ref} style={{ height: "100%" }}></div>;
 }
