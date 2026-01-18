@@ -38,3 +38,12 @@ function Layout() {
 export function useFavaFilters() {
   return RootRoute.useSearch({ select: (x) => ({ time: x.time, account: x.account, filter: x.filter }) });
 }
+
+export function useFavaFilterSearchParams() {
+  const filters = useFavaFilters();
+  return new URLSearchParams({
+    ...(filters.time ? { time: String(filters.time) } : {}),
+    ...(filters.account ? { account: filters.account } : {}),
+    ...(filters.filter ? { filter: filters.filter } : {}),
+  });
+}
