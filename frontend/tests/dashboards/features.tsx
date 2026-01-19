@@ -1,5 +1,6 @@
 /// <reference types="./fava-dashboards.d.ts" />
 import { defineConfig } from "fava-dashboards";
+import React from "react";
 
 export default defineConfig({
   dashboards: [
@@ -70,6 +71,20 @@ export default defineConfig({
           spec: async ({ variables }) => {
             console.log("render multi", variables.multivar1);
             return `Selected:  ${variables.multivar1.join(", ")}`;
+          },
+        },
+      ],
+    },
+    {
+      name: "React Panels",
+      panels: [
+        {
+          title: "React Test Panel",
+          height: "80px",
+          kind: "react",
+          spec: function Panel() {
+            const [counter, setCounter] = React.useState(0);
+            return <a onClick={() => setCounter(counter + 1)}>Click me ({counter})</a>;
           },
         },
       ],

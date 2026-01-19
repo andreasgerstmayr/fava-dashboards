@@ -481,16 +481,6 @@ export default defineConfig({
             };
           },
         },
-        /*{
-          title: "React Test Panel",
-          height: "80px",
-          kind: "react",
-          spec: () => {
-            const [counter, setCounter] = React.useState(0);
-            const x = <a onClick={() => setCounter(counter + 1)}>Click me ({counter})</a>;
-            return <a onClick={() => setCounter(counter + 1)}>Click me ({counter})</a>;
-          },
-        },*/
       ],
     },
     {
