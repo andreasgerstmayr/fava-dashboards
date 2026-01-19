@@ -30,11 +30,11 @@ export function EChartsPanel({ spec }: PanelProps<EChartsSpec>) {
   }
 
   useEffect(() => {
+    cleanup();
     if (!rect) {
       return;
     }
 
-    cleanup();
     const chart = init(ref.current, echartsTheme, {
       width: rect.width,
       height: rect.height,
