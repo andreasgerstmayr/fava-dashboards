@@ -9,7 +9,7 @@ import { useConfigContext } from "../components/ConfigProvider";
 import { ErrorAlert } from "../components/ErrorAlert";
 import { slugify } from "../router";
 import { Dashboard } from "../schemas/v2/schema";
-import { RootRoute } from "./__root";
+import { retainSearchParams, RootRoute } from "./__root";
 import { PanelCard } from "./dashboard/Panel";
 import { VariablesToolbar } from "./dashboard/Variables";
 
@@ -31,7 +31,13 @@ function DashboardPage() {
   const { dashboard: dashboardName } = DashboardRoute.useSearch();
 
   if (!dashboardName && dashboards.length > 0) {
-    return <Navigate to="." search={{ dashboard: slugify(dashboards[0].name) }} replace />;
+    return (
+      <Navigate
+        to="."
+        search={(prev) => ({ ...retainSearchParams(prev), dashboard: slugify(dashboards[0].name) })}
+        replace
+      />
+    );
   }
 
   const dashboard = dashboards.find((d) => slugify(d.name) === dashboardName);
