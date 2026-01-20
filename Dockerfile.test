@@ -3,6 +3,7 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 RUN apt-get update && apt-get install -y make
 
 ENV CI=true
+ENV CONTAINER=true
 WORKDIR /usr/src/app
 RUN mkdir frontend
 

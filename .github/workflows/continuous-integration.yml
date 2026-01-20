@@ -31,8 +31,8 @@ jobs:
     - name: Run linters
       run: |
         make lint
-        make build
         make format
+        make build
         git diff --exit-code
 
     - name: Run tests

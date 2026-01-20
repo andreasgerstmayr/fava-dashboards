@@ -34,6 +34,9 @@ test-js:
 test-js-update:
 	cd frontend; LANG=en npm run test -- -u
 
+test-js-ui:
+	cd frontend; LANG=en npm run test -- --ui
+
 test: test-py test-js
 
 ## Utils
