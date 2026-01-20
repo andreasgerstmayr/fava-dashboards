@@ -23,6 +23,8 @@ async function expectScreenshot(page: Page) {
 }
 
 test.describe("PNG Snapshot Tests", () => {
+  test.skip(!process.env.CONTAINER, "snapshot tests must run in a container");
+
   test.describe("Light Theme", () => {
     dashboards.forEach(({ name, url }) => {
       test(name, async ({ page }) => {
@@ -44,6 +46,8 @@ test.describe("PNG Snapshot Tests", () => {
 });
 
 test.describe("HTML Snapshot Tests", () => {
+  test.skip(!process.env.CONTAINER, "snapshot tests must run in a container");
+
   dashboards.forEach(({ name, url }) => {
     test(name, async ({ page }) => {
       await page.goto(`${EXAMPLE_URL}${url}`);
@@ -53,21 +57,25 @@ test.describe("HTML Snapshot Tests", () => {
 });
 
 test("Variable Chain", async ({ page }) => {
+  test.skip(!process.env.CONTAINER, "snapshot tests must run in a container");
   await page.goto(`${BASE_URL}/test-features/extension/FavaDashboards/?dashboard=variable-chain`);
   await expectScreenshot(page);
 });
 
 test("React panel", async ({ page }) => {
+  test.skip(!process.env.CONTAINER, "snapshot tests must run in a container");
   await page.goto(`${BASE_URL}/test-features/extension/FavaDashboards/?dashboard=react-panels`);
   await expectScreenshot(page);
 });
 
 test("Custom Theme", async ({ page }) => {
+  test.skip(!process.env.CONTAINER, "snapshot tests must run in a container");
   await page.goto(`${BASE_URL}/test-themes/extension/FavaDashboards/?dashboard=custom-theme`);
   await expectScreenshot(page);
 });
 
 test("Migrate v1", async ({ page }) => {
+  test.skip(!process.env.CONTAINER, "snapshot tests must run in a container");
   await page.goto(`${BASE_URL}/test-migrate-v1/extension/FavaDashboards/?dashboard=income-and-expenses`);
   await expectScreenshot(page);
 });
