@@ -23,24 +23,13 @@ Example dashboards with random data:
     <img alt="Income and Expenses" src="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png">
   </picture>
 </a>
-<a href="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Dark-Theme-Travelling-1-chromium-linux.png">
-    <img alt="Travelling" src="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png">
-  </picture>
-</a>
 <a href="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Dark-Theme-Sankey-1-chromium-linux.png">
     <img alt="Sankey" src="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png">
   </picture>
 </a>
-<a href="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Dark-Theme-Projection-1-chromium-linux.png">
-    <img alt="Projection" src="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png">
-  </picture>
-</a>
+[More screenshots](https://github.com/andreasgerstmayr/fava-dashboards/tree/main/frontend/tests/e2e/snapshots.test.ts-snapshots)
 
 ## Installation
 ```
