@@ -61,10 +61,10 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
           )}
         </Stack>
         <Box style={{ height: panel.height }}>
-          {isPending ? (
-            <Skeleton variant="rounded" sx={{ width: "100%", height: "100%" }} />
-          ) : error ? (
+          {error ? (
             <ErrorAlert error={error} />
+          ) : isPending ? (
+            <Skeleton variant="rounded" sx={{ width: "100%", height: "100%" }} />
           ) : (
             <ErrorBoundary FallbackComponent={ErrorAlert}>{renderedPanel.data}</ErrorBoundary>
           )}
