@@ -39,6 +39,7 @@ dev = [
     "pylint>=3.1.0",
     "pytest>=8.3.3",
     "ruff>=0.8.1",
+    "ty>=0.0.13",
     "types-PyYAML>=6",
 ]
 
@@ -63,6 +64,10 @@ disable = [
 [[tool.mypy.overrides]]
 module = "beanquery.query"
 ignore_missing_imports = true
+
+[tool.ty.rules]
+# some comments are required by mypy
+unused-ignore-comment = "ignore"
 
 [tool.ruff]
 line-length = 120
