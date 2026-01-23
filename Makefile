@@ -75,5 +75,5 @@ container-test: container-run
 
 container-test-js-update: container-run
 	docker exec fava-dashboards-test make test-js-update
-	docker cp fava-dashboards-test:/usr/src/app/frontend/tests/e2e/dashboards.test.ts-snapshots ./frontend/tests/e2e
+	docker cp fava-dashboards-test:/usr/src/app/frontend/tests/e2e/snapshots.test.ts-snapshots ./frontend/tests/e2e
 	make container-stop
