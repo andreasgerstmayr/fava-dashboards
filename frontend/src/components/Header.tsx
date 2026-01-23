@@ -13,7 +13,7 @@ export function Header() {
     <Box className="headerline" sx={{ ".active": { color: "inherit" } }}>
       {dashboards.map((dashboard, i) => (
         <h3 key={i}>
-          <Link to="." search={(prev) => ({ ...retainSearchParams(prev), dashboard: slugify(dashboard.name) })}>
+          <Link to="/" search={(prev) => ({ ...retainSearchParams(prev), dashboard: slugify(dashboard.name) })}>
             {dashboard.name}
           </Link>
         </h3>
