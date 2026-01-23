@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.0.0b4 (2026-01-23)
+* skip snapshot tests unless inside container [#163](https://github.com/andreasgerstmayr/fava-dashboards/pull/163) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* retain Fava filters when navigating from outside to plugin [#161](https://github.com/andreasgerstmayr/fava-dashboards/pull/161) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* refresh data if Fava filter changes [#160](https://github.com/andreasgerstmayr/fava-dashboards/pull/160) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+
 ## v2.0.0b3 (2026-01-15)
 * migrate to `@tanstack/router` and URLs from `/beancount/extension/FavaDashboards/#/dashboards/income-and-expenses` to `/beancount/extension/FavaDashboards/?dashboard=income-and-expenses` [#143](https://github.com/andreasgerstmayr/fava-dashboards/pull/143) ([@andreasgerstmayr](https://github.com/andreasgerstmayr)).
   This resolves a bug when using [custom links with `/jump`](https://fava.pythonanywhere.com/example-beancount-file/help/features#custom-links-in-the-sidebar) in Fava.
