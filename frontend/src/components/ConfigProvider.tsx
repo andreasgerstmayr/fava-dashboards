@@ -28,16 +28,16 @@ export function ConfigProvider({ extensionContext, children }: ConfigProviderPro
   const isPending = config.isPending || dynamicConfig.isPending;
   const error = config.error || dynamicConfig.error;
 
+  if (error) {
+    return <ErrorAlert error={error} />;
+  }
+
   if (isPending) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", py: 5 }}>
         <CircularProgress />
       </Box>
     );
-  }
-
-  if (error) {
-    return <ErrorAlert error={error} />;
   }
 
   return <ConfigContext.Provider value={{ config: dynamicConfig.data }}>{children}</ConfigContext.Provider>;
