@@ -9,7 +9,7 @@ export default defineConfig(
   eslint.configs.recommended,
   eslintPluginReact.configs.flat.recommended,
   eslintPluginReact.configs.flat["jsx-runtime"],
-  eslintPluginReactHooks.configs["recommended-latest"],
+  eslintPluginReactHooks.configs.flat["recommended-latest"],
   tseslint.configs.recommended,
   eslintPluginPrettierRecommended,
   {
