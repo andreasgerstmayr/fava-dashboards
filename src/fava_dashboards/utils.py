@@ -1,5 +1,6 @@
 from datetime import date
-from typing import List
+from pathlib import Path
+from typing import Sequence
 
 import yaml
 from fava.beans.abc import Directive
@@ -8,7 +9,7 @@ from fava.beans.abc import Transaction
 from fava.helpers import FavaAPIError
 
 
-def read_dashboards_yaml(path: str):
+def read_dashboards_yaml(path: Path):
     try:
         with open(path, "r", encoding="utf-8") as f:
             return yaml.safe_load(f)
@@ -18,7 +19,7 @@ def read_dashboards_yaml(path: str):
         ) from ex
 
 
-def read_dashboards_tsx(path: str):
+def read_dashboards_tsx(path: Path):
     try:
         with open(path, "r", encoding="utf-8") as f:
             return f.read()
@@ -28,7 +29,7 @@ def read_dashboards_tsx(path: str):
         ) from ex
 
 
-def get_ledger_duration(entries: List[Directive]):
+def get_ledger_duration(entries: Sequence[Directive]):
     date_first = None
     date_last = None
     for entry in entries:
