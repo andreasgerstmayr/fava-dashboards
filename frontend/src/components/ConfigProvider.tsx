@@ -80,7 +80,7 @@ function useDynamicConfig(extensionContext: FavaExtenstionContext, config: Confi
 export function useConfigContext(): ConfigContextType {
   const ctx = useContext(ConfigContext);
   if (ctx === undefined) {
-    throw new Error("No ConfigContext found. Did you forget <ConfigProvider>?");
+    throw new Error("No ConfigContext found. Did you forget a ConfigProvider?");
   }
   return ctx;
 }
