@@ -1,4 +1,4 @@
-import * as z from "zod";
+import { z } from "zod";
 import { EChartsThemeNames } from "../../panels/echarts/EChartsPanel";
 import { panelKinds } from "../../panels/registry";
 

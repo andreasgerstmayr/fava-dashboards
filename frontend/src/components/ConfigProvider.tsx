@@ -1,7 +1,7 @@
 import { Box, CircularProgress } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { createContext, ReactNode, useContext } from "react";
-import * as z from "zod";
+import { z } from "zod";
 import { ConfigResponse, useConfig } from "../api/config";
 import { FavaExtenstionContext } from "../extension";
 import * as api from "../index";

@@ -1,4 +1,4 @@
-import * as z from "zod";
+import { z } from "zod";
 import * as helpers from "./v1_helpers";
 export { helpers };
 

@@ -1,7 +1,7 @@
 import { Autocomplete, Checkbox, Skeleton, Stack, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate, useSearch } from "@tanstack/react-router";
-import * as z from "zod";
+import { z } from "zod";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { Ledger } from "../../schemas/v2/ledger";
 import { Variable } from "../../schemas/v2/schema";
