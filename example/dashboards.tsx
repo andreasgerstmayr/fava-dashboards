@@ -931,7 +931,7 @@ export default defineConfig({
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: -row.value[variables.currency],
+              value: -(row.value[variables.currency] ?? 0),
             }));
             const avg = sumValue(dataset) / countMonths(ledger);
             return StatChart(dataset, TREND_POSITIVE, currencyFormatter(avg), COLOR_PROFIT);
@@ -952,7 +952,7 @@ export default defineConfig({
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[variables.currency],
+              value: row.value[variables.currency] ?? 0,
             }));
             const avg = sumValue(dataset) / countMonths(ledger);
             return StatChart(dataset, TREND_NEGATIVE, currencyFormatter(avg), COLOR_LOSS);
@@ -978,7 +978,7 @@ export default defineConfig({
             );
             const incomeDataset = income.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: -row.value[variables.currency],
+              value: -(row.value[variables.currency] ?? 0),
             }));
             const avgIncome = sumValue(incomeDataset) / countMonths(ledger);
 
@@ -989,7 +989,7 @@ export default defineConfig({
             );
             const expensesDataset = expenses.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[variables.currency],
+              value: row.value[variables.currency] ?? 0,
             }));
             const avgExpenses = sumValue(expensesDataset) / countMonths(ledger);
 
@@ -1031,7 +1031,7 @@ export default defineConfig({
             const monthly: Record<string, number> = {};
             const yearly: Record<number, number> = {};
             for (const row of result) {
-              const savings = -row.value[variables.currency];
+              const savings = -(row.value[variables.currency] ?? 0);
               monthly[`${row.year}-${row.month}`] = savings;
               yearly[row.year] = (yearly[row.year] ?? 0) + savings;
             }
