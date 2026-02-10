@@ -34,6 +34,9 @@ test-js:
 test-js-update:
 	cd frontend; LANG=en npm run test -- -u
 
+test-js-ui:
+	cd frontend; LANG=en npm run test -- --ui
+
 test: test-py test-js
 
 ## Utils
@@ -42,15 +45,16 @@ run:
 
 # Development with live reload (parametrizable beancount file path)
 # Usage: make dev LEDGER_FILE=path/to/file.beancount
-LEDGER_FILE ?= example/example.beancount
+LEDGER_FILE ?= example/example.beancount frontend/tests/dashboards/*.beancount
 dev:
 	npx concurrently --names fava,esbuild \
-	  "cd $$(dirname $(LEDGER_FILE)) && PYTHONUNBUFFERED=1 uv run fava --debug $$(basename $(LEDGER_FILE))" \
+	  "PYTHONUNBUFFERED=1 uv run fava --debug $(LEDGER_FILE)" \
 	  "cd frontend; npm install && npm run watch"
 
 lint:
 	cd frontend; npm run type-check
 	cd frontend; npm run lint
+	uv run ty check
 	uv run mypy src/fava_dashboards scripts
 	uv run pylint src/fava_dashboards scripts
 
@@ -58,7 +62,7 @@ format:
 	-cd frontend; npm run lint:fix
 	-uv run ruff check --fix
 	uv run ruff format .
-	find example -name '*.beancount' -exec uv run bean-format -c 59 -o "{}" "{}" \;
+	find example frontend/tests/dashboards -name '*.beancount' -exec uv run bean-format -c 59 -o "{}" "{}" \;
 
 ## Container
 container-run: container-stop
@@ -75,5 +79,5 @@ container-test: container-run
 
 container-test-js-update: container-run
 	docker exec fava-dashboards-test make test-js-update
-	docker cp fava-dashboards-test:/usr/src/app/frontend/tests/e2e/dashboards.test.ts-snapshots ./frontend/tests/e2e
+	docker cp fava-dashboards-test:/usr/src/app/frontend/tests/e2e/snapshots.test.ts-snapshots ./frontend/tests/e2e
 	make container-stop

@@ -1,0 +1,8 @@
+option "title" "Test: Features"
+option "operating_currency" "USD"
+2020-01-01 custom "fava-extension" "fava_dashboards" "{
+    'config': 'features.tsx'
+}"
+2020-01-01 custom "fava-sidebar-link" "Last 12 months" "/jump?time=month-12 - month-1&interval=month"
+
+include "common/_testdata.beancount"

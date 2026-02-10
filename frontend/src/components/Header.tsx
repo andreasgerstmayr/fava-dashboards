@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
-import { NavLink } from "react-router";
+import { Link } from "@tanstack/react-router";
 import { slugify } from "../router";
+import { retainSearchParams } from "../routes/__root";
 import { useConfigContext } from "./ConfigProvider";
 
 export function Header() {
@@ -9,10 +10,12 @@ export function Header() {
   } = useConfigContext();
 
   return (
-    <Box className="headerline" sx={{ ".active": { color: "light-dark(hsl(0deg 0% 25%), hsl(0deg 0% 80%))" } }}>
+    <Box className="headerline" sx={{ ".active": { color: "inherit" } }}>
       {dashboards.map((dashboard, i) => (
         <h3 key={i}>
-          <NavLink to={`/dashboards/${slugify(dashboard.name)}`}>{dashboard.name}</NavLink>
+          <Link to="/" search={(prev) => ({ ...retainSearchParams(prev), dashboard: slugify(dashboard.name) })}>
+            {dashboard.name}
+          </Link>
         </h3>
       ))}
     </Box>

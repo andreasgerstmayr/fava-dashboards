@@ -5,12 +5,32 @@
 fava-dashboards allows creating custom dashboards in [Fava](https://github.com/beancount/fava).
 
 Example dashboards with random data:
-[![Overview](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png)
-[![Assets](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png)
-[![Income and Expenses](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png)
-[![Travelling](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Travelling-1-chromium-linux.png)
-[![Sankey](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png)
-[![Projection](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png)](https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/dashboards.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Projection-1-chromium-linux.png)
+<a href="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Dark-Theme-Overview-1-chromium-linux.png">
+    <img alt="Overview" src="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Overview-1-chromium-linux.png">
+  </picture>
+</a>
+<a href="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Dark-Theme-Assets-1-chromium-linux.png">
+    <img alt="Assets" src="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Assets-1-chromium-linux.png">
+  </picture>
+</a>
+<a href="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Dark-Theme-Income-and-Expenses-1-chromium-linux.png">
+    <img alt="Income and Expenses" src="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Income-and-Expenses-1-chromium-linux.png">
+  </picture>
+</a>
+<a href="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Dark-Theme-Sankey-1-chromium-linux.png">
+    <img alt="Sankey" src="https://github.com/andreasgerstmayr/fava-dashboards/raw/main/frontend/tests/e2e/snapshots.test.ts-snapshots/PNG-Snapshot-Tests-Light-Theme-Sankey-1-chromium-linux.png">
+  </picture>
+</a>
+
+[More screenshots](https://github.com/andreasgerstmayr/fava-dashboards/tree/main/frontend/tests/e2e/snapshots.test.ts-snapshots)
 
 ## Installation
 ```
@@ -33,6 +53,9 @@ The location of the `dashboards.tsx` configuration file can be customized:
 
 To get TypeScript type support, download [fava-dashboards.d.ts](example/fava-dashboards.d.ts) and place it next to `dashboards.tsx`.
 Please take a look at the example dashboards configuration [dashboards.tsx](example/dashboards.tsx), which uses most of the functionality described below.
+
+To convert a legacy `dashboards.yaml` file from version 1 to the new `dashboards.tsx` format, you can run `make deps && uv run scripts/convert_dashboards_yaml_to_tsx.py path/to/dashboards.yaml --output path/to/dashboards.tsx`.
+This script covers most common cases, and does not perform TypeScript type inference.
 
 The configuration file can contain multiple dashboards, and a dashboard contains one or more panels.
 A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column layouts) and a absolute height.

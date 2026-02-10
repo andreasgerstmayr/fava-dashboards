@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /// <reference types="./fava-dashboards.d.ts" />
 import { BarSeriesOption, ECElementEvent } from "echarts";
 import {
@@ -11,8 +10,10 @@ import {
   Ledger,
   Position,
   TableSpec,
-  VariableDefinition,
+  Variable,
 } from "fava-dashboards";
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 // Base colors from fava
 const COLOR_PROFIT = "#3daf46";
@@ -309,7 +310,7 @@ async function StackedYearOverYear(
   };
 }
 
-const currencyVariable: VariableDefinition = {
+const currencyVariable: Variable = {
   name: "currency",
   label: "Currency",
   options: async ({ ledger }) => {
@@ -480,16 +481,6 @@ export default defineConfig({
             };
           },
         },
-        /*{
-          title: "React Test Panel",
-          height: "80px",
-          kind: "react",
-          spec: () => {
-            const [counter, setCounter] = React.useState(0);
-            const x = <a onClick={() => setCounter(counter + 1)}>Click me ({counter})</a>;
-            return <a onClick={() => setCounter(counter + 1)}>Click me ({counter})</a>;
-          },
-        },*/
       ],
     },
     {
@@ -940,7 +931,7 @@ export default defineConfig({
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: -row.value[variables.currency],
+              value: -(row.value[variables.currency] ?? 0),
             }));
             const avg = sumValue(dataset) / countMonths(ledger);
             return StatChart(dataset, TREND_POSITIVE, currencyFormatter(avg), COLOR_PROFIT);
@@ -961,7 +952,7 @@ export default defineConfig({
             );
             const dataset = result.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[variables.currency],
+              value: row.value[variables.currency] ?? 0,
             }));
             const avg = sumValue(dataset) / countMonths(ledger);
             return StatChart(dataset, TREND_NEGATIVE, currencyFormatter(avg), COLOR_LOSS);
@@ -987,7 +978,7 @@ export default defineConfig({
             );
             const incomeDataset = income.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: -row.value[variables.currency],
+              value: -(row.value[variables.currency] ?? 0),
             }));
             const avgIncome = sumValue(incomeDataset) / countMonths(ledger);
 
@@ -998,7 +989,7 @@ export default defineConfig({
             );
             const expensesDataset = expenses.map((row) => ({
               date: `${row.year}-${row.month}`,
-              value: row.value[variables.currency],
+              value: row.value[variables.currency] ?? 0,
             }));
             const avgExpenses = sumValue(expensesDataset) / countMonths(ledger);
 
@@ -1040,7 +1031,7 @@ export default defineConfig({
             const monthly: Record<string, number> = {};
             const yearly: Record<number, number> = {};
             for (const row of result) {
-              const savings = -row.value[variables.currency];
+              const savings = -(row.value[variables.currency] ?? 0);
               monthly[`${row.year}-${row.month}`] = savings;
               yearly[row.year] = (yearly[row.year] ?? 0) + savings;
             }
@@ -1345,22 +1336,22 @@ export default defineConfig({
             const queries = [
               {
                 bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
-WHERE account ~ '^Expenses:' AND 'recurring' IN tags
-GROUP BY year, month`,
+                      WHERE account ~ '^Expenses:' AND 'recurring' IN tags
+                      GROUP BY year, month`,
                 name: "Recurring",
                 link: "../../account/Expenses/?filter=#recurring&time={time}",
               },
               {
                 bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
-WHERE account ~ '^Expenses:' AND NOT 'recurring' IN tags AND NOT 'irregular' IN tags
-GROUP BY year, month`,
+                      WHERE account ~ '^Expenses:' AND NOT 'recurring' IN tags AND NOT 'irregular' IN tags
+                      GROUP BY year, month`,
                 name: "Regular",
                 link: "../../account/Expenses/?filter=-#recurring -#irregular&time={time}",
               },
               {
                 bql: `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
-WHERE account ~ '^Expenses:' AND 'irregular' IN tags
-GROUP BY year, month`,
+                      WHERE account ~ '^Expenses:' AND 'irregular' IN tags
+                      GROUP BY year, month`,
                 name: "Irregular",
                 link: "../../account/Expenses/?filter=#irregular&time={time}",
               },

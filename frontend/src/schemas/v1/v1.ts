@@ -1,33 +1,33 @@
-import * as z from "zod";
+import { z } from "zod";
 import * as helpers from "./v1_helpers";
 export { helpers };
 
-const ZQuery = z.looseObject({
+const QuerySchema = z.looseObject({
   bql: z.string(),
 });
 
-const ZPanel = z.looseObject({
+const PanelSchema = z.looseObject({
   title: z.string().default(""),
   width: z.string().default("100%"),
   height: z.string().default("400px"),
   link: z.string().optional(),
-  queries: z.array(ZQuery).optional(),
+  queries: z.array(QuerySchema).optional(),
   type: z.enum(["html", "echarts", "d3_sankey", "jinja2"]),
   script: z.string().optional(),
   template: z.string().optional(),
 });
 
-const ZDashboard = z.object({
+const DashboardSchema = z.object({
   name: z.string(),
-  panels: z.array(ZPanel),
+  panels: z.array(PanelSchema),
 });
 
-export const ZConfig = z.object({
-  dashboards: z.array(ZDashboard),
+export const ConfigSchema = z.object({
+  dashboards: z.array(DashboardSchema),
 });
 
-export type Config = z.infer<typeof ZConfig>;
-export type Panel = z.infer<typeof ZPanel>;
+export type Config = z.output<typeof ConfigSchema>;
+export type Panel = z.output<typeof PanelSchema>;
 
 export interface PanelCtx {
   /** Fava [`ExtensionContext`](https://github.com/beancount/fava/blob/main/frontend/src/extensions.ts) */

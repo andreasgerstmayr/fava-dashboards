@@ -1,8 +1,9 @@
-FROM mcr.microsoft.com/playwright:v1.55.0
+FROM mcr.microsoft.com/playwright:v1.58.0
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 RUN apt-get update && apt-get install -y make
 
 ENV CI=true
+ENV CONTAINER=true
 WORKDIR /usr/src/app
 RUN mkdir frontend
 
@@ -20,4 +21,4 @@ RUN --mount=type=bind,source=frontend/package.json,target=frontend/package.json 
 
 COPY . .
 RUN make build
-CMD ["make", "run"]
+CMD ["sh", "-c", "uv run fava example/example.beancount frontend/tests/dashboards/*.beancount"]

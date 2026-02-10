@@ -1,0 +1,176 @@
+- banner:
+  - img
+  - heading "Beancount ▾›Dashboards" [level=1]:
+    - strong: ›Dashboards
+  - combobox "Time"
+  - combobox "Account"
+  - combobox "Filter by tag, payee, ..."
+- complementary:
+  - list:
+    - listitem:
+      - link "Income Statement":
+        - /url: /beancount/income_statement/
+    - listitem:
+      - link "Balance Sheet":
+        - /url: /beancount/balance_sheet/
+    - listitem:
+      - link "Trial Balance":
+        - /url: /beancount/trial_balance/
+    - listitem:
+      - link "Journal":
+        - /url: /beancount/journal/
+    - listitem:
+      - link "Query":
+        - /url: /beancount/query/
+    - listitem:
+      - combobox "Go to account"
+  - list:
+    - listitem:
+      - link "Holdings":
+        - /url: /beancount/holdings/
+    - listitem:
+      - link "Commodities":
+        - /url: /beancount/commodities/
+    - listitem:
+      - link "Documents":
+        - /url: /beancount/documents/
+    - listitem:
+      - link "Events":
+        - /url: /beancount/events/
+    - listitem:
+      - link "Statistics":
+        - /url: /beancount/statistics/
+  - list:
+    - listitem:
+      - link "Editor":
+        - /url: /beancount/editor/
+      - link "+":
+        - /url: "#add-transaction"
+    - listitem:
+      - link "Import":
+        - /url: /beancount/import/
+      - link "⬇":
+        - /url: "#export"
+    - listitem:
+      - link "Options":
+        - /url: /beancount/options/
+    - listitem:
+      - link "Help":
+        - /url: /beancount/help/
+  - list:
+    - listitem:
+      - link "Dashboards":
+        - /url: /beancount/extension/FavaDashboards/
+- article:
+  - heading "Overview" [level=3]:
+    - link "Overview":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=overview
+  - heading "Assets" [level=3]:
+    - link "Assets":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=assets
+  - heading "Income and Expenses" [level=3]:
+    - link "Income and Expenses":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=income-and-expenses
+  - heading "Travelling" [level=3]:
+    - link "Travelling":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=travelling
+  - heading "Sankey" [level=3]:
+    - link "Sankey":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=sankey
+  - heading "Projection" [level=3]:
+    - link "Projection":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=projection
+  - text: Currency
+  - combobox "Currency"
+  - button "Open"
+  - heading "Avg. Income per Month 💰" [level=3]:
+    - link "Avg. Income per Month 💰":
+      - /url: http://127.0.0.1:5000/beancount/account/Income/?r=changes
+  - heading "Avg. Expenses per Month 💸" [level=3]:
+    - link "Avg. Expenses per Month 💸":
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses/?r=changes
+  - heading "Avg. Savings per Month ✨" [level=3]:
+    - link "Avg. Savings per Month ✨":
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - heading "Savings Heatmap 💰" [level=3]:
+    - link "Savings Heatmap 💰":
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - heading "Expenses Calendar Heatmap 📅" [level=3]
+  - heading "Income Categories (per month) 💰" [level=3]:
+    - link "Income Categories (per month) 💰":
+      - /url: http://127.0.0.1:5000/beancount/account/Income/?r=changes
+  - heading "Expenses Categories (per month) 💸" [level=3]:
+    - link "Expenses Categories (per month) 💸":
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses/?r=changes
+  - heading "Recurring, Regular and Irregular Expenses 🔁" [level=3]:
+    - link "Recurring, Regular and Irregular Expenses 🔁":
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - heading "Food Expenses 🥐" [level=3]:
+    - link "Food Expenses 🥐":
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses:Food/
+  - heading "Income Year-Over-Year 💰" [level=3]
+  - group:
+    - button "single" [pressed]
+    - button "stacked"
+  - heading "Expenses Year-Over-Year 💸" [level=3]
+  - group:
+    - button "single" [pressed]
+    - button "stacked"
+  - heading /Top \d+ biggest expenses/ [level=3]
+  - grid:
+    - row "date payee narration position":
+      - columnheader "date"
+      - columnheader "payee"
+      - columnheader "narration"
+      - columnheader "position"
+    - rowgroup:
+      - row /\d+-\d+-\d+ Wedding \d+ USD/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell
+        - gridcell "Wedding"
+        - gridcell /\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "RiverBank Properties"
+        - gridcell "Paying the rent"
+        - gridcell /\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "RiverBank Properties"
+        - gridcell "Paying the rent"
+        - gridcell /\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "RiverBank Properties"
+        - gridcell "Paying the rent"
+        - gridcell /\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "RiverBank Properties"
+        - gridcell "Paying the rent"
+        - gridcell /\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "RiverBank Properties"
+        - gridcell "Paying the rent"
+        - gridcell /\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "RiverBank Properties"
+        - gridcell "Paying the rent"
+        - gridcell /\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "RiverBank Properties"
+        - gridcell "Paying the rent"
+        - gridcell /\d+ USD/
+      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "RiverBank Properties"
+        - gridcell "Paying the rent"
+        - gridcell /\d+ USD/
+  - paragraph: "Rows per page:"
+  - 'combobox /Rows per page: \d+/'
+  - paragraph: /1–\d+ of \d+/
+  - button "Go to previous page" [disabled]
+  - button "Go to next page" [disabled]

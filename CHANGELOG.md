@@ -1,7 +1,22 @@
 # Changelog
 
-## next
-* fix panel link href
+## v2.0.0b4 (2026-01-23)
+* skip snapshot tests unless inside container [#163](https://github.com/andreasgerstmayr/fava-dashboards/pull/163) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* retain Fava filters when navigating from outside to plugin [#161](https://github.com/andreasgerstmayr/fava-dashboards/pull/161) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* refresh data if Fava filter changes [#160](https://github.com/andreasgerstmayr/fava-dashboards/pull/160) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+
+## v2.0.0b3 (2026-01-15)
+* migrate to `@tanstack/router` and URLs from `/beancount/extension/FavaDashboards/#/dashboards/income-and-expenses` to `/beancount/extension/FavaDashboards/?dashboard=income-and-expenses` [#143](https://github.com/andreasgerstmayr/fava-dashboards/pull/143) ([@andreasgerstmayr](https://github.com/andreasgerstmayr)).
+  This resolves a bug when using [custom links with `/jump`](https://fava.pythonanywhere.com/example-beancount-file/help/features#custom-links-in-the-sidebar) in Fava.
+* support custom ECharts themes [#129](https://github.com/andreasgerstmayr/fava-dashboards/pull/129) ([@Evernight](https://github.com/Evernight))
+* add dashboards.yaml to dashboards.tsx conversion script [#151](https://github.com/andreasgerstmayr/fava-dashboards/pull/151) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* feat: support styling of variable selects [#147](https://github.com/andreasgerstmayr/fava-dashboards/pull/147) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* rename VariableDefinition to Variable [#145](https://github.com/andreasgerstmayr/fava-dashboards/pull/145) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* example: stack yearly travel chart [#135](https://github.com/andreasgerstmayr/fava-dashboards/pull/135) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* example: use dynamic panel height for travel destinations panel [#134](https://github.com/andreasgerstmayr/fava-dashboards/pull/134) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* example: add stacked Year-over-Year chart option [#132](https://github.com/andreasgerstmayr/fava-dashboards/pull/132) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* fix panel link href [#128](https://github.com/andreasgerstmayr/fava-dashboards/pull/128) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* fix links [#158](https://github.com/andreasgerstmayr/fava-dashboards/pull/158) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
 
 ## v2.0.0b2 (2025-12-14)
 * support Fava 1.30.8

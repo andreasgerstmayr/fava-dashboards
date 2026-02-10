@@ -1,0 +1,100 @@
+- banner:
+  - img
+  - heading "Beancount ▾›Dashboards" [level=1]:
+    - strong: ›Dashboards
+  - combobox "Time"
+  - combobox "Account"
+  - combobox "Filter by tag, payee, ..."
+- complementary:
+  - list:
+    - listitem:
+      - link "Income Statement":
+        - /url: /beancount/income_statement/
+    - listitem:
+      - link "Balance Sheet":
+        - /url: /beancount/balance_sheet/
+    - listitem:
+      - link "Trial Balance":
+        - /url: /beancount/trial_balance/
+    - listitem:
+      - link "Journal":
+        - /url: /beancount/journal/
+    - listitem:
+      - link "Query":
+        - /url: /beancount/query/
+    - listitem:
+      - combobox "Go to account"
+  - list:
+    - listitem:
+      - link "Holdings":
+        - /url: /beancount/holdings/
+    - listitem:
+      - link "Commodities":
+        - /url: /beancount/commodities/
+    - listitem:
+      - link "Documents":
+        - /url: /beancount/documents/
+    - listitem:
+      - link "Events":
+        - /url: /beancount/events/
+    - listitem:
+      - link "Statistics":
+        - /url: /beancount/statistics/
+  - list:
+    - listitem:
+      - link "Editor":
+        - /url: /beancount/editor/
+      - link "+":
+        - /url: "#add-transaction"
+    - listitem:
+      - link "Import":
+        - /url: /beancount/import/
+      - link "⬇":
+        - /url: "#export"
+    - listitem:
+      - link "Options":
+        - /url: /beancount/options/
+    - listitem:
+      - link "Help":
+        - /url: /beancount/help/
+  - list:
+    - listitem:
+      - link "Dashboards":
+        - /url: /beancount/extension/FavaDashboards/
+- article:
+  - heading "Overview" [level=3]:
+    - link "Overview":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=overview
+  - heading "Assets" [level=3]:
+    - link "Assets":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=assets
+  - heading "Income and Expenses" [level=3]:
+    - link "Income and Expenses":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=income-and-expenses
+  - heading "Travelling" [level=3]:
+    - link "Travelling":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=travelling
+  - heading "Sankey" [level=3]:
+    - link "Sankey":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=sankey
+  - heading "Projection" [level=3]:
+    - link "Projection":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=projection
+  - text: Currency
+  - combobox "Currency"
+  - button "Open"
+  - heading "Assets 🏦" [level=3]
+  - heading "Net Worth 💰" [level=3]:
+    - link "Net Worth 💰":
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - heading "Portfolio 📈" [level=3]
+  - heading "Portfolio Gains ✨" [level=3]
+  - heading "Asset Classes Year-over-Year 🏦" [level=3]
+  - heading "Asset Classes 🏦" [level=3]
+  - group:
+    - button "All assets" [pressed]
+    - button "Only investments"
+  - heading "Assets Allocation 🏦" [level=3]
+  - group:
+    - button "All assets" [pressed]
+    - button "Only investments"
