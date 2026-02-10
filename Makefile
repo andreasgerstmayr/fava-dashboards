@@ -43,9 +43,12 @@ test: test-py test-js
 run:
 	cd example; uv run fava example.beancount
 
+# Development with live reload (parametrizable beancount file path)
+# Usage: make dev LEDGER_FILE=path/to/file.beancount
+LEDGER_FILE ?= example/example.beancount frontend/tests/dashboards/*.beancount
 dev:
 	npx concurrently --names fava,esbuild \
-	  "PYTHONUNBUFFERED=1 uv run fava --debug example/example.beancount frontend/tests/dashboards/*.beancount" \
+	  "PYTHONUNBUFFERED=1 uv run fava --debug $(LEDGER_FILE)" \
 	  "cd frontend; npm install && npm run watch"
 
 lint:
