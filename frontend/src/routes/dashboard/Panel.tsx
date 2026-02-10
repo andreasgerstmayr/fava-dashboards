@@ -9,6 +9,7 @@ import { PanelProps, panelRegistry, PanelSpecOf } from "../../panels/registry";
 import { Ledger } from "../../schemas/v2/ledger";
 import { Dashboard, Panel } from "../../schemas/v2/schema";
 import { StrictResolvedVariables } from "../../schemas/v2/variables";
+import { useFavaFilters } from "../__root";
 import { useVariables, VariablesToolbar } from "./Variables";
 
 interface PanelCardProps {
@@ -75,9 +76,10 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
 }
 
 function useRenderPanel(ledger: Ledger, panel: Panel, variables: StrictResolvedVariables | undefined) {
+  const filters = useFavaFilters();
   return useQuery({
     enabled: !!variables,
-    queryKey: ["useRenderPanel", ledger, panel, variables],
+    queryKey: ["useRenderPanel", ledger, panel, filters, variables],
     queryFn: async () => {
       if (!variables) {
         return;
