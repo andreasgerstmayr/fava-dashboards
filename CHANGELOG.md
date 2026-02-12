@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.0.0b5 (2026-02-12)
+* dev: optionally specify ledger file in make dev [#140](https://github.com/andreasgerstmayr/fava-dashboards/pull/140) ([@Evernight](https://github.com/Evernight))
+* fix: refresh panels if any filter changes [#169](https://github.com/andreasgerstmayr/fava-dashboards/pull/169) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* example: fix monthly income/expense/savings for months without transactions [#168](https://github.com/andreasgerstmayr/fava-dashboards/pull/168) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* add ty [#166](https://github.com/andreasgerstmayr/fava-dashboards/pull/166) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* update deps [#165](https://github.com/andreasgerstmayr/fava-dashboards/pull/165) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+
 ## v2.0.0b4 (2026-01-23)
 * skip snapshot tests unless inside container [#163](https://github.com/andreasgerstmayr/fava-dashboards/pull/163) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
 * retain Fava filters when navigating from outside to plugin [#161](https://github.com/andreasgerstmayr/fava-dashboards/pull/161) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
