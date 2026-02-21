@@ -1,6 +1,7 @@
 - banner:
   - img
   - heading "Beancount ▾›Dashboards" [level=1]:
+    - text: ""
     - strong: ›Dashboards
   - combobox "Time"
   - combobox "Account"
@@ -68,18 +69,30 @@
   - heading "Assets" [level=3]:
     - link "Assets":
       - /url: /beancount/extension/FavaDashboards/?dashboard=assets
+  - heading "Accounts" [level=3]:
+    - link "Accounts":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=accounts
   - heading "Income and Expenses" [level=3]:
     - link "Income and Expenses":
       - /url: /beancount/extension/FavaDashboards/?dashboard=income-and-expenses
+  - heading "Expenses Detailed" [level=3]:
+    - link "Expenses Detailed":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=expenses-detailed
   - heading "Travelling" [level=3]:
     - link "Travelling":
       - /url: /beancount/extension/FavaDashboards/?dashboard=travelling
+  - heading "Subscriptions" [level=3]:
+    - link "Subscriptions":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=subscriptions
   - heading "Sankey" [level=3]:
     - link "Sankey":
       - /url: /beancount/extension/FavaDashboards/?dashboard=sankey
   - heading "Projection" [level=3]:
     - link "Projection":
       - /url: /beancount/extension/FavaDashboards/?dashboard=projection
+  - heading "Tax" [level=3]:
+    - link "Tax":
+      - /url: /beancount/extension/FavaDashboards/?dashboard=tax
   - text: Currency
   - combobox "Currency"
   - button "Open"
@@ -91,6 +104,9 @@
       - /url: http://127.0.0.1:5000/beancount/account/Expenses/?r=changes
   - heading "Avg. Savings per Month ✨" [level=3]:
     - link "Avg. Savings per Month ✨":
+      - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - heading "Unattributed Expenses 🔧" [level=3]:
+    - link "Unattributed Expenses 🔧":
       - /url: http://127.0.0.1:5000/beancount/income_statement/
   - heading "Savings Heatmap 💰" [level=3]:
     - link "Savings Heatmap 💰":
@@ -105,9 +121,9 @@
   - heading "Recurring, Regular and Irregular Expenses 🔁" [level=3]:
     - link "Recurring, Regular and Irregular Expenses 🔁":
       - /url: http://127.0.0.1:5000/beancount/income_statement/
-  - heading "Food Expenses 🥐" [level=3]:
-    - link "Food Expenses 🥐":
-      - /url: http://127.0.0.1:5000/beancount/account/Expenses:Food/
+  - heading "EatingOut Expenses 🥐" [level=3]:
+    - link "EatingOut Expenses 🥐":
+      - /url: http://127.0.0.1:5000/beancount/account/Expenses:EatingOut/
   - heading "Income Year-Over-Year 💰" [level=3]
   - group:
     - button "single" [pressed]
@@ -116,61 +132,138 @@
   - group:
     - button "single" [pressed]
     - button "stacked"
-  - heading /Top \d+ biggest expenses/ [level=3]
+  - heading "Expenses Over Time 🌊" [level=3]
+  - heading "Top biggest expenses" [level=3]
   - grid:
-    - row "date payee narration position":
+    - row "date account narration tags value":
       - columnheader "date"
-      - columnheader "payee"
+      - columnheader "account"
       - columnheader "narration"
-      - columnheader "position"
+      - columnheader "tags"
+      - columnheader "value"
     - rowgroup:
-      - row /\d+-\d+-\d+ Wedding \d+ USD/:
+      - row /\d+-\d+-\d+ Expenses:Wedding Wedding irregular,wedding \$\d+,\d+/:
         - gridcell /\d+-\d+-\d+/
-        - gridcell
+        - gridcell "Expenses:Wedding"
         - gridcell "Wedding"
-        - gridcell /\d+ USD/
-      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell "irregular,wedding"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
         - gridcell /\d+-\d+-\d+/
-        - gridcell "RiverBank Properties"
+        - gridcell "Expenses:Housing:Rent"
         - gridcell "Paying the rent"
-        - gridcell /\d+ USD/
-      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
         - gridcell /\d+-\d+-\d+/
-        - gridcell "RiverBank Properties"
+        - gridcell "Expenses:Housing:Rent"
         - gridcell "Paying the rent"
-        - gridcell /\d+ USD/
-      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
         - gridcell /\d+-\d+-\d+/
-        - gridcell "RiverBank Properties"
+        - gridcell "Expenses:Housing:Rent"
         - gridcell "Paying the rent"
-        - gridcell /\d+ USD/
-      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
         - gridcell /\d+-\d+-\d+/
-        - gridcell "RiverBank Properties"
+        - gridcell "Expenses:Housing:Rent"
         - gridcell "Paying the rent"
-        - gridcell /\d+ USD/
-      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
         - gridcell /\d+-\d+-\d+/
-        - gridcell "RiverBank Properties"
+        - gridcell "Expenses:Housing:Rent"
         - gridcell "Paying the rent"
-        - gridcell /\d+ USD/
-      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
         - gridcell /\d+-\d+-\d+/
-        - gridcell "RiverBank Properties"
+        - gridcell "Expenses:Housing:Rent"
         - gridcell "Paying the rent"
-        - gridcell /\d+ USD/
-      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
         - gridcell /\d+-\d+-\d+/
-        - gridcell "RiverBank Properties"
+        - gridcell "Expenses:Housing:Rent"
         - gridcell "Paying the rent"
-        - gridcell /\d+ USD/
-      - row /\d+-\d+-\d+ RiverBank Properties Paying the rent \d+ USD/:
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
         - gridcell /\d+-\d+-\d+/
-        - gridcell "RiverBank Properties"
+        - gridcell "Expenses:Housing:Rent"
         - gridcell "Paying the rent"
-        - gridcell /\d+ USD/
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
+      - row /\d+-\d+-\d+ Expenses:Housing:Rent Paying the rent recurring \$\d+,\d+/:
+        - gridcell /\d+-\d+-\d+/
+        - gridcell "Expenses:Housing:Rent"
+        - gridcell "Paying the rent"
+        - gridcell "recurring"
+        - gridcell /\$\d+,\d+/
   - paragraph: "Rows per page:"
   - 'combobox /Rows per page: \d+/'
   - paragraph: /1–\d+ of \d+/
   - button "Go to previous page" [disabled]
-  - button "Go to next page" [disabled]
+  - button "Go to next page"
