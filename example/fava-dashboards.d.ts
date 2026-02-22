@@ -4595,7 +4595,7 @@ declare module "fava-dashboards" {
   
   export function defineConfig(config: Config): Config;
   
-  export function EChartsPanel({ spec }: PanelProps<EChartsSpec>): JSX.Element;
+  function EChartsPanel({ spec }: PanelProps<EChartsSpec>): JSX.Element;
   
   export interface EChartsSpec extends EChartsOption {
       onClick?: (params: ECElementEvent) => void;

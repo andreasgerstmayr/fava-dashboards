@@ -4,11 +4,19 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const baseDir = path.join(fileURLToPath(import.meta.url), "../../..");
+const tmpPath = "_tmp";
 
-function runExtractorFor(projectFolder: string, entryPointFilePath: string, outFilePath: string) {
+function runExtractorFor(sourcePath: string, entryPointFilePath: string, outFilePath: string) {
+  // api-extractor skips node_modules, therefore create a temporarily symlink
+  if (sourcePath.startsWith("node_modules/")) {
+    fs.rmSync(tmpPath, { force: true });
+    fs.symlinkSync(sourcePath, tmpPath, "dir");
+    sourcePath = tmpPath;
+  }
+
   const config = ExtractorConfig.prepare({
     configObject: {
-      projectFolder: projectFolder,
+      projectFolder: sourcePath,
       mainEntryPointFilePath: entryPointFilePath,
       compiler: {
         tsconfigFilePath: path.join(baseDir, "tsconfig.json"),
@@ -24,6 +32,8 @@ function runExtractorFor(projectFolder: string, entryPointFilePath: string, outF
   });
 
   const result = Extractor.invoke(config, { localBuild: true });
+  fs.rmSync(tmpPath, { force: true });
+
   if (!result.succeeded) {
     throw new Error(`${entryPointFilePath}: ${result.errorCount} errors`);
   }
@@ -38,8 +48,8 @@ function embedFile(path: string) {
 
 function run() {
   runExtractorFor(".", "dist/src/index.d.ts", "dist/fava-dashboards.d.ts");
-  runExtractorFor("scripts/dts/@mui__x-data-grid", "index.d.ts", "dist/mui-x-data-grid.d.ts");
-  runExtractorFor("scripts/dts/@types__d3-sankey", "index.d.ts", "dist/d3-sankey.d.ts");
+  runExtractorFor("node_modules/@mui/x-data-grid", "index.d.ts", "dist/mui-x-data-grid.d.ts");
+  runExtractorFor("node_modules/@types/d3-sankey", "index.d.ts", "dist/d3-sankey.d.ts");
 
   const bundle = `// This file is auto-generated and contains type declarations for fava-dashboards and its dependencies.
 // It is only required when using TypeScript (dashboards.tsx) and enables type checking and auto completion in the code editor.
