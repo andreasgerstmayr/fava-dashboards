@@ -27649,7 +27649,7 @@ declare module "@mui/x-data-grid" {
 }
 
 declare module "react" {
-// NOTE: Users of the `experimental` builds of React should add a reference
+  // NOTE: Users of the `experimental` builds of React should add a reference
 // to 'react/experimental' in their project. See experimental.d.ts's top comment
 // for reference and documentation on how exactly to do it.
 
@@ -31980,7 +31980,7 @@ type ReactManagedAttributes<C, P> = C extends { defaultProps: infer D } ? Defaul
 }
 
 declare module "react/jsx-runtime" {
-import * as React from "react";
+  import * as React from "react";
 export { Fragment } from "react";
 
 export namespace JSX {

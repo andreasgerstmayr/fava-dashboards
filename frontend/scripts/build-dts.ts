@@ -61,11 +61,11 @@ declare module "@mui/x-data-grid" {
 }
 
 declare module "react" {
-  ${fs.readFileSync("scripts/dts/@types__react/index.d.ts", "utf8")}
+  ${fs.readFileSync("node_modules/@types/react/index.d.ts", "utf8")}
 }
 
 declare module "react/jsx-runtime" {
-  ${fs.readFileSync("scripts/dts/@types__react/jsx-runtime.d.ts", "utf8").replaceAll('from "./"', 'from "react"')}
+  ${fs.readFileSync("node_modules/@types/react/jsx-runtime.d.ts", "utf8").replaceAll('from "./"', 'from "react"')}
 }
 `;
 
