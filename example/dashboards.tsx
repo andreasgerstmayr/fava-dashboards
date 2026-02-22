@@ -449,7 +449,7 @@ export default defineConfig({
                 valueFormatter: anyFormatter(currencyFormatter),
               },
               legend: {
-                top: "bottom",
+                bottom: 0,
               },
               xAxis: {
                 type: "time",
@@ -613,7 +613,7 @@ export default defineConfig({
                 valueFormatter: anyFormatter(currencyFormatter),
               },
               legend: {
-                top: "bottom",
+                bottom: 0,
               },
               xAxis: {
                 type: "time",
@@ -748,7 +748,7 @@ export default defineConfig({
                 },
               },
               legend: {
-                top: "bottom",
+                bottom: 0,
               },
               xAxis: {
                 data: years,
@@ -1377,7 +1377,7 @@ export default defineConfig({
                 valueFormatter: anyFormatter(currencyFormatter),
               },
               legend: {
-                top: "bottom",
+                bottom: 0,
               },
               xAxis: {
                 type: "time",
@@ -1577,31 +1577,31 @@ export default defineConfig({
               return { tag: "unknown", year: 0 };
             }
 
-            const dataset: Record<number, Record<string, number>> = {}; // ex. {2025: {"date": 2025, "_sum": 8, "trip-chicago-2025": 5, "trip-paris-2025": 3}}
-            const tags: string[] = []; // sorted by date
+            const dataset: Record<number, Record<string, number>> = {}; // ex. {2025: {"_date": 2025, "_sum": 8, "trip-chicago-2025": 5, "trip-paris-2025": 3}}
+            const tags: string[] = []; // sorted by the last transaction date of a tag
             for (const row of result) {
               const { tag, year } = parseTag(row.tags);
               if (!(year in dataset)) {
-                dataset[year] = { date: year };
+                dataset[year] = { _date: year, _sum: 0 };
               }
-              if (!(tag in dataset[year])) {
+              if (!tags.includes(tag)) {
                 tags.push(tag);
               }
-              dataset[year]["_sum"] = (dataset[year]["_sum"] ?? 0) + row.value.number;
               dataset[year][tag] = (dataset[year][tag] ?? 0) + row.value.number;
+              dataset[year]["_sum"] += row.value.number;
             }
 
             const series: BarSeriesOption[] = [...tags].reverse().map((tag) => ({
               type: "bar",
               name: tag,
               stack: "total",
-              encode: { x: "date", y: tag },
+              encode: { x: "_date", y: tag },
               barMaxWidth: 100,
             }));
-            // totals labels
+
+            // add synthetic series with value=0 and label=sum
             series.push({
               type: "bar",
-              name: "total",
               stack: "total",
               data: Object.keys(dataset).map((year) => [parseInt(year), 0]),
               label: {
@@ -1629,7 +1629,7 @@ export default defineConfig({
               dataset: {
                 source: Object.values(dataset),
                 // required because not every row contains all tags
-                dimensions: ["date", ...tags],
+                dimensions: ["_date", ...tags],
               },
               series,
               onClick: (event) => {
@@ -1863,7 +1863,7 @@ export default defineConfig({
                 valueFormatter: anyFormatter(currencyFormatter),
               },
               legend: {
-                top: "bottom",
+                bottom: 0,
               },
               xAxis: {
                 type: "time",

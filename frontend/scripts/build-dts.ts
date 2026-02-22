@@ -1,5 +1,4 @@
 import { Extractor, ExtractorConfig } from "@microsoft/api-extractor";
-import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -38,17 +37,9 @@ function embedFile(path: string) {
 }
 
 function run() {
-  execSync("mkdir tmp");
-
-  // workaround, because packages in node_modules are handled differently
-  execSync("cp -a node_modules/@mui/x-data-grid tmp");
-  execSync("cp -a node_modules/@types/d3-sankey tmp");
-
   runExtractorFor(".", "dist/src/index.d.ts", "dist/fava-dashboards.d.ts");
-  runExtractorFor("tmp/x-data-grid", "index.d.ts", "dist/mui-x-data-grid.d.ts");
-  runExtractorFor("tmp/d3-sankey", "index.d.ts", "dist/d3-sankey.d.ts");
-
-  execSync("rm -r tmp");
+  runExtractorFor("scripts/dts/@mui__x-data-grid", "index.d.ts", "dist/mui-x-data-grid.d.ts");
+  runExtractorFor("scripts/dts/@types__d3-sankey", "index.d.ts", "dist/d3-sankey.d.ts");
 
   const bundle = `// This file is auto-generated and contains type declarations for fava-dashboards and its dependencies.
 // It is only required when using TypeScript (dashboards.tsx) and enables type checking and auto completion in the code editor.
@@ -67,6 +58,16 @@ declare module "d3-sankey" {
 
 declare module "@mui/x-data-grid" {
   ${embedFile("dist/mui-x-data-grid.d.ts")}
+}
+
+declare module "react" {
+  ${fs.readFileSync("scripts/dts/@types__react/index.d.ts", "utf8")}
+}
+
+declare module "react/jsx-runtime" {
+  ${fs
+    .readFileSync("scripts/dts/@types__react/jsx-runtime.d.ts", "utf8")
+    .replaceAll('from "./"', 'from "react"')}
 }
 `;
 
