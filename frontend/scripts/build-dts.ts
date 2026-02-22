@@ -65,9 +65,7 @@ declare module "react" {
 }
 
 declare module "react/jsx-runtime" {
-  ${fs
-    .readFileSync("scripts/dts/@types__react/jsx-runtime.d.ts", "utf8")
-    .replaceAll('from "./"', 'from "react"')}
+  ${fs.readFileSync("scripts/dts/@types__react/jsx-runtime.d.ts", "utf8").replaceAll('from "./"', 'from "react"')}
 }
 `;
 
