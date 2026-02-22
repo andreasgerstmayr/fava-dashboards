@@ -1,32 +1,53 @@
 import { Extractor, ExtractorConfig } from "@microsoft/api-extractor";
-import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const baseDir = path.join(fileURLToPath(import.meta.url), "../../..");
+const tmpPath = "_tmp";
 
-function runExtractorFor(projectFolder: string, entryPointFilePath: string, outFilePath: string) {
-  const config = ExtractorConfig.prepare({
-    configObject: {
-      projectFolder: projectFolder,
-      mainEntryPointFilePath: entryPointFilePath,
-      compiler: {
-        tsconfigFilePath: path.join(baseDir, "tsconfig.json"),
-      },
-      dtsRollup: {
-        enabled: true,
-        publicTrimmedFilePath: path.join(baseDir, outFilePath),
-      },
-      newlineKind: "lf",
-    },
-    packageJsonFullPath: path.join(baseDir, "package.json"),
-    configObjectFullPath: undefined,
-  });
+function rmSymlink(path: string) {
+  try {
+    fs.unlinkSync(path);
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code !== "ENOENT") {
+      throw err;
+    }
+  }
+}
 
-  const result = Extractor.invoke(config, { localBuild: true });
-  if (!result.succeeded) {
-    throw new Error(`${entryPointFilePath}: ${result.errorCount} errors`);
+function runExtractorFor(sourcePath: string, entryPointFilePath: string, outFilePath: string) {
+  // api-extractor skips node_modules, therefore create a temporarily symlink
+  if (sourcePath.startsWith("node_modules/")) {
+    rmSymlink(tmpPath);
+    fs.symlinkSync(sourcePath, tmpPath, "dir");
+    sourcePath = tmpPath;
+  }
+
+  try {
+    const config = ExtractorConfig.prepare({
+      configObject: {
+        projectFolder: sourcePath,
+        mainEntryPointFilePath: entryPointFilePath,
+        compiler: {
+          tsconfigFilePath: path.join(baseDir, "tsconfig.json"),
+        },
+        dtsRollup: {
+          enabled: true,
+          publicTrimmedFilePath: path.join(baseDir, outFilePath),
+        },
+        newlineKind: "lf",
+      },
+      packageJsonFullPath: path.join(baseDir, "package.json"),
+      configObjectFullPath: undefined,
+    });
+
+    const result = Extractor.invoke(config, { localBuild: true });
+    if (!result.succeeded) {
+      throw new Error(`${entryPointFilePath}: ${result.errorCount} errors`);
+    }
+  } finally {
+    rmSymlink(tmpPath);
   }
 }
 
@@ -38,17 +59,9 @@ function embedFile(path: string) {
 }
 
 function run() {
-  execSync("mkdir tmp");
-
-  // workaround, because packages in node_modules are handled differently
-  execSync("cp -a node_modules/@mui/x-data-grid tmp");
-  execSync("cp -a node_modules/@types/d3-sankey tmp");
-
   runExtractorFor(".", "dist/src/index.d.ts", "dist/fava-dashboards.d.ts");
-  runExtractorFor("tmp/x-data-grid", "index.d.ts", "dist/mui-x-data-grid.d.ts");
-  runExtractorFor("tmp/d3-sankey", "index.d.ts", "dist/d3-sankey.d.ts");
-
-  execSync("rm -r tmp");
+  runExtractorFor("node_modules/@mui/x-data-grid", "index.d.ts", "dist/mui-x-data-grid.d.ts");
+  runExtractorFor("node_modules/@types/d3-sankey", "index.d.ts", "dist/d3-sankey.d.ts");
 
   const bundle = `// This file is auto-generated and contains type declarations for fava-dashboards and its dependencies.
 // It is only required when using TypeScript (dashboards.tsx) and enables type checking and auto completion in the code editor.
@@ -67,6 +80,14 @@ declare module "d3-sankey" {
 
 declare module "@mui/x-data-grid" {
   ${embedFile("dist/mui-x-data-grid.d.ts")}
+}
+
+declare module "react" {
+  ${fs.readFileSync("node_modules/@types/react/index.d.ts", "utf8")}
+}
+
+declare module "react/jsx-runtime" {
+  ${fs.readFileSync("node_modules/@types/react/jsx-runtime.d.ts", "utf8").replaceAll('from "./"', 'from "react"')}
 }
 `;
 

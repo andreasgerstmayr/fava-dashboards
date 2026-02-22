@@ -9,5 +9,6 @@
         "skipLibCheck": true,
         "declaration": true,
         "outDir": "dist"
-    }
+    },
+    "exclude": ["tests/dashboards"]
 }
