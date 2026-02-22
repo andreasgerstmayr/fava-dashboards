@@ -6,36 +6,48 @@ import { fileURLToPath } from "url";
 const baseDir = path.join(fileURLToPath(import.meta.url), "../../..");
 const tmpPath = "_tmp";
 
+function rmSymlink(path: string) {
+  try {
+    fs.unlinkSync(path);
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code !== "ENOENT") {
+      throw err;
+    }
+  }
+}
+
 function runExtractorFor(sourcePath: string, entryPointFilePath: string, outFilePath: string) {
   // api-extractor skips node_modules, therefore create a temporarily symlink
   if (sourcePath.startsWith("node_modules/")) {
-    fs.rmSync(tmpPath, { force: true });
+    rmSymlink(tmpPath);
     fs.symlinkSync(sourcePath, tmpPath, "dir");
     sourcePath = tmpPath;
   }
 
-  const config = ExtractorConfig.prepare({
-    configObject: {
-      projectFolder: sourcePath,
-      mainEntryPointFilePath: entryPointFilePath,
-      compiler: {
-        tsconfigFilePath: path.join(baseDir, "tsconfig.json"),
+  try {
+    const config = ExtractorConfig.prepare({
+      configObject: {
+        projectFolder: sourcePath,
+        mainEntryPointFilePath: entryPointFilePath,
+        compiler: {
+          tsconfigFilePath: path.join(baseDir, "tsconfig.json"),
+        },
+        dtsRollup: {
+          enabled: true,
+          publicTrimmedFilePath: path.join(baseDir, outFilePath),
+        },
+        newlineKind: "lf",
       },
-      dtsRollup: {
-        enabled: true,
-        publicTrimmedFilePath: path.join(baseDir, outFilePath),
-      },
-      newlineKind: "lf",
-    },
-    packageJsonFullPath: path.join(baseDir, "package.json"),
-    configObjectFullPath: undefined,
-  });
+      packageJsonFullPath: path.join(baseDir, "package.json"),
+      configObjectFullPath: undefined,
+    });
 
-  const result = Extractor.invoke(config, { localBuild: true });
-  fs.rmSync(tmpPath, { force: true });
-
-  if (!result.succeeded) {
-    throw new Error(`${entryPointFilePath}: ${result.errorCount} errors`);
+    const result = Extractor.invoke(config, { localBuild: true });
+    if (!result.succeeded) {
+      throw new Error(`${entryPointFilePath}: ${result.errorCount} errors`);
+    }
+  } finally {
+    rmSymlink(tmpPath);
   }
 }
 
