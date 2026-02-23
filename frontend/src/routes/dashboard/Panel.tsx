@@ -1,11 +1,12 @@
 import { Box, Card, Skeleton, Stack } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { ReactElement } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { urlFor } from "../../api/url";
 import { useConfigContext } from "../../components/ConfigProvider";
 import { ErrorAlert } from "../../components/ErrorAlert";
 import { PanelProps, panelRegistry, PanelSpecOf } from "../../panels/registry";
+import { SpecParams } from "../../schemas/v2/dashboard";
 import { Ledger } from "../../schemas/v2/ledger";
 import { Dashboard, Panel } from "../../schemas/v2/schema";
 import { StrictResolvedVariables } from "../../schemas/v2/variables";
@@ -23,7 +24,6 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
   const variableDefinitions = [...(dashboard.variables ?? []), ...(panel.variables ?? [])];
   const resolvedVariables = useVariables(ledger, variableDefinitions);
   const renderedPanel = useRenderPanel(ledger, panel, resolvedVariables.data?.values);
-  const isPending = resolvedVariables.isPending || renderedPanel.isPending;
   const error = resolvedVariables.error || renderedPanel.error;
 
   return (
@@ -64,7 +64,7 @@ export function PanelCard({ ledger, dashboard, panel }: PanelCardProps) {
         <Box style={{ height: panel.height }}>
           {error ? (
             <ErrorAlert error={error} />
-          ) : isPending ? (
+          ) : renderedPanel.isPending ? (
             <Skeleton variant="rounded" sx={{ width: "100%", height: "100%" }} />
           ) : (
             <ErrorBoundary FallbackComponent={ErrorAlert}>{renderedPanel.data}</ErrorBoundary>
@@ -85,7 +85,7 @@ function useRenderPanel(ledger: Ledger, panel: Panel, variables: StrictResolvedV
         return;
       }
 
-      const specParams = { panel, ledger, variables };
+      const specParams: SpecParams = { panel, ledger, variables };
 
       // React panel
       if (panel.kind === "react") {
@@ -98,7 +98,7 @@ function useRenderPanel(ledger: Ledger, panel: Panel, variables: StrictResolvedV
         props: PanelProps<PanelSpecOf<typeof panel.kind>>,
       ) => ReactElement;
       if (!PanelComponent) {
-        return <span>Unknown panel kind {panel.kind}.</span>;
+        throw new Error(`Unknown panel kind ${panel.kind}`);
       }
       const spec = await Promise.resolve(panel.spec(specParams));
       return <PanelComponent spec={spec} />;
@@ -106,5 +106,7 @@ function useRenderPanel(ledger: Ledger, panel: Panel, variables: StrictResolvedV
     // this query returns a new object every time, which would trigger a re-render and new animation of the panel
     refetchOnWindowFocus: false,
     staleTime: Infinity,
+    // do not flash skeleton on e.g. variable changes and do not unmount React panels to avoid losing state
+    placeholderData: keepPreviousData,
   });
 }
