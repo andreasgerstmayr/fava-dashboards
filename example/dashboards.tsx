@@ -5,6 +5,7 @@ import {
   D3SankeyLink,
   D3SankeyNode,
   defineConfig,
+  EChartsPanel,
   EChartsSpec,
   Inventory,
   Ledger,
@@ -12,6 +13,7 @@ import {
   TableSpec,
   Variable,
 } from "fava-dashboards";
+import React from "react";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -174,114 +176,114 @@ function StatChart(
   };
 }
 
-async function StackedYearOverYear(
-  ledger: Ledger,
-  dataset: { year: number; account: string; category: string; value: number }[],
-  currency: string,
-  stacked: boolean,
-): Promise<EChartsSpec> {
-  const currencyFormatter = getCurrencyFormatter(currency);
-  const years = iterateYears(ledger.dateFirst, ledger.dateLast);
-  const maxAccounts = 7; // number of accounts to show, sorted by sum
+function YearOverYearPanel(ledger: Ledger, currency: string, initialAccount: string, inflationAdjusted: boolean) {
+  const [accountFilter, setAccountFilter] = React.useState(initialAccount);
+  const [queryResult, setQueryResult] = React.useState<
+    { year: number; account: string; value: Inventory }[] | undefined
+  >(undefined);
+  const [cpiResult, setCpiResult] = React.useState<{ year: number; index: number }[] | undefined>(undefined);
 
-  const categorySums: Record<string, number> = {};
-  const yearlySums: Record<string, number> = {};
-  for (const row of dataset) {
-    categorySums[row.category] = (categorySums[row.category] ?? 0) + row.value;
-    yearlySums[`${row.year}/${row.category}`] = (yearlySums[`${row.year}/${row.category}`] ?? 0) + row.value;
-  }
-  const categories = Object.entries(categorySums)
-    .sort(([, sumA], [, sumB]) => sumB - sumA)
-    .slice(0, maxAccounts)
-    .map(([name]) => name)
-    .reverse();
+  React.useEffect(() => {
+    ledger
+      .query(
+        `SELECT year, root(account, ${accountFilter.split(":").length + 1}) AS account, CONVERT(SUM(position), '${currency}', LAST(date)) AS value
+         WHERE account ~ '^${accountFilter}(:|$)'
+         GROUP BY account, year`,
+      )
+      .then(setQueryResult);
+  }, [ledger, accountFilter, currency]);
 
-  if (!stacked) {
-    return {
-      legend: {
-        top: "bottom",
-      },
-      tooltip: {
-        trigger: "axis",
-        axisPointer: {
-          type: "shadow",
-        },
-        valueFormatter: anyFormatter(currencyFormatter),
-      },
-      xAxis: {
-        axisLabel: {
-          formatter: currencyFormatter,
-        },
-      },
-      yAxis: {
-        data: categories.map((category) => category.split(":").slice(1).join(":")),
-      },
-      grid: {
-        containLabel: true,
-        left: 0,
-      },
-      series: years.map((year) => ({
-        type: "bar",
-        name: year,
-        data: categories.map((category) => yearlySums[`${year}/${category}`] ?? 0),
-        label: {
-          show: true,
-          position: "right",
-          formatter: (params: any) => currencyFormatter(params.value),
-        },
-        emphasis: {
-          focus: "series",
-        },
-      })),
-      onClick: (event) => {
-        const link = "../../account/{account}/?time={time}"
-          .replace("{account}", categories[event.dataIndex])
-          .replace("{time}", event.seriesName ?? "");
-        window.open(ledger.urlFor(link));
-      },
-    };
-  }
-
-  const filteredDataset = dataset
-    .filter((row) => categories.includes(row.category))
-    .sort((a, b) => a.year - b.year || a.account.localeCompare(b.account));
-
-  const series: BarSeriesOption[] = [];
-  for (const row of filteredDataset) {
-    series.push({
-      type: "bar",
-      name: row.account, // name decides the color of the bar
-      stack: String(row.year),
-      data: categories.map((category) => (category == row.category ? row.value : 0)),
-      emphasis: {
-        focus: "series",
-      },
-    });
-  }
-
-  // add labels at end of bar
-  for (const category of categories) {
-    for (const year of years) {
-      series.push({
-        type: "bar",
-        name: "sum",
-        stack: String(year),
-        data: categories.map((c) => (c == category ? 0 : undefined)),
-        label: {
-          show: `${year}/${category}` in yearlySums,
-          position: "right",
-          formatter: () => currencyFormatter(yearlySums[`${year}/${category}`] ?? 0),
-        },
-        tooltip: {
-          show: false,
-        },
-      });
+  React.useEffect(() => {
+    if (!inflationAdjusted || cpiResult !== undefined) {
+      return;
     }
+    ledger
+      .query(
+        `SELECT DISTINCT YEAR(date) as year, amount.number AS index
+         FROM prices
+         WHERE currency = 'CPI'
+         ORDER BY date`,
+      )
+      .then(setCpiResult);
+  }, [ledger, cpiResult, inflationAdjusted]);
+
+  if (queryResult === undefined || (inflationAdjusted && cpiResult === undefined)) {
+    return <span>Loading...</span>;
   }
 
-  return {
+  const currencyFormatter = getCurrencyFormatter(currency);
+  const lastYear = Math.max(...queryResult.map((r) => r.year));
+  const cpiYears = (cpiResult || []).map((c) => c.year);
+  const cpiByYear: Record<number, number> = Object.fromEntries(
+    (cpiResult || []).map(({ year, index }) => [year, index]),
+  );
+  function getInflation(year: number) {
+    const inflation = cpiByYear[year];
+    if (inflation !== undefined) {
+      return inflation;
+    }
+
+    const fallbackYear = [...cpiYears].reverse().find((cpiYear) => cpiYear <= year);
+    if (fallbackYear !== undefined) {
+      return cpiByYear[fallbackYear];
+    }
+
+    throw new Error(
+      `No Consumer Price Index (CPI) found for year ${year}. Please add a price directive '${year}-01-01 price CPI <index> USD' to your ledger.`,
+    );
+  }
+
+  const dataset: Record<number, Record<string, number>> = {}; // ex. {2025: {"_date": 2025, "_sum": 8, "Expenses:Food": 5, "Expenses:Travel": 3}}
+  const accounts = new Set<string>();
+  for (const { year, account, value } of queryResult) {
+    if (!(year in dataset)) {
+      dataset[year] = { _date: year, _sum: 0 };
+    }
+    accounts.add(account);
+
+    let amount = initialAccount === "Income" ? -(value[currency] ?? 0) : (value[currency] ?? 0);
+    if (inflationAdjusted) {
+      const inflation = getInflation(lastYear) / getInflation(year);
+      amount *= inflation;
+    }
+    dataset[year][account] = amount;
+    dataset[year]["_sum"] += amount;
+  }
+
+  const series: BarSeriesOption[] = [...accounts].sort().map((account) => ({
+    type: "bar",
+    name: account,
+    stack: "total",
+    encode: { x: account, y: "_date" },
+    emphasis: {
+      focus: "series",
+    },
+  }));
+
+  // add synthetic series with value=0 and label=sum
+  series.push({
+    type: "bar",
+    stack: "total",
+    data: Object.keys(dataset).map((year) => [0, parseInt(year)]),
+    label: {
+      show: true,
+      position: "right",
+      formatter: ({ value }) => currencyFormatter(dataset[(value as [number, number])[1]]["_sum"]),
+    },
+    tooltip: {
+      show: false,
+    },
+  });
+
+  const option: EChartsSpec = {
+    grid: {
+      top: 0,
+    },
     tooltip: {
       valueFormatter: anyFormatter(currencyFormatter),
+    },
+    legend: {
+      bottom: 0,
     },
     xAxis: {
       axisLabel: {
@@ -289,25 +291,62 @@ async function StackedYearOverYear(
       },
     },
     yAxis: {
-      data: categories.map((category) => category.split(":").slice(1).join(":")),
+      type: "category",
     },
-    grid: {
-      containLabel: true,
-      left: 0,
+    dataset: {
+      source: Object.values(dataset).reverse(),
+      // required because not every row contains all accounts
+      dimensions: ["_date", ...accounts],
     },
     series,
     onClick: (event) => {
-      if (event.seriesIndex === undefined) {
+      // click on total label
+      if (event.data && (event.data as [number, number])[0] === 0) {
         return;
       }
 
-      const serie = series[event.seriesIndex];
-      const link = "../../account/{account}/?time={time}"
-        .replace("{account}", serie.name as string)
-        .replace("{time}", serie.stack as string);
-      window.open(ledger.urlFor(link));
+      const account = event.seriesName as string;
+      if (accountFilter != account) {
+        setAccountFilter(account);
+      } else {
+        const link = "../../account/{account}/?time={time}"
+          .replace("{account}", account)
+          .replace("{time}", (event.data as { _date: string })["_date"]);
+        window.open(ledger.urlFor(link));
+      }
     },
   };
+
+  const accountParts = accountFilter.split(":");
+  const breadcrumbs = accountParts.map((part, i) => {
+    const account = accountParts.slice(0, i + 1).join(":");
+    const handleClick = (event: any) => {
+      event.preventDefault();
+      setAccountFilter(account);
+    };
+    return (
+      <a key={i} href="#" onClick={handleClick}>
+        {part}
+      </a>
+    );
+  });
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "10px", height: "100%" }}>
+      <div title="Press on a an account in the chart to zoom in">
+        <strong>Account: </strong>
+        {breadcrumbs.map((breadcrumb, i) => (
+          <React.Fragment key={i}>
+            {i > 0 && <span> &raquo; </span>}
+            {breadcrumb}
+          </React.Fragment>
+        ))}
+      </div>
+      <div style={{ flexGrow: 1 }}>
+        <EChartsPanel spec={option} />
+      </div>
+    </div>
+  );
 }
 
 const currencyVariable: Variable = {
@@ -1461,57 +1500,41 @@ export default defineConfig({
         {
           title: "Income Year-Over-Year 💰",
           width: "50%",
-          height: "700px",
           variables: [
             {
-              name: "display",
-              label: "Display",
+              name: "inflation",
               display: "toggle",
-              options: () => ["single", "stacked"],
+              options: () => ["nominal", "inflation adjusted"],
             },
           ],
-          kind: "echarts",
-          spec: async ({ ledger, variables }) => {
-            const result = await ledger.query<{ year: number; account: string; category: string; value: Inventory }>(
-              `SELECT year, account, root(account, 3) AS category, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
-               WHERE account ~ '^Income:'
-               GROUP BY account, category, year`,
+          kind: "react",
+          spec: ({ ledger, variables }) => {
+            return YearOverYearPanel(
+              ledger,
+              variables.currency,
+              "Income",
+              variables.inflation === "inflation adjusted",
             );
-            const dataset = result.map(({ year, account, category, value }) => ({
-              year,
-              account,
-              category,
-              value: -(value[variables.currency] ?? 0),
-            }));
-            return StackedYearOverYear(ledger, dataset, variables.currency, variables.display == "stacked");
           },
         },
         {
           title: "Expenses Year-Over-Year 💸",
           width: "50%",
-          height: "700px",
           variables: [
             {
-              name: "display",
-              label: "Display",
+              name: "inflation",
               display: "toggle",
-              options: () => ["single", "stacked"],
+              options: () => ["nominal", "inflation adjusted"],
             },
           ],
-          kind: "echarts",
-          spec: async ({ ledger, variables }) => {
-            const result = await ledger.query<{ year: number; account: string; category: string; value: Inventory }>(
-              `SELECT year, account, root(account, 2) AS category, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
-               WHERE account ~ '^Expenses:'
-               GROUP BY account, category, year`,
+          kind: "react",
+          spec: ({ ledger, variables }) => {
+            return YearOverYearPanel(
+              ledger,
+              variables.currency,
+              "Expenses",
+              variables.inflation === "inflation adjusted",
             );
-            const dataset = result.map(({ year, account, category, value }) => ({
-              year,
-              account,
-              category,
-              value: value[variables.currency] ?? 0,
-            }));
-            return StackedYearOverYear(ledger, dataset, variables.currency, variables.display == "stacked");
           },
         },
         {

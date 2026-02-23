@@ -1,6 +1,7 @@
 - banner:
   - img
   - heading "Beancount ▾›Dashboards" [level=1]:
+    - text: ""
     - strong: ›Dashboards
   - combobox "Time"
   - combobox "Account"
@@ -110,12 +111,18 @@
       - /url: http://127.0.0.1:5000/beancount/account/Expenses:Food/
   - heading "Income Year-Over-Year 💰" [level=3]
   - group:
-    - button "single" [pressed]
-    - button "stacked"
+    - button "nominal" [pressed]
+    - button "inflation adjusted"
+  - strong: "Account:"
+  - link "Income":
+    - /url: "#"
   - heading "Expenses Year-Over-Year 💸" [level=3]
   - group:
-    - button "single" [pressed]
-    - button "stacked"
+    - button "nominal" [pressed]
+    - button "inflation adjusted"
+  - strong: "Account:"
+  - link "Expenses":
+    - /url: "#"
   - heading /Top \d+ biggest expenses/ [level=3]
   - grid:
     - row "date payee narration position":
