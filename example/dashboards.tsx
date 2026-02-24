@@ -1055,7 +1055,7 @@ export default defineConfig({
           height: "400px",
           link: "../../income_statement/",
           kind: "echarts",
-          spec: async ({ ledger, variables }) => {
+          spec: async ({ panel, ledger, variables }) => {
             const currencyFormatter = getCurrencyFormatter(variables.currency);
             const monthFormatter = new Intl.DateTimeFormat(undefined, { month: "short" }).format;
             const years = iterateYears(ledger.dateFirst, ledger.dateLast);
@@ -1085,14 +1085,14 @@ export default defineConfig({
             const max = Math.max(...data.map(([label, val]) => (label.includes("-") ? Math.abs(val) : 0)));
             const maxRounded = Math.round(max * 100) / 100;
 
+            panel.height = `${120 + years.length * 50}px`;
             return {
               tooltip: {
                 position: "top",
                 valueFormatter: anyFormatter(currencyFormatter),
               },
               grid: {
-                top: 30,
-                height: Math.min(50 * years.length, 280),
+                top: 20,
                 bottom: 100, // space for visualMap
               },
               xAxis: {
