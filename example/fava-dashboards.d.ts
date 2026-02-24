@@ -50,7 +50,7 @@ declare module "fava-dashboards" {
   
   export type D3SankeyNode = SankeyNode<SankeyNodeProperties, SankeyLinkProperties>;
   
-  function D3SankeyPanel({ spec }: PanelProps<SankeySpec>): JSX.Element;
+  export function D3SankeyPanel({ spec }: PanelProps<SankeySpec>): JSX.Element;
   
   export interface Dashboard {
       name: string;
@@ -4595,7 +4595,7 @@ declare module "fava-dashboards" {
   
   export function defineConfig(config: Config): Config;
   
-  function EChartsPanel({ spec }: PanelProps<EChartsSpec>): JSX.Element;
+  export function EChartsPanel({ spec }: PanelProps<EChartsSpec>): JSX.Element;
   
   export interface EChartsSpec extends EChartsOption {
       onClick?: (params: ECElementEvent) => void;
@@ -4741,7 +4741,7 @@ declare module "fava-dashboards" {
       variables: ResolvedVariables;
   };
   
-  function TablePanel({ spec }: PanelProps<TableSpec>): JSX.Element;
+  export function TablePanel({ spec }: PanelProps<TableSpec>): JSX.Element;
   
   export type TableSpec<R extends GridValidRowModel = any> = DataGridProps<R>;
   
