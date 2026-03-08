@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.0.0b6 (2026-03-08)
+* example: add interactive, inflation-adjusted income and expenses year-over-year charts [#172](https://github.com/andreasgerstmayr/fava-dashboards/pull/172) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* example: use dynamic height for savings heatmap [#175](https://github.com/andreasgerstmayr/fava-dashboards/pull/175) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* bump Fava dependency to v1.30.12 [#174](https://github.com/andreasgerstmayr/fava-dashboards/pull/174) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* avoid panel loading skeleton flicker when updating variables [#173](https://github.com/andreasgerstmayr/fava-dashboards/pull/173) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* chore: add React types, misc example changes [#171](https://github.com/andreasgerstmayr/fava-dashboards/pull/171) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+
 ## v2.0.0b5 (2026-02-12)
 * dev: optionally specify ledger file in make dev [#140](https://github.com/andreasgerstmayr/fava-dashboards/pull/140) ([@Evernight](https://github.com/Evernight))
 * fix: refresh panels if any filter changes [#169](https://github.com/andreasgerstmayr/fava-dashboards/pull/169) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
