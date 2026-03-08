@@ -34,7 +34,7 @@ Example dashboards with random data:
 
 ## Installation
 ```
-pip install fava-dashboards
+pip install "fava-dashboards>=2.0.0b6"
 ```
 
 Enable this plugin in Fava by adding the following lines to your ledger:
