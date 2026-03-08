@@ -41,7 +41,20 @@ class FavaDashboards(FavaExtensionBase):
 
     def read_ext_config(self) -> ExtConfig:
         cfg = self.config if isinstance(self.config, dict) else {}
-        dashboards_path = self.ledger.join_path(cfg.get("config", "dashboards.yaml"))
+
+        if "config" in cfg:
+            dashboards_path = self.ledger.join_path(cfg["config"])
+        else:
+            default_paths = [
+                self.ledger.join_path(path)
+                for path in ["dashboards.yaml", "dashboards.tsx", "dashboards.ts", "dashboards.jsx", "dashboards.js"]
+            ]
+            dashboards_path = default_paths[0]
+            for path in default_paths:
+                if path.exists():
+                    dashboards_path = path
+                    break
+
         if dashboards_path.suffix in [".tsx", ".ts", ".jsx", ".js"]:
             raise FavaAPIError(
                 f"{dashboards_path.name} is supported in fava-dashboards version 2.0.0 and later. You are currently running fava-dashboards version 1."
