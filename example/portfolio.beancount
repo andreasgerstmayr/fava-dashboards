@@ -1,3 +1,4 @@
+option "title" "Portfolio"
 option "operating_currency" "USD"
 plugin "beancount.plugins.implicit_prices"
 1980-05-12 custom "fava-extension" "fava_dashboards"
