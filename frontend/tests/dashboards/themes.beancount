@@ -4,4 +4,4 @@ option "operating_currency" "USD"
     'config': 'themes.tsx'
 }"
 
-include "common/_testdata.beancount"
+include "_testdata.beancount"

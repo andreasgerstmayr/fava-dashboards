@@ -21,4 +21,4 @@ RUN --mount=type=bind,source=frontend/package.json,target=frontend/package.json 
 
 COPY . .
 RUN make build
-CMD ["sh", "-c", "uv run fava example/example.beancount frontend/tests/dashboards/*.beancount"]
+CMD ["sh", "-c", "uv run fava example/example.beancount frontend/tests/dashboards/[!_]*.beancount"]

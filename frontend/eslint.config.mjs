@@ -31,5 +31,5 @@ export default defineConfig(
       ],
     },
   },
-  globalIgnores(["tests/dashboards/fava-dashboards.d.ts", "dist", "playwright-report"]),
+  globalIgnores(["dist", "playwright-report", "tests/dashboards/**/fava-dashboards.d.ts"]),
 );

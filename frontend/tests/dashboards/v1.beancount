@@ -4,4 +4,4 @@ option "operating_currency" "USD"
     'config': 'v1.yaml'
 }"
 
-include "common/_testdata.beancount"
+include "_testdata.beancount"

@@ -8,8 +8,8 @@
         "watch": "esbuild src/extension.ts --bundle --format=esm --loader:.css=file --outfile=../src/fava_dashboards/FavaDashboards.js --watch",
         "test": "playwright test",
         "type-check": "tsc --noEmit",
-        "lint": "eslint .",
-        "lint:fix": "eslint --fix ."
+        "lint": "eslint . tests/dashboards/multiple-files",
+        "lint:fix": "eslint --fix . tests/dashboards/multiple-files"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.2",

@@ -45,7 +45,7 @@ run:
 
 # Development with live reload (parametrizable beancount file path)
 # Usage: make dev LEDGER_FILE=path/to/file.beancount
-LEDGER_FILE ?= example/example.beancount frontend/tests/dashboards/*.beancount
+LEDGER_FILE ?= example/*.beancount frontend/tests/dashboards/[!_]*.beancount frontend/tests/dashboards/*/*.beancount
 dev:
 	npx concurrently --names fava,esbuild \
 	  "PYTHONUNBUFFERED=1 uv run fava --debug $(LEDGER_FILE)" \

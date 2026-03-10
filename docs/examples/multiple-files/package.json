@@ -1,0 +1,9 @@
+{
+    "type": "module",
+    "scripts": {
+        "build": "esbuild dashboards/index.ts --bundle --format=esm --external:fava-dashboards --outfile=dashboards.js"
+    },
+    "devDependencies": {
+        "esbuild": "^0.27.2"
+    }
+}

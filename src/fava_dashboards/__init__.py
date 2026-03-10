@@ -63,6 +63,9 @@ def api_response(func):
     return decorator
 
 
+SCRIPT_EXTENSIONS = [".tsx", ".ts", ".jsx", ".js"]
+
+
 class FavaDashboards(FavaExtensionBase):
     report_title = "Dashboards"
     has_js_module = True
@@ -73,10 +76,7 @@ class FavaDashboards(FavaExtensionBase):
         if "config" in cfg:
             dashboards_path = self.ledger.join_path(cfg["config"])
         else:
-            default_paths = [
-                self.ledger.join_path(path)
-                for path in ["dashboards.tsx", "dashboards.ts", "dashboards.jsx", "dashboards.js", "dashboards.yaml"]
-            ]
+            default_paths = [self.ledger.join_path(f"dashboards{ext}") for ext in [*SCRIPT_EXTENSIONS, ".yaml"]]
             dashboards_path = default_paths[0]
             for path in default_paths:
                 if path.exists():
@@ -162,11 +162,11 @@ class FavaDashboards(FavaExtensionBase):
     def api_v2_config(self):
         ext_config = self.read_ext_config()
 
-        dashboard_format = ext_config.dashboards_path.suffix
-        if dashboard_format == ".tsx":
+        dashboard_ext = ext_config.dashboards_path.suffix
+        if dashboard_ext in SCRIPT_EXTENSIONS:
             config_js = read_dashboards_tsx(ext_config.dashboards_path)
             return {"configJs": config_js}
-        elif dashboard_format == ".yaml":
+        elif dashboard_ext == ".yaml":
             # backwards compat
             dashboards_yaml = read_dashboards_yaml(ext_config.dashboards_path)
             if dashboards_yaml is None:
