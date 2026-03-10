@@ -63,7 +63,7 @@ def api_response(func):
     return decorator
 
 
-SCRIPT_EXTENSIONS = [".tsx", ".ts", ".jsx", ".js"]
+SCRIPT_EXTENSIONS = [".tsx", ".ts", ".jsx", ".js", ".cjs", ".mjs"]
 
 
 class FavaDashboards(FavaExtensionBase):
