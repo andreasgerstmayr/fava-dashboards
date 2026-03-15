@@ -1,4 +1,4 @@
-/// <reference types="./fava-dashboards.d.ts" />
+/// <reference path="./fava-dashboards.d.ts" />
 import { defineConfig, EChartsThemes } from "fava-dashboards";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

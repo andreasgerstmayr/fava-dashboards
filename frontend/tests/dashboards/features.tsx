@@ -1,4 +1,4 @@
-/// <reference types="./fava-dashboards.d.ts" />
+/// <reference path="./fava-dashboards.d.ts" />
 import { defineConfig } from "fava-dashboards";
 import React from "react";
 

@@ -1,0 +1,1 @@
+../fava-dashboards.d.ts

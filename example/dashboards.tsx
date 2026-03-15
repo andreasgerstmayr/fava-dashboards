@@ -1,4 +1,4 @@
-/// <reference types="./fava-dashboards.d.ts" />
+/// <reference path="./fava-dashboards.d.ts" />
 import { BarSeriesOption, ECElementEvent } from "echarts";
 import {
   Amount,
