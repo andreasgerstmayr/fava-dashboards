@@ -50,6 +50,9 @@
 
 Legacy `dashboards.yaml` configurations will be migrated transparently and are expected to work.
 
+## v1.2.3 (2026-03-08)
+* improve dashboard format detection to show an error when using `.ts[x]`, `.js[x]` in v1 (this format is only supported in v2+)
+
 ## v1.2.2 (2026-01-01)
 * show error when using the new dashboard format (`.ts[x]`, `.js[x]`) in v1 (this format is only supported in v2+)
 
