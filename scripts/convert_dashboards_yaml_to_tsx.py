@@ -74,7 +74,7 @@ def convert(in_path: Path, out_path: Path):
         return init + value
 
     config_tsx = re.sub(r'( *"spec": )(.+)$', add_fn, config_json, flags=re.MULTILINE)
-    config_tsx = f"""/// <reference types="./fava-dashboards.d.ts" />
+    config_tsx = f"""/// <reference path="./fava-dashboards.d.ts" />
 import {{ defineConfig }} from "fava-dashboards";
 
 {utils}

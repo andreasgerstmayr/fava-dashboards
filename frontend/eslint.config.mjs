@@ -31,5 +31,11 @@ export default defineConfig(
       ],
     },
   },
+  {
+    files: ["tests/dashboards/**/*.tsx"],
+    rules: {
+      "@typescript-eslint/triple-slash-reference": ["error", { path: "always" }],
+    },
+  },
   globalIgnores(["dist", "playwright-report", "tests/dashboards/**/fava-dashboards.d.ts"]),
 );

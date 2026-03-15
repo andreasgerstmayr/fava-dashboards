@@ -7,9 +7,9 @@
         "build:echarts-themes": "tsc; node dist/scripts/build-echarts-themes.js; npm run lint:fix",
         "watch": "esbuild src/extension.ts --bundle --format=esm --loader:.css=file --outfile=../src/fava_dashboards/FavaDashboards.js --watch",
         "test": "playwright test",
-        "type-check": "tsc --noEmit",
-        "lint": "eslint . tests/dashboards/multiple-files",
-        "lint:fix": "eslint --fix . tests/dashboards/multiple-files"
+        "type-check": "tsc --noEmit && tsc -p tests/dashboards/tsconfig.json --noEmit",
+        "lint": "eslint . tests/dashboards/multiple-files-example",
+        "lint:fix": "eslint --fix . tests/dashboards/multiple-files-example"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.2",
