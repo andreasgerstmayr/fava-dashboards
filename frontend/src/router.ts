@@ -19,7 +19,7 @@ function getExtensionPath() {
   // Grab the base url from the ledger data embedded in the page
   const baseUrl = JSON.parse(document.getElementById("ledger-data")?.textContent ?? "{}").base_url ?? "";
   const extension = "extension/FavaDashboards";
-  return `${baseUrl}${extension}`
+  return `${baseUrl}${extension}`;
 }
 
 export function slugify(s: string) {
