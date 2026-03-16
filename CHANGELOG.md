@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.0b7 (2026-03-16)
+* example: add monthly PnL table [#183](https://github.com/andreasgerstmayr/fava-dashboards/pull/183) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* fix: correctly produce extension path with Fava prefixes [#181](https://github.com/andreasgerstmayr/fava-dashboards/pull/181) ([@BenjaminDebeerst](https://github.com/BenjaminDebeerst))
+* fix: support .ts, .jsx, and .js extensions, and add dashboard example consisting of multiple files [#179](https://github.com/andreasgerstmayr/fava-dashboards/pull/179) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* feat: support .cjs and .mjs file extensions [#180](https://github.com/andreasgerstmayr/fava-dashboards/pull/180) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+
 ## v2.0.0b6 (2026-03-08)
 * example: add interactive, inflation-adjusted income and expenses year-over-year charts [#172](https://github.com/andreasgerstmayr/fava-dashboards/pull/172) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
 * example: use dynamic height for savings heatmap [#175](https://github.com/andreasgerstmayr/fava-dashboards/pull/175) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
