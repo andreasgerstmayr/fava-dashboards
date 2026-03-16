@@ -123,7 +123,7 @@
   - strong: "Account:"
   - link "Expenses":
     - /url: "#"
-  - heading /Top \d+ biggest expenses/ [level=3]
+  - heading /Top \d+ Largest Expenses/ [level=3]
   - grid:
     - row "date payee narration position":
       - columnheader "date"

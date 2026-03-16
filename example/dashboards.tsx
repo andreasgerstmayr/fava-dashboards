@@ -408,7 +408,7 @@ export default defineConfig({
           },
         },
         {
-          title: "Income/Expenses 💸",
+          title: "Income vs. Expenses 💸",
           width: "100%",
           height: "520px",
           link: "../../income_statement/",
@@ -520,6 +520,189 @@ export default defineConfig({
             };
           },
         },
+        {
+          title: "Monthly Profit and Loss 📅",
+          height: "500px",
+          kind: "table",
+          spec: async ({ ledger, variables }) => {
+            const currencyFormatter = getCurrencyFormatter(variables.currency);
+            const months = iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.year}-${m.month}`);
+
+            async function queryByMonth<T extends { year: number; month: number }>(
+              query: string,
+              valueFn: (row: T) => number,
+              fill: "zero" | "cumulative" = "zero",
+            ) {
+              const rows = await ledger.query<T>(query);
+              const byMonth = Object.fromEntries(rows.map((row) => [`${row.year}-${row.month}`, valueFn(row)]));
+
+              let lastValue = 0;
+              return Object.fromEntries(
+                months.map((month) => {
+                  switch (fill) {
+                    case "zero":
+                      return [month, byMonth[month] ?? 0];
+
+                    case "cumulative":
+                      if (month in byMonth) {
+                        lastValue = byMonth[month];
+                      }
+                      return [month, lastValue];
+                  }
+                }),
+              );
+            }
+
+            type Row = { year: number; month: number; value: Inventory };
+            const [income, expenses, assets, liabilities, unrealizedGains] = await Promise.all([
+              queryByMonth<Row>(
+                `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
+                 WHERE account ~ '^Income:'
+                 GROUP BY year, month`,
+                (row) => -row.value[variables.currency],
+              ),
+              queryByMonth<Row>(
+                `SELECT year, month, CONVERT(SUM(position), '${variables.currency}', LAST(date)) AS value
+                 WHERE account ~ '^Expenses:'
+                 GROUP BY year, month`,
+                (row) => row.value[variables.currency],
+              ),
+              queryByMonth<Row>(
+                `SELECT year, month,
+                 CONVERT(COST(LAST(balance)), '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
+                 WHERE account ~ '^Assets:'
+                 GROUP BY year, month`,
+                (row) => row.value[variables.currency],
+                "cumulative",
+              ),
+              queryByMonth<Row>(
+                `SELECT year, month,
+                 CONVERT(COST(LAST(balance)), '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS value
+                 WHERE account ~ '^Liabilities:'
+                 GROUP BY year, month`,
+                (row) => -row.value[variables.currency],
+                "cumulative",
+              ),
+              queryByMonth<{
+                year: number;
+                month: number;
+                market_value: Inventory;
+                book_value: Inventory;
+              }>(
+                `SELECT year, month,
+                 CONVERT(LAST(balance),       '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS market_value,
+                 CONVERT(COST(LAST(balance)), '${variables.currency}', DATE_TRUNC('month', FIRST(date)) + INTERVAL('1 month') - INTERVAL('1 day')) AS book_value
+                 WHERE account ~ '^(Assets|Liabilities):'
+                 GROUP BY year, month`,
+                (row) => row.market_value[variables.currency] - row.book_value[variables.currency],
+                "cumulative",
+              ),
+            ]);
+
+            return {
+              sx: {
+                "& .net_profit": {
+                  backgroundColor: "#f5f5f5",
+                  fontWeight: "bold",
+                },
+                "& .net_worth": {
+                  backgroundColor: "#f0f0f0",
+                  fontWeight: "bold",
+                },
+                "& .positive": {
+                  color: COLOR_PROFIT,
+                },
+                "& .negative": {
+                  color: COLOR_LOSS,
+                },
+              },
+              disableColumnSorting: true,
+              disableRowSelectionOnClick: true,
+              columns: [
+                { field: "name", minWidth: 180, headerName: "" },
+                ...months.map((month) => ({
+                  field: month,
+                  type: "number" as const,
+                  headerName: `${month.split("-")[0]}-${month.split("-")[1].padStart(2, "0")}`,
+                  valueFormatter: currencyFormatter,
+                })),
+              ],
+              getRowClassName: (params) => params.row.id,
+              getCellClassName: (params) =>
+                ["net_profit", "unrealized_gains"].includes(params.row.id) && params.field !== "name"
+                  ? params.value >= 0
+                    ? "positive"
+                    : "negative"
+                  : "",
+              onCellClick: ({ id, field }) => {
+                if (field === "name") {
+                  return;
+                }
+                const [year, month] = field.split("-");
+                const time = `${year}-${month.padStart(2, "0")}`;
+
+                switch (id) {
+                  case "income":
+                  case "expenses":
+                  case "net_profit":
+                    window.open(ledger.urlFor("../../income_statement/?time={time}".replace("{time}", time)));
+                    break;
+                  case "assets":
+                  case "liabilities":
+                    window.open(
+                      ledger.urlFor(`../../balance_sheet/?time={time}&conversion=at_cost`.replace("{time}", time)),
+                    );
+                    break;
+                  case "unrealized_gains":
+                  case "net_worth":
+                    window.open(
+                      ledger.urlFor("../../balance_sheet/?time={time}&conversion=at_value".replace("{time}", time)),
+                    );
+                    break;
+                }
+              },
+              rows: [
+                {
+                  id: "income",
+                  name: "Income",
+                  ...income,
+                },
+                {
+                  id: "expenses",
+                  name: "Expenses",
+                  ...expenses,
+                },
+                {
+                  id: "net_profit",
+                  name: "Net Profit",
+                  ...Object.fromEntries(months.map((month) => [month, income[month] - expenses[month]])),
+                },
+                {
+                  id: "assets",
+                  name: "Assets",
+                  ...assets,
+                },
+                {
+                  id: "liabilities",
+                  name: "Liabilities",
+                  ...liabilities,
+                },
+                {
+                  id: "unrealized_gains",
+                  name: "Unrealized Gains",
+                  ...unrealizedGains,
+                },
+                {
+                  id: "net_worth",
+                  name: "Net Worth",
+                  ...Object.fromEntries(
+                    months.map((month) => [month, assets[month] + unrealizedGains[month] - liabilities[month]]),
+                  ),
+                },
+              ],
+            };
+          },
+        },
       ],
     },
     {
@@ -581,7 +764,6 @@ export default defineConfig({
               value: row.value[variables.currency],
             }));
             return {
-              magic: 1,
               tooltip: {
                 trigger: "axis",
                 valueFormatter: anyFormatter(currencyFormatter),
@@ -1538,7 +1720,7 @@ export default defineConfig({
           },
         },
         {
-          title: "Top 10 biggest expenses",
+          title: "Top 10 Largest Expenses",
           width: "100%",
           height: "400px",
           kind: "table",
