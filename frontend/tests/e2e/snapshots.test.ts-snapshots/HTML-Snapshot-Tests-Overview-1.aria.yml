@@ -1,6 +1,7 @@
 - banner:
   - img
   - heading "Beancount ▾›Dashboards" [level=1]:
+    - text: ""
     - strong: ›Dashboards
   - combobox "Time"
   - combobox "Account"
@@ -89,6 +90,174 @@
   - heading "Liabilities 💳" [level=3]:
     - link "Liabilities 💳":
       - /url: http://127.0.0.1:5000/beancount/balance_sheet/
-  - heading "Income/Expenses 💸" [level=3]:
-    - link "Income/Expenses 💸":
+  - heading "Income vs. Expenses 💸" [level=3]:
+    - link "Income vs. Expenses 💸":
       - /url: http://127.0.0.1:5000/beancount/income_statement/
+  - heading "Monthly Profit and Loss 📅" [level=3]
+  - grid:
+    - row /\d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+ \d+-\d+/:
+      - columnheader
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+      - columnheader /\d+-\d+/
+    - rowgroup:
+      - row /Income \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+/:
+        - gridcell "Income"
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+      - row /Expenses \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+/:
+        - gridcell "Expenses"
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+      - row /Net Profit \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ -\$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+/:
+        - gridcell "Net Profit"
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /-\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+      - row /Assets \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+/:
+        - gridcell "Assets"
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+      - row /Liabilities \$\d+ \$\d+ \$\d+ \$\d+ \$\d+ \$\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+/:
+        - gridcell "Liabilities"
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+      - row /Unrealized Gains \$\d+ \$\d+ \$\d+ \$\d+ \$\d+ \$\d+ \$\d+ \$\d+ \$\d+ \$\d+,\d+ \$\d+ \$\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+/:
+        - gridcell "Unrealized Gains"
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+      - row /Net Worth \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+ \$\d+,\d+/:
+        - gridcell "Net Worth"
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+        - gridcell /\$\d+,\d+/
+  - paragraph: "Rows per page:"
+  - 'combobox /Rows per page: \d+/'
+  - paragraph: 1–7 of 7
+  - button "Go to previous page" [disabled]
+  - button "Go to next page" [disabled]
