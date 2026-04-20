@@ -92,7 +92,9 @@ function DashboardGrid({ dashboard }: DashboardGridProps) {
         {isPending || !ledger ? (
           <Skeleton width="100%" height={600} sx={{ margin: 1 }} />
         ) : (
-          dashboard.panels.map((panel, i) => <PanelCard key={i} ledger={ledger} dashboard={dashboard} panel={panel} />)
+          dashboard.panels.map((panel, i) => (
+            <PanelCard key={`${dashboard.name}-${i}`} ledger={ledger} dashboard={dashboard} panel={panel} />
+          ))
         )}
       </Stack>
     </>
