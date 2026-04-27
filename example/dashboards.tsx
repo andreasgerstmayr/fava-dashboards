@@ -71,15 +71,11 @@ function countMonths(ledger: Ledger): number {
   return months;
 }
 
-type Dataset = DatasetRow[];
-type DatasetRow = Record<string, number | string>;
+type Row = Record<string, number | string>;
 
-function fillMonthlyDataset(dataset: Dataset, column: string, values: string[], undef: DatasetRow): Dataset {
-  const dsByColumn: Record<string, DatasetRow> = {};
-  for (const row of dataset) {
-    dsByColumn[row[column]] = row;
-  }
-  return values.map((v) => dsByColumn[v] ?? { ...undef, [column]: v });
+function fillDataset(rows: Row[], column: string, values: string[], undef: Row): Row[] {
+  const rowByColumn = new Map(rows.map((row) => [row[column], row]));
+  return values.map((v) => rowByColumn.get(v) ?? { ...undef, [column]: v });
 }
 
 function sumValue(dataset: { value: number }[]): number {
@@ -470,8 +466,8 @@ export default defineConfig({
               queries.map(async (query) => ({
                 name: query.name,
                 stack: query.stack,
-                // stacked barcharts show empty bars if the dataset contains "holes", therefore use fillMonthlyDataset() here
-                dataset: fillMonthlyDataset(
+                // stacked barcharts show empty bars if the dataset contains "holes", therefore use fillDataset() here
+                dataset: fillDataset(
                   (await ledger.query(query.bql)).map((row) => ({
                     date: `${row.year}-${row.month}`,
                     value: query.stack === "income" ? -row.value[variables.currency] : row.value[variables.currency],
@@ -1581,7 +1577,8 @@ export default defineConfig({
             const results = await Promise.all(
               queries.map(async (query) => ({
                 name: query.name,
-                dataset: fillMonthlyDataset(
+                // stacked barcharts show empty bars if the dataset contains "holes", therefore use fillDataset() here
+                dataset: fillDataset(
                   (await ledger.query(query.bql)).map((row) => ({
                     date: `${row.year}-${row.month}`,
                     value: row.value[variables.currency],
