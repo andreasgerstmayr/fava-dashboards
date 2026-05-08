@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.0b8 (2026-05-08)
+* fix: do not reuse Panel instance when switching dashboard [#187](https://github.com/andreasgerstmayr/fava-dashboards/pull/187) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+
 ## v2.0.0b7 (2026-03-16)
 * example: add monthly PnL table [#183](https://github.com/andreasgerstmayr/fava-dashboards/pull/183) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
 * fix: correctly produce extension path with Fava prefixes [#181](https://github.com/andreasgerstmayr/fava-dashboards/pull/181) ([@BenjaminDebeerst](https://github.com/BenjaminDebeerst))
