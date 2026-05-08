@@ -73,9 +73,9 @@ function countMonths(ledger: Ledger): number {
 
 type Row = Record<string, number | string>;
 
-function fillDataset(rows: Row[], column: string, values: string[], undef: Row): Row[] {
-  const rowByColumn = new Map(rows.map((row) => [row[column], row]));
-  return values.map((v) => rowByColumn.get(v) ?? { ...undef, [column]: v });
+function fillMissingRows(rows: Row[], keyColumn: string, requiredKeys: string[], fallbackRow: Row): Row[] {
+  const rowByKey = new Map(rows.map((row) => [row[keyColumn], row]));
+  return requiredKeys.map((key) => rowByKey.get(key) ?? { ...fallbackRow, [keyColumn]: key });
 }
 
 function sumValue(dataset: { value: number }[]): number {
@@ -462,21 +462,22 @@ export default defineConfig({
               },
             ];
 
+            const months = iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.year}-${m.month}`);
             const results = await Promise.all(
-              queries.map(async (query) => ({
-                name: query.name,
-                stack: query.stack,
-                // stacked barcharts show empty bars if the dataset contains "holes", therefore use fillDataset() here
-                dataset: fillDataset(
-                  (await ledger.query(query.bql)).map((row) => ({
-                    date: `${row.year}-${row.month}`,
-                    value: query.stack === "income" ? -row.value[variables.currency] : row.value[variables.currency],
-                  })),
-                  "date",
-                  iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.year}-${m.month}`),
-                  { value: 0 },
-                ),
-              })),
+              queries.map(async (query) => {
+                const result = await ledger.query(query.bql);
+                const dataset = result.map((row) => ({
+                  date: `${row.year}-${row.month}`,
+                  value: query.stack === "income" ? -row.value[variables.currency] : row.value[variables.currency],
+                }));
+
+                return {
+                  name: query.name,
+                  stack: query.stack,
+                  // stacked barcharts show empty bars if the dataset contains "holes", therefore use fillMissingRows() here
+                  dataset: fillMissingRows(dataset, "date", months, { value: 0 }),
+                };
+              }),
             );
 
             return {
@@ -1574,20 +1575,21 @@ export default defineConfig({
               },
             ];
 
+            const months = iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.year}-${m.month}`);
             const results = await Promise.all(
-              queries.map(async (query) => ({
-                name: query.name,
-                // stacked barcharts show empty bars if the dataset contains "holes", therefore use fillDataset() here
-                dataset: fillDataset(
-                  (await ledger.query(query.bql)).map((row) => ({
-                    date: `${row.year}-${row.month}`,
-                    value: row.value[variables.currency],
-                  })),
-                  "date",
-                  iterateMonths(ledger.dateFirst, ledger.dateLast).map((m) => `${m.year}-${m.month}`),
-                  { value: 0 },
-                ),
-              })),
+              queries.map(async (query) => {
+                const result = await ledger.query(query.bql);
+                const dataset = result.map((row) => ({
+                  date: `${row.year}-${row.month}`,
+                  value: row.value[variables.currency],
+                }));
+
+                return {
+                  name: query.name,
+                  // stacked barcharts show empty bars if the dataset contains "holes", therefore use fillMissingRows() here
+                  dataset: fillMissingRows(dataset, "date", months, { value: 0 }),
+                };
+              }),
             );
 
             return {
