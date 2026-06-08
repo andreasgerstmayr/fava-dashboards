@@ -1,5 +1,22 @@
 # Changelog
 
+## v2.0.0 (2026-06-08)
+
+### Enhancements
+* Dashboards are defined in dynamic TypeScript (`dashboards.tsx`) or JavaScript (`dashboards.jsx`) files
+* Variables are available at both the dashboard and panel levels
+* Panels now load concurrently
+* Dashboards support interactive React panels
+* Dashboards support custom ECharts themes
+* The interface has been redesigned with Material UI
+* The URL structure has been updated to use dashboard names, such as `/beancount/extension/FavaDashboards/?dashboard=income-and-expenses`, instead of numeric dashboard IDs
+
+### Deprecations
+* The `jinja2` panel type is now deprecated
+
+Legacy `dashboards.yaml` configurations are migrated transparently and are expected to continue working.
+The [convert_dashboards_yaml_to_tsx.py](/scripts/convert_dashboards_yaml_to_tsx.py) script provides a best-effort conversion of legacy `yaml` files to `tsx`.
+
 ## v2.0.0b8 (2026-05-08)
 * fix: do not reuse Panel instance when switching dashboard [#187](https://github.com/andreasgerstmayr/fava-dashboards/pull/187) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
 
