@@ -43,7 +43,7 @@ Enable this plugin in Fava by adding the following lines to your ledger:
 ```
 
 ## Configuration
-The plugin looks by default for a `dashboards.tsx` file (or `.ts`, `.jsx`, `.js`) in the directory of the Beancount ledger (e.g. if you run `fava personal.beancount`, the `dashboards.tsx` file should be in the same directory as `personal.beancount`).
+The plugin looks by default for a `dashboards.tsx` file (or `.ts`, `.js[x]`, `.[cm]js`) in the directory of the Beancount ledger (e.g. if you run `fava personal.beancount`, the `dashboards.tsx` file should be in the same directory as `personal.beancount`).
 The location of the `dashboards.tsx` configuration file can be customized:
 ```
 2010-01-01 custom "fava-extension" "fava_dashboards" "{
@@ -51,25 +51,52 @@ The location of the `dashboards.tsx` configuration file can be customized:
 }"
 ```
 
-To get TypeScript type support, download [fava-dashboards.d.ts](example/fava-dashboards.d.ts) and place it next to `dashboards.tsx`.
 Please take a look at the example dashboards configuration [dashboards.tsx](example/dashboards.tsx), which uses most of the functionality described below.
+To get TypeScript type support, download [fava-dashboards.d.ts](example/fava-dashboards.d.ts) and place it next to `dashboards.tsx`.
 
 To convert a legacy `dashboards.yaml` file from version 1 to the new `dashboards.tsx` format, you can run `make deps && uv run scripts/convert_dashboards_yaml_to_tsx.py path/to/dashboards.yaml --output path/to/dashboards.tsx`.
 This script covers most common cases, and does not perform TypeScript type inference.
 
-The configuration file can contain multiple dashboards, and a dashboard contains one or more panels.
-A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column layouts) and a absolute height.
+The configuration file can contain multiple [dashboards](#dashboard-properties), and a dashboard contains one or more [panels](#panel-properties).
+A panel has a relative width (e.g. `50%` for 2 columns, or `33.3%` for 3 column layouts) and an absolute height.
+
+### Configuration Properties
+* `dashboards`: list of [dashboards](#dashboard-properties).
+* `theme`: optional theme configuration.
+
+The theme configuration supports:
+* `echarts`: an ECharts theme name, or a custom ECharts theme object.
+* `dashboard.panel.style`: custom MUI style properties for dashboard panels.
+
+### Dashboard Properties
+* `name`: dashboard name.
+* `variables`: optional list of dashboard-level [variables](#variable-properties).
+* `panels`: list of [panels](#panel-properties).
+
+### Variable Properties
+Variables can be defined on dashboards or panels.
+Dashboard variables are available to all panels in that dashboard, and panel variables are only available to that panel.
+
+* `name`: variable name.
+* `label`: optional display label. Default: variable name
+* `display`: variable control type. Must be one of `select` or `toggle`. Default: `select`
+* `style`: optional custom MUI style properties for the variable control.
+* `multiple`: allow selecting multiple values. Default: `false`
+* `options`: a JavaScript function which returns the available values.
+* `default`: optional default value.
 
 ### Panel Properties
 * `title`: title of the panel. Default: unset
 * `width`: width of the panel. Default: 100%
 * `height`: height of the panel. Default: 400px
 * `link`: optional link target of the panel header.
+* `variables`: optional list of panel-level [variables](#variable-properties).
 * `kind`: panel kind. Must be one of `html`, `echarts`, `d3_sankey`, `table` or `react`.
 * `spec`: a JavaScript function which generates a valid spec depending on the panel `kind`.
 
 The following variables and functions are available:
 * `panel`: the current panel definition
+* `variables`: the resolved dashboard and panel variables
 * `ledger.dateFirst`: start date of the current date filter, or first transaction date of the ledger
 * `ledger.dateLast`: end date of the current date filter, or last transaction date of the ledger
 * `ledger.filterFirst`: start date of the current date filter, or null if no date filter is set
