@@ -86,7 +86,7 @@ Dashboard variables are available to all panels in that dashboard, and panel var
 * `default`: optional default value. Use an array when `multiple` is `true`
 
 ### Panel Properties
-* `title`: optional title of the panel. Default: unset
+* `title`: optional title of the panel
 * `width`: optional width of the panel. Default: 100%
 * `height`: optional height of the panel. Default: 400px
 * `link`: optional link target of the panel header
@@ -106,7 +106,7 @@ The `spec` function is called with an object containing the following properties
 * `ledger.accounts`: declared accounts of the ledger
 * `ledger.commodities`: declared commodities of the ledger
 * `ledger.query(bql)`: executes the specified BQL query
-* `ledger.urlFor(url)`: add current Fava filter parameters to url
+* `ledger.urlFor(url)`: adds current Fava filter parameters to url
 
 ### HTML panel
 The `spec` code of HTML panels must return valid HTML.
