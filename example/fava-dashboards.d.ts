@@ -4661,10 +4661,10 @@ declare module "fava-dashboards" {
       dateFirst: string;
       /** end date of the current date filter, or last transaction date of the ledger */
       dateLast: string;
-      /** start date of the current date filter, or undefined if no date filter is set */
-      filterFirst?: string;
-      /** end date of the current date filter, or undefined if no date filter is set */
-      filterLast?: string;
+      /** start date of the current date filter, or null if no date filter is set */
+      filterFirst: string | null;
+      /** end date of the current date filter, or null if no date filter is set */
+      filterLast: string | null;
       /** configured operating currencies of the ledger */
       operatingCurrencies: string[];
       /** shortcut for the first configured operating currency of the ledger */
