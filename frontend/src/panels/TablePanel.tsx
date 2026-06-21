@@ -5,5 +5,16 @@ import { PanelProps } from "./registry";
 export type TableSpec<R extends GridValidRowModel = any> = DataGridProps<R>;
 
 export function TablePanel({ spec }: PanelProps<TableSpec>) {
-  return <DataGrid {...spec} />;
+  return (
+    <DataGrid
+      {...spec}
+      sx={{
+        ...spec.sx,
+        "& p": {
+          // Override Fava's global <p> style to fix footer alignment
+          margin: 0,
+        },
+      }}
+    />
+  );
 }
