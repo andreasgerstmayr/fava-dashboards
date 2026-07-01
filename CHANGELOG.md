@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.1 (2026-07-02)
+* fix colors of sankey panel in dark mode [#196](https://github.com/andreasgerstmayr/fava-dashboards/pull/196) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* fix datagrid footer alignment [#193](https://github.com/andreasgerstmayr/fava-dashboards/pull/193) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+
 ## v2.0.0 (2026-06-08)
 
 ### Enhancements
