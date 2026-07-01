@@ -4723,14 +4723,27 @@ declare module "fava-dashboards" {
   }
   
   interface SankeySpec {
+      /** Horizontal node alignment strategy. Defaults to "left". */
       align?: "left" | "right" | "center" | "justify";
+      /** Label font size in pixels. Defaults to 12. */
       fontSize?: number;
+      /** Label text color. Defaults to white in dark mode and black otherwise. */
       fontColor?: string;
+      /** Node border color. Defaults to white in dark mode and black otherwise. */
+      nodeStrokeColor?: string;
+      /** Link coloring mode: "none" uses linkColor, "path" uses a source-to-target gradient, and "input" uses the source node color. */
       edgeColor?: "none" | "path" | "input";
+      /** Link stroke color used when edgeColor is "none". Defaults to "#aaaaaa". */
+      linkColor?: string;
+      /** Formats node and link values for labels and tooltips. */
       valueFormatter?: (value: number) => string;
+      /** Click handler attached to node labels. */
       onClick?: (event: Event, d: SankeyNode<SankeyNodeProperties, SankeyLinkProperties>) => void;
+      /** Nodes and links that define the Sankey graph. */
       data: {
+          /** Graph nodes keyed by their name property. */
           nodes: D3SankeyNode[];
+          /** Directed graph links between source and target nodes. */
           links: D3SankeyLink[];
       };
   }
