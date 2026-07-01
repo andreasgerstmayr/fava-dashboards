@@ -7,7 +7,7 @@
  * https://observablehq.com/@d3/sankey
  * https://gist.github.com/mootari/8d3eeb938fafbdf43cda77fe23642d00
  */
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import * as d3Base from "d3";
 import * as d3Sankey from "d3-sankey";
 import { SankeyExtraProperties, SankeyLink, SankeyNode } from "d3-sankey";
@@ -28,32 +28,56 @@ export type D3SankeyNode = SankeyNode<SankeyNodeProperties, SankeyLinkProperties
 export type D3SankeyLink = SankeyLink<SankeyNodeProperties, SankeyLinkProperties>;
 
 export interface SankeySpec {
+  /** Horizontal node alignment strategy. Defaults to "left". */
   align?: "left" | "right" | "center" | "justify";
+
+  /** Label font size in pixels. Defaults to 12. */
   fontSize?: number;
+
+  /** Label text color. Defaults to white in dark mode and black otherwise. */
   fontColor?: string;
+
+  /** Node border color. Defaults to white in dark mode and black otherwise. */
+  nodeStrokeColor?: string;
+
+  /** Link coloring mode: "none" uses linkColor, "path" uses a source-to-target gradient, and "input" uses the source node color. */
   edgeColor?: "none" | "path" | "input";
+
+  /** Link stroke color used when edgeColor is "none". Defaults to "#aaaaaa". */
+  linkColor?: string;
+
+  /** Formats node and link values for labels and tooltips. */
   valueFormatter?: (value: number) => string;
+
+  /** Click handler attached to node labels. */
   onClick?: (event: Event, d: SankeyNode<SankeyNodeProperties, SankeyLinkProperties>) => void;
+
+  /** Nodes and links that define the Sankey graph. */
   data: {
+    /** Graph nodes keyed by their name property. */
     nodes: D3SankeyNode[];
+
+    /** Directed graph links between source and target nodes. */
     links: D3SankeyLink[];
   };
 }
 
-export function render_d3sankey(elem: HTMLElement, options: SankeySpec) {
+export function render_d3sankey(elem: HTMLElement, options: SankeySpec, isDarkMode: boolean) {
   const width = elem.clientWidth;
   const height = elem.clientHeight;
-  const storedThemeSetting = document.documentElement.style.colorScheme;
-  const isDarkMode =
-    storedThemeSetting == "dark" ||
-    (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && storedThemeSetting != "light");
+  const defaultTextColor = isDarkMode ? "#ffffff" : "#000000";
 
-  const data = options.data;
-  const align = options.align ?? "left";
-  const fontSize = options.fontSize ?? 12;
-  const fontColor = options.fontColor ?? (isDarkMode ? "#ffffff" : "#000000");
-  const edgeColor = options.edgeColor ?? "path";
-  const valueFormat = options.valueFormatter ?? ((x) => x);
+  const {
+    data,
+    align = "left",
+    fontSize = 12,
+    fontColor = defaultTextColor,
+    nodeStrokeColor = defaultTextColor,
+    edgeColor = "path",
+    linkColor = "#aaaaaa",
+    valueFormatter = String,
+    onClick,
+  } = options;
 
   const color = (() => {
     const color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -88,7 +112,7 @@ export function render_d3sankey(elem: HTMLElement, options: SankeySpec) {
     // node rectangle
     svg
       .append("g")
-      .attr("stroke", "#000")
+      .attr("stroke", nodeStrokeColor)
       .selectAll("rect")
       .data(nodes)
       .join("rect")
@@ -98,7 +122,7 @@ export function render_d3sankey(elem: HTMLElement, options: SankeySpec) {
       .attr("width", (d) => d.x1! - d.x0!)
       .attr("fill", color)
       .append("title")
-      .text((d) => `${d.name}: ${valueFormat(d.value ?? 0)}`);
+      .text((d) => `${d.name}: ${valueFormatter(d.value ?? 0)}`);
 
     const link = svg
       .append("g")
@@ -107,7 +131,7 @@ export function render_d3sankey(elem: HTMLElement, options: SankeySpec) {
       .selectAll("g")
       .data(links)
       .join("g")
-      .style("mix-blend-mode", "multiply");
+      .style("mix-blend-mode", isDarkMode ? "normal" : "multiply");
 
     if (edgeColor === "path") {
       const gradient = link
@@ -133,7 +157,7 @@ export function render_d3sankey(elem: HTMLElement, options: SankeySpec) {
       .attr("d", d3.sankeyLinkHorizontal())
       .attr("stroke", (d) =>
         edgeColor === "none"
-          ? "#aaa"
+          ? linkColor
           : edgeColor === "path"
             ? `url(#${d.uid})`
             : edgeColor === "input"
@@ -146,7 +170,7 @@ export function render_d3sankey(elem: HTMLElement, options: SankeySpec) {
       .append("title")
       .text(
         (d) =>
-          `${(d.source as SankeyNodeProperties).name} → ${(d.target as SankeyNodeProperties).name}: ${valueFormat(
+          `${(d.source as SankeyNodeProperties).name} → ${(d.target as SankeyNodeProperties).name}: ${valueFormatter(
             d.value,
           )}`,
       );
@@ -164,9 +188,9 @@ export function render_d3sankey(elem: HTMLElement, options: SankeySpec) {
       .attr("y", (d) => (d.y1! + d.y0!) / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", (d) => (d.x0! < width / 2 ? "start" : "end"))
-      .text((d) => `${d.label ?? d.name} ${valueFormat(d.value ?? 0)}`);
-    if (options.onClick) {
-      node.on("click", options.onClick);
+      .text((d) => `${d.label ?? d.name} ${valueFormatter(d.value ?? 0)}`);
+    if (onClick) {
+      node.on("click", onClick);
     }
 
     return svg.node();
@@ -177,13 +201,14 @@ export function render_d3sankey(elem: HTMLElement, options: SankeySpec) {
 
 export function D3SankeyPanel({ spec }: PanelProps<SankeySpec>) {
   const ref = useRef<HTMLDivElement>(null);
+  const theme = useTheme();
 
   useEffect(() => {
     if (!ref.current) {
       return;
     }
-    render_d3sankey(ref.current, spec);
-  }, [spec]);
+    render_d3sankey(ref.current, spec, theme.palette.mode === "dark");
+  }, [spec, theme.palette.mode]);
 
   return <Box ref={ref} sx={{ height: "100%", "svg text": { fill: "inherit" } }}></Box>;
 }
