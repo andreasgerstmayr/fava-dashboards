@@ -5,7 +5,6 @@ from typing import Dict
 
 from beancount.core.inventory import Inventory
 from beanquery.query import run_query
-from fava.application import render_template_string
 from fava.context import g
 from fava.core import FavaLedger
 from fava.core.conversion import UNITS
@@ -13,6 +12,7 @@ from fava.core.query import COLUMNS
 from fava.core.query import ObjectColumn
 from fava.core.query import QueryResultTable
 from fava.helpers import FavaAPIError
+from flask import render_template_string
 
 
 @dataclass(frozen=True)
