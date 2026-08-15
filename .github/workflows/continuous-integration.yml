@@ -9,10 +9,15 @@ on:
     branches:
     - main
     - v[0-9]+
+  schedule:
+  - cron: "17 5 * * 5"
 
 jobs:
-  build:
+  e2e:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        fava_version: [default, latest]
     steps:
     - name: Checkout
       uses: actions/checkout@v7
@@ -25,6 +30,13 @@ jobs:
       with:
         node-version-file: .node-version
 
+    - name: Upgrade to latest Fava version
+      if: matrix.fava_version == 'latest'
+      run: |
+        uv lock --upgrade-package fava
+        git add uv.lock
+        echo "DISABLE_SNAPSHOT_TESTS=true" >> $GITHUB_ENV
+
     - name: Install dependencies
       run: make deps
 
@@ -36,7 +48,10 @@ jobs:
         git diff --exit-code
 
     - name: Run tests
-      run: make container-test
+      run: make test
+
+    - name: Run e2e tests
+      run: make test-e2e
 
     - name: Upload test results
       if: ${{ failure() }}
