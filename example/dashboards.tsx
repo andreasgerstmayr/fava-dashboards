@@ -2,8 +2,6 @@
 import { BarSeriesOption, ECElementEvent } from "echarts";
 import {
   Amount,
-  D3SankeyLink,
-  D3SankeyNode,
   defineConfig,
   EChartsPanel,
   EChartsSpec,
@@ -87,6 +85,84 @@ type SunburstNode = {
   value?: number;
   children: SunburstNode[];
 };
+
+type SankeyNode = { name: string; displayName?: string };
+type SankeyLink = { source: string; target: string; value: number };
+type SankeySpacer = { name: string; depth: number; value: number };
+const SANKEY_SPACER = "__sankey-spacer-";
+const SANKEY_COLORS = [
+  "#1f77b4",
+  "#ff7f0e",
+  "#2ca02c",
+  "#d62728",
+  "#9467bd",
+  "#8c564b",
+  "#e377c2",
+  "#7f7f7f",
+  "#bcbd22",
+  "#17becf",
+];
+
+function prepareSankeyLayout(nodes: SankeyNode[], links: SankeyLink[], foregroundColor: string) {
+  const depths = new Map(nodes.map((node) => [node.name, 0]));
+  for (let i = 0; i < nodes.length; i++) {
+    for (const link of links) {
+      depths.set(link.target, Math.max(depths.get(link.target) ?? 0, (depths.get(link.source) ?? 0) + 1));
+    }
+  }
+
+  const spacers = new Map<string, SankeySpacer[]>();
+  const routedLinks: any[] = [...links];
+  links.forEach((link, linkIndex) => {
+    const sourceDepth = depths.get(link.source) ?? 0;
+    const targetDepth = depths.get(link.target) ?? sourceDepth + 1;
+    const nodes = Array.from({ length: targetDepth - sourceDepth - 1 }, (_, index) => ({
+      name: `${SANKEY_SPACER}${linkIndex}-${sourceDepth + index + 1}`,
+      depth: sourceDepth + index + 1,
+      value: link.value,
+    }));
+    if (!nodes.length) {
+      return;
+    }
+
+    spacers.set(link.source, [...(spacers.get(link.source) ?? []), ...nodes]);
+    const path = [link.source, ...nodes.map((node) => node.name), link.target];
+    routedLinks.push(
+      ...path.slice(1).map((target, index) => ({
+        source: path[index],
+        target,
+        value: Number.EPSILON,
+        lineStyle: { opacity: 0 },
+        tooltip: { show: false },
+      })),
+    );
+  });
+
+  const maxDepth = Math.max(...depths.values());
+
+  return {
+    nodes: nodes.flatMap((node, index) => [
+      {
+        ...node,
+        depth: depths.get(node.name) ?? 0,
+        itemStyle: {
+          color: SANKEY_COLORS[index % SANKEY_COLORS.length],
+          borderColor: foregroundColor,
+          borderWidth: 1,
+        },
+        label: { position: (depths.get(node.name) ?? 0) <= maxDepth / 2 ? ("right" as const) : ("left" as const) },
+      },
+      ...(spacers.get(node.name) ?? []).map((spacer) => ({
+        ...spacer,
+        itemStyle: { color: "transparent" },
+        label: { show: false },
+        tooltip: { show: false },
+        emphasis: { disabled: true },
+      })),
+    ]),
+    links: routedLinks,
+  };
+}
 
 function buildAccountTree(rows: any[], valueFn: (row: any) => number, nameFn?: (parts: string[], i: number) => string) {
   nameFn = nameFn ?? ((parts, i) => parts.slice(0, i + 1).join(":"));
@@ -1922,7 +1998,27 @@ export default defineConfig({
           width: "100%",
           height: "800px",
           link: "../../income_statement/",
-          kind: "d3_sankey",
+          kind: "echarts",
+          variables: [
+            {
+              name: "display",
+              label: "Show",
+              default: "Income and Expenses",
+              style: {
+                width: 200,
+              },
+              options: () => ["Income and Expenses", "Income", "Expenses"],
+            },
+            {
+              name: "threshold",
+              label: "Minimum monthly flow",
+              default: "10",
+              style: {
+                width: 140,
+              },
+              options: () => ["0", "10", "25", "50", "100", "500", "1000"],
+            },
+          ],
           spec: async ({ ledger, variables }) => {
             const currencyFormatter = getCurrencyFormatter(variables.currency);
             const result = await ledger.query(
@@ -1931,10 +2027,10 @@ export default defineConfig({
                GROUP BY account`,
             );
             const months = countMonths(ledger);
-            const valueThreshold = 10; // skip nodes below this value
+            const valueThreshold = Number(variables.threshold); // skip nodes below this value
 
-            const nodes: D3SankeyNode[] = [{ name: "Income" }];
-            const links: D3SankeyLink[] = [];
+            const nodes: SankeyNode[] = [{ name: variables.display === "Expenses" ? "Expenses" : "Income" }];
+            const links: SankeyLink[] = [];
             type Node = Required<SunburstNode> & { children: Node[] };
             function addNode(root: Node) {
               for (let node of root.children) {
@@ -1947,52 +2043,83 @@ export default defineConfig({
                 }
 
                 // skip nodes below the threshold
-                if (Math.abs(node.value / months) < valueThreshold) {
+                if (Math.abs(node.value) < valueThreshold) {
                   continue;
                 }
 
-                nodes.push({ name: node.name, label });
+                nodes.push({ name: node.name, displayName: label });
                 if (node.name.startsWith("Income:")) {
-                  links.push({ source: node.name, target: root.name, value: -node.value / months });
+                  links.push({ source: node.name, target: root.name, value: -node.value });
                 } else {
                   links.push({
-                    source: root.name == "Expenses" ? "Income" : root.name,
+                    source:
+                      root.name === "Expenses" && variables.display === "Income and Expenses" ? "Income" : root.name,
                     target: node.name,
-                    value: node.value / months,
+                    value: node.value,
                   });
                 }
                 addNode(node);
               }
             }
 
-            const accountTree = buildAccountTree(result, (row) => row.value[variables.currency] ?? 0);
+            const accountTree = buildAccountTree(result, (row) => (row.value[variables.currency] ?? 0) / months);
             if (accountTree.children.length !== 2) {
               throw Error("No Income/Expense accounts found.");
             }
-            addNode(accountTree.children[0] as Node);
-            addNode(accountTree.children[1] as Node);
+            for (const root of accountTree.children) {
+              if (variables.display === "Income and Expenses" || root.name === variables.display) {
+                addNode(root as Node);
+              }
+            }
 
             const savings =
               accountTree.children[0].name === "Income"
                 ? -accountTree.children[0].value! - accountTree.children[1].value!
                 : -accountTree.children[1].value! - accountTree.children[0].value!;
-            if (savings > 0) {
+            if (variables.display === "Income and Expenses" && savings > 0) {
               nodes.push({ name: "Savings" });
-              links.push({ source: "Income", target: "Savings", value: savings / months });
+              links.push({ source: "Income", target: "Savings", value: savings });
             }
 
+            const foregroundColor = getComputedStyle(document.documentElement).color;
+            const layout = prepareSankeyLayout(nodes, links, foregroundColor);
+
             return {
-              align: "left",
-              valueFormatter: currencyFormatter,
-              data: {
-                nodes,
-                links,
+              animation: false,
+              tooltip: {
+                valueFormatter: anyFormatter(currencyFormatter),
               },
-              onClick: (_event, node) => {
-                if (node.name === "Savings") {
+              series: [
+                {
+                  type: "sankey",
+                  left: 5,
+                  right: 5,
+                  top: 5,
+                  bottom: 5,
+                  nodeWidth: 15,
+                  data: layout.nodes,
+                  links: layout.links,
+                  label: {
+                    color: foregroundColor,
+                    formatter: (params: any) =>
+                      `${params.data.displayName ?? params.name} ${currencyFormatter(params.value ?? 0)}`,
+                  },
+                  layoutIterations: 0,
+                  lineStyle: {
+                    color: "gradient",
+                    opacity: 0.5,
+                  },
+                  emphasis: {
+                    focus: "adjacency",
+                  },
+                },
+              ],
+              onClick: (event) => {
+                const name = (event.data as { name?: string })?.name;
+                if (!name || name === "Savings" || name.startsWith(SANKEY_SPACER)) {
                   return;
                 }
-                const link = "../../account/{account}/".replace("{account}", node.name);
+                const link = "../../account/{account}/".replace("{account}", name);
                 window.open(ledger.urlFor(link));
               },
             };
