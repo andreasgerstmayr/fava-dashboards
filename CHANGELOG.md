@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.3 (2026-11-19)
+* Support Fava 1.31 [#207](https://github.com/andreasgerstmayr/fava-dashboards/pull/207) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+* example: migrate Sankey dashboard to ECharts, add display and threshold variables [#203](https://github.com/andreasgerstmayr/fava-dashboards/pull/203) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
+
 ## v2.0.2 (2026-08-15)
 * fix: support Fava 1.30.15 [#201](https://github.com/andreasgerstmayr/fava-dashboards/pull/201) ([@andreasgerstmayr](https://github.com/andreasgerstmayr))
 
