@@ -16,6 +16,7 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         fava_version: [default, latest]
     steps:

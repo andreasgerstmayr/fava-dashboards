@@ -1,5 +1,6 @@
 from collections import namedtuple
 from dataclasses import dataclass
+from decimal import Decimal
 from typing import Any
 from typing import Dict
 
@@ -67,10 +68,21 @@ def process_jinja2(ctx: PanelCtx):
 
 
 def sanitize_query_result(result):
+    """Preserve the dashboard JSON format independently of Fava's encoder."""
     for i, row in enumerate(result):
-        for k, v in row._asdict().items():
-            if isinstance(v, Inventory):
-                result[i] = result[i]._replace(**{k: UNITS.apply_inventory(v)})
+        result[i] = _sanitize_query_value(row._asdict())
+
+
+def _sanitize_query_value(value):
+    if isinstance(value, Inventory):
+        return _sanitize_query_value(UNITS.apply_inventory(value))
+    if hasattr(value, "_asdict"):  # namedtuples like Amount, Position, Cost
+        return _sanitize_query_value(value._asdict())
+    if isinstance(value, dict):  # nested serialization, e.g. {"ITOT": Decimal("10")} => {"ITOT": 10.0}
+        return {key: _sanitize_query_value(item) for key, item in value.items()}
+    if isinstance(value, Decimal):  # serialize Decimal as numbers instead of strings
+        return float(value)
+    return value
 
 
 def sanitize_panel(ctx):
