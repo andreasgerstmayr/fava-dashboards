@@ -17,9 +17,9 @@ classifiers = [
     "Topic :: Office/Business :: Financial :: Accounting",
     "Topic :: Office/Business :: Financial :: Investment",
 ]
-requires-python = ">= 3.10"
+requires-python = ">= 3.11"
 dependencies = [
-    "fava>=1.30.12",
+    "fava>=1.31",
     "Flask>=2.2",
     "pyyaml>=6.0.1",
     "beanquery>=0.1.0",
