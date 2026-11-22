@@ -62,3 +62,25 @@ def test_legacy_panel_json(client):
     panel = response.json["data"]["panel"]
     assert panel["template"] == "(10 ITOT {105.27 USD, 2020-10-04})"
     assert panel["queries"][0]["result"] == [{"value": {"ITOT": 10.0}}]
+
+
+def test_legacy_panel_querytable_serializes_positions(client):
+    response = client.post(
+        "/beancount/extension/FavaDashboards/v1_render_panel",
+        json={
+            "panel": {
+                "queries": [
+                    {
+                        "bql": "SELECT position, units(position) AS units "
+                        "WHERE account = 'Assets:US:ETrade:ITOT' AND date = 2020-10-04"
+                    }
+                ],
+            }
+        },
+    )
+
+    assert response.status_code == 200
+    querytable = response.json["data"]["panel"]["queries"][0]["querytable"]
+    units = {"number": 10.0, "currency": "ITOT"}
+    cost = {"number": 105.27, "currency": "USD", "date": "2020-10-04", "label": None}
+    assert querytable["rows"] == [[{"units": units, "cost": cost}, units]]

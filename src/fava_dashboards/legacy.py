@@ -1,14 +1,11 @@
 from collections import namedtuple
 from dataclasses import dataclass
-from decimal import Decimal
 from typing import Any
 from typing import Dict
 
-from beancount.core.inventory import Inventory
 from beanquery.query import run_query
 from fava.context import g
 from fava.core import FavaLedger
-from fava.core.conversion import UNITS
 from fava.core.query import COLUMNS
 from fava.core.query import ObjectColumn
 from fava.core.query import QueryResultTable
@@ -67,30 +64,9 @@ def process_jinja2(ctx: PanelCtx):
     ctx.panel["template"] = render_template(ctx, template)
 
 
-def sanitize_query_result(result):
-    """Preserve the dashboard JSON format independently of Fava's encoder."""
-    for i, row in enumerate(result):
-        result[i] = _sanitize_query_value(row._asdict())
-
-
-def _sanitize_query_value(value):
-    if isinstance(value, Inventory):
-        return _sanitize_query_value(UNITS.apply_inventory(value))
-    if hasattr(value, "_asdict"):  # namedtuples like Amount, Position, Cost
-        return _sanitize_query_value(value._asdict())
-    if isinstance(value, dict):  # nested serialization, e.g. {"ITOT": Decimal("10")} => {"ITOT": 10.0}
-        return {key: _sanitize_query_value(item) for key, item in value.items()}
-    if isinstance(value, Decimal):  # serialize Decimal as numbers instead of strings
-        return float(value)
-    return value
-
-
 def sanitize_panel(ctx):
     """replace or remove fields which are not JSON serializable"""
     for query in ctx.panel.get("queries", []):
-        if "result" in query:
-            sanitize_query_result(query["result"])
-
         if "result_types" in query:
             del query["result_types"]
 

@@ -17,10 +17,11 @@ classifiers = [
     "Topic :: Office/Business :: Financial :: Accounting",
     "Topic :: Office/Business :: Financial :: Investment",
 ]
-requires-python = ">= 3.10"
+requires-python = ">= 3.11"
 dependencies = [
-    "fava>=1.30.12",
+    "fava>=1.31",
     "Flask>=2.2",
+    "msgspec>=0.19,<1",
     "pyyaml>=6.0.1",
     "beanquery>=0.1.0",
 ]
@@ -60,6 +61,7 @@ disable = [
     "missing-function-docstring",
     "no-else-return",
     "line-too-long",
+    "too-many-return-statements",
 ]
 
 [[tool.mypy.overrides]]
