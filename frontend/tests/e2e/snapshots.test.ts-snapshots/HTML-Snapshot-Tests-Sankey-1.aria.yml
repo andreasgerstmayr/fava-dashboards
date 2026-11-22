@@ -5,7 +5,7 @@
     - strong: ›Dashboards
   - combobox "Time"
   - combobox "Account"
-  - combobox "Filter by tag, payee, ..."
+  - combobox "Filter by tag, payee, …"
 - complementary:
   - list:
     - listitem:
@@ -58,6 +58,7 @@
     - listitem:
       - link "Help":
         - /url: /beancount/help/
+      - button "?"
   - list:
     - listitem:
       - link "Dashboards":

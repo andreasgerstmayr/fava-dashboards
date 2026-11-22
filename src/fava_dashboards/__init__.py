@@ -1,9 +1,7 @@
 import datetime
-import functools
 import json
 import logging
 import os
-import traceback
 from dataclasses import asdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -19,6 +17,7 @@ from fava.helpers import FavaAPIError
 from flask import request
 
 from fava_dashboards import legacy
+from fava_dashboards.response import api_response
 from fava_dashboards.utils import clamp_to_ledger_range
 from fava_dashboards.utils import get_ledger_duration
 from fava_dashboards.utils import read_dashboards_tsx
@@ -44,23 +43,6 @@ class LedgerData:  # pylint: disable=invalid-name,too-many-instance-attributes
     ccy: str
     accounts: Dict[str, Any]
     commodities: Dict[str, Any]
-
-
-def api_response(func):
-    """return {success: true, data: ...} or {success: false, error: ...}"""
-
-    @functools.wraps(func)
-    def decorator(*args, **kwargs):
-        try:
-            data = func(*args, **kwargs)
-            return {"success": True, "data": data}
-        except FavaAPIError as e:
-            return {"success": False, "error": e.message}, 500
-        except Exception as e:  # pylint: disable=broad-exception-caught
-            traceback.print_exception(e)
-            return {"success": False, "error": str(e)}, 500
-
-    return decorator
 
 
 SCRIPT_EXTENSIONS = [".tsx", ".ts", ".jsx", ".js", ".cjs", ".mjs"]
@@ -140,7 +122,6 @@ class FavaDashboards(FavaExtensionBase):
 
         _, result, _ = legacy.exec_query(self.ledger, bql)
 
-        legacy.sanitize_query_result(result)
         return {"result": result}
 
     @extension_endpoint("v1_render_panel", ["POST"])
