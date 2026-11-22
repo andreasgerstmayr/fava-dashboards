@@ -19,11 +19,11 @@ classifiers = [
 ]
 requires-python = ">= 3.11"
 dependencies = [
-    "fava>=1.31",
-    "Flask>=2.2",
-    "msgspec>=0.19,<1",
-    "pyyaml>=6.0.1",
     "beanquery>=0.1.0",
+    "fava>=1.31",
+    "flask>=3.1",
+    "msgspec>=0.19",
+    "pyyaml>=6.0.1",
 ]
 
 [project.urls]

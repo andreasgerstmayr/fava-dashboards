@@ -225,8 +225,8 @@ dev = [
 requires-dist = [
     { name = "beanquery", specifier = ">=0.1.0" },
     { name = "fava", specifier = ">=1.31" },
-    { name = "flask", specifier = ">=2.2" },
-    { name = "msgspec", specifier = ">=0.19,<1" },
+    { name = "flask", specifier = ">=3.1" },
+    { name = "msgspec", specifier = ">=0.19" },
     { name = "pyyaml", specifier = ">=6.0.1" },
 ]
 
